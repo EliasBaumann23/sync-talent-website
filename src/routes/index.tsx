@@ -194,75 +194,82 @@ function HomePage() {
         <div className="absolute inset-0 -z-10">
           <img
             src={heroImg}
-            alt="Modern industrial automation facility in Mexico"
+            alt="Industrial leadership walking a production facility in Mexico"
             width={1920}
             height={1280}
-            className="h-full w-full object-cover opacity-45"
+            className="h-full w-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/50" />
         </div>
 
-        <div className="container-x pt-20 pb-24 lg:pt-32 lg:pb-32">
+        <div className="container-x pt-28 pb-28 lg:pt-40 lg:pb-40">
           <div className="max-w-3xl">
-            <p className="eyebrow text-turquoise">Industrial Executive Search · Mexico</p>
-            <h1 className="mt-5 text-4xl leading-[1.04] tracking-tight text-white md:text-5xl lg:text-6xl xl:text-[68px]">
-              Building Industrial Teams in Mexico Starts with the Right Talent.
+            <p className="eyebrow text-turquoise">The Atlas Method™ · Industrial Hiring Intelligence</p>
+            <h1 className="mt-6 text-4xl leading-[1.04] tracking-[-0.035em] text-white md:text-5xl lg:text-6xl xl:text-[68px]">
+              We help industrial companies make better hiring decisions in Mexico.
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
-              Sync Talent helps European, US and Canadian industrial companies hire technical,
-              commercial and leadership professionals across Mexico and North America.
+            <p className="mt-7 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
+              Sync Talent is a boutique executive search firm and knowledge institution serving
+              European, US and Canadian industrial companies building teams in Mexico and North
+              America.
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-3">
+            <AtlasLine nodes={5} active={2} className="mt-10 max-w-sm text-white/60" />
+
+            <div className="mt-10 flex flex-wrap items-center gap-3">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-sm bg-turquoise px-6 py-3.5 text-sm font-medium text-navy transition-colors hover:bg-white"
+                className="inline-flex items-center gap-2 rounded-[10px] bg-turquoise px-6 py-3.5 text-sm font-medium text-navy transition-colors hover:bg-white"
               >
-                Discuss Your Search <ArrowRight className="h-4 w-4" />
+                Experience the Discovery Experience™ <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                to="/knowledge-hub"
-                className="inline-flex items-center gap-2 rounded-sm border border-white/25 px-6 py-3.5 text-sm font-medium text-white transition-colors hover:border-turquoise hover:text-turquoise"
+                to="/services"
+                className="inline-flex items-center gap-2 rounded-[10px] border border-white/30 px-6 py-3.5 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/5"
               >
-                Explore the Knowledge Hub
+                Explore the Atlas Method™
               </Link>
             </div>
 
-            {/* Search */}
-            <div className="mt-14 max-w-2xl">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/55">
-                Search our Knowledge Hub
-              </p>
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className="mt-3 flex items-center gap-2 rounded-sm border border-white/15 bg-white/[0.06] px-4 backdrop-blur transition-colors focus-within:border-turquoise"
-              >
-                <Search className="h-4 w-4 text-white/60" />
-                <input
-                  type="search"
-                  placeholder="Sales Engineer salary, Hiring in Mexico, Field Service Engineer…"
-                  className="w-full bg-transparent py-4 text-sm text-white placeholder:text-white/50 focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="ml-1 rounded-sm bg-turquoise px-4 py-2 text-xs font-medium text-navy transition-colors hover:bg-white"
-                >
-                  Search
-                </button>
-              </form>
+            <div className="mt-14 grid max-w-2xl gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
+              <Link to="/knowledge-hub" className="group">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">
+                  Featured
+                </p>
+                <p className="mt-2 text-sm text-white/90 transition-colors group-hover:text-turquoise">
+                  The Industrial Hiring Thesis →
+                </p>
+              </Link>
+              <Link to="/hiring-guides" className="group">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">
+                  Guide
+                </p>
+                <p className="mt-2 text-sm text-white/90 transition-colors group-hover:text-turquoise">
+                  Hiring in Mexico →
+                </p>
+              </Link>
+              <Link to="/salary-guides" className="group">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">
+                  Intelligence
+                </p>
+                <p className="mt-2 text-sm text-white/90 transition-colors group-hover:text-turquoise">
+                  Salary Intelligence →
+                </p>
+              </Link>
             </div>
           </div>
         </div>
 
         {/* Trust strip */}
         <div className="border-t border-white/10 bg-navy/60 backdrop-blur">
-          <div className="container-x flex flex-wrap items-center justify-center gap-x-10 gap-y-3 py-5 text-[12px] uppercase tracking-[0.16em] text-white/60">
+          <div className="container-x flex flex-wrap items-center justify-center gap-x-10 gap-y-3 py-5 text-[12px] uppercase tracking-[0.16em] text-white/55">
             {trustStrip.map((t) => (
               <span key={t}>{t}</span>
             ))}
           </div>
         </div>
       </section>
+
 
       {/* KNOWLEDGE HUB PREVIEW */}
       <section className="py-24 lg:py-32">
