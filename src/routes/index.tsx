@@ -294,7 +294,7 @@ function HomePage() {
                 to={c.to}
                 className="group flex flex-col gap-5 bg-white p-8 transition-colors hover:bg-surface"
               >
-                <c.icon className="h-6 w-6 text-turquoise" />
+                <c.icon className="h-6 w-6 text-navy" />
                 <div>
                   <h3 className="text-lg">{c.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-ink-muted">{c.text}</p>
@@ -326,7 +326,7 @@ function HomePage() {
           <div className="mt-12 grid gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-5">
             {snapshot.map((s) => (
               <div key={s.label} className="flex flex-col gap-6 bg-white p-7">
-                <s.icon className="h-5 w-5 text-turquoise" />
+                <s.icon className="h-5 w-5 text-navy" />
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
                     {s.label}
@@ -489,7 +489,7 @@ function HomePage() {
           <ol className="mt-14 grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
             {process.map((p, i) => (
               <li key={p} className="bg-white p-7">
-                <p className="font-display text-sm text-turquoise">Step {String(i + 1).padStart(2, "0")}</p>
+                <p className="font-display text-sm text-ink-muted">Step {String(i + 1).padStart(2, "0")}</p>
                 <p className="mt-5 font-display text-lg text-navy">{p}</p>
                 <div className="mt-6 h-px w-10 bg-turquoise" />
               </li>
@@ -611,7 +611,7 @@ function HomePage() {
               </p>
             </form>
           </div>
-          <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-turquoise/10" />
+          <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-surface" />
         </div>
       </section>
 
