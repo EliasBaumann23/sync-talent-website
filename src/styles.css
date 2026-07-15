@@ -43,17 +43,19 @@
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: 0.625rem; /* 10px — standardized institutional card radius */
 
-  /* Brand palette */
-  --navy: oklch(0.234 0.045 252);          /* #0B1F33 */
-  --navy-foreground: oklch(0.985 0 0);
-  --steel: oklch(0.42 0.045 245);          /* #35556F */
-  --turquoise: oklch(0.74 0.135 213);      /* #1EB6D8 */
-  --surface: oklch(0.978 0.004 240);       /* #F6F8FA */
-  --ink: oklch(0.23 0.03 255);             /* #1E293B */
-  --ink-muted: oklch(0.5 0.025 250);
-  --hairline: oklch(0.91 0.008 250);
+  /* Brand palette — Sync Talent v2 institutional tokens */
+  --navy: #10243A;
+  --navy-foreground: #FFFFFF;
+  --steel: #35556F;
+  --turquoise: #06C5E3;         /* accent — used sparingly */
+  --primary-blue: #004AAB;
+  --surface: #F7FAFC;            /* background-soft */
+  --surface-light: #EEF3F7;
+  --ink: #172538;
+  --ink-muted: #607285;
+  --hairline: #DCE4EB;
 
   /* shadcn mapping */
   --background: oklch(1 0 0);
