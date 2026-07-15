@@ -21,7 +21,6 @@ import {
   FileText,
   BookOpen,
   BarChart3,
-  Lightbulb,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -534,9 +533,6 @@ function HomePage() {
         secondaryTo="/atlas-method"
       />
 
-      <section className="pointer-events-none py-1">
-        <Lightbulb className="hidden" />
-      </section>
     </SiteLayout>
   );
 }
