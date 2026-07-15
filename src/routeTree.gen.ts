@@ -16,6 +16,7 @@ import { Route as KnowledgeHubRouteImport } from './routes/knowledge-hub'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as HiringGuidesRouteImport } from './routes/hiring-guides'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AtlasMethodRouteImport } from './routes/atlas-method'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -54,6 +55,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AtlasMethodRoute = AtlasMethodRouteImport.update({
+  id: '/atlas-method',
+  path: '/atlas-method',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -68,6 +74,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/atlas-method': typeof AtlasMethodRoute
   '/contact': typeof ContactRoute
   '/hiring-guides': typeof HiringGuidesRoute
   '/industries': typeof IndustriesRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/atlas-method': typeof AtlasMethodRoute
   '/contact': typeof ContactRoute
   '/hiring-guides': typeof HiringGuidesRoute
   '/industries': typeof IndustriesRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/atlas-method': typeof AtlasMethodRoute
   '/contact': typeof ContactRoute
   '/hiring-guides': typeof HiringGuidesRoute
   '/industries': typeof IndustriesRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/atlas-method'
     | '/contact'
     | '/hiring-guides'
     | '/industries'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/atlas-method'
     | '/contact'
     | '/hiring-guides'
     | '/industries'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/atlas-method'
     | '/contact'
     | '/hiring-guides'
     | '/industries'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AtlasMethodRoute: typeof AtlasMethodRoute
   ContactRoute: typeof ContactRoute
   HiringGuidesRoute: typeof HiringGuidesRoute
   IndustriesRoute: typeof IndustriesRoute
@@ -198,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/atlas-method': {
+      id: '/atlas-method'
+      path: '/atlas-method'
+      fullPath: '/atlas-method'
+      preLoaderRoute: typeof AtlasMethodRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AtlasMethodRoute: AtlasMethodRoute,
   ContactRoute: ContactRoute,
   HiringGuidesRoute: HiringGuidesRoute,
   IndustriesRoute: IndustriesRoute,
