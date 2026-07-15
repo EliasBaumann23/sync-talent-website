@@ -1,20 +1,25 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
-import { Check } from "lucide-react";
+import { AtlasDivider } from "@/components/site/AtlasLine";
+import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Executive Search & Industrial Recruitment Mexico | Sync Talent" },
+      { title: "Executive Search — Reimagined for Industrial Leaders | Sync Talent" },
       {
         name: "description",
         content:
-          "Executive search, direct hire, technical and commercial recruitment, market mapping, candidate assessment and reference checks for industrial companies in Mexico.",
+          "Executive Search is our commercial application. Decision intelligence is our methodology. How Sync Talent structures industrial searches through the Atlas Method™.",
       },
-      { property: "og:title", content: "Services — Sync Talent" },
-      { property: "og:description", content: "Strategic industrial hiring services for international companies in Mexico." },
+      { property: "og:title", content: "Executive Search — Sync Talent" },
+      {
+        property: "og:description",
+        content:
+          "Executive Search structured around methodology — Discovery Experience™, Search Blueprint™, Talent Lens™ and Hiring Confidence Index™.",
+      },
       { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
@@ -22,58 +27,41 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
 });
 
-const services = [
+const stages = [
   {
-    name: "Executive Search",
-    blurb:
-      "Retained search for leadership roles: Country Managers, General Managers, VP Sales, Operations and Plant leadership.",
-    points: [
-      "Confidential mandates and discreet outreach",
-      "Direct competitor and adjacent industry mapping",
-      "Structured competency and leadership assessment",
-    ],
+    n: "01",
+    name: "The Discovery Experience™",
+    d: "Before we search, we help you define the decision. A structured conversation that surfaces business objectives, decision criteria and unspoken assumptions.",
   },
   {
-    name: "Direct Hire Recruitment",
-    blurb:
-      "Full-cycle search for technical and commercial professionals across industrial sectors.",
-    points: ["Active and passive candidate sourcing", "Bilingual screening (EN/DE/ES)", "Shortlist with written evaluations"],
+    n: "02",
+    name: "The Search Blueprint™",
+    d: "A written articulation of the market, the role and the evidence that will justify the hire. Every search begins with a document you can defend to your board.",
   },
   {
-    name: "Technical Recruitment",
-    blurb:
-      "Engineers, automation specialists, field service and applications profiles for OEMs and integrators.",
-    points: ["Technical pre-qualification", "Hands-on, field and software profiles", "OEM and end-user backgrounds"],
+    n: "03",
+    name: "Market Intelligence",
+    d: "Independent evidence on competitor structures, compensation and availability — read as institutional knowledge, not one-off data.",
   },
   {
-    name: "Commercial Recruitment",
-    blurb:
-      "Sales Engineers, Regional Sales Managers, Service Managers and Account Directors with industrial credibility.",
-    points: ["Quota and pipeline reference checks", "Channel and direct sales backgrounds", "International account exposure"],
+    n: "04",
+    name: "Talent Lens™",
+    d: "Structured evaluation that produces evidence, not impressions. Competency frameworks, case-based scenarios and calibrated references.",
   },
   {
-    name: "Market Mapping",
-    blurb:
-      "Independent intelligence on competitor org structures, compensation and talent availability before you commit to a search.",
-    points: ["Anonymous competitor mapping", "Compensation benchmarking", "Build-vs-buy decision support"],
+    n: "05",
+    name: "Hiring Confidence™",
+    d: "A shared measure of how well the decision is understood. Confidence is what you present to leadership — not a candidate score.",
   },
   {
-    name: "Candidate Assessment",
-    blurb:
-      "Structured interviews, technical scoring and motivational evaluation built around your role scorecard.",
-    points: ["Competency frameworks", "Case-based scenarios", "Cultural and language alignment"],
+    n: "06",
+    name: "Placement",
+    d: "Offer strategy, negotiation and onboarding designed to protect the decision after it is made.",
   },
   {
-    name: "Background Checks",
-    blurb:
-      "Education, employment and legal verifications in line with Mexico and international compliance.",
-    points: ["Identity and education verification", "Employment history", "Legal record checks"],
-  },
-  {
-    name: "Reference Checks",
-    blurb:
-      "Structured reference conversations focused on performance, leadership and reliability — not formality.",
-    points: ["Past manager and peer references", "Performance and conflict scenarios", "Written summaries with insights"],
+    n: "07",
+    name: "Institutional Learning",
+    d: "Every engagement feeds back into the Atlas Method™. Your search improves the next one.",
   },
 ];
 
@@ -81,37 +69,89 @@ function ServicesPage() {
   return (
     <SiteLayout>
       <PageHeader
-        eyebrow="Services"
-        title="Strategic hiring support for international industrial companies."
-        description="Sync Talent is positioned as a long-term hiring partner, not a transactional recruiter. Our services are designed for international leaders building teams in Mexico and North America."
+        eyebrow="Executive Search"
+        title="Executive Search, reimagined around methodology."
+        description="Executive Search is our commercial application. Decision intelligence is our purpose. This page describes how a Sync Talent engagement is structured — and why it looks different from a traditional search."
       />
 
-      <section className="py-20 lg:py-28">
-        <div className="container-x grid gap-px border border-hairline bg-hairline md:grid-cols-2">
-          {services.map((s, i) => (
-            <article key={s.name} className="bg-white p-8 lg:p-10">
-              <p className="font-display text-sm text-turquoise">0{i + 1}</p>
-              <h2 className="mt-4 text-2xl lg:text-3xl">{s.name}</h2>
-              <p className="mt-4 text-sm leading-relaxed text-ink-muted lg:text-base">{s.blurb}</p>
-              <ul className="mt-6 space-y-3 text-sm text-navy">
-                {s.points.map((p) => (
-                  <li key={p} className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-turquoise" />
-                    <span>{p}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+      <section className="py-32 lg:py-40">
+        <div className="container-x grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-start">
+          <div>
+            <p className="eyebrow">Why Executive Search still matters</p>
+            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
+              The most important hires are rarely on the market.
+            </h2>
+          </div>
+          <div className="space-y-6 text-base leading-relaxed text-ink-muted lg:text-lg">
+            <p>
+              For industrial leadership, technical leadership and commercial leadership, the
+              candidates who define the next chapter of a business are not looking for a job. They
+              are performing in one.
+            </p>
+            <p>
+              Executive Search remains the discipline of finding, understanding and convincing
+              those individuals. What has changed — what Sync Talent believes must change — is how
+              the engagement itself is structured.
+            </p>
+            <p className="text-navy">
+              A better search does not start with a better search. It starts with a better
+              understanding of the hiring decision.
+            </p>
+          </div>
         </div>
       </section>
 
-      <CTABand
-        eyebrow="Engage Sync Talent"
-        title="Tell us about the role."
-        text="Share the role and we will respond with a search plan, timeline and market view."
-        buttonText="Discuss Your Search"
-      />
+      <section className="bg-navy py-32 text-white lg:py-40">
+        <div className="container-x">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-turquoise">A Sync Talent Engagement</p>
+            <h2 className="mt-4 text-3xl text-white md:text-4xl lg:text-[44px]">
+              Seven stages, one reasoning process.
+            </h2>
+          </div>
+
+          <AtlasDivider className="mx-auto mt-14 text-white" />
+
+          <ol className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2">
+            {stages.map((s) => (
+              <li key={s.n} className="flex flex-col gap-4 bg-navy p-8 lg:p-10">
+                <p className="font-display text-sm text-turquoise">{s.n}</p>
+                <h3 className="font-display text-xl text-white">{s.name}</h3>
+                <p className="text-sm leading-relaxed text-white/70 lg:text-base">{s.d}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="py-32 lg:py-40">
+        <div className="container-x grid gap-14 lg:grid-cols-2 lg:items-start">
+          <div>
+            <p className="eyebrow">What this means for you</p>
+            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
+              A search you can explain, defend and learn from.
+            </h2>
+          </div>
+          <div className="space-y-5 text-base leading-relaxed text-ink-muted lg:text-lg">
+            <p>
+              Every deliverable — the Search Blueprint™, the Talent Lens™ evaluations, the Hiring
+              Confidence Index™ — is written to be read by a board, not just an HR partner.
+            </p>
+            <p>
+              The engagement produces a hiring decision you can articulate, and institutional
+              knowledge you can carry into the next one.
+            </p>
+            <Link
+              to="/discovery-experience"
+              className="inline-flex items-center gap-2 text-sm font-medium text-navy link-underline"
+            >
+              Experience the Discovery Experience™ <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <CTABand />
     </SiteLayout>
   );
 }

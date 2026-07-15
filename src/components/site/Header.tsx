@@ -5,11 +5,10 @@ import { Menu, X } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
-  { to: "/industries", label: "Industries" },
+  { to: "/atlas-method", label: "Atlas Method™" },
+  { to: "/services", label: "Executive Search" },
+  { to: "/discovery-experience", label: "Discovery Experience™" },
   { to: "/knowledge-hub", label: "Knowledge Hub" },
-  { to: "/salary-guides", label: "Salary Guides" },
-  { to: "/hiring-guides", label: "Hiring Guides" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -54,10 +53,10 @@ export function Header() {
 
         <div className="hidden lg:flex items-center gap-3">
           <Link
-            to="/contact"
+            to="/discovery-experience"
             className="inline-flex items-center rounded-sm bg-navy px-4 py-2.5 text-[13px] font-medium text-white transition-colors hover:bg-turquoise"
           >
-            Discuss Your Search
+            Discovery Experience™
           </Link>
         </div>
 
@@ -84,11 +83,11 @@ export function Header() {
               </Link>
             ))}
             <Link
-              to="/contact"
+              to="/discovery-experience"
               onClick={() => setOpen(false)}
               className="mt-3 inline-flex justify-center rounded-sm bg-navy px-4 py-3 text-sm font-medium text-white"
             >
-              Discuss Your Search
+              Discovery Experience™
             </Link>
           </div>
         </div>

@@ -7,26 +7,29 @@ const cols = [
     title: "Company",
     links: [
       { to: "/about", label: "About" },
-      { to: "/services", label: "Services" },
-      { to: "/industries", label: "Industries" },
+      { to: "/services", label: "Executive Search" },
+      { to: "/atlas-method", label: "Atlas Method™" },
       { to: "/contact", label: "Contact" },
     ],
   },
   {
-    title: "Knowledge",
+    title: "Methodology",
     links: [
-      { to: "/knowledge-hub", label: "Knowledge Hub" },
-      { to: "/salary-guides", label: "Salary Guides" },
-      { to: "/hiring-guides", label: "Hiring Guides" },
+      { to: "/atlas-method", label: "Atlas Method™" },
+      { to: "/discovery-experience", label: "Discovery Experience™" },
+      { to: "/services", label: "Search Blueprint™" },
+      { to: "/services", label: "Talent Lens™" },
+      { to: "/services", label: "Hiring Confidence Index™" },
     ],
   },
   {
-    title: "Specialization",
+    title: "Knowledge Hub",
     links: [
-      { to: "/industries", label: "Industrial Recruitment" },
-      { to: "/services", label: "Executive Search" },
-      { to: "/services", label: "Market Mapping" },
-      { to: "/services", label: "Candidate Assessment" },
+      { to: "/knowledge-hub", label: "Atlas Notes" },
+      { to: "/knowledge-hub", label: "Research" },
+      { to: "/salary-guides", label: "Salary Intelligence" },
+      { to: "/hiring-guides", label: "Hiring Guides" },
+      { to: "/knowledge-hub", label: "Market Reports" },
     ],
   },
 ] as const;
@@ -39,8 +42,8 @@ export function Footer() {
           <div className="max-w-sm">
             <Logo invert />
             <p className="mt-6 text-sm leading-relaxed text-white/65">
-              Boutique executive search and industrial recruitment for international companies
-              building technical, commercial and leadership teams in Mexico.
+              Helping international industrial companies make better hiring decisions in Mexico,
+              the US and Canada through methodology, market intelligence and Executive Search.
             </p>
             <div className="mt-6 flex items-center gap-3 text-sm">
               <a

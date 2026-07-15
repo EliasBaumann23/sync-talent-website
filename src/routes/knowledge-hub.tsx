@@ -8,14 +8,14 @@ import { ArrowRight, Search } from "lucide-react";
 export const Route = createFileRoute("/knowledge-hub")({
   head: () => ({
     meta: [
-      { title: "Knowledge Hub — Industrial Hiring in Mexico | Sync Talent" },
+      { title: "Knowledge Hub — Industrial Hiring Intelligence | Sync Talent" },
       {
         name: "description",
         content:
-          "Salary guides, hiring guides, market reports and industry insights on industrial recruitment and executive search in Mexico.",
+          "Atlas Notes, Research, Salary Intelligence, Hiring Guides, Market Reports, Case Studies and the Industrial Hiring Thesis — written for international industrial leaders.",
       },
       { property: "og:title", content: "Knowledge Hub — Sync Talent" },
-      { property: "og:description", content: "The Knowledge Hub for industrial hiring in Mexico." },
+      { property: "og:description", content: "A research institution for industrial hiring in North America." },
       { property: "og:url", content: "/knowledge-hub" },
     ],
     links: [{ rel: "canonical", href: "/knowledge-hub" }],
@@ -25,59 +25,60 @@ export const Route = createFileRoute("/knowledge-hub")({
 
 const categories = [
   "All",
-  "Salary Guides",
+  "Atlas Notes",
+  "Research",
+  "Salary Intelligence",
   "Hiring Guides",
   "Market Reports",
-  "Industry Insights",
-  "Executive Search",
-  "Mexico Expansion",
+  "Case Studies",
+  "Decision Intelligence",
 ];
 
 const articles = [
   {
-    cat: "Salary Guides",
-    title: "Sales Engineer Salary in Mexico: What International Companies Should Know",
+    cat: "Atlas Notes",
+    title: "Why Executive Search deserves a better methodology.",
     read: "6 min read",
   },
   {
-    cat: "Hiring Guides",
-    title: "How Long Does it Take to Hire Engineers in Mexico?",
-    read: "5 min read",
+    cat: "Decision Intelligence",
+    title: "The hiring decision, reconsidered: from requirement to reasoning.",
+    read: "9 min read",
   },
   {
-    cat: "Hiring Guides",
-    title: "Hiring Field Service Engineers in Mexico: Common Mistakes",
+    cat: "Salary Intelligence",
+    title: "Compensation evidence for Sales Engineers in Mexico.",
     read: "7 min read",
   },
   {
-    cat: "Executive Search",
-    title: "Executive Search in Mexico for German Industrial Companies",
+    cat: "Hiring Guides",
+    title: "Hiring Field Service leadership in Mexico: what to evaluate.",
     read: "8 min read",
   },
   {
     cat: "Market Reports",
-    title: "Q2 Industrial Talent Report: Demand, Notice Periods and Compensation",
+    title: "Q4 industrial talent evidence: demand, availability, notice periods.",
     read: "9 min read",
   },
   {
-    cat: "Industry Insights",
-    title: "Automation Hiring Trends Across the Bajío Corridor",
+    cat: "Research",
+    title: "Bilingual technical talent across the Bajío corridor.",
     read: "6 min read",
   },
   {
-    cat: "Mexico Expansion",
-    title: "First Hires Playbook: From Country Manager to Plant Leadership",
+    cat: "Case Studies",
+    title: "First hires playbook: from Country Manager to Plant leadership.",
     read: "10 min read",
   },
   {
-    cat: "Salary Guides",
-    title: "Service Manager Compensation Benchmarks — Industrial Machinery",
+    cat: "Salary Intelligence",
+    title: "Service Manager compensation benchmarks — industrial machinery.",
     read: "5 min read",
   },
   {
-    cat: "Industry Insights",
-    title: "Hiring Bilingual Talent for OEM After-Sales Operations",
-    read: "7 min read",
+    cat: "Atlas Notes",
+    title: "Hiring confidence: the metric no one publishes.",
+    read: "5 min read",
   },
 ];
 
@@ -94,9 +95,9 @@ function HubPage() {
   return (
     <SiteLayout>
       <PageHeader
-        eyebrow="Knowledge Hub"
-        title="A knowledge hub for industrial hiring in Mexico."
-        description="Practical, research-backed content on salaries, hiring timelines, candidate availability and executive search — written for international leaders."
+        eyebrow="Industrial Hiring Intelligence"
+        title="A knowledge institution for industrial hiring in North America."
+        description="Atlas Notes, research, salary evidence and decision intelligence — written for international industrial leaders. Educational first. Institutional in tone."
       />
 
       {/* Search + filters */}
@@ -104,7 +105,7 @@ function HubPage() {
         <div className="container-x py-8">
           <form
             onSubmit={(e) => e.preventDefault()}
-            className="flex items-center gap-3 rounded-sm border border-hairline bg-surface px-4 transition-colors focus-within:border-turquoise"
+            className="flex items-center gap-3 rounded-[10px] border border-hairline bg-surface px-4 transition-colors focus-within:border-navy"
           >
             <Search className="h-4 w-4 text-ink-muted" />
             <input
@@ -120,10 +121,10 @@ function HubPage() {
               <button
                 key={c}
                 onClick={() => setActive(c)}
-                className={`rounded-sm border px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] transition-colors ${
+                className={`rounded-[10px] border px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] transition-colors ${
                   active === c
-                    ? "border-turquoise bg-turquoise text-navy"
-                    : "border-hairline bg-white text-ink-muted hover:border-turquoise hover:text-navy"
+                    ? "border-navy bg-navy text-white"
+                    : "border-hairline bg-white text-ink-muted hover:border-navy hover:text-navy"
                 }`}
               >
                 {c}
@@ -133,36 +134,39 @@ function HubPage() {
         </div>
       </section>
 
-      {/* Featured */}
+      {/* Featured — Industrial Hiring Thesis */}
       <section className="py-20">
         <div className="container-x">
-          <div className="relative overflow-hidden rounded-sm border border-hairline bg-navy text-white">
+          <div className="relative overflow-hidden rounded-[10px] border border-hairline bg-navy text-white">
             <div className="grid gap-10 p-10 lg:grid-cols-[1.4fr_1fr] lg:items-center lg:p-16">
               <div>
-                <p className="eyebrow text-turquoise">Featured Report</p>
+                <p className="eyebrow text-turquoise">The Industrial Hiring Thesis</p>
                 <h2 className="mt-4 text-3xl text-white md:text-4xl lg:text-[44px]">
-                  Mexico Industrial Hiring Guide 2026
+                  A perspective on how industrial leaders should think about hiring in North
+                  America.
                 </h2>
                 <p className="mt-5 max-w-xl text-base leading-relaxed text-white/70">
-                  Salaries, hiring timelines, candidate availability and benchmark interview
-                  processes across packaging, automation, machinery and industrial software.
+                  Written as a standing publication — updated as the market, the methodology and
+                  the evidence evolve. Positioned for boards, MDs and international HR leaders.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-2 rounded-sm bg-turquoise px-6 py-3.5 text-sm font-medium text-navy transition-colors hover:bg-white"
+                    to="/discovery-experience"
+                    className="inline-flex items-center gap-2 rounded-[10px] bg-turquoise px-6 py-3.5 text-sm font-medium text-navy transition-colors hover:bg-white"
                   >
-                    Download the Guide <ArrowRight className="h-4 w-4" />
+                    Read the Thesis <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </div>
               <div className="relative">
-                <div className="aspect-[4/5] w-full rounded-sm border border-white/15 bg-gradient-to-br from-white/10 to-turquoise/20 p-6">
+                <div className="aspect-[4/5] w-full rounded-[10px] border border-white/15 bg-white/[0.04] p-6">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-turquoise">
-                    Sync Talent / 2026
+                    Sync Talent / Standing Publication
                   </p>
-                  <p className="mt-6 font-display text-2xl text-white">Industrial Hiring Guide</p>
-                  <p className="mt-2 text-sm text-white/60">Mexico · North America</p>
+                  <p className="mt-6 font-display text-2xl text-white">
+                    The Industrial Hiring Thesis
+                  </p>
+                  <p className="mt-2 text-sm text-white/60">Mexico · USA · Canada</p>
                 </div>
               </div>
             </div>
@@ -177,22 +181,22 @@ function HubPage() {
             {filtered.map((a) => (
               <article
                 key={a.title}
-                className="group flex flex-col gap-5 rounded-sm border border-hairline bg-white p-7 transition-colors hover:border-turquoise"
+                className="group flex flex-col gap-5 rounded-[10px] border border-hairline bg-white p-7 transition-colors hover:border-navy"
               >
                 <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em]">
-                  <span className="text-turquoise">{a.cat}</span>
+                  <span className="text-navy">{a.cat}</span>
                   <span className="text-ink-muted">{a.read}</span>
                 </div>
                 <h3 className="text-base leading-snug">{a.title}</h3>
                 <span className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-navy transition-colors group-hover:text-turquoise">
-                  Read article <ArrowRight className="h-3.5 w-3.5" />
+                  Read <ArrowRight className="h-3.5 w-3.5" />
                 </span>
               </article>
             ))}
           </div>
           {filtered.length === 0 && (
             <p className="mt-10 text-center text-sm text-ink-muted">
-              No articles match this filter yet.
+              No perspectives match this filter yet.
             </p>
           )}
         </div>
@@ -200,14 +204,14 @@ function HubPage() {
 
       {/* Newsletter */}
       <section className="container-x pb-24">
-        <div className="rounded-sm border border-hairline bg-surface p-10 lg:p-16">
+        <div className="rounded-[10px] border border-hairline bg-surface p-10 lg:p-16">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             <div>
-              <p className="eyebrow">Newsletter</p>
+              <p className="eyebrow">Standing Brief</p>
               <h2 className="mt-4 text-3xl md:text-4xl">Industrial Hiring Brief</h2>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted">
-                Monthly insights on salaries, hiring timelines, candidate availability and
-                industrial recruitment trends in Mexico.
+                A monthly institutional perspective on industrial hiring in North America. Salary
+                evidence, market readings and Atlas Notes.
               </p>
             </div>
             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-3">
@@ -215,11 +219,11 @@ function HubPage() {
                 type="email"
                 required
                 placeholder="Work email"
-                className="rounded-sm border border-hairline bg-white px-4 py-3.5 text-sm text-navy placeholder:text-ink-muted focus:border-turquoise focus:outline-none"
+                className="rounded-[10px] border border-hairline bg-white px-4 py-3.5 text-sm text-navy placeholder:text-ink-muted focus:border-navy focus:outline-none"
               />
               <button
                 type="submit"
-                className="rounded-sm bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise"
+                className="rounded-[10px] bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise hover:text-navy"
               >
                 Subscribe
               </button>
