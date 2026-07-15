@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CTABand } from "@/components/site/CTA";
+import { AtlasLine, AtlasDivider } from "@/components/site/AtlasLine";
 import heroImg from "@/assets/hero-industrial.jpg";
 import indPackaging from "@/assets/ind-packaging.jpg";
 import indAutomation from "@/assets/ind-automation.jpg";
@@ -12,7 +13,6 @@ import indMaterial from "@/assets/ind-material.jpg";
 import indLogistics from "@/assets/ind-logistics.jpg";
 import {
   ArrowRight,
-  Search,
   Clock,
   Users,
   Gauge,
@@ -23,6 +23,7 @@ import {
   BarChart3,
   Lightbulb,
 } from "lucide-react";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
