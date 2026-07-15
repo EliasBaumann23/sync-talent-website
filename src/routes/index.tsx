@@ -477,16 +477,22 @@ function HomePage() {
       </section>
 
       {/* PROCESS */}
-      <section className="py-24 lg:py-32">
+      <section className="py-32 lg:py-40">
         <div className="container-x">
           <div className="max-w-2xl">
-            <p className="eyebrow">Recruitment Process</p>
+            <p className="eyebrow">The Atlas Method™</p>
             <h2 className="mt-4 text-3xl md:text-4xl lg:text-[44px]">
-              A structured eight-step search method.
+              A structured eight-step decision framework.
             </h2>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted">
+              Every engagement follows the same discipline — designed to produce hiring decisions
+              you can defend to your board, not just candidates you can interview.
+            </p>
           </div>
 
-          <ol className="mt-14 grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
+          <AtlasDivider className="mx-auto mt-16 text-navy" />
+
+          <ol className="mt-10 grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
             {process.map((p, i) => (
               <li key={p} className="bg-white p-7">
                 <p className="font-display text-sm text-ink-muted">Step {String(i + 1).padStart(2, "0")}</p>
@@ -497,6 +503,7 @@ function HomePage() {
           </ol>
         </div>
       </section>
+
 
       {/* CASE STUDIES */}
       <section className="bg-surface py-24 lg:py-32">
