@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sync Talent — Industrial Executive Search in Mexico" },
+      { title: "Sync Talent — Industrial Hiring Intelligence for Mexico" },
       {
         name: "description",
         content:
-          "Boutique executive search for European, US and Canadian industrial companies hiring technical, commercial and leadership talent in Mexico.",
+          "Sync Talent helps European, US and Canadian industrial companies make better hiring decisions in Mexico through the Atlas Method™, market intelligence and executive search.",
       },
       { name: "author", content: "Sync Talent" },
       { property: "og:site_name", content: "Sync Talent" },
