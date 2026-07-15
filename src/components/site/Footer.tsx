@@ -42,8 +42,8 @@ export function Footer() {
           <div className="max-w-sm">
             <Logo invert />
             <p className="mt-6 text-sm leading-relaxed text-white/65">
-              Boutique executive search and industrial recruitment for international companies
-              building technical, commercial and leadership teams in Mexico.
+              Helping international industrial companies make better hiring decisions in Mexico,
+              the US and Canada through methodology, market intelligence and Executive Search.
             </p>
             <div className="mt-6 flex items-center gap-3 text-sm">
               <a
