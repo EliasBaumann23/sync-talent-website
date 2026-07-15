@@ -13,32 +13,31 @@ import indMaterial from "@/assets/ind-material.jpg";
 import indLogistics from "@/assets/ind-logistics.jpg";
 import {
   ArrowRight,
-  Clock,
-  Users,
-  Gauge,
-  TrendingUp,
-  Globe2,
+  Compass,
+  Layers,
+  Scan,
+  GaugeCircle,
+  BookMarked,
   FileText,
   BookOpen,
   BarChart3,
   Lightbulb,
 } from "lucide-react";
 
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sync Talent — Industrial Executive Search in Mexico" },
+      { title: "Sync Talent — Better Hiring Decisions for Industrial Companies" },
       {
         name: "description",
         content:
-          "Sync Talent helps European, US and Canadian industrial companies hire technical, commercial and leadership professionals across Mexico and North America.",
+          "Sync Talent helps international industrial companies make confident hiring decisions in North America through strategic advisory, market intelligence and Executive Search.",
       },
-      { property: "og:title", content: "Sync Talent — Industrial Executive Search in Mexico" },
+      { property: "og:title", content: "Sync Talent — Industrial Hiring Intelligence" },
       {
         property: "og:description",
         content:
-          "Boutique recruiting and knowledge hub for industrial hiring in Mexico. Salaries, hiring guides and executive search for international companies.",
+          "Strategic Talent Advisory, Market Intelligence and Executive Search for industrial companies expanding across Mexico, the US and Canada.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -48,148 +47,135 @@ export const Route = createFileRoute("/")({
 });
 
 const trustStrip = [
-  "Industrial Recruitment",
-  "Executive Search",
+  "Strategic Talent Advisory",
   "Market Intelligence",
-  "Mexico Hiring Expertise",
-  "Technical & Commercial Roles",
+  "Executive Search",
+  "Decision Frameworks",
+  "Mexico · USA · Canada",
 ];
 
 const hubCategories = [
   {
+    icon: BookMarked,
+    title: "Atlas Notes",
+    text: "Short institutional perspectives on hiring decisions, methodology and industrial leadership.",
+    to: "/knowledge-hub",
+  },
+  {
     icon: BarChart3,
-    title: "Salary Guides",
-    text: "Benchmark compensation for technical, commercial and leadership roles in Mexico.",
+    title: "Salary Intelligence",
+    text: "Compensation evidence for technical, commercial and leadership roles across North America.",
     to: "/salary-guides",
   },
   {
     icon: BookOpen,
     title: "Hiring Guides",
-    text: "Practical playbooks on interviewing, evaluation and onboarding industrial talent.",
+    text: "Structured playbooks for international leaders hiring in Mexico and adjacent markets.",
     to: "/hiring-guides",
   },
   {
     icon: FileText,
     title: "Market Reports",
-    text: "Quarterly observations on candidate availability, demand and notice periods.",
+    text: "Quarterly evidence on demand, availability, notice periods and leadership expectations.",
     to: "/knowledge-hub",
+  },
+];
+
+const atlasStages = [
+  { t: "Understand", d: "Clarify the business objective behind the hiring decision." },
+  { t: "Structure", d: "Translate objectives into a defensible Search Blueprint™." },
+  { t: "Evaluate", d: "Apply the Talent Lens™ to gather evidence, not impressions." },
+  { t: "Decide", d: "Frame the decision with the Hiring Confidence Index™." },
+  { t: "Learn", d: "Feed every engagement back into institutional intelligence." },
+];
+
+const traditional = [
+  "Collect requirements",
+  "Search",
+  "Interviews",
+  "Recommendation",
+];
+
+const synctalent = [
+  "Discovery Experience™",
+  "Market Intelligence",
+  "Search Blueprint™",
+  "Talent Lens™",
+  "Hiring Confidence Index™",
+  "Decision",
+];
+
+const frameworks = [
+  {
+    icon: Compass,
+    name: "Atlas Method™",
+    line: "The reasoning process behind every Sync Talent engagement.",
+    to: "/atlas-method",
   },
   {
-    icon: Lightbulb,
-    title: "Industry Insights",
-    text: "Sector views on packaging, automation, machinery and industrial software.",
-    to: "/knowledge-hub",
+    icon: Layers,
+    name: "Discovery Experience™",
+    line: "A structured conversation that defines the hiring decision.",
+    to: "/discovery-experience",
   },
-];
-
-const snapshot = [
-  { icon: Clock, label: "Average hiring timeline", value: "6–8 weeks" },
-  { icon: Users, label: "Typical notice period", value: "30–60 days" },
-  { icon: TrendingUp, label: "Highest demand", value: "Automation & Field Service" },
-  { icon: Gauge, label: "Hardest roles to fill", value: "Service Managers, Sales Engineers" },
-  { icon: Globe2, label: "Candidate market", value: "Competitive for bilingual technical talent" },
-];
-
-const services = [
-  "Executive Search",
-  "Direct Hire Recruitment",
-  "Technical Recruitment",
-  "Commercial Recruitment",
-  "Market Mapping",
-  "Candidate Assessment",
-  "Reference Checks",
-  "Background Checks",
+  {
+    icon: FileText,
+    name: "Search Blueprint™",
+    line: "A written articulation of the market, the role and the decision criteria.",
+    to: "/services",
+  },
+  {
+    icon: Scan,
+    name: "Talent Lens™",
+    line: "Evidence-based evaluation replacing impression-based screening.",
+    to: "/services",
+  },
+  {
+    icon: GaugeCircle,
+    name: "Hiring Confidence Index™",
+    line: "A shared measure of how well the decision is understood, not just made.",
+    to: "/services",
+  },
 ];
 
 const industries = [
-  { name: "Packaging Machinery", img: indPackaging },
   { name: "Industrial Automation", img: indAutomation },
-  { name: "Manufacturing", img: indManufacturing },
-  { name: "Industrial Machinery", img: indMachinery },
+  { name: "Packaging Machinery", img: indPackaging },
   { name: "Industrial Software", img: indSoftware },
-  { name: "Food Processing Equipment", img: indFood },
+  { name: "OEM & Manufacturing", img: indManufacturing },
+  { name: "Food Processing", img: indFood },
+  { name: "Industrial Equipment", img: indMachinery },
   { name: "Material Handling", img: indMaterial },
   { name: "Logistics Automation", img: indLogistics },
 ];
 
-const roles = [
-  "Country Manager",
-  "Regional Sales Manager",
-  "Sales Engineer",
-  "Service Manager",
-  "Field Service Engineer",
-  "Automation Engineer",
-  "Application Engineer",
-  "Mechanical Engineer",
-  "Electrical Engineer",
-  "Controls Engineer",
-  "Project Manager",
-  "Operations Manager",
-  "Plant Manager",
-];
-
-const process = [
-  "Discovery",
-  "Market Mapping",
-  "Candidate Search",
-  "Structured Interviews",
-  "Shortlist",
-  "Client Interviews",
-  "Offer Support",
-  "Onboarding",
-];
-
-const cases = [
-  {
-    tag: "Packaging",
-    title: "European Packaging OEM",
-    challenge: "Needed a commercial leader with technical understanding and Mexico market experience.",
-    solution: "Mapped direct and adjacent industrial competitors.",
-    result: "Shortlist delivered with qualified bilingual candidates.",
-  },
-  {
-    tag: "Industrial Software",
-    title: "Canadian Industrial Software Company",
-    challenge: "Needed consultants with manufacturing, ERP and international communication skills.",
-    solution: "Identified profiles combining technical background and client-facing experience.",
-    result: "Built a qualified candidate pipeline for North America projects.",
-  },
-  {
-    tag: "Machinery",
-    title: "German Machinery Manufacturer",
-    challenge: "Needed senior service leadership in Mexico.",
-    solution: "Focused on candidates with field service, team leadership and customer-facing experience.",
-    result: "Delivered profiles with strong technical and leadership alignment.",
-  },
-];
-
 const articles = [
   {
-    tag: "Salary",
+    tag: "Atlas Note",
     read: "6 min read",
-    title: "Sales Engineer Salary in Mexico: What International Companies Should Know",
+    title: "Why Executive Search deserves a better methodology.",
   },
   {
-    tag: "Hiring",
-    read: "5 min read",
-    title: "How Long Does it Take to Hire Engineers in Mexico?",
+    tag: "Industrial Hiring Thesis",
+    read: "12 min read",
+    title: "The industrial hiring decision, reconsidered.",
   },
   {
-    tag: "Field Service",
+    tag: "Salary Intelligence",
     read: "7 min read",
-    title: "Hiring Field Service Engineers in Mexico: Common Mistakes",
+    title: "Compensation evidence for Sales Engineers in Mexico.",
   },
   {
-    tag: "Executive Search",
-    read: "8 min read",
-    title: "Executive Search in Mexico for German Industrial Companies",
+    tag: "Market Report",
+    read: "9 min read",
+    title: "Q4 industrial talent evidence: demand, availability, notice periods.",
   },
 ];
 
 function HomePage() {
   return (
     <SiteLayout>
-      {/* HERO */}
+      {/* SECTION 1 — HERO */}
       <section className="relative isolate overflow-hidden bg-navy text-white">
         <div className="absolute inset-0 -z-10">
           <img
@@ -204,57 +190,29 @@ function HomePage() {
 
         <div className="container-x pt-28 pb-28 lg:pt-40 lg:pb-40">
           <div className="max-w-3xl">
-            <p className="eyebrow text-turquoise">The Atlas Method™ · Industrial Hiring Intelligence</p>
+            <p className="eyebrow text-turquoise">Industrial Hiring Intelligence</p>
             <h1 className="mt-6 text-4xl leading-[1.04] tracking-[-0.035em] text-white md:text-5xl lg:text-6xl xl:text-[68px]">
-              We help industrial companies make better hiring decisions in Mexico.
+              Every important hire is a strategic business decision.
             </h1>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
-              Sync Talent is a boutique executive search firm and knowledge institution serving
-              European, US and Canadian industrial companies building teams in Mexico and North
-              America.
+              Sync Talent helps international industrial companies make confident hiring decisions
+              in North America through strategic advisory, market intelligence and Executive Search.
             </p>
 
             <AtlasLine nodes={5} active={2} className="mt-10 max-w-sm text-white/60" />
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <Link
-                to="/contact"
+                to="/discovery-experience"
                 className="inline-flex items-center gap-2 rounded-[10px] bg-turquoise px-6 py-3.5 text-sm font-medium text-navy transition-colors hover:bg-white"
               >
                 Experience the Discovery Experience™ <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                to="/services"
+                to="/atlas-method"
                 className="inline-flex items-center gap-2 rounded-[10px] border border-white/30 px-6 py-3.5 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/5"
               >
                 Explore the Atlas Method™
-              </Link>
-            </div>
-
-            <div className="mt-14 grid max-w-2xl gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
-              <Link to="/knowledge-hub" className="group">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">
-                  Featured
-                </p>
-                <p className="mt-2 text-sm text-white/90 transition-colors group-hover:text-turquoise">
-                  The Industrial Hiring Thesis →
-                </p>
-              </Link>
-              <Link to="/hiring-guides" className="group">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">
-                  Guide
-                </p>
-                <p className="mt-2 text-sm text-white/90 transition-colors group-hover:text-turquoise">
-                  Hiring in Mexico →
-                </p>
-              </Link>
-              <Link to="/salary-guides" className="group">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">
-                  Intelligence
-                </p>
-                <p className="mt-2 text-sm text-white/90 transition-colors group-hover:text-turquoise">
-                  Salary Intelligence →
-                </p>
               </Link>
             </div>
           </div>
@@ -270,20 +228,258 @@ function HomePage() {
         </div>
       </section>
 
+      {/* SECTION 2 — THE PROBLEM */}
+      <section className="py-32 lg:py-40">
+        <div className="container-x grid gap-14 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+          <div>
+            <p className="eyebrow">The Problem</p>
+            <h2 className="mt-4 text-3xl leading-tight md:text-4xl lg:text-[44px]">
+              Traditional Executive Search starts with the search. We believe it should start with
+              understanding.
+            </h2>
+          </div>
+          <div className="space-y-6 text-base leading-relaxed text-ink-muted lg:text-lg">
+            <p>
+              Most hiring engagements do not fail because of sourcing. They fail because the hiring
+              decision itself was never fully defined.
+            </p>
+            <ul className="grid gap-px border border-hairline bg-hairline sm:grid-cols-2">
+              {[
+                "Unclear business objectives",
+                "Unrealistic expectations",
+                "Misunderstood market realities",
+                "Success criteria never defined",
+              ].map((t) => (
+                <li key={t} className="bg-white p-5 text-sm font-medium text-navy">
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <p className="text-navy">
+              Recruitment rarely fails because of sourcing. It fails because the hiring decision was
+              never fully understood.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      {/* KNOWLEDGE HUB PREVIEW */}
-      <section className="py-24 lg:py-32">
+      {/* SECTION 3 — THE ATLAS METHOD */}
+      <section className="bg-navy py-32 text-white lg:py-40">
+        <div className="container-x">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow text-turquoise">The Atlas Method™</p>
+            <h2 className="mt-4 text-3xl leading-tight text-white md:text-4xl lg:text-[44px]">
+              A structured methodology for better hiring decisions.
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-white/70 lg:text-lg">
+              Every Executive Search engagement follows the same reasoning process — designed to
+              turn a request for a candidate into a defensible business decision.
+            </p>
+          </div>
+
+          <AtlasDivider className="mx-auto mt-14 text-white" />
+
+          <ol className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-5">
+            {atlasStages.map((s, i) => (
+              <li key={s.t} className="flex flex-col gap-4 bg-navy p-7">
+                <p className="font-display text-sm text-turquoise">
+                  Stage {String(i + 1).padStart(2, "0")}
+                </p>
+                <p className="font-display text-xl text-white">{s.t}</p>
+                <p className="text-sm leading-relaxed text-white/65">{s.d}</p>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mt-12 text-center">
+            <Link
+              to="/atlas-method"
+              className="inline-flex items-center gap-2 text-sm font-medium text-turquoise link-underline"
+            >
+              Explore the Atlas Method™ <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4 — EXECUTIVE SEARCH REIMAGINED */}
+      <section className="py-32 lg:py-40">
+        <div className="container-x">
+          <div className="max-w-3xl">
+            <p className="eyebrow">Executive Search Reimagined</p>
+            <h2 className="mt-4 text-3xl leading-tight md:text-4xl lg:text-[44px]">
+              Methodology creates better decisions.
+            </h2>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-muted lg:text-lg">
+              Executive Search is our commercial application. Decision intelligence is our
+              purpose. The difference is visible in how an engagement is structured.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-px overflow-hidden border border-hairline bg-hairline lg:grid-cols-2">
+            <div className="bg-white p-10">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-muted">
+                Traditional Executive Search
+              </p>
+              <ol className="mt-8 space-y-5">
+                {traditional.map((t, i) => (
+                  <li key={t} className="flex items-center gap-4">
+                    <span className="grid h-8 w-8 place-items-center rounded-full border border-hairline font-display text-sm text-ink-muted">
+                      {i + 1}
+                    </span>
+                    <span className="text-base text-ink-muted">{t}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <div className="bg-white p-10">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-turquoise">
+                Sync Talent
+              </p>
+              <ol className="mt-8 space-y-5">
+                {synctalent.map((t, i) => (
+                  <li key={t} className="flex items-center gap-4">
+                    <span className="grid h-8 w-8 place-items-center rounded-full bg-navy font-display text-sm text-white">
+                      {i + 1}
+                    </span>
+                    <span className="text-base font-medium text-navy">{t}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5 — MARKET INTELLIGENCE */}
+      <section className="bg-surface py-32 lg:py-40">
+        <div className="container-x grid gap-14 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+          <div>
+            <p className="eyebrow">Market Intelligence</p>
+            <h2 className="mt-4 text-3xl leading-tight md:text-4xl lg:text-[44px]">
+              Every interview creates intelligence.
+            </h2>
+          </div>
+          <div className="space-y-6 text-base leading-relaxed text-ink-muted lg:text-lg">
+            <p>Every conversation produces two outputs.</p>
+            <div className="grid gap-px border border-hairline bg-hairline sm:grid-cols-2">
+              <div className="bg-white p-7">
+                <p className="font-display text-sm text-ink-muted">01</p>
+                <p className="mt-4 font-display text-lg text-navy">Candidate understanding</p>
+                <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                  Evidence about the individual, their trajectory and their fit for a specific
+                  decision.
+                </p>
+              </div>
+              <div className="bg-white p-7">
+                <p className="font-display text-sm text-ink-muted">02</p>
+                <p className="mt-4 font-display text-lg text-navy">Market intelligence</p>
+                <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                  Evidence about industries, salaries, leadership expectations and market realities.
+                </p>
+              </div>
+            </div>
+            <p className="text-navy">
+              Every conversation improves our institutional understanding. That knowledge benefits
+              every future client.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6 — FRAMEWORKS */}
+      <section className="py-32 lg:py-40">
+        <div className="container-x">
+          <div className="max-w-2xl">
+            <p className="eyebrow">Our Decision Frameworks</p>
+            <h2 className="mt-4 text-3xl md:text-4xl lg:text-[44px]">
+              Frameworks that make hiring decisions defensible.
+            </h2>
+          </div>
+
+          <div className="mt-14 grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-5">
+            {frameworks.map((f) => (
+              <Link
+                key={f.name}
+                to={f.to}
+                className="group flex flex-col gap-5 bg-white p-7 transition-colors hover:bg-surface"
+              >
+                <f.icon className="h-6 w-6 text-navy" />
+                <div>
+                  <h3 className="font-display text-base text-navy">{f.name}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">{f.line}</p>
+                </div>
+                <span className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-navy transition-colors group-hover:text-turquoise">
+                  Explore <ArrowRight className="h-3.5 w-3.5" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7 — INDUSTRIAL EXPERTISE */}
+      <section className="bg-surface py-32 lg:py-40">
+        <div className="container-x">
+          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <p className="eyebrow">Industrial Expertise</p>
+              <h2 className="mt-4 text-3xl md:text-4xl lg:text-[44px]">
+                Helping international companies hire in unfamiliar industrial markets.
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted">
+                Focused on Automation, Packaging, Industrial Software, OEM, Food Processing,
+                Manufacturing and Industrial Equipment across Mexico, the US and Canada.
+              </p>
+            </div>
+            <Link to="/industries" className="text-sm font-medium text-navy link-underline">
+              All industries
+            </Link>
+          </div>
+
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {industries.map((i) => (
+              <Link
+                key={i.name}
+                to="/industries"
+                className="group relative overflow-hidden rounded-[10px] border border-hairline bg-white"
+              >
+                <div className="relative aspect-[4/5] overflow-hidden bg-surface">
+                  <img
+                    src={i.img}
+                    alt={i.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/70">
+                      Industry
+                    </p>
+                    <p className="mt-1 font-display text-lg font-semibold text-white">{i.name}</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 8 — KNOWLEDGE HUB */}
+      <section className="py-32 lg:py-40">
         <div className="container-x">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-end">
             <div>
-              <p className="eyebrow">Knowledge Hub</p>
+              <p className="eyebrow">Industrial Hiring Intelligence</p>
               <h2 className="mt-4 text-3xl leading-tight md:text-4xl lg:text-[44px]">
-                The Knowledge Hub for Industrial Hiring in Mexico
+                A knowledge institution for industrial hiring in North America.
               </h2>
             </div>
             <p className="text-base leading-relaxed text-ink-muted lg:text-lg">
-              We publish practical insights, salary benchmarks and hiring guides for international
-              companies building teams in Mexico. Educational first, transactional never.
+              Atlas Notes, Hiring Guides, Salary Intelligence, Market Reports, the Industrial
+              Hiring Thesis and decision intelligence articles — written for international
+              industrial leaders.
             </p>
           </div>
 
@@ -300,266 +496,10 @@ function HomePage() {
                   <p className="mt-3 text-sm leading-relaxed text-ink-muted">{c.text}</p>
                 </div>
                 <span className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-navy transition-colors group-hover:text-turquoise">
-                  Explore <ArrowRight className="h-3.5 w-3.5" />
+                  Read <ArrowRight className="h-3.5 w-3.5" />
                 </span>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SNAPSHOT */}
-      <section className="bg-surface py-24 lg:py-32">
-        <div className="container-x">
-          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="eyebrow">Market Intelligence</p>
-              <h2 className="mt-4 text-3xl md:text-4xl lg:text-[44px]">
-                Current Industrial Hiring Snapshot
-              </h2>
-            </div>
-            <p className="max-w-md text-sm text-ink-muted">
-              Updated quarterly based on active recruiting projects and market conversations.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-5">
-            {snapshot.map((s) => (
-              <div key={s.label} className="flex flex-col gap-6 bg-white p-7">
-                <s.icon className="h-5 w-5 text-navy" />
-                <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
-                    {s.label}
-                  </p>
-                  <p className="mt-3 font-display text-xl font-semibold leading-tight text-navy">
-                    {s.value}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHY DIFFERENT */}
-      <section className="py-24 lg:py-32">
-        <div className="container-x grid gap-14 lg:grid-cols-[1fr_1.2fr] lg:items-center">
-          <div>
-            <p className="eyebrow">Our Perspective</p>
-            <h2 className="mt-4 text-3xl md:text-4xl lg:text-[44px]">
-              Why Industrial Hiring is Different
-            </h2>
-          </div>
-          <div className="space-y-6 text-base leading-relaxed text-ink-muted lg:text-lg">
-            <p>
-              Hiring industrial professionals requires technical understanding, commercial judgment,
-              international communication and local market knowledge.
-            </p>
-            <p>
-              The right Sales Engineer, Service Manager or Plant Manager rarely answers a generic
-              recruiter. They are evaluated by peers who speak their language — technical,
-              commercial and cultural — and who understand how German, Swiss, Dutch or North
-              American organizations actually operate in Mexico.
-            </p>
-            <div className="grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
-              {["Technical fluency", "Commercial judgment", "International mindset"].map((t) => (
-                <div key={t} className="bg-white p-5 text-sm font-medium text-navy">
-                  {t}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="bg-navy py-24 text-white lg:py-32">
-        <div className="container-x">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-end">
-            <div>
-              <p className="eyebrow text-turquoise">Services</p>
-              <h2 className="mt-4 text-3xl text-white md:text-4xl lg:text-[44px]">
-                Strategic hiring support, not transactional recruiting.
-              </h2>
-            </div>
-            <p className="text-base leading-relaxed text-white/70 lg:text-lg">
-              From single executive searches to full hiring partnerships, we work as an extension of
-              your leadership team — focused, discreet and accountable to results.
-            </p>
-          </div>
-
-          <div className="mt-14 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((s, i) => (
-              <div key={s} className="group bg-navy p-7 transition-colors hover:bg-white/[0.04]">
-                <p className="font-display text-sm text-turquoise">
-                  0{i + 1}
-                </p>
-                <p className="mt-6 font-display text-lg text-white">{s}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10">
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 text-sm font-medium text-turquoise link-underline"
-            >
-              View all services <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* INDUSTRIES */}
-      <section className="py-24 lg:py-32">
-        <div className="container-x">
-          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="eyebrow">Industries</p>
-              <h2 className="mt-4 text-3xl md:text-4xl lg:text-[44px]">
-                Built for technical B2B & industrial sectors.
-              </h2>
-            </div>
-            <Link to="/industries" className="text-sm font-medium text-navy link-underline">
-              All industries
-            </Link>
-          </div>
-
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {industries.map((i) => (
-              <Link
-                key={i.name}
-                to="/industries"
-                className="group relative overflow-hidden rounded-sm border border-hairline bg-white"
-              >
-                <div className="relative aspect-[4/5] overflow-hidden bg-surface">
-                  <img
-                    src={i.img}
-                    alt={i.name}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-5">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-turquoise">
-                      Industry
-                    </p>
-                    <p className="mt-1 font-display text-lg font-semibold text-white">{i.name}</p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TYPICAL ROLES */}
-      <section className="bg-surface py-24 lg:py-32">
-        <div className="container-x">
-          <div className="max-w-2xl">
-            <p className="eyebrow">Typical Roles</p>
-            <h2 className="mt-4 text-3xl md:text-4xl lg:text-[44px]">
-              Profiles we search for across Mexico and North America.
-            </h2>
-          </div>
-
-          <div className="mt-12 flex flex-wrap gap-2">
-            {roles.map((r) => (
-              <span
-                key={r}
-                className="inline-flex items-center rounded-sm border border-hairline bg-white px-4 py-2.5 text-sm text-navy transition-colors hover:border-turquoise hover:text-turquoise"
-              >
-                {r}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PROCESS */}
-      <section className="py-32 lg:py-40">
-        <div className="container-x">
-          <div className="max-w-2xl">
-            <p className="eyebrow">The Atlas Method™</p>
-            <h2 className="mt-4 text-3xl md:text-4xl lg:text-[44px]">
-              A structured eight-step decision framework.
-            </h2>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted">
-              Every engagement follows the same discipline — designed to produce hiring decisions
-              you can defend to your board, not just candidates you can interview.
-            </p>
-          </div>
-
-          <AtlasDivider className="mx-auto mt-16 text-navy" />
-
-          <ol className="mt-10 grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
-            {process.map((p, i) => (
-              <li key={p} className="bg-white p-7">
-                <p className="font-display text-sm text-ink-muted">Step {String(i + 1).padStart(2, "0")}</p>
-                <p className="mt-5 font-display text-lg text-navy">{p}</p>
-                <div className="mt-6 h-px w-10 bg-turquoise" />
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-
-      {/* CASE STUDIES */}
-      <section className="bg-surface py-24 lg:py-32">
-        <div className="container-x">
-          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="eyebrow">Case Studies</p>
-              <h2 className="mt-4 text-3xl md:text-4xl lg:text-[44px]">
-                Selected industrial searches.
-              </h2>
-            </div>
-          </div>
-
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            {cases.map((c) => (
-              <article
-                key={c.title}
-                className="flex flex-col gap-6 rounded-sm border border-hairline bg-white p-8"
-              >
-                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-turquoise">
-                  {c.tag}
-                </p>
-                <h3 className="text-xl leading-snug">{c.title}</h3>
-                <dl className="space-y-4 text-sm leading-relaxed text-ink-muted">
-                  <div>
-                    <dt className="font-semibold text-navy">Challenge</dt>
-                    <dd className="mt-1">{c.challenge}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-navy">Solution</dt>
-                    <dd className="mt-1">{c.solution}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-navy">Result</dt>
-                    <dd className="mt-1">{c.result}</dd>
-                  </div>
-                </dl>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* LATEST KNOWLEDGE */}
-      <section className="py-24 lg:py-32">
-        <div className="container-x">
-          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="eyebrow">Latest from the Knowledge Hub</p>
-              <h2 className="mt-4 text-3xl md:text-4xl lg:text-[44px]">
-                Briefings for international hiring leaders.
-              </h2>
-            </div>
-            <Link to="/knowledge-hub" className="text-sm font-medium text-navy link-underline">
-              All articles
-            </Link>
           </div>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -567,15 +507,15 @@ function HomePage() {
               <Link
                 key={a.title}
                 to="/knowledge-hub"
-                className="group flex flex-col gap-5 rounded-sm border border-hairline bg-white p-7 transition-colors hover:border-turquoise"
+                className="group flex flex-col gap-5 rounded-[10px] border border-hairline bg-white p-7 transition-colors hover:border-navy"
               >
                 <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em]">
-                  <span className="text-turquoise">{a.tag}</span>
+                  <span className="text-navy">{a.tag}</span>
                   <span className="text-ink-muted">{a.read}</span>
                 </div>
                 <h3 className="text-base leading-snug">{a.title}</h3>
                 <span className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-navy transition-colors group-hover:text-turquoise">
-                  Read article <ArrowRight className="h-3.5 w-3.5" />
+                  Read <ArrowRight className="h-3.5 w-3.5" />
                 </span>
               </Link>
             ))}
@@ -583,46 +523,20 @@ function HomePage() {
         </div>
       </section>
 
-      {/* LEAD MAGNET */}
-      <section className="container-x pb-24 lg:pb-32">
-        <div className="relative overflow-hidden rounded-sm border border-hairline bg-white">
-          <div className="grid gap-10 p-10 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:p-16">
-            <div>
-              <p className="eyebrow">Free Download</p>
-              <h2 className="mt-4 text-3xl md:text-4xl">
-                Download the Mexico Industrial Hiring Guide
-              </h2>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted">
-                Get practical benchmarks on salaries, hiring timelines, candidate availability,
-                benefits and interview processes for industrial roles in Mexico.
-              </p>
-            </div>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="flex flex-col gap-3"
-            >
-              <input
-                type="email"
-                required
-                placeholder="Work email"
-                className="rounded-sm border border-hairline bg-white px-4 py-3.5 text-sm text-navy placeholder:text-ink-muted focus:border-turquoise focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center rounded-sm bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise"
-              >
-                Download the Guide
-              </button>
-              <p className="text-xs text-ink-muted">
-                Example content — replace with your gated asset.
-              </p>
-            </form>
-          </div>
-          <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-surface" />
-        </div>
-      </section>
+      {/* SECTION 9 — DISCOVERY EXPERIENCE */}
+      <CTABand
+        eyebrow="Discovery Experience™"
+        title="Every interaction should leave you better prepared to make the right decision."
+        text="Whether or not we work together afterwards, our objective is that every conversation leaves you with a clearer understanding of your hiring decision."
+        buttonText="Experience the Discovery Experience™"
+        secondaryText="Explore the Atlas Method™"
+        to="/discovery-experience"
+        secondaryTo="/atlas-method"
+      />
 
-      <CTABand />
+      <section className="pointer-events-none py-1">
+        <Lightbulb className="hidden" />
+      </section>
     </SiteLayout>
   );
 }
