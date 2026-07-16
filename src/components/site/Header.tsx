@@ -5,9 +5,8 @@ import { Menu, X } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home" },
-  { to: "/atlas-method", label: "Atlas Method™" },
   { to: "/services", label: "Executive Search" },
-  { to: "/discovery-experience", label: "Discovery Experience™" },
+  { to: "/industries", label: "Industries" },
   { to: "/knowledge-hub", label: "Knowledge Hub" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
