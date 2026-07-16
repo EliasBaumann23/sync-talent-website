@@ -55,7 +55,7 @@ export function Header() {
             to="/discovery-experience"
             className="inline-flex items-center rounded-sm bg-navy px-4 py-2.5 text-[13px] font-medium text-white transition-colors hover:bg-turquoise"
           >
-            Discovery Experience™
+            Experience the Discovery
           </Link>
         </div>
 
@@ -86,7 +86,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className="mt-3 inline-flex justify-center rounded-sm bg-navy px-4 py-3 text-sm font-medium text-white"
             >
-              Discovery Experience™
+              Experience the Discovery
             </Link>
           </div>
         </div>
