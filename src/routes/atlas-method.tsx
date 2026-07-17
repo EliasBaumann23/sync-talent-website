@@ -177,10 +177,10 @@ function AtlasMethodPage() {
               single firm.
             </p>
             <Link
-              to="/discovery-experience"
+              to="/contact"
               className="inline-flex items-center gap-2 text-sm font-medium text-navy link-underline"
             >
-              Experience the Discovery Experience™ <ArrowRight className="h-4 w-4" />
+              Contact us <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
