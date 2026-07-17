@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "sdk_version": "0.23.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "sync-talent-mcp",
+      "version": "0.1.0",
+      "title": "Sync Talent MCP"
+    },
+    "tools": [
+      {
+        "name": "list_services",
+        "title": "List Sync Talent services",
+        "description": "Returns Sync Talent's executive search services and proprietary frameworks (Search Blueprint, Talent Lens, Hiring Confidence Index).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_industries",
+        "title": "List industries served",
+        "description": "Returns the industrial sectors Sync Talent serves across Mexico for European, US and Canadian companies.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_atlas_method",
+        "title": "Get the Atlas Method",
+        "description": "Returns a structured description of Sync Talent's proprietary Atlas Method™ — the five-stage executive search methodology.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_knowledge_articles",
+        "title": "List Knowledge Hub articles",
+        "description": "Lists articles from the Sync Talent Knowledge Hub. Optionally filter by category (Atlas Notes, Research, Salary Intelligence, Hiring Guides, Market Reports, Case Studies, Decision Intelligence).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "category": {
+              "description": "Optional category to filter by.",
+              "type": "string",
+              "enum": [
+                "Atlas Notes",
+                "Research",
+                "Salary Intelligence",
+                "Hiring Guides",
+                "Market Reports",
+                "Case Studies",
+                "Decision Intelligence"
+              ]
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_contact_info",
+        "title": "Get Sync Talent contact information",
+        "description": "Returns how to contact Sync Talent and start a search engagement, including the contact page and expected response time.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
