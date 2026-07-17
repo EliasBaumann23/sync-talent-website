@@ -36,7 +36,7 @@ const cols = [
 
 export function Footer() {
   return (
-    <footer className="mt-32 border-t border-hairline bg-navy text-white/80">
+    <footer className="border-t border-turquoise bg-navy text-white/80">
       <div className="container-x py-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div className="max-w-sm">
