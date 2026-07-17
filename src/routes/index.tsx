@@ -252,10 +252,10 @@ function HomePage() {
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <Link
-                to="/discovery-experience"
+                to="/contact"
                 className="inline-flex items-center gap-2 rounded-[10px] bg-turquoise px-6 py-3.5 text-sm font-medium text-navy transition-colors hover:bg-white"
               >
-                Experience the Discovery <ArrowRight className="h-4 w-4" />
+                Contact us <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/services"
@@ -349,10 +349,10 @@ function HomePage() {
 
           <div className="mt-14 text-center">
             <Link
-              to="/discovery-experience"
+              to="/contact"
               className="inline-flex items-center gap-2 rounded-[10px] bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise hover:text-navy"
             >
-              Experience the Discovery <ArrowRight className="h-4 w-4" />
+              Contact us <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
@@ -810,9 +810,9 @@ function HomePage() {
         eyebrow="The Discovery Experience"
         title="Every interaction should leave you better prepared to make the right hiring decision."
         text="Whether or not we work together afterwards, our objective is that every conversation leaves you with a clearer understanding of your hiring decision."
-        buttonText="Experience the Discovery"
+        buttonText="Contact us"
         secondaryText="Explore the Atlas Method"
-        to="/discovery-experience"
+        to="/contact"
         secondaryTo="/atlas-method"
       />
     </SiteLayout>

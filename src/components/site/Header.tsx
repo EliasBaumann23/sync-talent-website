@@ -52,10 +52,10 @@ export function Header() {
 
         <div className="hidden lg:flex items-center gap-3">
           <Link
-            to="/discovery-experience"
+            to="/contact"
             className="inline-flex items-center rounded-sm bg-navy px-4 py-2.5 text-[13px] font-medium text-white transition-colors hover:bg-turquoise"
           >
-            Experience the Discovery
+            Contact us
           </Link>
         </div>
 
@@ -82,11 +82,11 @@ export function Header() {
               </Link>
             ))}
             <Link
-              to="/discovery-experience"
+              to="/contact"
               onClick={() => setOpen(false)}
               className="mt-3 inline-flex justify-center rounded-sm bg-navy px-4 py-3 text-sm font-medium text-white"
             >
-              Experience the Discovery
+              Contact us
             </Link>
           </div>
         </div>

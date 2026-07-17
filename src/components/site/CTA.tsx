@@ -5,7 +5,7 @@ export function CTABand({
   eyebrow = "The Discovery Experience™",
   title = "Better hiring decisions begin with a structured conversation.",
   text = "The Discovery Experience™ is how international industrial leaders align on the role, the market and the decision criteria before a single candidate is approached.",
-  buttonText = "Experience the Discovery Experience™",
+  buttonText = "Contact us",
   secondaryText = "Explore the Atlas Method™",
   to = "/contact",
   secondaryTo = "/services",
