@@ -3,7 +3,8 @@ import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
-import { ArrowRight, Search } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import logoIcon from "@/assets/Logo_New_Turquise_S.png.asset.json";
 
 export const Route = createFileRoute("/knowledge-hub")({
   head: () => ({
@@ -107,7 +108,7 @@ function HubPage() {
             onSubmit={(e) => e.preventDefault()}
             className="flex items-center gap-3 rounded-[10px] border border-hairline bg-surface px-4 transition-colors focus-within:border-navy"
           >
-            <Search className="h-4 w-4 text-ink-muted" />
+            <img src={logoIcon.url} alt="" className="h-5 w-5 shrink-0 object-contain" />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
