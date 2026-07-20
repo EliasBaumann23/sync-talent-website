@@ -98,7 +98,7 @@ function ContactPage() {
                 <li className="flex items-center gap-3">
                   <Linkedin className="h-4 w-4 text-turquoise" />
                   <a
-                    href="https://www.linkedin.com"
+                    href="https://www.linkedin.com/company/sync-talent-north-america"
                     target="_blank"
                     rel="noreferrer"
                     className="text-navy link-underline"

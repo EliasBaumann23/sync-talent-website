@@ -47,7 +47,7 @@ export function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-3 text-sm">
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/company/sync-talent-north-america"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
