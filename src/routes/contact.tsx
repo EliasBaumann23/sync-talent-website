@@ -79,7 +79,9 @@ function ContactPage() {
                 Calendly placeholder — connect your scheduling link to enable bookings.
               </p>
               <a
-                href="#"
+                href="https://calendly.com/e-baumann-sync-tech/30min"
+                target="_blank"
+                rel="noreferrer"
                 className="mt-6 inline-flex items-center gap-2 rounded-sm bg-navy px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-turquoise"
               >
                 <Calendar className="h-4 w-4" /> Open Calendly
