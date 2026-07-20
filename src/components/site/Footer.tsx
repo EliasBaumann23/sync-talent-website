@@ -4,15 +4,6 @@ import { Linkedin, Mail } from "lucide-react";
 
 const cols = [
   {
-    title: "Company",
-    links: [
-      { to: "/about", label: "About" },
-      { to: "/services", label: "Executive Search" },
-      { to: "/atlas-method", label: "Atlas Method™" },
-      { to: "/contact", label: "Contact" },
-    ],
-  },
-  {
     title: "Methodology",
     links: [
       { to: "/atlas-method", label: "Atlas Method™" },
@@ -38,7 +29,7 @@ export function Footer() {
   return (
     <footer className="border-t border-turquoise bg-navy text-white/80">
       <div className="container-x py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+        <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(2,1fr)]">
           <div className="max-w-sm">
             <Logo invert />
             <p className="mt-6 text-sm leading-relaxed text-white/65">
