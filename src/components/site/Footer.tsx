@@ -4,15 +4,6 @@ import { Linkedin, Mail } from "lucide-react";
 
 const cols = [
   {
-    title: "Company",
-    links: [
-      { to: "/about", label: "About" },
-      { to: "/services", label: "Executive Search" },
-      { to: "/atlas-method", label: "Atlas Method™" },
-      { to: "/contact", label: "Contact" },
-    ],
-  },
-  {
     title: "Methodology",
     links: [
       { to: "/atlas-method", label: "Atlas Method™" },
