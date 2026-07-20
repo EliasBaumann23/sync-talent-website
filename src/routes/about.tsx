@@ -149,8 +149,8 @@ function AboutPage() {
               </p>
               <p>
                 The firm combines a European operating standard with a working understanding of
-                how North American organizations actually operate — across the Bajío, Monterrey and
-                Mexico City industrial corridors.
+                how North American organizations actually operate across Mexico, Canada and the
+                United States.
               </p>
               <p className="text-navy">
                 We are not the largest recruiter in the market. We are the one asking a different
