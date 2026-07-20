@@ -56,7 +56,7 @@ export function Footer() {
                 <Linkedin className="h-4 w-4" />
               </a>
               <a
-                href="mailto:hello@synctalent.mx"
+                href="mailto:e.baumann@sync-tech.io"
                 aria-label="Email"
                 className="inline-flex h-9 w-9 items-center justify-center rounded-sm border border-white/15 text-white/80 transition-colors hover:border-turquoise hover:text-turquoise"
               >
@@ -85,7 +85,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Sync Talent. Industrial executive search, Mexico & North America.</p>
-          <p>Monterrey · México</p>
+          <p>Mexico City, Mexico</p>
         </div>
       </div>
     </footer>
