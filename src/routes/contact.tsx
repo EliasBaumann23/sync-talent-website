@@ -91,8 +91,8 @@ function ContactPage() {
               <ul className="mt-5 space-y-4 text-sm">
                 <li className="flex items-center gap-3">
                   <Mail className="h-4 w-4 text-turquoise" />
-                  <a href="mailto:hello@synctalent.mx" className="text-navy link-underline">
-                    hello@synctalent.mx
+                  <a href="mailto:e.baumann@sync-tech.io" className="text-navy link-underline">
+                    e.baumann@sync-tech.io
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
@@ -108,8 +108,7 @@ function ContactPage() {
                 </li>
               </ul>
               <div className="mt-6 border-t border-hairline pt-5 text-sm text-ink-muted">
-                <p>Monterrey, México</p>
-                <p>Serving DE · CH · AT · NL · FR · CA · US</p>
+                <p>Mexico City, Mexico</p>
               </div>
             </div>
           </aside>
