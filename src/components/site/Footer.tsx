@@ -9,7 +9,7 @@ const cols = [
       { to: "/atlas-method", label: "Atlas Method™" },
       { to: "/discovery-experience", label: "Discovery Experience™" },
       { to: "/atlas-library/search-blueprint", label: "Search Blueprint™" },
-      { to: "/services", label: "Talent Lens™" },
+      { to: "/atlas-library/talent-lens", label: "Talent Lens™" },
       { to: "/services", label: "Hiring Confidence Index™" },
     ],
   },
