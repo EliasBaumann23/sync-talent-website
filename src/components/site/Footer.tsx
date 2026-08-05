@@ -10,7 +10,7 @@ const cols = [
       { to: "/discovery-experience", label: "Discovery Experience™" },
       { to: "/atlas-library/search-blueprint", label: "Search Blueprint™" },
       { to: "/atlas-library/talent-lens", label: "Talent Lens™" },
-      { to: "/services", label: "Hiring Confidence Index™" },
+      { to: "/atlas-library/hiring-confidence-index", label: "Hiring Confidence Index™" },
     ],
   },
   {
