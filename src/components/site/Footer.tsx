@@ -17,10 +17,9 @@ const cols = [
     title: "Knowledge Hub",
     links: [
       { to: "/atlas-library/atlas-notes", label: "Atlas Notes" },
-      { to: "/knowledge-hub", label: "Research" },
+      { to: "/knowledge-hub", label: "Research Library" },
       { to: "/salary-guides", label: "Salary Intelligence" },
       { to: "/hiring-guides", label: "Hiring Guides" },
-      { to: "/knowledge-hub", label: "Market Reports" },
     ],
   },
 ] as const;
