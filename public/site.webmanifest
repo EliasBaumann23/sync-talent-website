@@ -1,0 +1,13 @@
+{
+  "name": "Sync Talent",
+  "short_name": "Sync Talent",
+  "description": "Industrial Hiring Intelligence for Mexico and North America",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#10243A",
+  "theme_color": "#10243A",
+  "icons": [
+    { "src": "/favicon-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
