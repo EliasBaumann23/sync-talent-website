@@ -25,6 +25,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/atlas-library/search-blueprint", changefreq: "monthly", priority: "0.7" },
           { path: "/atlas-library/talent-lens", changefreq: "monthly", priority: "0.7" },
           { path: "/atlas-library/hiring-confidence-index", changefreq: "monthly", priority: "0.7" },
+          { path: "/atlas-library/atlas-notes", changefreq: "weekly", priority: "0.8" },
           { path: "/about", changefreq: "monthly", priority: "0.6" },
           { path: "/contact", changefreq: "monthly", priority: "0.6" },
         ];

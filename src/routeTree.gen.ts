@@ -24,6 +24,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AtlasLibraryTalentLensRouteImport } from './routes/atlas-library.talent-lens'
 import { Route as AtlasLibrarySearchBlueprintRouteImport } from './routes/atlas-library.search-blueprint'
 import { Route as AtlasLibraryHiringConfidenceIndexRouteImport } from './routes/atlas-library.hiring-confidence-index'
+import { Route as AtlasLibraryAtlasNotesRouteImport } from './routes/atlas-library.atlas-notes'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
@@ -105,6 +106,11 @@ const AtlasLibraryHiringConfidenceIndexRoute =
     path: '/atlas-library/hiring-confidence-index',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AtlasLibraryAtlasNotesRoute = AtlasLibraryAtlasNotesRouteImport.update({
+  id: '/atlas-library/atlas-notes',
+  path: '/atlas-library/atlas-notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const Char91DotwellKnownChar93OauthProtectedResourceRoute =
   Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
     id: '/.well-known/oauth-protected-resource',
@@ -139,6 +145,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/atlas-library/atlas-notes': typeof AtlasLibraryAtlasNotesRoute
   '/atlas-library/hiring-confidence-index': typeof AtlasLibraryHiringConfidenceIndexRoute
   '/atlas-library/search-blueprint': typeof AtlasLibrarySearchBlueprintRoute
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
@@ -159,6 +166,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/atlas-library/atlas-notes': typeof AtlasLibraryAtlasNotesRoute
   '/atlas-library/hiring-confidence-index': typeof AtlasLibraryHiringConfidenceIndexRoute
   '/atlas-library/search-blueprint': typeof AtlasLibrarySearchBlueprintRoute
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
@@ -180,6 +188,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/atlas-library/atlas-notes': typeof AtlasLibraryAtlasNotesRoute
   '/atlas-library/hiring-confidence-index': typeof AtlasLibraryHiringConfidenceIndexRoute
   '/atlas-library/search-blueprint': typeof AtlasLibrarySearchBlueprintRoute
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
@@ -202,6 +211,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/atlas-library/atlas-notes'
     | '/atlas-library/hiring-confidence-index'
     | '/atlas-library/search-blueprint'
     | '/atlas-library/talent-lens'
@@ -222,6 +232,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/atlas-library/atlas-notes'
     | '/atlas-library/hiring-confidence-index'
     | '/atlas-library/search-blueprint'
     | '/atlas-library/talent-lens'
@@ -242,6 +253,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/atlas-library/atlas-notes'
     | '/atlas-library/hiring-confidence-index'
     | '/atlas-library/search-blueprint'
     | '/atlas-library/talent-lens'
@@ -263,6 +275,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  AtlasLibraryAtlasNotesRoute: typeof AtlasLibraryAtlasNotesRoute
   AtlasLibraryHiringConfidenceIndexRoute: typeof AtlasLibraryHiringConfidenceIndexRoute
   AtlasLibrarySearchBlueprintRoute: typeof AtlasLibrarySearchBlueprintRoute
   AtlasLibraryTalentLensRoute: typeof AtlasLibraryTalentLensRoute
@@ -376,6 +389,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AtlasLibraryHiringConfidenceIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/atlas-library/atlas-notes': {
+      id: '/atlas-library/atlas-notes'
+      path: '/atlas-library/atlas-notes'
+      fullPath: '/atlas-library/atlas-notes'
+      preLoaderRoute: typeof AtlasLibraryAtlasNotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/.well-known/oauth-protected-resource': {
       id: '/.well-known/oauth-protected-resource'
       path: '/.well-known/oauth-protected-resource'
@@ -416,6 +436,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
+  AtlasLibraryAtlasNotesRoute: AtlasLibraryAtlasNotesRoute,
   AtlasLibraryHiringConfidenceIndexRoute:
     AtlasLibraryHiringConfidenceIndexRoute,
   AtlasLibrarySearchBlueprintRoute: AtlasLibrarySearchBlueprintRoute,
