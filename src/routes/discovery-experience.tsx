@@ -69,7 +69,7 @@ function DiscoveryPage() {
   return (
     <SiteLayout>
       <PageHeader
-        eyebrow="The Discovery Experience™"
+        eyebrow="Atlas Library · Methodology Document 01"
         title="Every interaction should leave you better prepared to make the right decision."
         description="The Discovery Experience™ is a structured conversation about your hiring decision. It exists to remove uncertainty — not to sell a search."
       />
