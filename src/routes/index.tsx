@@ -8,6 +8,13 @@ import indAutomation from "@/assets/ind-automation.jpg";
 import indManufacturing from "@/assets/ind-manufacturing.jpg";
 import indMachinery from "@/assets/ind-machinery.jpg";
 import indSoftware from "@/assets/ind-software.jpg";
+import logoOmp from "@/assets/OMP.png.asset.json";
+import logoHennecke from "@/assets/Hennecke.png.asset.json";
+import logoZimmer from "@/assets/ZIMMER.png.asset.json";
+import logoNita from "@/assets/NITA.png.asset.json";
+import logoSomic from "@/assets/SOMIC.png.asset.json";
+import logoTpg from "@/assets/TPG.png.asset.json";
+import logoTavil from "@/assets/TAVIL.png.asset.json";
 import indFood from "@/assets/ind-food.jpg";
 import indMaterial from "@/assets/ind-material.jpg";
 import indLogistics from "@/assets/ind-logistics.jpg";
@@ -27,7 +34,6 @@ import {
   Layers,
   CheckCircle2,
   Users,
-  Briefcase,
   Sparkles,
 } from "lucide-react";
 
@@ -212,13 +218,13 @@ const trendingTopics = [
 ];
 
 const clientLogos = [
-  "OMP",
-  "Hennecke",
-  "Zimmer",
-  "NITA",
-  "SOMIC",
-  "TPG",
-  "BellatRx",
+  { name: "OMP", src: logoOmp.url, className: "max-h-9" },
+  { name: "Hennecke", src: logoHennecke.url, className: "max-h-14" },
+  { name: "Zimmer Group", src: logoZimmer.url, className: "max-h-9" },
+  { name: "NITA", src: logoNita.url, className: "max-h-5" },
+  { name: "SOMIC", src: logoSomic.url, className: "max-h-9" },
+  { name: "TPG", src: logoTpg.url, className: "max-h-11" },
+  { name: "TAVIL", src: logoTavil.url, className: "max-h-6" },
 ];
 
 function HomePage() {
@@ -785,23 +791,21 @@ function HomePage() {
           </div>
 
           <div className="mt-14 grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-3 lg:grid-cols-7">
-            {clientLogos.map((name) => (
+            {clientLogos.map((logo) => (
               <div
-                key={name}
+                key={logo.name}
                 className="flex h-24 items-center justify-center bg-white px-6"
-                aria-label={name}
               >
-                <span className="font-display text-lg tracking-[0.08em] text-navy/70 grayscale transition-colors hover:text-navy">
-                  {name}
-                </span>
+                <img
+                  src={logo.src}
+                  alt={`${logo.name} logo`}
+                  loading="lazy"
+                  className={`w-auto max-w-full object-contain ${logo.className}`}
+                />
               </div>
             ))}
           </div>
 
-          <p className="mt-8 text-center text-xs uppercase tracking-[0.16em] text-ink-muted">
-            <Briefcase className="mr-2 inline h-3.5 w-3.5" />
-            Logo placeholders — client marks integrated on approval
-          </p>
         </div>
       </section>
 
