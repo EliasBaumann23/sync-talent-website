@@ -219,12 +219,12 @@ const trendingTopics = [
 
 const clientLogos = [
   { name: "OMP", src: logoOmp.url, className: "max-h-9" },
-  { name: "Hennecke", src: logoHennecke.url, className: "max-h-14" },
-  { name: "Zimmer Group", src: logoZimmer.url, className: "max-h-11" },
-  { name: "NITA", src: logoNita.url, className: "max-h-6" },
-  { name: "SOMIC", src: logoSomic.url, className: "max-h-14" },
-  { name: "TPG", src: logoTpg.url, className: "max-h-12" },
-  { name: "TAVIL", src: logoTavil.url, className: "max-h-10" },
+  { name: "Hennecke", src: logoHennecke.url, className: "max-h-12" },
+  { name: "Zimmer Group", src: logoZimmer.url, className: "max-h-9" },
+  { name: "NITA", src: logoNita.url, className: "max-h-5" },
+  { name: "SOMIC", src: logoSomic.url, className: "max-h-9" },
+  { name: "TPG", src: logoTpg.url, className: "max-h-11" },
+  { name: "TAVIL", src: logoTavil.url, className: "max-h-6" },
 ];
 
 function HomePage() {
