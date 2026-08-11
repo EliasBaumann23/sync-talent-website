@@ -370,6 +370,19 @@ function AtlasNotesPage() {
         </div>
       </section>
 
+      {/* SECTION 6 — QUOTE */}
+      <section className="py-32 lg:py-40">
+        <div className="container-x">
+          <div className="mx-auto max-w-3xl text-center">
+            <blockquote className="font-display text-2xl leading-snug text-navy md:text-3xl lg:text-4xl">
+              Every Executive Search teaches us something.
+              <br />
+              Atlas Notes ensure that learning is never lost.
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 7 — RELATED PUBLICATIONS */}
       <section className="border-t border-hairline py-32 lg:py-40">
         <div className="container-x">
