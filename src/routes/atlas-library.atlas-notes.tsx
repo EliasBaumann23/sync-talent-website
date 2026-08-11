@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { AtlasDivider } from "@/components/site/AtlasLine";
 import { ArrowRight } from "lucide-react";
 import featureImg from "@/assets/ind-manufacturing.jpg";
 

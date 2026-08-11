@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CTABand } from "@/components/site/CTA";
-import { AtlasDivider, AtlasLine } from "@/components/site/AtlasLine";
+import { AtlasLine } from "@/components/site/AtlasLine";
 import { ArrowRight, Check } from "lucide-react";
 
 export const Route = createFileRoute("/atlas-library/search-blueprint")({
