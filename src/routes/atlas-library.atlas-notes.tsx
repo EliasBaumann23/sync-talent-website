@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { ArrowRight } from "lucide-react";
+import { AtlasDivider } from "@/components/site/AtlasLine";
 import featureImg from "@/assets/ind-manufacturing.jpg";
 
 export const Route = createFileRoute("/atlas-library/atlas-notes")({
