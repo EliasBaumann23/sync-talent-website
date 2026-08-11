@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CTABand } from "@/components/site/CTA";
-import { AtlasDivider, AtlasLine } from "@/components/site/AtlasLine";
+import { AtlasLine } from "@/components/site/AtlasLine";
 import { Check } from "lucide-react";
 
 export const Route = createFileRoute("/atlas-library/talent-lens")({
@@ -523,8 +523,6 @@ function TalentLensPage() {
           </p>
         </div>
       </section>
-
-      <AtlasDivider className="mx-auto mt-16 mb-4 text-navy" />
 
       {/* FINAL CTA */}
       <CTABand

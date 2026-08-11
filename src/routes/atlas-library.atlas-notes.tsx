@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { AtlasDivider } from "@/components/site/AtlasLine";
 import { ArrowRight } from "lucide-react";
+import { AtlasDivider } from "@/components/site/AtlasLine";
 import featureImg from "@/assets/ind-manufacturing.jpg";
 
 export const Route = createFileRoute("/atlas-library/atlas-notes")({
@@ -374,13 +374,11 @@ function AtlasNotesPage() {
       <section className="py-32 lg:py-40">
         <div className="container-x">
           <div className="mx-auto max-w-3xl text-center">
-            <AtlasDivider />
-            <blockquote className="mt-12 font-display text-2xl leading-snug text-navy md:text-3xl lg:text-4xl">
+            <blockquote className="font-display text-2xl leading-snug text-navy md:text-3xl lg:text-4xl">
               Every Executive Search teaches us something.
               <br />
               Atlas Notes ensure that learning is never lost.
             </blockquote>
-            <AtlasDivider className="mt-12" />
           </div>
         </div>
       </section>
