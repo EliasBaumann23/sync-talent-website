@@ -553,8 +553,6 @@ function SearchBlueprintPage() {
         </div>
       </section>
 
-      <AtlasDivider className="mx-auto mt-16 mb-4 text-navy" />
-
       {/* FINAL CTA */}
       <CTABand
         eyebrow="Atlas Library · Methodology Document 02"
