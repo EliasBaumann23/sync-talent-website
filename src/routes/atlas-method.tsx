@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
-import { AtlasDivider, AtlasLine } from "@/components/site/AtlasLine";
+import { AtlasLine } from "@/components/site/AtlasLine";
 import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/atlas-method")({
@@ -185,8 +185,6 @@ function AtlasMethodPage() {
           </div>
         </div>
       </section>
-
-      <AtlasDivider className="mx-auto mt-16 mb-4 text-navy" />
 
       <CTABand />
     </SiteLayout>
