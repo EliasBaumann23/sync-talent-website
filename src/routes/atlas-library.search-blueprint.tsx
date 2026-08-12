@@ -510,7 +510,7 @@ function SearchBlueprintPage() {
       </section>
 
       {/* SECTION 8 — WHAT CLIENTS RECEIVE */}
-      <section className="border-y border-hairline bg-surface py-32 lg:py-40">
+      <section className="border-y border-hairline bg-surface py-32 pb-20 lg:pt-40 lg:pb-24">
         <div className="container-x">
           <div className="grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-start">
             <div>
