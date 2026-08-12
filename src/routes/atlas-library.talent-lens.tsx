@@ -230,18 +230,12 @@ function TalentLensPage() {
               <p className="text-base leading-relaxed text-ink-muted lg:text-lg">
                 The Talent Lens™ replaces subjective impressions with structured evidence. It ensures every candidate is assessed against the same business objectives, creating consistency, transparency and confidence throughout the Executive Search process.
               </p>
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center justify-center gap-3">
                 <Link
                   to="/atlas-library/hiring-confidence-index"
                   className="inline-flex items-center rounded-[10px] bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise"
                 >
                   Explore the Hiring Confidence Index™
-                </Link>
-                <Link
-                  to="/atlas-method"
-                  className="inline-flex items-center rounded-[10px] border border-hairline px-6 py-3.5 text-sm font-medium text-navy transition-colors hover:border-navy"
-                >
-                  Explore the Atlas Method™
                 </Link>
               </div>
             </div>
