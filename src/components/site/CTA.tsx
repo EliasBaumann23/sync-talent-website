@@ -6,7 +6,7 @@ export function CTABand({
   title = "Better hiring decisions begin with a structured conversation.",
   text = "The Discovery Experience™ is how international industrial leaders align on the role, the market and the decision criteria before a single candidate is approached.",
   buttonText = "Contact us",
-  secondaryText = "Explore the Atlas Method™",
+  secondaryText = "Continue to the Discovery Experience™",
   to = "/contact",
   secondaryTo = "/services",
 }: {

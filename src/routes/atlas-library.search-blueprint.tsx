@@ -224,11 +224,6 @@ function SearchBlueprintPage() {
             </h2>
           </div>
 
-          <AtlasLine
-            nodes={6}
-            active={4}
-            className="mx-auto mt-14 max-w-4xl text-navy/60"
-          />
 
           <div className="mt-10">
             <FlowRow steps={discoveryToSearch} />
