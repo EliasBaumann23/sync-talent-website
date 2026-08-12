@@ -556,7 +556,7 @@ function SearchBlueprintPage() {
         buttonText="Experience the Discovery Experience™"
         secondaryText="Continue to the\u00a0Talent Lens™"
         to="/contact"
-        secondaryTo="/atlas-method"
+        secondaryTo="/atlas-library/talent-lens"
       />
     </SiteLayout>
   );
