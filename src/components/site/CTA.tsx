@@ -8,7 +8,7 @@ export function CTABand({
   buttonText = "Contact us",
   secondaryText = "Continue to the Discovery Experience™",
   to = "/contact",
-  secondaryTo = "/services",
+  secondaryTo = "/discovery-experience",
 }: {
   eyebrow?: string;
   title?: string;
