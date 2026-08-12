@@ -536,15 +536,6 @@ function SearchBlueprintPage() {
             The Search Blueprint™ becomes the reference document for the
             entire Executive Search engagement.
           </p>
-
-          <div className="mt-16 flex justify-center">
-            <Link
-              to="/atlas-method"
-              className="inline-flex items-center gap-2 text-sm font-medium text-navy link-underline"
-            >
-              Continue to the Atlas Method™ <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
         </div>
       </section>
 
