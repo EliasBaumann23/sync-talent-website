@@ -126,7 +126,7 @@ function DiscoveryPage() {
               <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
                 Duration
               </p>
-              <p className="mt-3 font-display text-xl text-white">60–90 minutes</p>
+              <p className="mt-3 font-display text-xl text-white">45–60 minutes</p>
               <p className="mt-2 text-sm text-white/60">One structured conversation</p>
             </div>
             <div className="rounded-[10px] border border-white/15 bg-white/[0.03] p-6">
