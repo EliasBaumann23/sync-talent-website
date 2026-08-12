@@ -59,7 +59,7 @@ function HiringGuidesPage() {
       <PageHeader
         eyebrow="Hiring Guides"
         title="Playbooks for hiring industrial talent in Mexico."
-        description="Step-by-step guides for international leaders running technical and commercial searches in Mexico — written from active recruiting experience."
+        description="Step-by-step guides for international leaders running technical and commercial searches in Mexico and North America — written from active recruiting experience."
       />
 
       <section className="py-20 lg:py-28">
