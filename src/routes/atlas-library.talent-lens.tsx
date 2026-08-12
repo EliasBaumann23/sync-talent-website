@@ -523,10 +523,10 @@ function TalentLensPage() {
         eyebrow="Atlas Library · Methodology Document 03"
         title="Hiring decisions improve when every candidate is evaluated through the same lens."
         text="The Talent Lens™ transforms interviews into structured decision evidence, helping leadership teams compare candidates with greater confidence and clarity."
-        buttonText="Explore the Hiring Confidence Index™"
-        secondaryText="Experience the Discovery Experience™"
-        to="/atlas-library/hiring-confidence-index"
-        secondaryTo="/discovery-experience"
+        buttonText="Contact us"
+        secondaryText={"Continue to the\u00a0\nHiring Confidence Index™"}
+        to="/contact"
+        secondaryTo="/atlas-library/hiring-confidence-index"
       />
     </SiteLayout>
   );
