@@ -193,9 +193,9 @@ function DiscoveryPage() {
         title="Send a note. We respond within one business day."
         text="Share the hiring decision you are considering. We will respond with an honest read and, if appropriate, a proposed Discovery Experience™."
         buttonText="Send a note"
-        secondaryText="Explore the Atlas Method™"
+        secondaryText="Continue to the\n\u00a0Search Blueprint™"
         to="/contact"
-        secondaryTo="/atlas-method"
+        secondaryTo="/atlas-library/search-blueprint"
       />
     </SiteLayout>
   );
