@@ -148,7 +148,7 @@ const principles = [
 
 const related = [
   {
-    title: "Market Reports",
+    title: "Research Library",
     body: "Periodic readings of demand, availability and notice periods across industrial North America.",
     to: "/knowledge-hub",
   },
