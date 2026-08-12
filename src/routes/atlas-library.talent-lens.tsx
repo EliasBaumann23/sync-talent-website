@@ -232,7 +232,7 @@ function TalentLensPage() {
               </p>
               <div className="flex flex-wrap items-center gap-3">
                 <Link
-                  to="/services"
+                  to="/atlas-library/hiring-confidence-index"
                   className="inline-flex items-center rounded-[10px] bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise"
                 >
                   Explore the Hiring Confidence Index™
@@ -531,7 +531,7 @@ function TalentLensPage() {
         text="The Talent Lens™ transforms interviews into structured decision evidence, helping leadership teams compare candidates with greater confidence and clarity."
         buttonText="Explore the Hiring Confidence Index™"
         secondaryText="Experience the Discovery Experience™"
-        to="/services"
+        to="/atlas-library/hiring-confidence-index"
         secondaryTo="/discovery-experience"
       />
     </SiteLayout>
