@@ -554,9 +554,9 @@ function SearchBlueprintPage() {
         title="Great hiring decisions begin long before the first interview."
         text="The Search Blueprint™ creates clarity before the search begins, ensuring that every candidate is evaluated against the same business decision."
         buttonText="Experience the Discovery Experience™"
-        secondaryText="Explore the Atlas Method™"
+        secondaryText="Continue to the\u00a0Talent Lens™"
         to="/contact"
-        secondaryTo="/atlas-method"
+        secondaryTo="/atlas-library/talent-lens"
       />
     </SiteLayout>
   );
