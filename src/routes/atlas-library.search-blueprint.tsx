@@ -500,7 +500,7 @@ function SearchBlueprintPage() {
 
           <AtlasLine
             nodes={6}
-            active={2}
+            active={1}
             className="mx-auto mt-16 max-w-4xl text-navy/60"
           />
           <div className="mt-10">
