@@ -148,7 +148,7 @@ function SearchBlueprintPage() {
               </p>
               <div className="flex flex-wrap items-center gap-3">
                 <Link
-                  to="/contact"
+                  to="/discovery-experience"
                   className="inline-flex items-center rounded-[10px] bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise"
                 >
                   Experience the Discovery Experience™
