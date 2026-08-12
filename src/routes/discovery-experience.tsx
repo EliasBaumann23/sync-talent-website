@@ -45,7 +45,7 @@ const deliverables = [
 const faqs = [
   {
     q: "How long does the Discovery Experience™ take?",
-    a: "One structured 60 to 90 minute conversation, followed by a written Discovery Canvas™ delivered within a few working days.",
+    a: "One structured 45 to 60 minute conversation, followed by a written Discovery Canvas™ delivered within a few working days.",
   },
   {
     q: "Is it a sales meeting?",
