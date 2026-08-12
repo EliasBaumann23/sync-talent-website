@@ -510,7 +510,7 @@ function SearchBlueprintPage() {
       </section>
 
       {/* SECTION 8 — WHAT CLIENTS RECEIVE */}
-      <section className="border-y border-hairline bg-surface py-32 lg:py-40">
+      <section className="border-y border-hairline bg-surface py-32 pb-20 lg:pt-40 lg:pb-24">
         <div className="container-x">
           <div className="grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-start">
             <div>
@@ -536,15 +536,6 @@ function SearchBlueprintPage() {
             The Search Blueprint™ becomes the reference document for the
             entire Executive Search engagement.
           </p>
-
-          <div className="mt-16 flex justify-center">
-            <Link
-              to="/atlas-method"
-              className="inline-flex items-center gap-2 text-sm font-medium text-navy link-underline"
-            >
-              Continue to the Atlas Method™ <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
         </div>
       </section>
 
