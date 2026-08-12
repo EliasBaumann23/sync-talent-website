@@ -34,7 +34,7 @@ const industries = [
     name: "Packaging Machinery",
     img: indPackaging,
     challenges: "Few candidates with both OEM service experience and bilingual commercial exposure.",
-    roles: ["Service Manager", "Field Service Engineer", "Regional Sales Manager"],
+    roles: ["Setup Engineer", "Field Service Engineer", "Regional Sales Manager"],
     market:
       "High demand from European OEMs entering or expanding in Mexico; tight market for after-sales leadership.",
   },
