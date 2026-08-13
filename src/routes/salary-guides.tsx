@@ -24,39 +24,39 @@ export const Route = createFileRoute("/salary-guides")({
 const guides = [
   {
     role: "Sales Engineer",
-    range: "MXN 720K — 1.4M / yr",
+    range: "MXN 520K — 1.2M / yr",
     demand: "High",
-    tth: "6–8 weeks",
+    tth: "2–4 weeks",
   },
   {
     role: "Field Service Engineer",
-    range: "MXN 540K — 1.1M / yr",
+    range: "MXN 390K — 980K / yr",
     demand: "Very High",
-    tth: "8–10 weeks",
+    tth: "2–4 weeks",
   },
   {
     role: "Automation Engineer",
-    range: "MXN 600K — 1.3M / yr",
+    range: "MXN 600K — 1.2M / yr",
     demand: "High",
-    tth: "6–9 weeks",
+    tth: "3–6 weeks",
   },
   {
     role: "Service Manager",
-    range: "MXN 1.2M — 2.4M / yr",
+    range: "MXN 1.1M — 1.95M / yr",
     demand: "High",
-    tth: "8–12 weeks",
+    tth: "4–8 weeks",
   },
   {
     role: "Regional Sales Manager",
-    range: "MXN 1.4M — 2.8M / yr",
+    range: "MXN 1.04M — 2.8M / yr",
     demand: "Medium-High",
-    tth: "8–12 weeks",
+    tth: "4–8 weeks",
   },
   {
     role: "Country Manager",
-    range: "MXN 2.4M — 4.5M+ / yr",
+    range: "MXN 1.6M — 3.9M+ / yr",
     demand: "Selective",
-    tth: "10–16 weeks",
+    tth: "4–10 weeks",
   },
 ];
 
