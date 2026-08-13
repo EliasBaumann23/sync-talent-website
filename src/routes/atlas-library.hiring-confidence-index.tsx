@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CTABand } from "@/components/site/CTA";
-import { AtlasDivider } from "@/components/site/AtlasLine";
+import { AtlasDivider, AtlasLine } from "@/components/site/AtlasLine";
 
 export const Route = createFileRoute("/atlas-library/hiring-confidence-index")({
   head: () => ({
@@ -442,7 +442,12 @@ function HiringConfidenceIndexPage() {
             </h2>
           </div>
 
-          <div className="mt-16">
+          <AtlasLine
+            nodes={6}
+            active={4}
+            className="mx-auto mt-16 max-w-4xl text-navy/60"
+          />
+          <div className="mt-10">
             <FlowRow steps={atlasFlow} />
           </div>
 
