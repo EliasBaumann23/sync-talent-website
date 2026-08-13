@@ -126,7 +126,8 @@ function SalaryPage() {
         eyebrow="Tailored benchmark"
         title="Need a specific salary view?"
         text="Share the role, level and region and we will reply with current market data based on active searches."
-        buttonText="Request a Benchmark"
+        buttonText="Contact us"
+        secondaryText=""
       />
     </SiteLayout>
   );
