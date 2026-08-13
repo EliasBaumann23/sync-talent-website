@@ -204,7 +204,7 @@ function HubPage() {
       </section>
 
 
-      <CTABand />
+      <CTABand secondaryText="" />
     </SiteLayout>
   );
 }
