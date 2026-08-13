@@ -520,10 +520,14 @@ function SearchBlueprintPage() {
               </h2>
             </div>
             <ul className="grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2">
-              {deliverables.map((d) => (
+              {deliverables.map((d, i) => (
                 <li
                   key={d}
-                  className="flex items-center gap-3 bg-white px-6 py-4"
+                  className={`flex items-center gap-3 bg-white px-6 py-4 ${
+                    i === deliverables.length - 1
+                      ? "sm:col-span-2 sm:justify-center"
+                      : ""
+                  }`}
                 >
                   <Check className="h-4 w-4 shrink-0 text-turquoise" />
                   <span className="text-sm text-navy">{d}</span>
