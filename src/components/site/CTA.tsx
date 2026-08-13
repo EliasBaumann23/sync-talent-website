@@ -35,12 +35,14 @@ export function CTABand({
             >
               {buttonText}
             </Link>
+          {secondaryText && (
             <Link
               to={secondaryTo}
               className="inline-flex items-center rounded-[10px] border border-white/30 px-7 py-4 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/5"
             >
               {secondaryText}
             </Link>
+          )}
           </div>
         </div>
       </div>
