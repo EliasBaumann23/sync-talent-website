@@ -203,35 +203,6 @@ function HubPage() {
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="container-x pb-24">
-        <div className="rounded-[10px] border border-hairline bg-surface p-10 lg:p-16">
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-            <div>
-              <p className="eyebrow">Standing Brief</p>
-              <h2 className="mt-4 text-3xl md:text-4xl">Industrial Hiring Brief</h2>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted">
-                A monthly institutional perspective on industrial hiring in North America. Salary
-                evidence, market readings and Atlas Notes.
-              </p>
-            </div>
-            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-3">
-              <input
-                type="email"
-                required
-                placeholder="Work email"
-                className="rounded-[10px] border border-hairline bg-white px-4 py-3.5 text-sm text-navy placeholder:text-ink-muted focus:border-navy focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="rounded-[10px] bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise hover:text-navy"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
 
       <CTABand />
     </SiteLayout>
