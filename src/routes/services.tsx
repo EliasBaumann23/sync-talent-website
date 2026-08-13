@@ -151,7 +151,7 @@ function ServicesPage() {
         </div>
       </section>
 
-      <CTABand />
+      <CTABand secondaryText="" />
     </SiteLayout>
   );
 }
