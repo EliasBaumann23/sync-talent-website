@@ -477,7 +477,7 @@ function TalentLensPage() {
 
           <AtlasLine
             nodes={6}
-            active={4}
+            active={3}
             className="mx-auto mt-16 max-w-4xl text-navy/60"
           />
           <div className="mt-10">
