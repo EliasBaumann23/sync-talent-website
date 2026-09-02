@@ -9,7 +9,7 @@ import indManufacturing from "@/assets/ind-manufacturing.jpg";
 import indMachinery from "@/assets/ind-machinery.jpg";
 import indSoftware from "@/assets/ind-software.jpg";
 import logoOmp from "@/assets/OMP.png.asset.json";
-import logoHennecke from "@/assets/Hennecke.png.asset.json";
+import logoHennecke from "@/assets/Hennecke-2.png.asset.json";
 import logoZimmer from "@/assets/ZIMMER.png.asset.json";
 import logoNita from "@/assets/NITA.png.asset.json";
 import logoSomic from "@/assets/SOMIC.png.asset.json";
@@ -219,7 +219,7 @@ const trendingTopics = [
 
 const clientLogos = [
   { name: "OMP", src: logoOmp.url, className: "max-h-9" },
-  { name: "Hennecke", src: logoHennecke.url, className: "max-h-[80px] mt-2" },
+  { name: "Hennecke", src: logoHennecke.url, className: "max-h-[60px]" },
   { name: "Zimmer Group", src: logoZimmer.url, className: "max-h-9" },
   { name: "NITA", src: logoNita.url, className: "max-h-5" },
   { name: "SOMIC", src: logoSomic.url, className: "max-h-9" },
