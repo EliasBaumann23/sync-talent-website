@@ -159,7 +159,7 @@ function IndustriesPage() {
         </div>
       </section>
 
-      <CTABand />
+      <CTABand secondaryText="" />
     </SiteLayout>
   );
 }
