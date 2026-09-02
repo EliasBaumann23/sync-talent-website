@@ -9,6 +9,7 @@ import indManufacturing from "@/assets/ind-manufacturing.jpg";
 import indMachinery from "@/assets/ind-machinery.jpg";
 import indSoftware from "@/assets/ind-software.jpg";
 import logoOmp from "@/assets/OMP.png.asset.json";
+import logoHennecke from "@/assets/Hennecke-2.png.asset.json";
 import logoHennecke from "@/assets/Hennecke.png.asset.json";
 import logoZimmer from "@/assets/ZIMMER.png.asset.json";
 import logoNita from "@/assets/NITA.png.asset.json";
