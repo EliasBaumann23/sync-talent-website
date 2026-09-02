@@ -83,7 +83,7 @@ function HiringGuidesPage() {
         </div>
       </section>
 
-      <CTABand />
+      <CTABand secondaryText="" />
     </SiteLayout>
   );
 }
