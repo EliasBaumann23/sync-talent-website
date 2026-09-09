@@ -35,7 +35,12 @@ const categories = [
   "Decision Intelligence",
 ];
 
-const articles = [
+/**
+ * Card list. Entries that exist as real publications (src/content/publications)
+ * take their title, category, read time and excerpt from that metadata and link
+ * to the publication page. Remaining entries stay as upcoming placeholders.
+ */
+const staticArticles = [
   {
     cat: "Atlas Notes",
     title: "Why Executive Search deserves a better methodology.",
