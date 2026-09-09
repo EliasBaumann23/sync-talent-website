@@ -88,6 +88,27 @@ const staticArticles = [
   },
 ];
 
+type Card = { cat: string; title: string; read: string; slug?: string };
+
+const byTitle = new Map(publishedPublications.map((p) => [p.title, p]));
+
+const articles: Card[] = [
+  ...staticArticles.map((a) => {
+    const pub = byTitle.get(a.title);
+    return pub
+      ? { cat: pub.category, title: pub.title, read: pub.readTime ?? a.read, slug: pub.slug }
+      : a;
+  }),
+  ...publishedPublications
+    .filter((p) => !staticArticles.some((a) => a.title === p.title))
+    .map((p) => ({
+      cat: p.category,
+      title: p.title,
+      read: p.readTime ?? "",
+      slug: p.slug,
+    })),
+];
+
 function HubPage() {
   const [active, setActive] = useState("All");
   const [query, setQuery] = useState("");
