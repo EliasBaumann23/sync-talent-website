@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
 import { ArrowRight } from "lucide-react";
 import logoIcon from "@/assets/Logo_New_Turquise_S.png.asset.json";
+import { publishedPublications } from "@/lib/publications";
 
 export const Route = createFileRoute("/knowledge-hub")({
   head: () => ({
