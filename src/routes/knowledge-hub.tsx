@@ -205,21 +205,36 @@ function HubPage() {
       <section className="pb-20">
         <div className="container-x">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((a) => (
-              <article
-                key={a.title}
-                className="group flex flex-col gap-5 rounded-[10px] border border-hairline bg-white p-7 transition-colors hover:border-navy"
-              >
-                <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em]">
-                  <span className="text-navy">{a.cat}</span>
-                  <span className="text-ink-muted">{a.read}</span>
-                </div>
-                <h3 className="text-base leading-snug">{a.title}</h3>
-                <span className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-navy transition-colors group-hover:text-turquoise">
-                  Read <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </article>
-            ))}
+            {filtered.map((a) => {
+              const cardClass =
+                "group flex flex-col gap-5 rounded-[10px] border border-hairline bg-white p-7 transition-colors hover:border-navy";
+              const inner = (
+                <>
+                  <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em]">
+                    <span className="text-navy">{a.cat}</span>
+                    <span className="text-ink-muted">{a.read}</span>
+                  </div>
+                  <h3 className="text-base leading-snug">{a.title}</h3>
+                  <span className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-navy transition-colors group-hover:text-turquoise">
+                    Read <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </>
+              );
+              return a.slug ? (
+                <Link
+                  key={a.title}
+                  to="/knowledge-hub/$slug"
+                  params={{ slug: a.slug }}
+                  className={cardClass}
+                >
+                  {inner}
+                </Link>
+              ) : (
+                <article key={a.title} className={cardClass}>
+                  {inner}
+                </article>
+              );
+            })}
           </div>
           {filtered.length === 0 && (
             <p className="mt-10 text-center text-sm text-ink-muted">
