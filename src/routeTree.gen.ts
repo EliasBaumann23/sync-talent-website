@@ -21,6 +21,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AtlasMethodRouteImport } from './routes/atlas-method'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KnowledgeHubSlugRouteImport } from './routes/knowledge-hub.$slug'
 import { Route as AtlasLibraryTalentLensRouteImport } from './routes/atlas-library.talent-lens'
 import { Route as AtlasLibrarySearchBlueprintRouteImport } from './routes/atlas-library.search-blueprint'
 import { Route as AtlasLibraryHiringConfidenceIndexRouteImport } from './routes/atlas-library.hiring-confidence-index'
@@ -89,6 +90,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KnowledgeHubSlugRoute = KnowledgeHubSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => KnowledgeHubRoute,
+} as any)
 const AtlasLibraryTalentLensRoute = AtlasLibraryTalentLensRouteImport.update({
   id: '/atlas-library/talent-lens',
   path: '/atlas-library/talent-lens',
@@ -138,7 +144,7 @@ export interface FileRoutesByFullPath {
   '/discovery-experience': typeof DiscoveryExperienceRoute
   '/hiring-guides': typeof HiringGuidesRoute
   '/industries': typeof IndustriesRoute
-  '/knowledge-hub': typeof KnowledgeHubRoute
+  '/knowledge-hub': typeof KnowledgeHubRouteWithChildren
   '/mcp': typeof McpRoute
   '/salary-guides': typeof SalaryGuidesRoute
   '/services': typeof ServicesRoute
@@ -149,6 +155,7 @@ export interface FileRoutesByFullPath {
   '/atlas-library/hiring-confidence-index': typeof AtlasLibraryHiringConfidenceIndexRoute
   '/atlas-library/search-blueprint': typeof AtlasLibrarySearchBlueprintRoute
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
+  '/knowledge-hub/$slug': typeof KnowledgeHubSlugRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesByTo {
@@ -159,7 +166,7 @@ export interface FileRoutesByTo {
   '/discovery-experience': typeof DiscoveryExperienceRoute
   '/hiring-guides': typeof HiringGuidesRoute
   '/industries': typeof IndustriesRoute
-  '/knowledge-hub': typeof KnowledgeHubRoute
+  '/knowledge-hub': typeof KnowledgeHubRouteWithChildren
   '/mcp': typeof McpRoute
   '/salary-guides': typeof SalaryGuidesRoute
   '/services': typeof ServicesRoute
@@ -170,6 +177,7 @@ export interface FileRoutesByTo {
   '/atlas-library/hiring-confidence-index': typeof AtlasLibraryHiringConfidenceIndexRoute
   '/atlas-library/search-blueprint': typeof AtlasLibrarySearchBlueprintRoute
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
+  '/knowledge-hub/$slug': typeof KnowledgeHubSlugRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesById {
@@ -181,7 +189,7 @@ export interface FileRoutesById {
   '/discovery-experience': typeof DiscoveryExperienceRoute
   '/hiring-guides': typeof HiringGuidesRoute
   '/industries': typeof IndustriesRoute
-  '/knowledge-hub': typeof KnowledgeHubRoute
+  '/knowledge-hub': typeof KnowledgeHubRouteWithChildren
   '/mcp': typeof McpRoute
   '/salary-guides': typeof SalaryGuidesRoute
   '/services': typeof ServicesRoute
@@ -192,6 +200,7 @@ export interface FileRoutesById {
   '/atlas-library/hiring-confidence-index': typeof AtlasLibraryHiringConfidenceIndexRoute
   '/atlas-library/search-blueprint': typeof AtlasLibrarySearchBlueprintRoute
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
+  '/knowledge-hub/$slug': typeof KnowledgeHubSlugRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRouteTypes {
@@ -215,6 +224,7 @@ export interface FileRouteTypes {
     | '/atlas-library/hiring-confidence-index'
     | '/atlas-library/search-blueprint'
     | '/atlas-library/talent-lens'
+    | '/knowledge-hub/$slug'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -236,6 +246,7 @@ export interface FileRouteTypes {
     | '/atlas-library/hiring-confidence-index'
     | '/atlas-library/search-blueprint'
     | '/atlas-library/talent-lens'
+    | '/knowledge-hub/$slug'
     | '/.mcp/invoke-tool/$tool'
   id:
     | '__root__'
@@ -257,6 +268,7 @@ export interface FileRouteTypes {
     | '/atlas-library/hiring-confidence-index'
     | '/atlas-library/search-blueprint'
     | '/atlas-library/talent-lens'
+    | '/knowledge-hub/$slug'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesById: FileRoutesById
 }
@@ -268,7 +280,7 @@ export interface RootRouteChildren {
   DiscoveryExperienceRoute: typeof DiscoveryExperienceRoute
   HiringGuidesRoute: typeof HiringGuidesRoute
   IndustriesRoute: typeof IndustriesRoute
-  KnowledgeHubRoute: typeof KnowledgeHubRoute
+  KnowledgeHubRoute: typeof KnowledgeHubRouteWithChildren
   McpRoute: typeof McpRoute
   SalaryGuidesRoute: typeof SalaryGuidesRoute
   ServicesRoute: typeof ServicesRoute
@@ -368,6 +380,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/knowledge-hub/$slug': {
+      id: '/knowledge-hub/$slug'
+      path: '/$slug'
+      fullPath: '/knowledge-hub/$slug'
+      preLoaderRoute: typeof KnowledgeHubSlugRouteImport
+      parentRoute: typeof KnowledgeHubRoute
+    }
     '/atlas-library/talent-lens': {
       id: '/atlas-library/talent-lens'
       path: '/atlas-library/talent-lens'
@@ -420,6 +439,18 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface KnowledgeHubRouteChildren {
+  KnowledgeHubSlugRoute: typeof KnowledgeHubSlugRoute
+}
+
+const KnowledgeHubRouteChildren: KnowledgeHubRouteChildren = {
+  KnowledgeHubSlugRoute: KnowledgeHubSlugRoute,
+}
+
+const KnowledgeHubRouteWithChildren = KnowledgeHubRoute._addFileChildren(
+  KnowledgeHubRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -428,7 +459,7 @@ const rootRouteChildren: RootRouteChildren = {
   DiscoveryExperienceRoute: DiscoveryExperienceRoute,
   HiringGuidesRoute: HiringGuidesRoute,
   IndustriesRoute: IndustriesRoute,
-  KnowledgeHubRoute: KnowledgeHubRoute,
+  KnowledgeHubRoute: KnowledgeHubRouteWithChildren,
   McpRoute: McpRoute,
   SalaryGuidesRoute: SalaryGuidesRoute,
   ServicesRoute: ServicesRoute,

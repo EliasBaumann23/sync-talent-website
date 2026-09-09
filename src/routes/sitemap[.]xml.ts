@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { publishedPublications } from "@/lib/publications";
 import type {} from "@tanstack/react-start";
 
 const BASE_URL = "";
@@ -28,6 +29,11 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/atlas-library/atlas-notes", changefreq: "weekly", priority: "0.8" },
           { path: "/about", changefreq: "monthly", priority: "0.6" },
           { path: "/contact", changefreq: "monthly", priority: "0.6" },
+          ...publishedPublications.map((p) => ({
+            path: `/knowledge-hub/${p.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.7",
+          })),
         ];
 
         const urls = entries.map((e) =>

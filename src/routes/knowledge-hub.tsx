@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
 import { ArrowRight } from "lucide-react";
 import logoIcon from "@/assets/Logo_New_Turquise_S.png.asset.json";
+import { publishedPublications } from "@/lib/publications";
 
 export const Route = createFileRoute("/knowledge-hub")({
   head: () => ({
@@ -35,7 +36,12 @@ const categories = [
   "Decision Intelligence",
 ];
 
-const articles = [
+/**
+ * Card list. Entries that exist as real publications (src/content/publications)
+ * take their title, category, read time and excerpt from that metadata and link
+ * to the publication page. Remaining entries stay as upcoming placeholders.
+ */
+const staticArticles = [
   {
     cat: "Atlas Notes",
     title: "Why Executive Search deserves a better methodology.",
@@ -81,6 +87,27 @@ const articles = [
     title: "Hiring confidence: the metric no one publishes.",
     read: "5 min read",
   },
+];
+
+type Card = { cat: string; title: string; read: string; slug?: string };
+
+const byTitle = new Map(publishedPublications.map((p) => [p.title, p]));
+
+const articles: Card[] = [
+  ...staticArticles.map((a) => {
+    const pub = byTitle.get(a.title);
+    return pub
+      ? { cat: pub.category, title: pub.title, read: pub.readTime ?? a.read, slug: pub.slug }
+      : a;
+  }),
+  ...publishedPublications
+    .filter((p) => !staticArticles.some((a) => a.title === p.title))
+    .map((p) => ({
+      cat: p.category,
+      title: p.title,
+      read: p.readTime ?? "",
+      slug: p.slug,
+    })),
 ];
 
 function HubPage() {
@@ -179,21 +206,36 @@ function HubPage() {
       <section className="pb-20">
         <div className="container-x">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((a) => (
-              <article
-                key={a.title}
-                className="group flex flex-col gap-5 rounded-[10px] border border-hairline bg-white p-7 transition-colors hover:border-navy"
-              >
-                <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em]">
-                  <span className="text-navy">{a.cat}</span>
-                  <span className="text-ink-muted">{a.read}</span>
-                </div>
-                <h3 className="text-base leading-snug">{a.title}</h3>
-                <span className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-navy transition-colors group-hover:text-turquoise">
-                  Read <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </article>
-            ))}
+            {filtered.map((a) => {
+              const cardClass =
+                "group flex flex-col gap-5 rounded-[10px] border border-hairline bg-white p-7 transition-colors hover:border-navy";
+              const inner = (
+                <>
+                  <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em]">
+                    <span className="text-navy">{a.cat}</span>
+                    <span className="text-ink-muted">{a.read}</span>
+                  </div>
+                  <h3 className="text-base leading-snug">{a.title}</h3>
+                  <span className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-navy transition-colors group-hover:text-turquoise">
+                    Read <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </>
+              );
+              return a.slug ? (
+                <Link
+                  key={a.title}
+                  to="/knowledge-hub/$slug"
+                  params={{ slug: a.slug }}
+                  className={cardClass}
+                >
+                  {inner}
+                </Link>
+              ) : (
+                <article key={a.title} className={cardClass}>
+                  {inner}
+                </article>
+              );
+            })}
           </div>
           {filtered.length === 0 && (
             <p className="mt-10 text-center text-sm text-ink-muted">
