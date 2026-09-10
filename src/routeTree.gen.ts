@@ -21,6 +21,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AtlasMethodRouteImport } from './routes/atlas-method'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KnowledgeHubIndexRouteImport } from './routes/knowledge-hub.index'
 import { Route as KnowledgeHubSlugRouteImport } from './routes/knowledge-hub.$slug'
 import { Route as AtlasLibraryTalentLensRouteImport } from './routes/atlas-library.talent-lens'
 import { Route as AtlasLibrarySearchBlueprintRouteImport } from './routes/atlas-library.search-blueprint'
@@ -90,6 +91,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KnowledgeHubIndexRoute = KnowledgeHubIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => KnowledgeHubRoute,
+} as any)
 const KnowledgeHubSlugRoute = KnowledgeHubSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -156,6 +162,7 @@ export interface FileRoutesByFullPath {
   '/atlas-library/search-blueprint': typeof AtlasLibrarySearchBlueprintRoute
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
   '/knowledge-hub/$slug': typeof KnowledgeHubSlugRoute
+  '/knowledge-hub/': typeof KnowledgeHubIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesByTo {
@@ -166,7 +173,6 @@ export interface FileRoutesByTo {
   '/discovery-experience': typeof DiscoveryExperienceRoute
   '/hiring-guides': typeof HiringGuidesRoute
   '/industries': typeof IndustriesRoute
-  '/knowledge-hub': typeof KnowledgeHubRouteWithChildren
   '/mcp': typeof McpRoute
   '/salary-guides': typeof SalaryGuidesRoute
   '/services': typeof ServicesRoute
@@ -178,6 +184,7 @@ export interface FileRoutesByTo {
   '/atlas-library/search-blueprint': typeof AtlasLibrarySearchBlueprintRoute
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
   '/knowledge-hub/$slug': typeof KnowledgeHubSlugRoute
+  '/knowledge-hub': typeof KnowledgeHubIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesById {
@@ -201,6 +208,7 @@ export interface FileRoutesById {
   '/atlas-library/search-blueprint': typeof AtlasLibrarySearchBlueprintRoute
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
   '/knowledge-hub/$slug': typeof KnowledgeHubSlugRoute
+  '/knowledge-hub/': typeof KnowledgeHubIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRouteTypes {
@@ -225,6 +233,7 @@ export interface FileRouteTypes {
     | '/atlas-library/search-blueprint'
     | '/atlas-library/talent-lens'
     | '/knowledge-hub/$slug'
+    | '/knowledge-hub/'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -235,7 +244,6 @@ export interface FileRouteTypes {
     | '/discovery-experience'
     | '/hiring-guides'
     | '/industries'
-    | '/knowledge-hub'
     | '/mcp'
     | '/salary-guides'
     | '/services'
@@ -247,6 +255,7 @@ export interface FileRouteTypes {
     | '/atlas-library/search-blueprint'
     | '/atlas-library/talent-lens'
     | '/knowledge-hub/$slug'
+    | '/knowledge-hub'
     | '/.mcp/invoke-tool/$tool'
   id:
     | '__root__'
@@ -269,6 +278,7 @@ export interface FileRouteTypes {
     | '/atlas-library/search-blueprint'
     | '/atlas-library/talent-lens'
     | '/knowledge-hub/$slug'
+    | '/knowledge-hub/'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesById: FileRoutesById
 }
@@ -380,6 +390,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/knowledge-hub/': {
+      id: '/knowledge-hub/'
+      path: '/'
+      fullPath: '/knowledge-hub/'
+      preLoaderRoute: typeof KnowledgeHubIndexRouteImport
+      parentRoute: typeof KnowledgeHubRoute
+    }
     '/knowledge-hub/$slug': {
       id: '/knowledge-hub/$slug'
       path: '/$slug'
@@ -441,10 +458,12 @@ declare module '@tanstack/react-router' {
 
 interface KnowledgeHubRouteChildren {
   KnowledgeHubSlugRoute: typeof KnowledgeHubSlugRoute
+  KnowledgeHubIndexRoute: typeof KnowledgeHubIndexRoute
 }
 
 const KnowledgeHubRouteChildren: KnowledgeHubRouteChildren = {
   KnowledgeHubSlugRoute: KnowledgeHubSlugRoute,
+  KnowledgeHubIndexRoute: KnowledgeHubIndexRoute,
 }
 
 const KnowledgeHubRouteWithChildren = KnowledgeHubRoute._addFileChildren(
