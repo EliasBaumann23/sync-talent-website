@@ -222,6 +222,6 @@ export function getPublicationsByCategory(category: PublicationCategory) {
 
 export function getRelatedPublications(pub: Publication) {
   return pub.related
-    .map((id) => getPublicationById(id))
+    .map((id) => publications.find((p) => p.id === id))
     .filter((p): p is Publication => Boolean(p) && p!.slug !== pub.slug);
 }
