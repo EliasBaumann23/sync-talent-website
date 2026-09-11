@@ -17,10 +17,6 @@ keyFindings:
   - Most search mandates begin without an agreed definition of the decision being made.
   - Evidence gathered during a search is rarely structured well enough to be reviewed later.
   - Hiring confidence improves when market reality is established before candidates are approached.
-stats:
-  - 01|Placeholder metric block — structured evidence per mandate
-  - 02|Placeholder metric block — decision criteria agreed up front
-  - 03|Placeholder metric block — reviewable hiring rationale
 ---
 
 ## The problem with the standard model
