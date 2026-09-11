@@ -181,7 +181,7 @@ export function PublicationPage({ publication }: { publication: Publication }) {
         </section>
       )}
 
-      {pub.ctaTitle ? (
+      {pub.ctaTitle && (
         <CTABand
           title={pub.ctaTitle}
           text={pub.ctaText ?? ""}
@@ -189,8 +189,6 @@ export function PublicationPage({ publication }: { publication: Publication }) {
           to={pub.ctaTo ?? "/contact"}
           secondaryText=""
         />
-      ) : (
-        <CTABand secondaryText="" />
       )}
     </SiteLayout>
   );
