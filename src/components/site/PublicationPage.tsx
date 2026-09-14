@@ -96,10 +96,12 @@ export function PublicationPage({ publication }: { publication: Publication }) {
             )}
 
             {/* Article body */}
-            <div
-              className="atlas-prose"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
+            <div className="mx-auto max-w-[720px]">
+              <div
+                className="atlas-prose"
+                dangerouslySetInnerHTML={{ __html: html }}
+              />
+            </div>
 
             {/* Methodology */}
             {pub.methodology && (
