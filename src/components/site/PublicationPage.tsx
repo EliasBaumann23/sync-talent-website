@@ -30,6 +30,7 @@ function formatDate(value?: string) {
 export function PublicationPage({ publication }: { publication: Publication }) {
   const pub = publication;
   const related = getRelatedPublications(pub);
+  const liveRelated = related.filter((r) => r.status === "published");
   const html = marked.parse(pub.body) as string;
 
   const published = formatDate(pub.publishedDate);
@@ -41,10 +42,7 @@ export function PublicationPage({ publication }: { publication: Publication }) {
       <header className="border-b border-hairline bg-white">
         <div className="container-x pt-20 pb-14 lg:pt-28 lg:pb-16">
           <div className="mx-auto max-w-3xl">
-            <p className="eyebrow text-turquoise">
-              {pub.category}
-              {pub.publicationType ? ` · ${pub.publicationType}` : ""}
-            </p>
+            <p className="eyebrow text-turquoise">{pub.category}</p>
             <h1 className="mt-5 text-4xl leading-[1.08] tracking-tight md:text-5xl">
               {pub.title}
             </h1>
@@ -98,10 +96,12 @@ export function PublicationPage({ publication }: { publication: Publication }) {
             )}
 
             {/* Article body */}
-            <div
-              className="atlas-prose"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
+            <div className="mx-auto max-w-[720px]">
+              <div
+                className="atlas-prose"
+                dangerouslySetInnerHTML={{ __html: html }}
+              />
+            </div>
 
             {/* Methodology */}
             {pub.methodology && (
@@ -154,47 +154,31 @@ export function PublicationPage({ publication }: { publication: Publication }) {
       </article>
 
       {/* Related Intelligence */}
-      {related.length > 0 && (
+      {liveRelated.length > 0 && (
         <section className="border-t border-hairline bg-surface py-20">
           <div className="container-x">
             <p className="eyebrow">Related Intelligence</p>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((r) =>
-                r.status === "published" ? (
-                  <Link
-                    key={r.id}
-                    to="/knowledge-hub/$slug"
-                    params={{ slug: r.slug }}
-                    className="group flex flex-col gap-5 rounded-[10px] border border-hairline bg-white p-7 transition-colors hover:border-navy"
-                  >
-                    <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em]">
-                      <span className="text-navy">{r.category}</span>
-                      {r.readTime && <span className="text-ink-muted">{r.readTime}</span>}
-                    </div>
-                    <h3 className="text-base leading-snug">{r.title}</h3>
-                    {r.excerpt && (
-                      <p className="text-sm leading-relaxed text-ink-muted">{r.excerpt}</p>
-                    )}
-                    <span className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-navy transition-colors group-hover:text-turquoise">
-                      Read <ArrowRight className="h-3.5 w-3.5" />
-                    </span>
-                  </Link>
-                ) : (
-                  <div
-                    key={r.id}
-                    className="flex flex-col gap-5 rounded-[10px] border border-hairline bg-white p-7"
-                  >
-                    <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em]">
-                      <span className="text-navy">{r.category}</span>
-                      <span className="text-ink-muted">Forthcoming</span>
-                    </div>
-                    <h3 className="text-base leading-snug">{r.title}</h3>
-                    {r.excerpt && (
-                      <p className="text-sm leading-relaxed text-ink-muted">{r.excerpt}</p>
-                    )}
+              {liveRelated.map((r) => (
+                <Link
+                  key={r.id}
+                  to="/knowledge-hub/$slug"
+                  params={{ slug: r.slug }}
+                  className="group flex flex-col gap-5 rounded-[10px] border border-hairline bg-white p-7 transition-colors hover:border-navy"
+                >
+                  <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em]">
+                    <span className="text-navy">{r.category}</span>
+                    {r.readTime && <span className="text-ink-muted">{r.readTime}</span>}
                   </div>
-                ),
-              )}
+                  <h3 className="text-base leading-snug">{r.title}</h3>
+                  {r.excerpt && (
+                    <p className="text-sm leading-relaxed text-ink-muted">{r.excerpt}</p>
+                  )}
+                  <span className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-navy transition-colors group-hover:text-turquoise">
+                    Read <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
