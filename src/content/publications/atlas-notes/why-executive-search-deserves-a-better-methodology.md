@@ -5,7 +5,7 @@ slug: why-executive-search-deserves-a-better-methodology
 category: Atlas Notes
 publicationType: atlas-note
 excerpt: Executive Search has become remarkably good at finding people. The harder problem is making better hiring decisions.
-readTime: 7 min read
+readTime: 7 min
 publishedDate: 2026-09-11
 featured: true
 status: published
