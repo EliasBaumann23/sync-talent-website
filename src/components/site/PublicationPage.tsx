@@ -30,6 +30,7 @@ function formatDate(value?: string) {
 export function PublicationPage({ publication }: { publication: Publication }) {
   const pub = publication;
   const related = getRelatedPublications(pub);
+  const liveRelated = related.filter((r) => r.status === "published");
   const html = marked.parse(pub.body) as string;
 
   const published = formatDate(pub.publishedDate);
