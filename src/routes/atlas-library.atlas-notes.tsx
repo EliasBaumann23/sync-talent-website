@@ -29,7 +29,14 @@ export const Route = createFileRoute("/atlas-library/atlas-notes")({
   component: AtlasNotesPage,
 });
 
-const notes = [
+const notes: {
+  cat: string;
+  title: string;
+  summary: string;
+  read: string;
+  date: string;
+  slug?: string;
+}[] = [
   {
     cat: "Executive Search",
     title: "Why Executive Search starts too late.",
@@ -37,6 +44,7 @@ const notes = [
       "Most searches begin once a role is approved. The decisive work — defining what the organization actually needs — has usually already been skipped.",
     read: "7 min read",
     date: "July 2026",
+    slug: "why-executive-search-starts-too-late",
   },
   {
     cat: "Market Intelligence",
