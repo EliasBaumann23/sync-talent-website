@@ -29,7 +29,14 @@ export const Route = createFileRoute("/atlas-library/atlas-notes")({
   component: AtlasNotesPage,
 });
 
-const notes = [
+const notes: {
+  cat: string;
+  title: string;
+  summary: string;
+  read: string;
+  date: string;
+  slug?: string;
+}[] = [
   {
     cat: "Executive Search",
     title: "Why Executive Search starts too late.",
@@ -37,6 +44,7 @@ const notes = [
       "Most searches begin once a role is approved. The decisive work — defining what the organization actually needs — has usually already been skipped.",
     read: "7 min read",
     date: "July 2026",
+    slug: "why-executive-search-starts-too-late",
   },
   {
     cat: "Market Intelligence",
@@ -245,7 +253,8 @@ function AtlasNotesPage() {
                 has been assumed, and what changes when understanding comes first.
               </p>
               <Link
-                to="/discovery-experience"
+                to="/knowledge-hub/$slug"
+                params={{ slug: "why-executive-search-starts-too-late" }}
                 className="mt-8 inline-flex items-center gap-2 rounded-[10px] bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise hover:text-navy"
               >
                 Read Atlas Note <ArrowRight className="h-4 w-4" />
@@ -286,25 +295,40 @@ function AtlasNotesPage() {
           <div className="mt-20">
             <h3 className="text-2xl md:text-3xl">Latest Atlas Notes</h3>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {filtered.map((n) => (
-                <article
-                  key={n.title}
-                  className="group flex flex-col gap-5 rounded-[10px] border border-hairline bg-white p-7 transition-colors hover:border-navy"
-                >
-                  <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em]">
-                    <span className="text-navy">{n.cat}</span>
-                    <span className="text-ink-muted">{n.date}</span>
-                  </div>
-                  <h4 className="text-base leading-snug">{n.title}</h4>
-                  <p className="text-sm leading-relaxed text-ink-muted">{n.summary}</p>
-                  <div className="mt-auto flex items-center justify-between">
-                    <span className="text-[12px] uppercase tracking-[0.14em] text-ink-muted">
-                      {n.read}
-                    </span>
-                    <ArrowRight className="h-4 w-4 text-navy transition-colors group-hover:text-turquoise" />
-                  </div>
-                </article>
-              ))}
+              {filtered.map((n) => {
+                const cardClass =
+                  "group flex flex-col gap-5 rounded-[10px] border border-hairline bg-white p-7 transition-colors hover:border-navy";
+                const inner = (
+                  <>
+                    <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em]">
+                      <span className="text-navy">{n.cat}</span>
+                      <span className="text-ink-muted">{n.date}</span>
+                    </div>
+                    <h4 className="text-base leading-snug">{n.title}</h4>
+                    <p className="text-sm leading-relaxed text-ink-muted">{n.summary}</p>
+                    <div className="mt-auto flex items-center justify-between">
+                      <span className="text-[12px] uppercase tracking-[0.14em] text-ink-muted">
+                        {n.read}
+                      </span>
+                      <ArrowRight className="h-4 w-4 text-navy transition-colors group-hover:text-turquoise" />
+                    </div>
+                  </>
+                );
+                return n.slug ? (
+                  <Link
+                    key={n.title}
+                    to="/knowledge-hub/$slug"
+                    params={{ slug: n.slug }}
+                    className={cardClass}
+                  >
+                    {inner}
+                  </Link>
+                ) : (
+                  <article key={n.title} className={cardClass}>
+                    {inner}
+                  </article>
+                );
+              })}
             </div>
             {filtered.length === 0 && (
               <p className="mt-12 text-center text-sm text-ink-muted">
