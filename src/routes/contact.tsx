@@ -76,15 +76,15 @@ function ContactPage() {
               <p className="eyebrow">Schedule a call</p>
               <h3 className="mt-3 text-xl">Book a 30-min consultation</h3>
               <p className="mt-3 text-sm text-ink-muted">
-                Calendly placeholder — connect your scheduling link to enable bookings.
+                Choose a time that suits you. A structured conversation about your hiring decision.
               </p>
               <a
-                href="https://calendly.com/e-baumann-sync-tech/30min"
+                href="https://calendar.app.google/KoYen9KgR1fkMTPP7"
                 target="_blank"
                 rel="noreferrer"
                 className="mt-6 inline-flex items-center gap-2 rounded-sm bg-navy px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-turquoise"
               >
-                <Calendar className="h-4 w-4" /> Open Calendly
+                <Calendar className="h-4 w-4" /> Schedule a Discovery Experience
               </a>
             </div>
 
