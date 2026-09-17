@@ -176,13 +176,15 @@ function DiscoveryPage() {
               A structured conversation about your hiring decision. No pitch. No commitment.
             </p>
             <a
-              href="#"
+              href="https://calendar.app.google/KoYen9KgR1fkMTPP7"
+              target="_blank"
+              rel="noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-[10px] bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise hover:text-navy"
             >
-              <Calendar className="h-4 w-4" /> Open calendar
+              <Calendar className="h-4 w-4" /> Schedule a Discovery Experience
             </a>
             <p className="mt-4 text-xs text-ink-muted">
-              Calendly placeholder — connect your scheduling link to enable bookings.
+              45–60 minutes · Remote or on-site · No commitment
             </p>
           </div>
         </div>
