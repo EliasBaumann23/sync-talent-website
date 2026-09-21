@@ -32,6 +32,7 @@ function ContactPage() {
     // Field names must match the static detection form in public/__forms.html exactly.
     const body = new URLSearchParams({
       "form-name": "contact",
+      "bot-field": String(data.get("bot-field") ?? ""),
       name: String(data.get("name") ?? ""),
       company: String(data.get("company") ?? ""),
       email: String(data.get("email") ?? ""),
@@ -72,10 +73,16 @@ function ContactPage() {
             name="contact"
             method="POST"
             data-netlify="true"
+            data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
             className="rounded-sm border border-hairline bg-white p-8 lg:p-10"
           >
             <input type="hidden" name="form-name" value="contact" />
+            <p hidden>
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
+            </p>
             <p className="eyebrow">Send a brief</p>
             <h2 className="mt-3 text-2xl">Tell us about the role</h2>
 
