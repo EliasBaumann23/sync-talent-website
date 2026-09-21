@@ -29,15 +29,27 @@ function ContactPage() {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    data.set("form-name", "contact");
+    // Field names must match the static detection form in public/__forms.html exactly.
+    const body = new URLSearchParams({
+      "form-name": "contact",
+      name: String(data.get("name") ?? ""),
+      company: String(data.get("company") ?? ""),
+      email: String(data.get("email") ?? ""),
+      country: String(data.get("country") ?? ""),
+      role: String(data.get("role") ?? ""),
+      industry: String(data.get("industry") ?? ""),
+      message: String(data.get("message") ?? ""),
+    }).toString();
     setStatus("submitting");
     try {
-      const res = await fetch("/", {
+      // POST to the static __forms.html path so Netlify's edge form handling
+      // receives the submission instead of the server-rendered app route.
+      const res = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+        body,
       });
-      if (!res.ok) throw new Error(String(res.status));
+      if (!res.ok) throw new Error("Netlify form submission failed");
       form.reset();
       setStatus("success");
     } catch {
