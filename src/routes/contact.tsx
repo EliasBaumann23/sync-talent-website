@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Calendar, Linkedin, Mail } from "lucide-react";
@@ -22,6 +23,28 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    data.set("form-name", "contact");
+    setStatus("submitting");
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <SiteLayout>
       <PageHeader
@@ -34,12 +57,13 @@ function ContactPage() {
         <div className="container-x grid gap-12 lg:grid-cols-[1.2fr_1fr]">
           {/* Form */}
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Thank you — we'll be in touch shortly.");
-            }}
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            onSubmit={handleSubmit}
             className="rounded-sm border border-hairline bg-white p-8 lg:p-10"
           >
+            <input type="hidden" name="form-name" value="contact" />
             <p className="eyebrow">Send a brief</p>
             <h2 className="mt-3 text-2xl">Tell us about the role</h2>
 
@@ -64,10 +88,20 @@ function ContactPage() {
             </div>
             <button
               type="submit"
+              disabled={status === "submitting"}
               className="mt-8 inline-flex items-center rounded-sm bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise"
             >
               Discuss Your Search
             </button>
+            {status === "success" && (
+              <p className="mt-4 text-sm text-navy">Thank you — we'll be in touch shortly.</p>
+            )}
+            {status === "error" && (
+              <p className="mt-4 text-sm text-navy">
+                Something went wrong while sending your message. Please try again or contact us
+                directly.
+              </p>
+            )}
           </form>
 
           {/* Side */}
