@@ -4,7 +4,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
 import { ArrowRight } from "lucide-react";
-import logoIcon from "@/assets/Logo_New_Turquise_S.png.asset.json";
+import logoIcon from "@/assets/Logo_New_Turquise_S.png";
 import { publishedPublications } from "@/lib/publications";
 
 export const Route = createFileRoute("/knowledge-hub/")({
@@ -135,7 +135,7 @@ function HubPage() {
             onSubmit={(e) => e.preventDefault()}
             className="flex items-center gap-3 rounded-[10px] border border-hairline bg-surface px-4 transition-colors focus-within:border-navy"
           >
-            <img src={logoIcon.url} alt="" className="h-5 w-5 shrink-0 object-contain" />
+            <img src={logoIcon} alt="" className="h-5 w-5 shrink-0 object-contain" />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}

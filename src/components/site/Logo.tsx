@@ -1,10 +1,10 @@
-import logoAsset from "@/assets/sync-talent-logo.png.asset.json";
+import logo from "@/assets/sync-talent-logo.png";
 
 export function Logo({ invert = false, className = "" }: { invert?: boolean; className?: string }) {
   return (
     <span className={`inline-flex items-center ${className}`}>
       <img
-        src={logoAsset.url}
+        src={logo}
         alt="Sync Talent"
         width={160}
         height={28}
