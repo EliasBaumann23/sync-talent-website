@@ -8,13 +8,13 @@ import indAutomation from "@/assets/ind-automation.jpg";
 import indManufacturing from "@/assets/ind-manufacturing.jpg";
 import indMachinery from "@/assets/ind-machinery.jpg";
 import indSoftware from "@/assets/ind-software.jpg";
-import logoOmp from "@/assets/OMP.png.asset.json";
-import logoHennecke from "@/assets/Hennecke-2.png.asset.json";
-import logoZimmer from "@/assets/ZIMMER.png.asset.json";
-import logoNita from "@/assets/NITA.png.asset.json";
-import logoSomic from "@/assets/SOMIC.png.asset.json";
-import logoTpg from "@/assets/TPG.png.asset.json";
-import logoTavil from "@/assets/TAVIL.png.asset.json";
+import logoOmp from "@/assets/OMP.png";
+import logoHennecke from "@/assets/Hennecke-2.png";
+import logoZimmer from "@/assets/ZIMMER.png";
+import logoNita from "@/assets/NITA.png";
+import logoSomic from "@/assets/SOMIC.png";
+import logoTpg from "@/assets/TPG.png";
+import logoTavil from "@/assets/TAVIL.png";
 import indFood from "@/assets/ind-food.jpg";
 import indMaterial from "@/assets/ind-material.jpg";
 import indLogistics from "@/assets/ind-logistics.jpg";
@@ -218,13 +218,13 @@ const trendingTopics = [
 ];
 
 const clientLogos = [
-  { name: "OMP", src: logoOmp.url, className: "max-h-9" },
-  { name: "Hennecke", src: logoHennecke.url, className: "max-h-[72px]" },
-  { name: "Zimmer Group", src: logoZimmer.url, className: "max-h-9" },
-  { name: "NITA", src: logoNita.url, className: "max-h-5" },
-  { name: "SOMIC", src: logoSomic.url, className: "max-h-9" },
-  { name: "TPG", src: logoTpg.url, className: "max-h-11" },
-  { name: "TAVIL", src: logoTavil.url, className: "max-h-6" },
+  { name: "OMP", src: logoOmp, className: "max-h-9" },
+  { name: "Hennecke", src: logoHennecke, className: "max-h-[72px]" },
+  { name: "Zimmer Group", src: logoZimmer, className: "max-h-9" },
+  { name: "NITA", src: logoNita, className: "max-h-5" },
+  { name: "SOMIC", src: logoSomic, className: "max-h-9" },
+  { name: "TPG", src: logoTpg, className: "max-h-11" },
+  { name: "TAVIL", src: logoTavil, className: "max-h-6" },
 ];
 
 function HomePage() {
