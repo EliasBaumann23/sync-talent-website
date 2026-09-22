@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { PageHeader } from "@/components/site/PageHeader";
-import { CTABand } from "@/components/site/CTA";
-import { ArrowRight } from "lucide-react";
-import logoIcon from "@/assets/Logo_New_Turquise_S.png";
-import { publishedPublications } from "@/lib/publications";
+import { Button } from "@/components/ui/button";
+import {
+  publishedPublications,
+  type Publication,
+} from "@/lib/publications";
 
 export const Route = createFileRoute("/knowledge-hub/")({
   head: () => ({
@@ -17,236 +18,292 @@ export const Route = createFileRoute("/knowledge-hub/")({
           "Atlas Notes, Research, Salary Intelligence, Hiring Guides, Market Reports, Case Studies and the Industrial Hiring Thesis — written for international industrial leaders.",
       },
       { property: "og:title", content: "Knowledge Hub — Sync Talent" },
-      { property: "og:description", content: "A research institution for industrial hiring in North America." },
+      {
+        property: "og:description",
+        content: "A research institution for industrial hiring in North America.",
+      },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: "/knowledge-hub" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [{ rel: "canonical", href: "/knowledge-hub" }],
   }),
-  component: HubPage,
+  component: KnowledgeHubPage,
 });
 
-const categories = [
-  "All",
-  "Atlas Notes",
-  "Research",
-  "Salary Intelligence",
-  "Hiring Guides",
-  "Market Reports",
-  "Case Studies",
-  "Decision Intelligence",
-];
+const topics = [
+  {
+    name: "Atlas Notes",
+    description:
+      "Perspectives on Executive Search, hiring decisions and the thinking behind the Atlas Method.",
+    categories: ["Atlas Notes", "Decision Intelligence"],
+  },
+  {
+    name: "Market Intelligence",
+    description:
+      "Observations and analysis of industrial talent markets, hiring conditions and workforce dynamics.",
+    categories: ["Market Intelligence", "Market Reports", "Case Studies"],
+  },
+  {
+    name: "Salary Intelligence",
+    description:
+      "Compensation benchmarks and salary perspectives for industrial roles and markets.",
+    categories: ["Salary Intelligence"],
+  },
+  {
+    name: "Hiring Guides",
+    description:
+      "Practical guidance for companies defining, evaluating and executing important searches.",
+    categories: ["Hiring Guides"],
+  },
+  {
+    name: "Research",
+    description:
+      "Deeper studies, reports and structured analysis related to talent, organizations and industrial markets.",
+    categories: ["Research", "The Industrial Hiring Thesis"],
+  },
+] as const;
 
-/**
- * Card list. Entries that exist as real publications (src/content/publications)
- * take their title, category, read time and excerpt from that metadata and link
- * to the publication page. Remaining entries stay as upcoming placeholders.
- */
-const staticArticles = [
-  {
-    cat: "Atlas Notes",
-    title: "Why Executive Search deserves a better methodology.",
-    read: "6 min read",
-  },
-  {
-    cat: "Decision Intelligence",
-    title: "The hiring decision, reconsidered: from requirement to reasoning.",
-    read: "9 min read",
-  },
-  {
-    cat: "Salary Intelligence",
-    title: "Compensation evidence for Sales Engineers in Mexico.",
-    read: "7 min read",
-  },
-  {
-    cat: "Hiring Guides",
-    title: "Hiring Field Service leadership in Mexico: what to evaluate.",
-    read: "8 min read",
-  },
-  {
-    cat: "Market Reports",
-    title: "Q4 industrial talent evidence: demand, availability, notice periods.",
-    read: "9 min read",
-  },
-  {
-    cat: "Research",
-    title: "Bilingual technical talent across the Bajío corridor.",
-    read: "6 min read",
-  },
-  {
-    cat: "Case Studies",
-    title: "First hires playbook: from Country Manager to Plant leadership.",
-    read: "10 min read",
-  },
-  {
-    cat: "Salary Intelligence",
-    title: "Service Manager compensation benchmarks — industrial machinery.",
-    read: "5 min read",
-  },
-  {
-    cat: "Atlas Notes",
-    title: "Hiring confidence: the metric no one publishes.",
-    read: "5 min read",
-  },
-];
+function formatDate(value?: string) {
+  if (!value) return undefined;
+  const date = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 
-type Card = { cat: string; title: string; read: string; slug?: string };
+function PublicationMeta({ publication }: { publication: Publication }) {
+  const date = formatDate(publication.publishedDate);
 
-const byTitle = new Map(publishedPublications.map((p) => [p.title, p]));
-
-const articles: Card[] = [
-  ...staticArticles.map((a) => {
-    const pub = byTitle.get(a.title);
-    return pub
-      ? { cat: pub.category, title: pub.title, read: pub.readTime ?? a.read, slug: pub.slug }
-      : a;
-  }),
-  ...publishedPublications
-    .filter((p) => !staticArticles.some((a) => a.title === p.title))
-    .map((p) => ({
-      cat: p.category,
-      title: p.title,
-      read: p.readTime ?? "",
-      slug: p.slug,
-    })),
-];
-
-function HubPage() {
-  const [active, setActive] = useState("All");
-  const [query, setQuery] = useState("");
-
-  const filtered = articles.filter(
-    (a) =>
-      (active === "All" || a.cat === active) &&
-      (query === "" || a.title.toLowerCase().includes(query.toLowerCase())),
+  return (
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted">
+      <span className="text-navy">{publication.category}</span>
+      {date && <span>{date}</span>}
+      {publication.readTime && <span>{publication.readTime}</span>}
+      {publication.author && <span>{publication.author}</span>}
+    </div>
   );
+}
+
+function KnowledgeHubPage() {
+  const featured =
+    publishedPublications.find((publication) => publication.featured) ??
+    publishedPublications[0];
+  const latest = publishedPublications.filter(
+    (publication) => publication.slug !== featured?.slug,
+  );
+  const [activeTopic, setActiveTopic] = useState<string | undefined>();
+  const selectedTopic = topics.find((topic) => topic.name === activeTopic);
+  const visiblePublications = selectedTopic
+    ? publishedPublications.filter((publication) =>
+        selectedTopic.categories.some(
+          (category) => category === publication.category,
+        ),
+      )
+    : latest;
+
+  const chooseTopic = (topicName: string) => {
+    setActiveTopic(topicName);
+    window.requestAnimationFrame(() => {
+      document
+        .getElementById("latest-intelligence")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
 
   return (
     <SiteLayout>
-      <PageHeader
-        eyebrow="Industrial Hiring Intelligence"
-        title="A knowledge institution for industrial hiring in North America."
-        description="Atlas Notes, research, salary evidence and decision intelligence — written for international industrial leaders. Educational first. Institutional in tone."
-      />
-
-      {/* Search + filters */}
-      <section className="border-b border-hairline bg-white">
-        <div className="container-x py-8">
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="flex items-center gap-3 rounded-[10px] border border-hairline bg-surface px-4 transition-colors focus-within:border-navy"
-          >
-            <img src={logoIcon} alt="" className="h-5 w-5 shrink-0 object-contain" />
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              type="search"
-              placeholder="Search the Knowledge Hub…"
-              className="w-full bg-transparent py-4 text-sm text-navy placeholder:text-ink-muted focus:outline-none"
-            />
-          </form>
-          <div className="mt-5 flex flex-wrap gap-2">
-            {categories.map((c) => (
-              <button
-                key={c}
-                onClick={() => setActive(c)}
-                className={`rounded-[10px] border px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] transition-colors ${
-                  active === c
-                    ? "border-navy bg-navy text-white"
-                    : "border-hairline bg-white text-ink-muted hover:border-navy hover:text-navy"
-                }`}
-              >
-                {c}
-              </button>
-            ))}
+      {/* 01 — Hero */}
+      <header className="border-b border-hairline bg-white">
+        <div className="container-x py-20 lg:py-28">
+          <div className="max-w-4xl">
+            <p className="eyebrow">Knowledge Hub</p>
+            <h1 className="mt-6 max-w-3xl text-4xl leading-[1.08] md:text-5xl lg:text-6xl">
+              Research and intelligence for better hiring decisions.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink-muted">
+              Original analysis, market intelligence and practical perspectives on industrial
+              talent, Executive Search and hiring in Mexico and North America.
+            </p>
+            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-ink-muted">
+              The Knowledge Hub brings together what we learn through research, market observation
+              and search work—and turns it into useful intelligence for leaders making important
+              hiring decisions.
+            </p>
+            <a
+              href="#latest-intelligence"
+              className="mt-9 inline-flex items-center gap-2 text-sm font-medium text-navy transition-colors hover:text-turquoise"
+            >
+              Explore the latest intelligence <ArrowDown className="h-4 w-4" />
+            </a>
           </div>
         </div>
-      </section>
+      </header>
 
-      {/* Featured — Industrial Hiring Thesis */}
-      <section className="py-20">
-        <div className="container-x">
-          <div className="relative overflow-hidden rounded-[10px] border border-hairline bg-navy text-white">
-            <div className="grid gap-10 p-10 lg:grid-cols-[1.4fr_1fr] lg:items-center lg:p-16">
-              <div>
-                <p className="eyebrow text-turquoise">The Industrial Hiring Thesis</p>
-                <h2 className="mt-4 text-3xl text-white md:text-4xl lg:text-[44px]">
-                  A perspective on how industrial leaders should think about hiring in North
-                  America.
-                </h2>
-                <p className="mt-5 max-w-xl text-base leading-relaxed text-white/70">
-                  Written as a standing publication — updated as the market, the methodology and
-                  the evidence evolve. Positioned for boards, MDs and international HR leaders.
+      {/* 02 — Featured Publication */}
+      {featured && (
+        <section className="bg-surface py-20 lg:py-24">
+          <div className="container-x">
+            <p className="eyebrow">Featured</p>
+            <Link
+              to="/knowledge-hub/$slug"
+              params={{ slug: featured.slug }}
+              className="group mt-8 grid overflow-hidden rounded-[10px] border border-hairline bg-white lg:grid-cols-[0.62fr_1.38fr]"
+            >
+              <div className="flex min-h-64 flex-col justify-between bg-navy p-8 lg:min-h-[430px] lg:p-12">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-turquoise">
+                  {featured.publicationType?.replaceAll("-", " ") ?? featured.category}
                 </p>
-                <div className="mt-7 flex flex-wrap gap-3">
-                  <Link
-                    to="/discovery-experience"
-                    className="inline-flex items-center gap-2 rounded-[10px] bg-turquoise px-6 py-3.5 text-sm font-medium text-navy transition-colors hover:bg-white"
-                  >
-                    Read the Thesis <ArrowRight className="h-4 w-4" />
-                  </Link>
+                <div>
+                  <p className="font-display text-3xl leading-tight text-navy-foreground lg:text-4xl">
+                    Sync Talent
+                    <br />Knowledge Hub
+                  </p>
+                  <span className="mt-7 block h-px w-16 bg-turquoise" />
                 </div>
               </div>
-              <div className="relative">
-                <div className="aspect-[4/5] w-full rounded-[10px] border border-white/15 bg-white/[0.04] p-6">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-turquoise">
-                    Sync Talent / Standing Publication
+              <div className="flex flex-col justify-center p-8 lg:p-14">
+                <PublicationMeta publication={featured} />
+                <h2 className="mt-6 max-w-2xl text-3xl leading-tight md:text-4xl">
+                  {featured.title}
+                </h2>
+                {featured.excerpt && (
+                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted">
+                    {featured.excerpt}
                   </p>
-                  <p className="mt-6 font-display text-2xl text-white">
-                    The Industrial Hiring Thesis
-                  </p>
-                  <p className="mt-2 text-sm text-white/60">Mexico · USA · Canada</p>
-                </div>
+                )}
+                <span className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-navy transition-colors group-hover:text-turquoise">
+                  Read publication <ArrowRight className="h-4 w-4" />
+                </span>
               </div>
-            </div>
+            </Link>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Articles */}
-      <section className="pb-20">
+      {/* 03 — Latest Intelligence */}
+      <section id="latest-intelligence" className="scroll-mt-20 py-20 lg:py-24">
         <div className="container-x">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((a) => {
-              const cardClass =
-                "group flex flex-col gap-5 rounded-[10px] border border-hairline bg-white p-7 transition-colors hover:border-navy";
-              const inner = (
-                <>
-                  <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em]">
-                    <span className="text-navy">{a.cat}</span>
-                    <span className="text-ink-muted">{a.read}</span>
-                  </div>
-                  <h3 className="text-base leading-snug">{a.title}</h3>
-                  <span className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-navy transition-colors group-hover:text-turquoise">
-                    Read <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
-                </>
-              );
-              return a.slug ? (
-                <Link
-                  key={a.title}
-                  to="/knowledge-hub/$slug"
-                  params={{ slug: a.slug }}
-                  className={cardClass}
-                >
-                  {inner}
-                </Link>
-              ) : (
-                <article key={a.title} className={cardClass}>
-                  {inner}
-                </article>
-              );
-            })}
+          <div className="flex flex-col gap-4 border-b border-hairline pb-8 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="eyebrow">Publication desk</p>
+              <h2 className="mt-4 text-3xl md:text-4xl">
+                {selectedTopic ? selectedTopic.name : "Latest intelligence"}
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                {selectedTopic
+                  ? selectedTopic.description
+                  : "Recent analysis, research and practical perspectives from Sync Talent."}
+              </p>
+            </div>
+            {selectedTopic && (
+              <Button
+                type="button"
+                variant="ghost"
+                onClick={() => setActiveTopic(undefined)}
+                className="self-start px-0 text-ink-muted hover:bg-transparent hover:text-navy sm:self-auto"
+              >
+                View latest
+              </Button>
+            )}
           </div>
-          {filtered.length === 0 && (
-            <p className="mt-10 text-center text-sm text-ink-muted">
-              No perspectives match this filter yet.
+
+          {visiblePublications.length > 0 ? (
+            <div className="divide-y divide-hairline">
+              {visiblePublications.map((publication) => (
+                <Link
+                  key={publication.id}
+                  to="/knowledge-hub/$slug"
+                  params={{ slug: publication.slug }}
+                  className="group grid gap-5 py-9 md:grid-cols-[0.65fr_1.35fr_auto] md:items-start md:gap-10"
+                >
+                  <PublicationMeta publication={publication} />
+                  <div>
+                    <h3 className="text-xl leading-snug md:text-2xl">{publication.title}</h3>
+                    {publication.excerpt && (
+                      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-muted">
+                        {publication.excerpt}
+                      </p>
+                    )}
+                  </div>
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-navy transition-colors group-hover:text-turquoise">
+                    Read <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <p className="py-10 text-sm text-ink-muted">
+              No published intelligence is available in this topic yet.
             </p>
           )}
         </div>
       </section>
 
+      {/* 04 — Browse by Topic */}
+      <section className="border-y border-hairline bg-surface py-20 lg:py-24">
+        <div className="container-x">
+          <p className="eyebrow">Browse by topic</p>
+          <div className="mt-8 divide-y divide-hairline border-y border-hairline">
+            {topics.map((topic, index) => (
+              <Button
+                key={topic.name}
+                type="button"
+                variant="ghost"
+                onClick={() => chooseTopic(topic.name)}
+                className="group grid h-auto w-full justify-normal gap-3 whitespace-normal rounded-none px-0 py-7 text-left hover:bg-transparent md:grid-cols-[4rem_0.7fr_1.3fr_auto] md:items-center md:gap-8"
+                aria-pressed={activeTopic === topic.name}
+              >
+                <span className="font-display text-sm text-turquoise">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="font-display text-xl font-semibold text-navy">{topic.name}</span>
+                <span className="max-w-2xl text-sm leading-relaxed text-ink-muted">
+                  {topic.description}
+                </span>
+                <ArrowRight className="hidden h-4 w-4 text-navy transition-transform group-hover:translate-x-1 md:block" />
+              </Button>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <CTABand secondaryText="" />
+      {/* 05 — Knowledge Hub CTA */}
+      <section className="py-20 lg:py-24">
+        <div className="container-x">
+          <div className="grid gap-8 border-l-2 border-turquoise pl-6 md:grid-cols-[1fr_1fr] md:items-end md:pl-10">
+            <div>
+              <p className="eyebrow">From intelligence to action</p>
+              <h2 className="mt-4 max-w-xl text-3xl leading-tight md:text-4xl">
+                Intelligence should improve the next decision.
+              </h2>
+            </div>
+            <div>
+              <p className="max-w-xl text-sm leading-relaxed text-ink-muted">
+                Our research and search work inform each other—helping us understand industrial
+                talent markets while improving the questions we ask during Executive Search.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-x-7 gap-y-3">
+                <Link
+                  to="/services"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-navy transition-colors hover:text-turquoise"
+                >
+                  Explore Executive Search <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/atlas-method"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-navy transition-colors hover:text-turquoise"
+                >
+                  Explore the Atlas Method <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </SiteLayout>
   );
 }
