@@ -4,31 +4,44 @@ import { Linkedin, Mail } from "lucide-react";
 
 const cols = [
   {
-    title: "Methodology",
+    title: "Company",
+    links: [
+      { to: "/about", label: "About" },
+      { to: "/contact", label: "Contact" },
+    ],
+  },
+  {
+    title: "Executive Search",
+    links: [
+      { to: "/services", label: "Executive Search" },
+      { to: "/industries", label: "Industries" },
+      { to: "/discovery-experience", label: "Discovery Experience™" },
+    ],
+  },
+  {
+    title: "Atlas",
     links: [
       { to: "/atlas-method", label: "Atlas Method™" },
-      { to: "/discovery-experience", label: "Discovery Experience™" },
       { to: "/atlas-library/search-blueprint", label: "Search Blueprint™" },
       { to: "/atlas-library/talent-lens", label: "Talent Lens™" },
       { to: "/atlas-library/hiring-confidence-index", label: "Hiring Confidence Index™" },
     ],
   },
   {
-    title: "Knowledge Hub",
+    title: "Knowledge",
     links: [
+      { to: "/knowledge-hub", label: "Knowledge Hub" },
       { to: "/atlas-library/atlas-notes", label: "Atlas Notes" },
-      { to: "/knowledge-hub", label: "Research Library" },
-      { to: "/salary-guides", label: "Salary Intelligence" },
-      { to: "/hiring-guides", label: "Hiring Guides" },
     ],
   },
 ] as const;
+
 
 export function Footer() {
   return (
     <footer className="border-t border-turquoise bg-navy text-white/80">
       <div className="container-x py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(2,1fr)]">
+        <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div className="max-w-sm">
             <Logo invert />
             <p className="mt-6 text-sm leading-relaxed text-white/65">

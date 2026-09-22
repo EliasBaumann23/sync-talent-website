@@ -10,11 +10,11 @@ import indLogistics from "@/assets/ind-logistics.jpg";
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: "Industries — Industrial Recruitment Mexico | Sync Talent" },
+      { title: "Industries — Industrial Executive Search Mexico | Sync Talent" },
       {
         name: "description",
         content:
-          "Specialized recruitment for packaging machinery, industrial automation, manufacturing, machinery, industrial software, food processing, material handling and logistics automation in Mexico.",
+          "Specialized Executive Search for packaging machinery, industrial automation, manufacturing, machinery, industrial software, food processing, material handling and logistics automation in Mexico.",
       },
       { property: "og:title", content: "Industries — Sync Talent" },
       { property: "og:description", content: "Industries we serve across Mexico and North America." },
