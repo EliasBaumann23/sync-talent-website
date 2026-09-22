@@ -44,7 +44,6 @@ export function Header() {
               to={i.to}
               className="link-underline transition-colors hover:text-turquoise"
               activeProps={{ className: "text-navy" }}
-              activeOptions={{ exact: i.to === "/" }}
             >
               {i.label}
             </Link>
