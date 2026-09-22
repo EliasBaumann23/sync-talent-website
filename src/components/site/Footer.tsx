@@ -46,7 +46,7 @@ export function Footer() {
                 <Linkedin className="h-4 w-4" />
               </a>
               <a
-                href="mailto:e.baumann@sync-tech.io"
+                href="mailto:e.baumann@sync-talent.io"
                 aria-label="Email"
                 className="inline-flex h-9 w-9 items-center justify-center rounded-sm border border-white/15 text-white/80 transition-colors hover:border-turquoise hover:text-turquoise"
               >
