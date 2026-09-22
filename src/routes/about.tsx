@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
-import eliasPortrait from "@/assets/elias-baumann-profile.png.asset.json";
-import danielaPortrait from "@/assets/daniela-cardoso-profile.png.asset.json";
+import eliasPortrait from "@/assets/elias-baumann-final.png.asset.json";
+import danielaPortrait from "@/assets/daniela-cardoso-final.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -152,12 +152,12 @@ function AboutPage() {
 
           <div className="mt-16 grid gap-16 md:grid-cols-2 md:gap-8 lg:mt-20 lg:gap-14">
             <article className="border-t border-hairline pt-5">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[10px] bg-surface-light">
+              <div className="aspect-square overflow-hidden rounded-full bg-surface-light">
                 <img
                   src={eliasPortrait.url}
                   alt="Elias Baumann, Co-Founder and Managing Director at Sync Talent"
                   loading="lazy"
-                  className="absolute left-1/2 top-1/2 h-auto w-full max-w-none -translate-x-1/2 -translate-y-1/2"
+                  className="h-full w-full object-contain"
                 />
               </div>
               <div className="pt-7">
@@ -184,12 +184,12 @@ function AboutPage() {
             </article>
 
             <article className="border-t border-hairline pt-5">
-              <div className="aspect-[4/5] overflow-hidden rounded-[10px] bg-surface-light">
+              <div className="aspect-square overflow-hidden rounded-full bg-surface-light">
                 <img
                   src={danielaPortrait.url}
                   alt="Daniela Cardoso, Talent Strategy and Search at Sync Talent"
                   loading="lazy"
-                  className="relative left-1/2 top-1/2 h-auto w-[122%] max-w-none -translate-x-1/2 -translate-y-[48%]"
+                  className="h-full w-full object-contain"
                 />
               </div>
               <div className="pt-7">
