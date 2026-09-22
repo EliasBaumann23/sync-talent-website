@@ -5,6 +5,7 @@ export function CTABand({
   eyebrow = "The Discovery Experience™",
   title = "Better hiring decisions begin with a structured conversation.",
   text = "The Discovery Experience™ is how international industrial leaders align on the role, the market and the decision criteria before a single candidate is approached.",
+  textNote,
   buttonText = "Contact us",
   secondaryText = "Continue to the Discovery Experience™",
   to = "/contact",
@@ -14,6 +15,7 @@ export function CTABand({
   eyebrow?: string;
   title?: string;
   text?: string;
+  textNote?: string;
   buttonText?: string;
   secondaryText?: string;
   to?: string;
@@ -29,6 +31,9 @@ export function CTABand({
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/70 lg:text-lg">
             {text}
           </p>
+          {textNote && (
+            <p className="mt-4 text-sm tracking-wide text-white/50">{textNote}</p>
+          )}
           <AtlasDivider className="mt-10 text-white" />
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             {externalHref ? (
