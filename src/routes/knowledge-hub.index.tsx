@@ -254,7 +254,7 @@ function KnowledgeHubPage() {
                 type="button"
                 variant="ghost"
                 onClick={() => chooseTopic(topic.name)}
-                className="group grid h-auto w-full justify-normal gap-3 rounded-none px-0 py-7 text-left hover:bg-transparent md:grid-cols-[4rem_0.7fr_1.3fr_auto] md:items-center md:gap-8"
+                className="group grid h-auto w-full justify-normal gap-3 whitespace-normal rounded-none px-0 py-7 text-left hover:bg-transparent md:grid-cols-[4rem_0.7fr_1.3fr_auto] md:items-center md:gap-8"
                 aria-pressed={activeTopic === topic.name}
               >
                 <span className="font-display text-sm text-turquoise">
