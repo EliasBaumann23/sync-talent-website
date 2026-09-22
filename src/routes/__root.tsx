@@ -126,7 +126,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              name: SITE_NAME,
+              url: `${SITE_URL}/`,
+              logo: `${SITE_URL}/sync-talent-favicon-512.png`,
+              image: OG_IMAGE,
+              email: "e.baumann@sync-talent.io",
+              sameAs: ["https://www.linkedin.com/company/sync-talent-north-america"],
+            },
+            {
+              "@type": "WebSite",
+              name: SITE_NAME,
+              url: `${SITE_URL}/`,
+              publisher: { "@type": "Organization", name: SITE_NAME },
+            },
+          ],
+        }),
+      },
+    ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
