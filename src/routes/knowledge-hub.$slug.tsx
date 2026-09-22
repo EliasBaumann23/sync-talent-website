@@ -1,6 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { PublicationPage } from "@/components/site/PublicationPage";
 import { getPublicationBySlug } from "@/lib/publications";
+import { OG_IMAGE, SITE_NAME, SITE_URL, absoluteUrl, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/knowledge-hub/$slug")({
   loader: ({ params }) => {
@@ -18,19 +19,32 @@ export const Route = createFileRoute("/knowledge-hub/$slug")({
       };
     }
     const p = loaderData.publication;
-    const title = p.seoTitle ?? `${p.title} — Sync Talent`;
+    const path = `/knowledge-hub/${p.slug}`;
+    const title = p.seoTitle ?? `${p.title} | Sync Talent`;
     const description = p.seoDescription ?? p.excerpt ?? "";
+
+    const article: Record<string, unknown> = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: p.title,
+      mainEntityOfPage: absoluteUrl(path),
+      image: OG_IMAGE,
+      publisher: {
+        "@type": "Organization",
+        name: SITE_NAME,
+        url: `${SITE_URL}/`,
+      },
+    };
+    if (description) article.description = description;
+    if (p.publishedDate) article.datePublished = p.publishedDate;
+    if (p.updatedDate) article.dateModified = p.updatedDate;
+    if (p.author) article.author = { "@type": "Organization", name: p.author };
+
     return {
-      meta: [
-        { title },
-        { name: "description", content: description },
-        { property: "og:title", content: title },
-        { property: "og:description", content: description },
-        { property: "og:type", content: "article" },
-        { name: "twitter:card", content: "summary_large_image" },
-        { property: "og:url", content: `/knowledge-hub/${p.slug}` },
+      ...pageHead({ path, title, description, ogType: "article" }),
+      scripts: [
+        { type: "application/ld+json", children: JSON.stringify(article) },
       ],
-      links: [{ rel: "canonical", href: `/knowledge-hub/${p.slug}` }],
     };
   },
   component: PublicationRoute,

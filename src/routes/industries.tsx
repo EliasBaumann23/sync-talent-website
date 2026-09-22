@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -8,20 +9,13 @@ import indSoftware from "@/assets/ind-software.jpg";
 import indLogistics from "@/assets/ind-logistics.jpg";
 
 export const Route = createFileRoute("/industries")({
-  head: () => ({
-    meta: [
-      { title: "Industries — Industrial Executive Search Mexico | Sync Talent" },
-      {
-        name: "description",
-        content:
-          "Specialized Executive Search for packaging machinery, industrial automation, manufacturing, machinery, industrial software, food processing, material handling and logistics automation in Mexico.",
-      },
-      { property: "og:title", content: "Industries — Sync Talent" },
-      { property: "og:description", content: "Industries we serve across Mexico and North America." },
-      { property: "og:url", content: "/industries" },
-    ],
-    links: [{ rel: "canonical", href: "/industries" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/industries",
+      title: "Industries — Executive Search for Industrial Companies | Sync Talent",
+      description:
+        "Executive Search across industrial machinery, automation, manufacturing, industrial technology, software, transportation and logistics.",
+    }),
   component: IndustriesPage,
 });
 

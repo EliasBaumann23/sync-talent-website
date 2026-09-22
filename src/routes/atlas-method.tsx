@@ -1,28 +1,18 @@
 import { Fragment } from "react";
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CTABand } from "@/components/site/CTA";
 import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/atlas-method")({
-  head: () => ({
-    meta: [
-      { title: "The Atlas Method™ — A methodology for better hiring decisions | Sync Talent" },
-      {
-        name: "description",
-        content:
-          "The Atlas Method™ is Sync Talent's reasoning process for industrial hiring. Understand, Structure, Evaluate, Decide, Learn — a methodology that produces defensible hiring decisions.",
-      },
-      { property: "og:title", content: "The Atlas Method™ — Sync Talent" },
-      {
-        property: "og:description",
-        content:
-          "A structured methodology for industrial hiring decisions in North America.",
-      },
-      { property: "og:url", content: "/atlas-method" },
-    ],
-    links: [{ rel: "canonical", href: "/atlas-method" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/atlas-method",
+      title: "Atlas Method™ — A Structured Executive Search Methodology | Sync Talent",
+      description:
+        "Explore the Atlas Method, Sync Talent's structured approach to defining hiring decisions, gathering evidence and supporting better-informed Executive Search decisions.",
+    }),
   component: AtlasMethodPage,
 });
 

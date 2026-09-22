@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowDown, ArrowRight } from "lucide-react";
@@ -9,25 +10,13 @@ import {
 } from "@/lib/publications";
 
 export const Route = createFileRoute("/knowledge-hub/")({
-  head: () => ({
-    meta: [
-      { title: "Knowledge Hub — Industrial Hiring Intelligence | Sync Talent" },
-      {
-        name: "description",
-        content:
-          "Atlas Notes, Research, Salary Intelligence, Hiring Guides, Market Reports, Case Studies and the Industrial Hiring Thesis — written for international industrial leaders.",
-      },
-      { property: "og:title", content: "Knowledge Hub — Sync Talent" },
-      {
-        property: "og:description",
-        content: "A research institution for industrial hiring in North America.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/knowledge-hub" },
-      { name: "twitter:card", content: "summary" },
-    ],
-    links: [{ rel: "canonical", href: "/knowledge-hub" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/knowledge-hub",
+      title: "Knowledge Hub — Industrial Hiring Intelligence | Sync Talent",
+      description:
+        "Research, market intelligence and practical perspectives on industrial talent, Executive Search and hiring across Mexico and North America.",
+    }),
   component: KnowledgeHubPage,
 });
 

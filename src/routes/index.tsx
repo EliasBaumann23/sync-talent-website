@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CTABand } from "@/components/site/CTA";
@@ -17,24 +18,13 @@ import logoTavil from "@/assets/TAVIL.png";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Sync Talent — Better Hiring Decisions for Industrial Companies" },
-      {
-        name: "description",
-        content:
-          "Sync Talent helps international industrial companies make confident hiring decisions in North America through strategic advisory, market intelligence and Executive Search.",
-      },
-      { property: "og:title", content: "Sync Talent — Industrial Hiring Intelligence" },
-      {
-        property: "og:description",
-        content:
-          "Strategic Talent Advisory, Market Intelligence and Executive Search for industrial companies expanding across Mexico, the US and Canada.",
-      },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/",
+      title: "Executive Search for Industrial Companies in Mexico | Sync Talent",
+      description:
+        "Sync Talent helps international industrial companies hire leadership, commercial and specialized technical talent across Mexico and North America through structured Executive Search.",
+    }),
   component: HomePage,
 });
 

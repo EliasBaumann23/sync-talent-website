@@ -1,23 +1,17 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
 
 export const Route = createFileRoute("/salary-guides")({
-  head: () => ({
-    meta: [
-      { title: "Salary Guides — Industrial Roles in Mexico | Sync Talent" },
-      {
-        name: "description",
-        content:
-          "Salary benchmarks for Sales Engineers, Field Service Engineers, Automation Engineers, Service Managers, Regional Sales Managers and Country Managers in Mexico.",
-      },
-      { property: "og:title", content: "Salary Guides — Sync Talent" },
-      { property: "og:description", content: "Compensation benchmarks for industrial roles in Mexico." },
-      { property: "og:url", content: "/salary-guides" },
-    ],
-    links: [{ rel: "canonical", href: "/salary-guides" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/salary-guides",
+      title: "Salary Intelligence — Industrial Roles in Mexico | Sync Talent",
+      description:
+        "Compensation evidence for commercial and specialized technical industrial roles across Mexico and North America.",
+    }),
   component: SalaryPage,
 });
 

@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { OG_IMAGE, SITE_NAME, SITE_URL } from "../lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -77,16 +78,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sync Talent — Industrial Hiring Intelligence for Mexico" },
+      { title: "Executive Search for Industrial Companies in Mexico | Sync Talent" },
       {
         name: "description",
         content:
-          "Sync Talent helps European, US and Canadian industrial companies make better hiring decisions in Mexico through the Atlas Method™, market intelligence and executive search.",
+          "Sync Talent helps international industrial companies hire leadership, commercial and specialized technical talent across Mexico and North America through structured Executive Search.",
       },
       { name: "author", content: "Sync Talent" },
       { property: "og:site_name", content: "Sync Talent" },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: OG_IMAGE },
+
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -122,7 +126,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              name: SITE_NAME,
+              url: `${SITE_URL}/`,
+              logo: `${SITE_URL}/sync-talent-favicon-512.png`,
+              image: OG_IMAGE,
+              email: "e.baumann@sync-talent.io",
+              sameAs: ["https://www.linkedin.com/company/sync-talent-north-america"],
+            },
+            {
+              "@type": "WebSite",
+              name: SITE_NAME,
+              url: `${SITE_URL}/`,
+              publisher: { "@type": "Organization", name: SITE_NAME },
+            },
+          ],
+        }),
+      },
+    ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
