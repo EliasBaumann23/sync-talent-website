@@ -7,7 +7,7 @@ export const Route = createFileRoute("/atlas-library/search-blueprint")({
   head: () => ({
     meta: [
       {
-        title: "Search Blueprint™ | Sync Talent",
+        title: "Search Blueprint™ — Define Success Before the Search | Sync Talent",
       },
       {
         name: "description",
