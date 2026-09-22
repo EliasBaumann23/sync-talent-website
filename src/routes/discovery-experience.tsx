@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -5,24 +6,13 @@ import { AtlasDivider } from "@/components/site/AtlasLine";
 import { ArrowRight, Calendar } from "lucide-react";
 
 export const Route = createFileRoute("/discovery-experience")({
-  head: () => ({
-    meta: [
-      { title: "The Discovery Experience™ — Sync Talent" },
-      {
-        name: "description",
-        content:
-          "A structured conversation that defines the hiring decision before a search begins. What the Discovery Experience™ is, why it exists and what leaders receive.",
-      },
-      { property: "og:title", content: "The Discovery Experience™ — Sync Talent" },
-      {
-        property: "og:description",
-        content:
-          "Every interaction should leave you better prepared to make the right decision.",
-      },
-      { property: "og:url", content: "/discovery-experience" },
-    ],
-    links: [{ rel: "canonical", href: "/discovery-experience" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/discovery-experience",
+      title: "Discovery Experience™ — Start the Hiring Decision | Sync Talent",
+      description:
+        "A focused conversation to clarify the business context, role and hiring decision before beginning an Executive Search.",
+    }),
   component: DiscoveryPage,
 });
 

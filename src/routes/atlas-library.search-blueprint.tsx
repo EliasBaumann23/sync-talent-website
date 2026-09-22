@@ -1,32 +1,17 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CTABand } from "@/components/site/CTA";
 import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/atlas-library/search-blueprint")({
-  head: () => ({
-    meta: [
-      {
-        title: "Search Blueprint™ — Define Success Before the Search | Sync Talent",
-      },
-      {
-        name: "description",
-        content:
-          "The Search Blueprint™ transforms a hiring request into a structured decision document that aligns every stakeholder before the Executive Search begins.",
-      },
-      {
-        property: "og:title",
-        content: "Search Blueprint™ | Sync Talent",
-      },
-      {
-        property: "og:description",
-        content:
-          "Every successful Executive Search begins with a written hiring strategy.",
-      },
-      { property: "og:url", content: "/atlas-library/search-blueprint" },
-    ],
-    links: [{ rel: "canonical", href: "/atlas-library/search-blueprint" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/atlas-library/search-blueprint",
+      title: "Search Blueprint™ — Define Success Before the Search | Sync Talent",
+      description:
+        "The Search Blueprint structures the business context, role mandate, success outcomes and evidence requirements before entering the candidate market.",
+    }),
   component: SearchBlueprintPage,
 });
 

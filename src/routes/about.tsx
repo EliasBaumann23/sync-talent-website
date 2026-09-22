@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -5,22 +6,13 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Helping industrial companies make better hiring decisions | Sync Talent" },
-      {
-        name: "description",
-        content:
-          "Sync Talent exists to help international industrial companies make better hiring decisions in North America — through methodology, market intelligence and Executive Search.",
-      },
-      { property: "og:title", content: "About Sync Talent" },
-      { property: "og:description", content: "Why Sync Talent exists, what we believe and how we work." },
-      { property: "og:url", content: "/about" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/about",
+      title: "About Sync Talent — Executive Search for Industrial Companies",
+      description:
+        "Meet Sync Talent, an Executive Search company helping international industrial organizations make better hiring decisions across Mexico and North America.",
+    }),
   component: AboutPage,
 });
 

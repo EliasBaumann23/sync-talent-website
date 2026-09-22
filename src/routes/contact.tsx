@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -5,20 +6,13 @@ import { PageHeader } from "@/components/site/PageHeader";
 import { Calendar, Linkedin, Mail } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Discuss Your Search | Sync Talent" },
-      {
-        name: "description",
-        content:
-          "Discuss your industrial hiring plans in Mexico with Sync Talent. Schedule a consultation or send a brief.",
-      },
-      { property: "og:title", content: "Contact Sync Talent" },
-      { property: "og:description", content: "Schedule a consultation or send a brief." },
-      { property: "og:url", content: "/contact" },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/contact",
+      title: "Contact Sync Talent — Executive Search Mexico",
+      description:
+        "Contact Sync Talent about an important industrial hiring need or schedule a Discovery Experience to discuss the role, business context and market.",
+    }),
   component: ContactPage,
 });
 

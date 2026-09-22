@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -6,26 +7,13 @@ import { AtlasDivider } from "@/components/site/AtlasLine";
 import featureImg from "@/assets/ind-manufacturing.jpg";
 
 export const Route = createFileRoute("/atlas-library/atlas-notes")({
-  head: () => ({
-    meta: [
-      { title: "Atlas Notes — Institutional Perspectives | Sync Talent" },
-      {
-        name: "description",
-        content:
-          "Atlas Notes is Sync Talent's collection of institutional perspectives on Executive Search, industrial leadership and strategic hiring decisions.",
-      },
-      { property: "og:title", content: "Atlas Notes — Institutional Perspectives" },
-      {
-        property: "og:description",
-        content:
-          "Editorial publications on Executive Search, industrial hiring and leadership decisions.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:url", content: "/atlas-library/atlas-notes" },
-    ],
-    links: [{ rel: "canonical", href: "/atlas-library/atlas-notes" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/atlas-library/atlas-notes",
+      title: "Atlas Notes — Editorial Perspectives on Executive Search | Sync Talent",
+      description:
+        "Atlas Notes is Sync Talent's editorial series on Executive Search, industrial leadership and the thinking behind better hiring decisions.",
+    }),
   component: AtlasNotesPage,
 });
 

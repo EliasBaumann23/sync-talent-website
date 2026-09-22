@@ -1,32 +1,17 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { CTABand } from "@/components/site/CTA";
 import { SiteLayout } from "@/components/site/SiteLayout";
 
 export const Route = createFileRoute("/atlas-library/talent-lens")({
-  head: () => ({
-    meta: [
-      {
-        title: "Talent Lens™ — Structured Candidate Evidence | Sync Talent",
-      },
-      {
-        name: "description",
-        content:
-          "The Talent Lens™ is a structured decision framework that replaces subjective impressions with evidence, ensuring every candidate is evaluated against the same business objectives.",
-      },
-      {
-        property: "og:title",
-        content: "Talent Lens™ — Structured Candidate Evidence | Sync Talent",
-      },
-      {
-        property: "og:description",
-        content:
-          "Every candidate deserves to be evaluated against the same decision.",
-      },
-      { property: "og:url", content: "/atlas-library/talent-lens" },
-    ],
-    links: [{ rel: "canonical", href: "/atlas-library/talent-lens" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/atlas-library/talent-lens",
+      title: "Talent Lens™ — Structured Candidate Evidence | Sync Talent",
+      description:
+        "Talent Lens structures candidate evidence across capability, judgement, organizational context and motivation to support clearer hiring decisions.",
+    }),
   component: TalentLensPage,
 });
 

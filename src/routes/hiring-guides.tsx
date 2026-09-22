@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
@@ -5,20 +6,13 @@ import { CTABand } from "@/components/site/CTA";
 import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/hiring-guides")({
-  head: () => ({
-    meta: [
-      { title: "Hiring Guides — Industrial Executive Search Mexico | Sync Talent" },
-      {
-        name: "description",
-        content:
-          "Guides on hiring engineers, sales engineers, field service engineers in Mexico, structuring technical interviews, hiring timelines and evaluating bilingual technical talent.",
-      },
-      { property: "og:title", content: "Hiring Guides — Sync Talent" },
-      { property: "og:description", content: "Playbooks for hiring industrial talent in Mexico." },
-      { property: "og:url", content: "/hiring-guides" },
-    ],
-    links: [{ rel: "canonical", href: "/hiring-guides" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/hiring-guides",
+      title: "Hiring Guides — Structuring Industrial Searches | Sync Talent",
+      description:
+        "Practical guides on structuring industrial searches, interviews and hiring timelines across Mexico and North America.",
+    }),
   component: HiringGuidesPage,
 });
 

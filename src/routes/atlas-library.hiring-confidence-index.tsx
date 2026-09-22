@@ -1,41 +1,17 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { CTABand } from "@/components/site/CTA";
 import { SiteLayout } from "@/components/site/SiteLayout";
 
 export const Route = createFileRoute("/atlas-library/hiring-confidence-index")({
-  head: () => ({
-    meta: [
-      {
-        title:
-          "Hiring Confidence Index™ — Evidence Behind the Hiring Decision | Sync Talent",
-      },
-      {
-        name: "description",
-        content:
-          "The Hiring Confidence Index™ helps leadership teams understand the strength and completeness of the evidence supporting a hiring decision.",
-      },
-      {
-        property: "og:title",
-        content:
-          "Hiring Confidence Index™ — Evidence Behind the Hiring Decision | Sync Talent",
-      },
-      {
-        property: "og:description",
-        content:
-          "See where a hiring decision is well supported, where evidence remains incomplete and what still requires validation.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      {
-        property: "og:url",
-        content: "/atlas-library/hiring-confidence-index",
-      },
-    ],
-    links: [
-      { rel: "canonical", href: "/atlas-library/hiring-confidence-index" },
-    ],
-  }),
+  head: () =>
+    pageHead({
+      path: "/atlas-library/hiring-confidence-index",
+      title: "Hiring Confidence Index™ — Evidence Behind the Hiring Decision | Sync Talent",
+      description:
+        "The Hiring Confidence Index shows how strongly a hiring decision is supported by role, market, candidate, reference and decision evidence.",
+    }),
   component: HiringConfidenceIndexPage,
 });
 

@@ -1,3 +1,4 @@
+import { pageHead } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
@@ -5,24 +6,13 @@ import { CTABand } from "@/components/site/CTA";
 import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Executive Search — Reimagined for Industrial Leaders | Sync Talent" },
-      {
-        name: "description",
-        content:
-          "Executive Search is our commercial application. Decision intelligence is our methodology. How Sync Talent structures industrial searches through the Atlas Method™.",
-      },
-      { property: "og:title", content: "Executive Search — Sync Talent" },
-      {
-        property: "og:description",
-        content:
-          "Executive Search structured around methodology — Discovery Experience™, Search Blueprint™, Talent Lens™ and Hiring Confidence Index™.",
-      },
-      { property: "og:url", content: "/services" },
-    ],
-    links: [{ rel: "canonical", href: "/services" }],
-  }),
+  head: () =>
+    pageHead({
+      path: "/services",
+      title: "Executive Search in Mexico & North America | Sync Talent",
+      description:
+        "Executive Search for international industrial companies hiring leadership, commercial and specialized technical talent across Mexico and North America.",
+    }),
   component: ServicesPage,
 });
 
