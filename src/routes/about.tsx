@@ -152,12 +152,12 @@ function AboutPage() {
 
           <div className="mt-16 grid gap-16 md:grid-cols-2 md:gap-8 lg:mt-20 lg:gap-14">
             <article className="border-t border-hairline pt-5">
-              <div className="aspect-[4/5] overflow-hidden rounded-[10px] bg-surface-light">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[10px] bg-surface-light">
                 <img
                   src={eliasPortrait}
                   alt="Elias Baumann, Co-Founder and Managing Director at Sync Talent"
                   loading="lazy"
-                  className="h-full w-full object-contain object-bottom"
+                  className="absolute bottom-0 left-1/2 h-auto w-[125%] max-w-none -translate-x-1/2"
                 />
               </div>
               <div className="pt-7">
