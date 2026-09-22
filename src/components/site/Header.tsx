@@ -52,12 +52,14 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <Link
-            to="/contact"
+          <a
+            href={schedulingUrl}
+            target="_blank"
+            rel="noreferrer"
             className="inline-flex items-center rounded-sm bg-navy px-4 py-2.5 text-[13px] font-medium text-white transition-colors hover:bg-turquoise"
           >
-            Contact us
-          </Link>
+            Discovery Experience
+          </a>
         </div>
 
         <button
