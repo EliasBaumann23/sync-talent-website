@@ -204,10 +204,6 @@ function AboutPage() {
             </article>
           </div>
 
-          <p className="mt-20 max-w-4xl border-t border-navy pt-8 font-display text-2xl leading-snug text-navy md:text-3xl">
-            We are not trying to build the largest recruiting firm. We are building a better way
-            to make hiring decisions.
-          </p>
         </div>
       </section>
 
