@@ -245,7 +245,7 @@ function HomePage() {
                   <span className="relative mt-5 block pt-5">
                     <span className="absolute -top-[4.5px] left-0 h-2 w-2 rounded-full border border-turquoise/60 bg-navy transition-colors group-hover:bg-turquoise" />
                     <span
-                      className={`font-display text-[13px] leading-snug xl:text-sm ${
+                      className={`font-display text-xs leading-snug xl:text-[13px] ${
                         s.to
                           ? "text-white transition-colors group-hover:text-turquoise"
                           : "text-white/80"
@@ -262,7 +262,7 @@ function HomePage() {
               return (
                 <li
                   key={s.n}
-                  className="relative shrink-0 border-t border-white/15 pr-7 pb-6 last:pr-0 xl:pr-10"
+                  className="relative shrink-0 border-t border-white/15 pr-6 pb-6 last:pr-0 xl:pr-9"
                 >
                   {s.to ? (
                     <Link to={s.to} className="group block">
