@@ -45,8 +45,9 @@ export function Footer() {
           <div className="max-w-sm">
             <Logo invert />
             <p className="mt-6 text-sm leading-relaxed text-white/65">
-              Helping international industrial companies make better hiring decisions in Mexico,
-              the US and Canada through methodology, market intelligence and Executive Search.
+              Helping international industrial companies make better hiring decisions across Mexico
+              and North America through Executive Search, market intelligence and structured
+              methodology.
             </p>
             <div className="mt-6 flex items-center gap-3 text-sm">
               <a
