@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
@@ -23,114 +24,105 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const philosophy = [
+const principles = [
   {
-    t: "The hiring decision comes first",
-    d: "Before the search, we help you define what the decision actually is. Everything else follows from that clarity.",
+    t: "Context before credentials",
+    d: "A résumé only becomes meaningful when viewed against the business, role and environment in which someone will operate.",
   },
   {
-    t: "Evidence over impression",
-    d: "The Talent Lens™ replaces gut-feel screening with structured perspectives, cases and calibrated references.",
+    t: "Evidence before assumption",
+    d: "Important hiring decisions should be supported by relevant evidence—not only impressions, job titles or familiarity.",
   },
   {
-    t: "Institutional learning",
-    d: "Every conversation feeds the Atlas Method™. Your engagement improves the next one — and the market view we bring to it.",
+    t: "Clarity before certainty",
+    d: "No hiring process eliminates uncertainty. A strong process makes that uncertainty visible and easier to discuss.",
   },
   {
-    t: "Industrial specialization",
-    d: "Automation, packaging, industrial software, OEM, food processing, manufacturing and industrial equipment. Nothing else.",
-  },
-  {
-    t: "International perspective",
-    d: "Operating fluency across German, Swiss, Dutch, French, US and Canadian organizations working in Mexico.",
-  },
-  {
-    t: "A human standard",
-    d: "Direct, calm, professional. We speak to candidates and clients the way we would want to be spoken to.",
+    t: "Human judgement remains essential",
+    d: "Structure and technology can improve the information available to decision-makers. The final decision still requires human judgement.",
   },
 ];
 
 function AboutPage() {
   return (
     <SiteLayout>
+      {/* 01 — Hero */}
       <PageHeader
         eyebrow="About Sync Talent"
-        title="We help organizations make better hiring decisions."
-        description="Sync Talent is a boutique executive search firm and a knowledge institution for industrial hiring in North America. Executive Search is the commercial application. Decision intelligence is the purpose."
+        title="Better hiring decisions begin with better questions."
+        description="Sync Talent is an Executive Search company helping international industrial organizations hire leadership, commercial and specialized technical talent across Mexico and North America."
       />
 
-      <section className="py-32 lg:py-40">
+      <section className="py-20 lg:py-24">
+        <div className="container-x max-w-3xl">
+          <p className="text-lg leading-relaxed text-ink-muted lg:text-xl">
+            We combine hands-on search execution, industrial market understanding and structured
+            decision-making to help clients approach important hires with greater clarity.
+          </p>
+        </div>
+      </section>
+
+      {/* 02 — Why Sync Talent Exists */}
+      <section className="border-t border-hairline py-24 lg:py-32">
         <div className="container-x grid gap-14 lg:grid-cols-2 lg:items-start">
           <div>
             <p className="eyebrow">Why we exist</p>
             <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Executive Search deserves a better methodology.
+              Search is only part of the hiring decision.
             </h2>
           </div>
           <div className="space-y-6 text-base leading-relaxed text-ink-muted lg:text-lg">
             <p>
-              International industrial companies expanding into Mexico are making increasingly
-              consequential hiring decisions in a market they do not fully understand.
-            </p>
-            <p>
-              The traditional Executive Search response — collect requirements, search, interview,
-              recommend — treats hiring as a sourcing problem. Sync Talent treats it as a decision
-              problem.
+              Companies often begin searching before they have fully defined what the role needs to
+              accomplish, which evidence should matter and how candidates should be evaluated.
             </p>
             <p className="text-navy">
-              Our mission is simple: help industrial companies make hiring decisions they can
-              defend, explain and learn from.
+              We built Sync Talent around a different premise: important searches should begin with
+              the hiring decision itself.
+            </p>
+            <p>
+              That means understanding the business context before entering the market, structuring
+              the search around evidence rather than intuition alone and helping decision-makers see
+              both what they know and where uncertainty remains.
+            </p>
+            <p className="border-l-2 border-turquoise pl-5 font-display text-lg leading-snug text-navy lg:text-xl">
+              The objective is not to remove judgement from hiring. It is to give judgement better
+              information.
+            </p>
+            <p>
+              <Link
+                to="/atlas-method"
+                className="text-sm font-medium text-steel underline-offset-4 transition-colors hover:text-turquoise hover:underline"
+              >
+                Explore the Atlas Method →
+              </Link>
             </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-surface py-32 lg:py-40">
-        <div className="container-x grid gap-14 lg:grid-cols-2 lg:items-start">
-          <div>
-            <p className="eyebrow">Mission & Vision</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              An institution for industrial hiring intelligence.
-            </h2>
-          </div>
-          <div className="space-y-8 text-base leading-relaxed text-ink-muted lg:text-lg">
-            <div>
-              <p className="font-display text-sm uppercase tracking-[0.18em] text-navy">Mission</p>
-              <p className="mt-3">
-                Help international industrial companies make confident hiring decisions in North
-                America through advisory, market intelligence and Executive Search.
-              </p>
-            </div>
-            <div>
-              <p className="font-display text-sm uppercase tracking-[0.18em] text-navy">Vision</p>
-              <p className="mt-3">
-                Establish decision intelligence as the standard for how industrial leaders think
-                about hiring — beyond a single search, beyond a single market.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-32 lg:py-40">
+      {/* 03 — What We Believe */}
+      <section className="bg-surface py-24 lg:py-32">
         <div className="container-x">
           <div className="max-w-2xl">
-            <p className="eyebrow">The Atlas Philosophy</p>
-            <h2 className="mt-4 text-3xl md:text-4xl">How we think.</h2>
+            <p className="eyebrow">How we think</p>
+            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
+              A few principles shape the way we work.
+            </h2>
           </div>
-          <div className="mt-14 grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
-            {philosophy.map((v, i) => (
-              <div key={v.t} className="bg-white p-8">
-                <p className="font-display text-sm text-ink-muted">0{i + 1}</p>
-                <h3 className="mt-4 text-lg">{v.t}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink-muted">{v.d}</p>
+          <div className="mt-14 grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2">
+            {principles.map((p) => (
+              <div key={p.t} className="bg-white p-8 lg:p-10">
+                <h3 className="text-lg font-medium text-navy">{p.t}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink-muted lg:text-base">{p.d}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-surface py-32 lg:py-40">
+      {/* 04 — The People Behind Sync Talent */}
+      <section className="py-24 lg:py-32">
         <div className="container-x">
           <div className="max-w-3xl">
             <p className="eyebrow">The people behind Sync Talent</p>
@@ -169,8 +161,8 @@ function AboutPage() {
                   </p>
                   <p>
                     With a German-Mexican academic and professional background in International
-                    Management and business development, his work focuses on understanding the
-                    intersection between international organizations, industrial markets and talent
+                    Management and business development, his work focuses on the intersection
+                    between international organizations, industrial markets and talent
                     in Mexico.
                   </p>
                   <p>He works across English, Spanish and German.</p>
@@ -219,10 +211,13 @@ function AboutPage() {
         </div>
       </section>
 
+      {/* 05 — Final CTA */}
       <CTABand
+        title="Have an important hire ahead?"
+        text="Start with a focused conversation about the role, business context and market."
         buttonText="Schedule a Discovery Experience"
-        secondaryText="Contact us"
-        secondaryTo="/contact"
+        secondaryText="Explore Executive Search"
+        secondaryTo="/services"
         externalHref="https://calendar.app.google/KoYen9KgR1fkMTPP7"
       />
     </SiteLayout>
