@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
-import aboutImg from "@/assets/about-mexico.jpg";
+import eliasPortrait from "@/assets/elias-baumann.png";
+import danielaPortrait from "@/assets/daniela-cardoso.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -16,6 +17,8 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About Sync Talent" },
       { property: "og:description", content: "Why Sync Talent exists, what we believe and how we work." },
       { property: "og:url", content: "/about" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),
@@ -130,38 +133,100 @@ function AboutPage() {
       </section>
 
       <section className="bg-surface py-32 lg:py-40">
-        <div className="container-x grid gap-14 lg:grid-cols-2 lg:items-center">
-          <div className="overflow-hidden rounded-[10px] border border-hairline">
-            <img
-              src={aboutImg}
-              alt="Industrial corridor across the Bajío region of Mexico"
-              loading="lazy"
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div>
-            <p className="eyebrow">Founders</p>
-            <h2 className="mt-4 text-3xl md:text-4xl">A European operating standard, based in Mexico.</h2>
-            <div className="mt-7 space-y-5 text-base leading-relaxed text-ink-muted">
+        <div className="container-x">
+          <div className="max-w-3xl">
+            <p className="eyebrow">The people behind Sync Talent</p>
+            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">Built on judgement. Led by people.</h2>
+            <div className="mt-7 space-y-5 text-base leading-relaxed text-ink-muted lg:text-lg">
               <p>
-                Sync Talent was founded by a German executive with an international management
-                background, now based in Mexico and specialized in industrial hiring intelligence.
+                Sync Talent combines international business perspective, local market knowledge
+                and structured search methodology to help industrial companies make better hiring
+                decisions.
               </p>
               <p>
-                The firm combines a European operating standard with a working understanding of
-                how North American organizations actually operate across Mexico, Canada and the
-                United States.
-              </p>
-              <p className="text-navy">
-                We are not the largest recruiter in the market. We are the one asking a different
-                question.
+                Our work is hands-on. The people leading the search remain directly involved from
+                the first conversation through candidate evaluation and the final hiring decision.
               </p>
             </div>
           </div>
+
+          <div className="mt-16 grid gap-16 md:grid-cols-2 md:gap-8 lg:mt-20 lg:gap-14">
+            <article className="border-t border-hairline pt-5">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[10px] bg-surface-light">
+                <img
+                  src={eliasPortrait}
+                  alt="Elias Baumann, Co-Founder and Managing Director at Sync Talent"
+                  loading="lazy"
+                  className="absolute bottom-0 left-1/2 h-auto w-[125%] max-w-none -translate-x-1/2"
+                />
+              </div>
+              <div className="pt-7">
+                <h3 className="text-2xl">Elias Baumann</h3>
+                <p className="mt-2 text-sm font-medium text-steel">Co-Founder &amp; Managing Director</p>
+                <div className="mt-5 space-y-4 text-sm leading-relaxed text-ink-muted lg:text-base">
+                  <p>Elias leads Sync Talent's Executive Search and Industrial Hiring Intelligence activities.</p>
+                  <p>
+                    Based in Mexico, he works with international industrial companies hiring
+                    leadership, commercial and technical talent across Mexico and North America.
+                  </p>
+                  <p>
+                    With a German-Mexican academic and professional background in International
+                    Management and business development, his work focuses on understanding the
+                    intersection between international organizations, industrial markets and talent
+                    in Mexico.
+                  </p>
+                  <p>He works across English, Spanish and German.</p>
+                </div>
+                <p className="mt-6 border-t border-hairline pt-4 text-xs leading-relaxed text-ink-muted">
+                  Mexico City · Executive Search · Industrial Markets · EN / ES / DE
+                </p>
+              </div>
+            </article>
+
+            <article className="border-t border-hairline pt-5">
+              <div className="aspect-[4/5] overflow-hidden rounded-[10px] bg-surface-light">
+                <img
+                  src={danielaPortrait}
+                  alt="Daniela Cardoso, Talent Strategy and Search at Sync Talent"
+                  loading="lazy"
+                  className="h-full w-full object-cover object-[center_30%]"
+                />
+              </div>
+              <div className="pt-7">
+                <h3 className="text-2xl">Daniela Cardoso</h3>
+                <p className="mt-2 text-sm font-medium text-steel">Talent Strategy &amp; Search</p>
+                <div className="mt-5 space-y-4 text-sm leading-relaxed text-ink-muted lg:text-base">
+                  <p>
+                    Daniela works across talent strategy, candidate identification and search
+                    execution at Sync Talent.
+                  </p>
+                  <p>
+                    Her work combines an understanding of the Latin American talent market with
+                    hands-on candidate engagement and structured evaluation, supporting searches
+                    from initial market mapping through candidate presentation.
+                  </p>
+                  <p>
+                    She plays a central role in creating a candidate experience that is
+                    professional, transparent and human throughout the search process.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <p className="mt-20 max-w-4xl border-t border-navy pt-8 font-display text-2xl leading-snug text-navy md:text-3xl">
+            We are not trying to build the largest recruiting firm. We are building a better way
+            to make hiring decisions.
+          </p>
         </div>
       </section>
 
-      <CTABand secondaryText="" />
+      <CTABand
+        buttonText="Schedule a Discovery Experience"
+        secondaryText="Contact us"
+        secondaryTo="/contact"
+        externalHref="https://calendar.app.google/KoYen9KgR1fkMTPP7"
+      />
     </SiteLayout>
   );
 }

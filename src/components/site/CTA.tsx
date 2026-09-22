@@ -9,6 +9,7 @@ export function CTABand({
   secondaryText = "Continue to the Discovery Experience™",
   to = "/contact",
   secondaryTo = "/discovery-experience",
+  externalHref,
 }: {
   eyebrow?: string;
   title?: string;
@@ -17,6 +18,7 @@ export function CTABand({
   secondaryText?: string;
   to?: string;
   secondaryTo?: string;
+  externalHref?: string;
 }) {
   return (
     <section className="bg-navy text-white">
@@ -29,12 +31,23 @@ export function CTABand({
           </p>
           <AtlasDivider className="mt-10 text-white" />
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              to={to}
-              className="inline-flex items-center rounded-[10px] bg-turquoise px-7 py-4 text-sm font-medium text-navy transition-colors hover:bg-white"
-            >
-              {buttonText}
-            </Link>
+            {externalHref ? (
+              <a
+                href={externalHref}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center rounded-[10px] bg-turquoise px-7 py-4 text-sm font-medium text-navy transition-colors hover:bg-white"
+              >
+                {buttonText}
+              </a>
+            ) : (
+              <Link
+                to={to}
+                className="inline-flex items-center rounded-[10px] bg-turquoise px-7 py-4 text-sm font-medium text-navy transition-colors hover:bg-white"
+              >
+                {buttonText}
+              </Link>
+            )}
           {secondaryText && (
             <Link
               to={secondaryTo}
