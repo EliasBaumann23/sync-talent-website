@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
@@ -36,9 +36,7 @@ function ContactPage() {
       name: String(data.get("name") ?? ""),
       company: String(data.get("company") ?? ""),
       email: String(data.get("email") ?? ""),
-      country: String(data.get("country") ?? ""),
-      role: String(data.get("role") ?? ""),
-      industry: String(data.get("industry") ?? ""),
+      phone: String(data.get("phone") ?? ""),
       message: String(data.get("message") ?? ""),
     }).toString();
     setStatus("submitting");
@@ -62,13 +60,54 @@ function ContactPage() {
     <SiteLayout>
       <PageHeader
         eyebrow="Contact"
-        title="Discuss your search."
-        description="Tell us about the role, timeline and target market. We respond within one business day with a search plan and an honest market view."
+        title="Tell us about the hiring decision."
+        description="Whether you are planning an important search, exploring the talent market or simply want to understand whether Sync Talent could be the right partner, start with a conversation."
       />
 
-      <section className="py-20 lg:py-28">
+      {/* 02 — Schedule a Discovery Experience (primary path) */}
+      <section className="border-b border-hairline py-16 lg:py-20">
+        <div className="container-x grid items-start gap-10 lg:grid-cols-[1.3fr_1fr]">
+          <div>
+            <p className="eyebrow">Planning a search?</p>
+            <h2 className="mt-3 text-3xl lg:text-4xl">Start with a Discovery Experience.</h2>
+            <p className="mt-5 max-w-xl text-base text-ink-muted">
+              A focused conversation about the role, business context and market before deciding
+              how the search should begin.
+            </p>
+            <p className="mt-4 text-sm text-ink-muted">
+              45–60 minutes · No fee · No commitment
+            </p>
+            <p className="mt-8 text-sm">
+              Not ready to schedule? Send us a message below.
+            </p>
+          </div>
+          <div className="flex flex-col items-start gap-6 lg:items-end lg:text-right">
+            <a
+              href="https://calendar.app.google/KoYen9KgR1fkMTPP7"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-sm bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise"
+            >
+              <Calendar className="h-4 w-4" /> Schedule a Discovery Experience
+            </a>
+            <Link to="/discovery-experience" className="link-underline text-sm text-navy">
+              Learn about the Discovery Experience →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 03 — Send Us a Message */}
+      <section className="py-16 lg:py-20">
         <div className="container-x grid gap-12 lg:grid-cols-[1.2fr_1fr]">
-          {/* Form */}
+          <div>
+            <p className="eyebrow">General contact</p>
+            <h2 className="mt-3 text-3xl lg:text-4xl">Send us a message.</h2>
+            <p className="mt-5 max-w-xl text-base text-ink-muted">
+              Tell us briefly what you would like to discuss and we will get back to you directly.
+            </p>
+          </div>
+
           <form
             name="contact"
             method="POST"
@@ -83,37 +122,37 @@ function ContactPage() {
                 Don't fill this out if you're human: <input name="bot-field" />
               </label>
             </p>
-            <p className="eyebrow">Send a brief</p>
-            <h2 className="mt-3 text-2xl">Tell us about the role</h2>
 
-            <div className="mt-8 grid gap-5 sm:grid-cols-2">
-              <Field label="Full name" name="name" />
-              <Field label="Company" name="company" />
-              <Field label="Work email" name="email" type="email" />
-              <Field label="Country" name="country" />
-              <Field label="Role" name="role" />
-              <Field label="Industry" name="industry" />
+            <div className="grid gap-5">
+              <Field label="Name" name="name" required />
+              <Field label="Company" name="company" hint="Optional" />
+              <Field label="Work email" name="email" type="email" required />
+              <Field label="Phone" name="phone" type="tel" hint="Optional" />
+              <div>
+                <label className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
+                  What would you like to discuss? <span className="text-turquoise">*</span>
+                </label>
+                <textarea
+                  rows={5}
+                  name="message"
+                  required
+                  className="mt-2 w-full rounded-sm border border-hairline bg-white px-4 py-3 text-sm text-navy focus:border-turquoise focus:outline-none"
+                  placeholder="Tell us about the role, hiring need or question you have."
+                />
+              </div>
             </div>
-            <div className="mt-5">
-              <label className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
-                Brief
-              </label>
-              <textarea
-                rows={5}
-                name="message"
-                className="mt-2 w-full rounded-sm border border-hairline bg-white px-4 py-3 text-sm text-navy focus:border-turquoise focus:outline-none"
-                placeholder="Scope, location, timeline, language requirements…"
-              />
-            </div>
+
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="mt-8 inline-flex items-center rounded-sm bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise"
+              className="mt-8 inline-flex items-center rounded-sm bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise disabled:opacity-60"
             >
-              Discuss Your Search
+              {status === "submitting" ? "Sending…" : "Send message"}
             </button>
             {status === "success" && (
-              <p className="mt-4 text-sm text-navy">Thank you — we'll be in touch shortly.</p>
+              <p className="mt-4 text-sm text-navy">
+                Thank you. Your message has been received. We will get back to you shortly.
+              </p>
             )}
             {status === "error" && (
               <p className="mt-4 text-sm text-navy">
@@ -122,66 +161,61 @@ function ContactPage() {
               </p>
             )}
           </form>
+        </div>
+      </section>
 
-          {/* Side */}
-          <aside className="flex flex-col gap-6">
-            <div className="rounded-sm border border-hairline bg-surface p-8">
-              <p className="eyebrow">Schedule a call</p>
-              <h3 className="mt-3 text-xl">Book a 30-min consultation</h3>
-              <p className="mt-3 text-sm text-ink-muted">
-                Choose a time that suits you. A structured conversation about your hiring decision.
-              </p>
+      {/* 04 — Direct Contact */}
+      <section className="border-t border-hairline py-12">
+        <div className="container-x">
+          <h2 className="text-xl">Prefer to reach us directly?</h2>
+          <ul className="mt-6 flex flex-wrap items-center gap-x-10 gap-y-4 text-sm">
+            <li className="flex items-center gap-3">
+              <Mail className="h-4 w-4 text-turquoise" />
+              <a href="mailto:e.baumann@sync-talent.io" className="text-navy link-underline">
+                e.baumann@sync-talent.io
+              </a>
+            </li>
+            <li className="flex items-center gap-3">
+              <Linkedin className="h-4 w-4 text-turquoise" />
               <a
-                href="https://calendar.app.google/KoYen9KgR1fkMTPP7"
+                href="https://www.linkedin.com/company/sync-talent-north-america"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-6 inline-flex items-center gap-2 rounded-sm bg-navy px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-turquoise"
+                className="text-navy link-underline"
               >
-                <Calendar className="h-4 w-4" /> Schedule a Discovery Experience
+                LinkedIn
               </a>
-            </div>
-
-            <div className="rounded-sm border border-hairline bg-white p-8">
-              <p className="eyebrow">Direct</p>
-              <ul className="mt-5 space-y-4 text-sm">
-                <li className="flex items-center gap-3">
-                  <Mail className="h-4 w-4 text-turquoise" />
-                  <a href="mailto:e.baumann@sync-talent.io" className="text-navy link-underline">
-                    e.baumann@sync-talent.io
-                  </a>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Linkedin className="h-4 w-4 text-turquoise" />
-                  <a
-                    href="https://www.linkedin.com/company/sync-talent-north-america"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-navy link-underline"
-                  >
-                    LinkedIn
-                  </a>
-                </li>
-              </ul>
-              <div className="mt-6 border-t border-hairline pt-5 text-sm text-ink-muted">
-                <p>Mexico City, Mexico</p>
-              </div>
-            </div>
-          </aside>
+            </li>
+          </ul>
         </div>
       </section>
     </SiteLayout>
   );
 }
 
-function Field({ label, name, type = "text" }: { label: string; name: string; type?: string }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  required = false,
+  hint,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+  hint?: string;
+}) {
   return (
     <div>
       <label className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
-        {label}
+        {label} {required && <span className="text-turquoise">*</span>}
+        {hint && <span className="ml-2 normal-case tracking-normal text-ink-muted/70">({hint})</span>}
       </label>
       <input
         name={name}
         type={type}
+        required={required}
         className="mt-2 w-full rounded-sm border border-hairline bg-white px-4 py-3 text-sm text-navy focus:border-turquoise focus:outline-none"
       />
     </div>
