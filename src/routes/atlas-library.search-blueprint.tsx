@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CTABand } from "@/components/site/CTA";
-import { AtlasLine } from "@/components/site/AtlasLine";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/atlas-library/search-blueprint")({
   head: () => ({
@@ -32,526 +31,351 @@ export const Route = createFileRoute("/atlas-library/search-blueprint")({
   component: SearchBlueprintPage,
 });
 
-const problems = [
-  "Success is not clearly defined.",
-  "Stakeholders have different expectations.",
-  "Market realities are misunderstood.",
-  "Candidates are evaluated differently throughout the process.",
-];
-
-const discoveryToSearch = [
-  "Discovery Experience™",
-  "Business Understanding",
-  "Market Intelligence",
-  "Leadership Alignment",
-  "Search Blueprint™",
-  "Executive Search",
-];
-
-const blueprintCards = [
+const defines = [
   {
     n: "01",
     title: "Business Context",
-    body: "Why the position exists, the current business challenges and the strategic objectives the hire is expected to serve.",
+    body: "Why the hire exists, what is happening in the organization and why the role matters now.",
   },
   {
     n: "02",
-    title: "Success Definition",
-    body: "What success should look like after six, twelve and twenty-four months — expressed in outcomes, not activities.",
+    title: "Role Mandate",
+    body: "What the person is expected to own, influence or change.",
   },
   {
     n: "03",
-    title: "Market Position",
-    body: "Target industries, target companies, competitive realities and the availability of the talent you are seeking.",
+    title: "Success Outcomes",
+    body: "What meaningful success should look like during the first 6–12 months.",
   },
   {
     n: "04",
-    title: "Candidate Profile",
-    body: "Technical expertise, leadership expectations, commercial capabilities and cultural fit with your organization.",
+    title: "Candidate Requirements",
+    body: "The experience, capabilities and contextual characteristics that genuinely matter for the role.",
   },
   {
     n: "05",
-    title: "Search Strategy",
-    body: "Search geography, priority companies, alternative profiles and the compensation assumptions guiding the market approach.",
+    title: "Search Market",
+    body: "Where relevant talent is likely to be found across companies, industries, geographies and adjacent backgrounds.",
   },
   {
     n: "06",
-    title: "Decision Criteria",
-    body: "The measurable framework used throughout candidate evaluation and the Hiring Confidence Index™.",
+    title: "Search Constraints",
+    body: "Practical realities such as compensation, location, language, mobility, availability and other factors that may shape the search.",
   },
 ];
 
-const atlasFlow = [
-  "Discovery Experience™",
-  "Search Blueprint™",
-  "Executive Search",
-  "Talent Lens™",
-  "Hiring Confidence Index™",
-  "Hiring Decision",
-];
-
-const deliverables = [
-  "Executive Summary",
-  "Business Objectives",
-  "Success Definition",
-  "Market Perspective",
-  "Target Companies",
-  "Candidate Definition",
-  "Search Geography",
-  "Compensation Assumptions",
-  "Decision Criteria",
-  "Hiring Risks",
-  "Strategic Recommendations",
-];
-
-function FlowRow({ steps }: { steps: readonly string[] }) {
-  return (
-    <ol className="grid gap-px overflow-hidden border border-hairline bg-hairline lg:grid-cols-6">
-      {steps.map((s, i) => (
-        <li
-          key={s}
-          className="flex flex-col justify-between gap-6 bg-white p-6"
-        >
-          <span className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
-            Step {String(i + 1).padStart(2, "0")}
-          </span>
-          <span className="font-display text-base leading-snug text-navy">
-            {s}
-          </span>
-        </li>
-      ))}
-    </ol>
-  );
-}
+const CALENDAR_URL = "https://calendar.app.google/KoYen9KgR1fkMTPP7";
 
 function SearchBlueprintPage() {
   return (
     <SiteLayout>
-      {/* HERO */}
+      {/* 01 — HERO */}
       <section className="border-b border-hairline bg-white">
-        <div className="container-x pt-20 pb-24 lg:pt-28 lg:pb-32">
-          <div className="grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:items-end">
-            <div>
-              <p className="eyebrow">Atlas Library · Methodology Document 02</p>
-              <h1 className="mt-5 text-4xl leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
-                Every successful Executive Search begins with a written hiring
-                strategy.
-              </h1>
-            </div>
-            <div className="space-y-6">
-              <p className="text-base leading-relaxed text-ink-muted lg:text-lg">
-                Before speaking with candidates, we define the business
-                decision, the market reality and the search strategy. The
-                Search Blueprint™ transforms a hiring request into a structured
-                decision document that aligns every stakeholder before the
-                search begins.
-              </p>
-              <div className="flex flex-wrap items-center gap-3">
-                <Link
-                  to="/discovery-experience"
-                  className="inline-flex items-center rounded-[10px] bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise"
-                >
-                  Experience the Discovery Experience™
-                </Link>
-                <a
-                  href="#example-blueprint"
-                  className="inline-flex items-center rounded-[10px] border border-hairline px-6 py-3.5 text-sm font-medium text-navy transition-colors hover:border-navy"
-                >
-                  View Example Blueprint
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 1 — THE PROBLEM */}
-      <section className="py-32 lg:py-40">
-        <div className="container-x grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-start">
-          <div>
-            <p className="eyebrow">Section 01 · The Problem</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Most Executive Searches begin too early.
-            </h2>
-          </div>
-          <div className="space-y-6 text-base leading-relaxed text-ink-muted lg:text-lg">
-            <p>
-              Many organizations begin searching for candidates before they
-              have fully defined the hiring decision itself.
+        <div className="container-x pt-20 pb-16 lg:pt-28 lg:pb-24">
+          <p className="eyebrow">Search Blueprint™</p>
+          <h1 className="mt-5 max-w-4xl text-4xl leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
+            Define success before searching for it.
+          </h1>
+          <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+            <p className="max-w-2xl text-base leading-relaxed text-ink-muted lg:text-lg">
+              The Search Blueprint translates the business context behind a hire
+              into an explicit definition of success, candidate requirements and
+              search strategy.
             </p>
-            <p>
-              This often creates uncertainty later in the process because
-              leadership teams may have different expectations regarding
-              success, priorities or candidate profiles.
-            </p>
-            <p className="text-navy">
-              The Search Blueprint™ exists to create clarity before execution
-              begins.
+            <p className="max-w-xl text-base leading-relaxed text-ink-muted lg:text-lg">
+              It creates a shared reference point for the search—so that
+              candidate evaluation begins from agreed evidence and priorities
+              rather than shifting expectations.
             </p>
           </div>
-        </div>
-
-        <div className="container-x mt-16">
-          <ul className="grid gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-4">
-            {problems.map((p, i) => (
-              <li key={p} className="bg-white p-8">
-                <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
-                  0{i + 1}
-                </p>
-                <p className="mt-4 text-base leading-relaxed text-navy">{p}</p>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mx-auto mt-16 max-w-3xl text-center">
-            <p className="text-xl leading-snug text-navy md:text-2xl">
-              Recruitment rarely fails because of sourcing.
-            </p>
-            <p className="mt-3 text-xl leading-snug text-ink-muted md:text-2xl">
-              It fails because the hiring decision was never fully structured.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 2 — FROM DISCOVERY TO SEARCH */}
-      <section className="border-y border-hairline bg-surface py-32 lg:py-40">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 02 · From Discovery to Search</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              From conversation to blueprint.
-            </h2>
-          </div>
-
-
           <div className="mt-10">
-            <FlowRow steps={discoveryToSearch} />
+            <Link
+              to="/atlas-method"
+              className="group inline-flex items-center gap-1.5 text-sm text-ink-muted transition-colors hover:text-navy"
+            >
+              Stage 02 of the Atlas Method
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            </Link>
           </div>
-
-          <p className="mx-auto mt-12 max-w-2xl text-center text-base text-ink-muted lg:text-lg">
-            The Search Blueprint™ is the bridge between discovery and
-            execution.
-          </p>
         </div>
       </section>
 
-      {/* SECTION 3 — WHAT IS INSIDE */}
-      <section className="py-32 lg:py-40">
+      {/* 02 — WHAT THE SEARCH BLUEPRINT DEFINES */}
+      <section className="py-24 lg:py-32">
         <div className="container-x">
-          <div className="grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-start">
-            <div>
-              <p className="eyebrow">Section 03 · Inside the Blueprint</p>
-              <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-                Every Search Blueprint™ answers the questions that matter
-                most.
-              </h2>
-            </div>
-            <p className="text-base leading-relaxed text-ink-muted lg:text-lg">
-              Each blueprint is organized around six sections. Together they
-              describe the business decision, the market it lives in and the
-              criteria against which every candidate will be evaluated.
+          <div className="max-w-2xl">
+            <p className="eyebrow">What the Search Blueprint defines</p>
+            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
+              From hiring need to search strategy.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-ink-muted lg:text-lg">
+              The Blueprint structures the information that should be clear
+              before the market is approached.
             </p>
           </div>
-
-          <div className="mt-16 grid gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-3">
-            {blueprintCards.map((c) => (
-              <article key={c.n} className="bg-white p-8 lg:p-10">
-                <p className="font-display text-4xl text-turquoise">{c.n}</p>
-                <h3 className="mt-6 font-display text-xl text-navy">
-                  {c.title}
+          <div className="mt-14 divide-y divide-hairline border-y border-hairline">
+            {defines.map((item) => (
+              <div
+                key={item.n}
+                className="grid gap-3 py-7 md:grid-cols-[64px_280px_1fr] md:items-baseline lg:py-8"
+              >
+                <p className="font-display text-sm text-turquoise">{item.n}</p>
+                <h3 className="font-display text-lg leading-snug text-navy md:text-xl">
+                  {item.title}
                 </h3>
-                <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-                  {c.body}
+                <p className="max-w-2xl text-base leading-relaxed text-ink-muted">
+                  {item.body}
                 </p>
-              </article>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 4 — EXAMPLE BLUEPRINT */}
-      <section
-        id="example-blueprint"
-        className="border-y border-hairline bg-surface py-32 lg:py-40"
-      >
+      {/* 03 — INSIDE A SEARCH BLUEPRINT */}
+      <section className="border-y border-hairline bg-surface py-24 lg:py-32">
         <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 04 · Example</p>
+          <div className="max-w-2xl">
+            <p className="eyebrow">Inside a Search Blueprint</p>
             <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              A blueprint before a search.
+              What this looks like in practice.
             </h2>
-            <p className="mt-6 text-base leading-relaxed text-ink-muted lg:text-lg">
-              An illustrative preview of the document your leadership team
-              receives before the Executive Search begins.
+            <p className="mt-5 text-base leading-relaxed text-ink-muted lg:text-lg">
+              A Search Blueprint turns an open hiring question into explicit
+              criteria that can guide both the search and later candidate
+              evaluation.
             </p>
           </div>
 
-          <div className="mx-auto mt-16 max-w-5xl">
+          <div className="mx-auto mt-14 max-w-5xl">
             <div className="overflow-hidden rounded-[10px] border border-hairline bg-white shadow-[0_30px_80px_-40px_rgba(16,36,58,0.35)]">
-              <div className="flex items-center justify-between border-b border-hairline bg-white px-8 py-5">
+              {/* Document header */}
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-hairline px-6 py-5 lg:px-8">
                 <div>
                   <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
-                    Sync Talent · Confidential
+                    Illustrative Example
                   </p>
-                  <p className="mt-1 font-display text-base text-navy">
-                    Search Blueprint™ · Plant Manager, Bajío Region
+                  <p className="mt-1 font-display text-base text-navy lg:text-lg">
+                    Search Blueprint™ · Head of Service — Mexico
                   </p>
                 </div>
-                <p className="text-xs text-ink-muted">Document 02 · v1.0</p>
+                <p className="text-xs text-ink-muted">Document 02</p>
               </div>
 
+              {/* Document body */}
               <div className="grid gap-px bg-hairline md:grid-cols-2">
                 {[
                   {
-                    h: "Executive Summary",
-                    lines: [
-                      "New plant scaling from 180 to 420 FTE within 24 months.",
-                      "Hiring decision is a proxy for regional operating strategy.",
-                    ],
-                    blur: false,
+                    h: "Role",
+                    wide: false,
+                    lines: ["Head of Service — Mexico"],
                   },
                   {
-                    h: "Business Context",
+                    h: "Company Context",
+                    wide: false,
                     lines: [
-                      "European industrial group entering Mexican market.",
-                      "First operating leadership hire in North America.",
+                      "International industrial machinery company expanding its installed base and after-sales organization in Mexico.",
                     ],
-                    blur: false,
                   },
                   {
-                    h: "Success Definition",
+                    h: "Hiring Question",
+                    wide: true,
                     lines: [
-                      "6 months — operational stabilization and safety baseline.",
-                      "12 months — OEE ████ %, on-time delivery ████.",
-                      "24 months — regional leadership bench of ██ managers.",
+                      "How do we build a service organization that can support continued growth while improving customer responsiveness and operational discipline?",
                     ],
-                    blur: true,
                   },
                   {
-                    h: "Market Overview",
+                    h: "Role Mandate",
+                    wide: true,
                     lines: [
-                      "Bajío corridor: ██ addressable operating leaders.",
-                      "Cross-border experience concentrated in ██ companies.",
+                      "Lead and develop the Mexican service organization, strengthen field execution and create greater structure around customer support, service planning and team performance.",
                     ],
-                    blur: true,
-                  },
-                  {
-                    h: "Target Companies",
-                    lines: [
-                      "Tier 1 — ██████, ██████, ██████.",
-                      "Tier 2 — ██████, ██████.",
-                      "Adjacent industries considered: ██████.",
-                    ],
-                    blur: true,
-                  },
-                  {
-                    h: "Candidate Profile",
-                    lines: [
-                      "10+ years operating leadership in regulated manufacturing.",
-                      "Fluency in Spanish and English; German preferred.",
-                      "Demonstrated experience scaling greenfield sites.",
-                    ],
-                    blur: false,
-                  },
-                  {
-                    h: "Search Geography",
-                    lines: [
-                      "Primary — Bajío, Monterrey, Mexico City.",
-                      "Secondary — Southern US border states.",
-                    ],
-                    blur: false,
-                  },
-                  {
-                    h: "Decision Criteria",
-                    lines: [
-                      "Operational depth · Leadership maturity.",
-                      "Cross-cultural fluency · Strategic judgment.",
-                      "Weighted into Hiring Confidence Index™.",
-                    ],
-                    blur: false,
-                  },
-                  {
-                    h: "Compensation Strategy",
-                    lines: [
-                      "Base range: MXN ████–████ / annual.",
-                      "Variable: ██% target, tied to safety and OEE.",
-                      "LTI aligned to regional P&L milestones.",
-                    ],
-                    blur: true,
                   },
                 ].map((sec) => (
-                  <div key={sec.h} className="bg-white p-6 lg:p-8">
+                  <div
+                    key={sec.h}
+                    className={`bg-white p-6 lg:p-8 ${
+                      sec.wide ? "md:col-span-2" : ""
+                    }`}
+                  >
                     <p className="font-display text-[11px] uppercase tracking-[0.18em] text-turquoise">
                       {sec.h}
                     </p>
-                    <ul
-                      className={`mt-4 space-y-2 text-sm leading-relaxed text-ink ${
-                        sec.blur ? "blur-[2px] select-none" : ""
-                      }`}
-                    >
-                      {sec.lines.map((l) => (
-                        <li key={l}>{l}</li>
-                      ))}
-                    </ul>
+                    <p className="mt-3 text-sm leading-relaxed text-ink">
+                      {sec.lines[0]}
+                    </p>
                   </div>
                 ))}
+
+                <div className="bg-white p-6 md:col-span-2 lg:p-8">
+                  <p className="font-display text-[11px] uppercase tracking-[0.18em] text-turquoise">
+                    12-Month Success Outcomes
+                  </p>
+                  <ul className="mt-3 grid gap-2 text-sm leading-relaxed text-ink md:grid-cols-2">
+                    {[
+                      "Establish clear operating routines and accountability across the service organization.",
+                      "Improve visibility and coordination of field-service activities.",
+                      "Strengthen customer communication and escalation management.",
+                      "Develop the service team and identify capability gaps required for future growth.",
+                    ].map((l) => (
+                      <li key={l} className="flex gap-2.5">
+                        <span className="mt-2 h-px w-3 shrink-0 bg-turquoise" />
+                        {l}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-white p-6 md:col-span-2 lg:p-8">
+                  <p className="font-display text-[11px] uppercase tracking-[0.18em] text-turquoise">
+                    Critical Candidate Evidence
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                    Look for demonstrated evidence of:
+                  </p>
+                  <ul className="mt-3 grid gap-2 text-sm leading-relaxed text-ink md:grid-cols-2">
+                    {[
+                      "leading technical or field-service teams",
+                      "customer-facing responsibility in an industrial environment",
+                      "coordinating service operations across multiple locations or customer sites",
+                      "improving processes rather than only maintaining existing operations",
+                      "working effectively within an international organization",
+                    ].map((l) => (
+                      <li key={l} className="flex gap-2.5">
+                        <span className="mt-2 h-px w-3 shrink-0 bg-turquoise" />
+                        {l}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-white p-6 lg:p-8">
+                  <p className="font-display text-[11px] uppercase tracking-[0.18em] text-turquoise">
+                    Search Direction
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-ink">
+                    Prioritize leaders from industrial machinery, automation,
+                    equipment, manufacturing technology and adjacent
+                    technical-service environments in Mexico.
+                  </p>
+                </div>
+
+                <div className="bg-white p-6 lg:p-8">
+                  <p className="font-display text-[11px] uppercase tracking-[0.18em] text-turquoise">
+                    Key Constraints
+                  </p>
+                  <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink">
+                    {[
+                      "Mexico-based leadership experience",
+                      "Strong English for international collaboration",
+                      "Willingness to travel to customer sites",
+                      "Compensation alignment with the defined search range",
+                    ].map((l) => (
+                      <li key={l} className="flex gap-2.5">
+                        <span className="mt-2 h-px w-3 shrink-0 bg-turquoise" />
+                        {l}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              <div className="flex items-center justify-between border-t border-hairline px-8 py-5 text-xs text-ink-muted">
-                <span>Prepared for the hiring committee.</span>
-                <span>Illustrative preview — details redacted.</span>
+              {/* Document footer */}
+              <div className="border-t border-hairline px-6 py-5 text-xs text-ink-muted lg:px-8">
+                Candidate and company details are fictionalized for
+                demonstration purposes.
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5 — WHY CLIENTS VALUE IT */}
-      <section className="py-32 lg:py-40">
+      {/* 04 — FROM BLUEPRINT TO MARKET */}
+      <section className="py-24 lg:py-32">
         <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 05 · Value to Leadership</p>
+          <div className="max-w-2xl">
+            <p className="eyebrow">From blueprint to market</p>
             <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Why leadership teams appreciate the Search Blueprint™.
+              Once the search is defined, the market becomes evidence.
             </h2>
+            <p className="mt-5 text-base leading-relaxed text-ink-muted lg:text-lg">
+              The Search Blueprint becomes the reference point for market
+              mapping, candidate identification and later evaluation. As the
+              search progresses, market evidence can also challenge assumptions
+              made at the beginning.
+            </p>
           </div>
 
-          <div className="mt-16 grid gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-3">
+          <ol className="mt-14 flex flex-col items-start gap-3 lg:flex-row lg:items-center lg:gap-6">
             {[
-              {
-                h: "Alignment",
-                b: "The leadership team begins the search with one shared understanding instead of individual assumptions.",
-              },
-              {
-                h: "Transparency",
-                b: "Hiring decisions become easier to communicate internally because expectations are documented.",
-              },
-              {
-                h: "Better Decisions",
-                b: "Candidates are evaluated against predefined business objectives instead of changing expectations.",
-              },
-            ].map((c) => (
-              <div key={c.h} className="bg-white p-10">
-                <h3 className="font-display text-xl text-navy">{c.h}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-                  {c.b}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6 — EVERY BLUEPRINT IS UNIQUE */}
-      <section className="border-y border-hairline bg-surface py-32 lg:py-40">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 06 · Bespoke by Design</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Every hiring decision deserves its own blueprint.
-            </h2>
-          </div>
-
-          <div className="mx-auto mt-16 flex max-w-4xl flex-wrap items-center justify-center gap-4">
-            {[
-              "Sales Director",
-              "Plant Manager",
-              "Automation Engineer",
-              "Managing Director",
-            ].map((r, i, arr) => (
-              <div key={r} className="flex items-center gap-4">
-                <span className="rounded-[10px] border border-hairline bg-white px-5 py-3 font-display text-sm text-navy">
-                  {r}
-                </span>
-                {i < arr.length - 1 && (
-                  <span className="font-display text-lg text-turquoise">≠</span>
+              { label: "Discovery Experience", to: "/discovery-experience" },
+              { label: "Search Blueprint", current: true },
+              { label: "Search & Market Intelligence" },
+              { label: "Talent Lens™", to: "/atlas-library/talent-lens" },
+            ].map((step, i) => (
+              <li key={step.label} className="flex flex-col items-start gap-3 lg:flex-row lg:items-center lg:gap-6">
+                {step.current ? (
+                  <p className="font-display text-xl text-navy md:text-2xl">
+                    {step.label}
+                    <span className="ml-3 align-middle font-display text-xs uppercase tracking-[0.18em] text-turquoise">
+                      This page
+                    </span>
+                  </p>
+                ) : step.to ? (
+                  <Link
+                    to={step.to}
+                    className="font-display text-xl text-ink-muted transition-colors hover:text-navy md:text-2xl"
+                  >
+                    {step.label}
+                  </Link>
+                ) : (
+                  <p className="font-display text-xl text-ink-muted md:text-2xl">
+                    {step.label}
+                  </p>
                 )}
-              </div>
+                {i < 3 && (
+                  <span className="text-lg text-turquoise lg:rotate-0">
+                    ↓
+                  </span>
+                )}
+              </li>
             ))}
-          </div>
+          </ol>
 
-          <div className="mx-auto mt-14 max-w-2xl space-y-3 text-center text-base leading-relaxed text-ink-muted lg:text-lg">
-            <p>
-              Every Search Blueprint™ is built specifically for one business
-              decision.
-            </p>
-            <p>It is never reused. It is never generic.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7 — INSIDE THE ATLAS METHOD */}
-      <section className="py-32 lg:py-40">
-        <div className="container-x">
-          <div className="grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-start">
-            <div>
-              <p className="eyebrow">Section 07 · Inside the Atlas Method™</p>
-              <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-                Where the Search Blueprint™ fits.
-              </h2>
-            </div>
-            <p className="text-base leading-relaxed text-ink-muted lg:text-lg">
-              The Search Blueprint™ transforms understanding into a structured
-              search strategy — the pivot point between what leadership has
-              decided and how the market will be engaged.
-            </p>
-          </div>
-
-          <AtlasLine
-            nodes={6}
-            active={1}
-            className="mx-auto mt-16 max-w-4xl text-navy/60"
-          />
-          <div className="mt-10">
-            <FlowRow steps={atlasFlow} />
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 8 — WHAT CLIENTS RECEIVE */}
-      <section className="border-y border-hairline bg-surface py-32 pb-20 lg:pt-40 lg:pb-24">
-        <div className="container-x">
-          <div className="grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-start">
-            <div>
-              <p className="eyebrow">Section 08 · Deliverables</p>
-              <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-                Every Search Blueprint™ includes
-              </h2>
-            </div>
-            <ul className="grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2">
-              {deliverables.map((d, i) => (
-                <li
-                  key={d}
-                  className={`flex items-center gap-3 bg-white px-6 py-4 ${
-                    i === deliverables.length - 1
-                      ? "sm:col-span-2 sm:justify-center"
-                      : ""
-                  }`}
-                >
-                  <Check className="h-4 w-4 shrink-0 text-turquoise" />
-                  <span className="text-sm text-navy">{d}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <p className="mx-auto mt-14 max-w-2xl text-center text-base leading-relaxed text-ink-muted lg:text-lg">
-            The Search Blueprint™ becomes the reference document for the
-            entire Executive Search engagement.
+          <p className="mt-10 max-w-2xl text-base leading-relaxed text-ink-muted lg:text-lg">
+            The Search Blueprint defines what evidence matters; the Talent Lens™
+            later structures the evidence gathered about an individual
+            candidate.
           </p>
+
+          <div className="mt-8 flex flex-col items-start gap-3">
+            <Link
+              to="/discovery-experience"
+              className="group inline-flex items-center gap-1.5 text-sm font-medium text-navy transition-colors hover:text-turquoise"
+            >
+              Explore the Discovery Experience
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+            <Link
+              to="/atlas-library/talent-lens"
+              className="group inline-flex items-center gap-1.5 text-sm text-ink-muted transition-colors hover:text-navy"
+            >
+              Explore the Talent Lens
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      {/* 05 — CTA */}
       <CTABand
-        eyebrow="Atlas Library · Methodology Document 02"
-        title="Great hiring decisions begin long before the first interview."
-        text="The Search Blueprint™ creates clarity before the search begins, ensuring that every candidate is evaluated against the same business decision."
-        buttonText="Experience the Discovery Experience™"
-        secondaryText="Continue to the Talent Lens™"
-        to="/contact"
-        secondaryTo="/atlas-library/talent-lens"
+        eyebrow="Search Blueprint™"
+        title="A better search starts with a clearer definition of success."
+        text="If you are preparing for an important hire, the Discovery Experience is where we begin defining the decision behind the search."
+        buttonText="Schedule a Discovery Experience"
+        secondaryText="Explore the Atlas Method"
+        externalHref={CALENDAR_URL}
+        secondaryTo="/atlas-method"
       />
     </SiteLayout>
   );
