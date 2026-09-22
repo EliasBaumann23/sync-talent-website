@@ -146,8 +146,8 @@ function ContactPage() {
               <ul className="mt-5 space-y-4 text-sm">
                 <li className="flex items-center gap-3">
                   <Mail className="h-4 w-4 text-turquoise" />
-                  <a href="mailto:e.baumann@sync-tech.io" className="text-navy link-underline">
-                    e.baumann@sync-tech.io
+                  <a href="mailto:e.baumann@sync-talent.io" className="text-navy link-underline">
+                    e.baumann@sync-talent.io
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
