@@ -4,13 +4,14 @@ import { Logo } from "./Logo";
 import { Menu, X } from "lucide-react";
 
 const nav = [
-  { to: "/", label: "Home" },
   { to: "/services", label: "Executive Search" },
   { to: "/industries", label: "Industries" },
+  { to: "/atlas-method", label: "Atlas Method" },
   { to: "/knowledge-hub", label: "Knowledge Hub" },
   { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
 ] as const;
+
+const schedulingUrl = "https://calendar.app.google/KoYen9KgR1fkMTPP7";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
