@@ -237,7 +237,7 @@ function HomePage() {
           </div>
 
           {/* Desktop / tablet — continuous horizontal journey */}
-          <ol className="mt-20 hidden flex-wrap md:flex">
+          <ol className="mt-16 hidden flex-wrap md:flex">
             {atlasJourney.map((s) => {
               const body = (
                 <>
