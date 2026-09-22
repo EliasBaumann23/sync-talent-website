@@ -7,8 +7,7 @@ export const Route = createFileRoute("/atlas-library/search-blueprint")({
   head: () => ({
     meta: [
       {
-        title:
-          "Search Blueprint™ — Atlas Library, Methodology Document 02 | Sync Talent",
+        title: "Search Blueprint™ | Sync Talent",
       },
       {
         name: "description",
@@ -17,12 +16,12 @@ export const Route = createFileRoute("/atlas-library/search-blueprint")({
       },
       {
         property: "og:title",
-        content: "Search Blueprint™ — Atlas Library | Sync Talent",
+        content: "Search Blueprint™ | Sync Talent",
       },
       {
         property: "og:description",
         content:
-          "Methodology Document 02. Every successful Executive Search begins with a written hiring strategy.",
+          "Every successful Executive Search begins with a written hiring strategy.",
       },
       { property: "og:url", content: "/atlas-library/search-blueprint" },
     ],
@@ -150,7 +149,7 @@ function SearchBlueprintPage() {
           <div className="mx-auto mt-14 max-w-5xl">
             <div className="overflow-hidden rounded-[10px] border border-hairline bg-white shadow-[0_30px_80px_-40px_rgba(16,36,58,0.35)]">
               {/* Document header */}
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-hairline px-6 py-5 lg:px-8">
+              <div className="border-b border-hairline px-6 py-5 lg:px-8">
                 <div>
                   <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
                     Illustrative Example
@@ -159,7 +158,6 @@ function SearchBlueprintPage() {
                     Search Blueprint™ · Head of Service — Mexico
                   </p>
                 </div>
-                <p className="text-xs text-ink-muted">Document 02</p>
               </div>
 
               {/* Document body */}
