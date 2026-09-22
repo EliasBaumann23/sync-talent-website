@@ -84,13 +84,14 @@ export function Header() {
                 {i.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
+            <a
+              href={schedulingUrl}
+              target="_blank"
+              rel="noreferrer"
               className="mt-3 inline-flex justify-center rounded-sm bg-navy px-4 py-3 text-sm font-medium text-white"
             >
-              Contact us
-            </Link>
+              Discovery Experience
+            </a>
           </div>
         </div>
       )}
