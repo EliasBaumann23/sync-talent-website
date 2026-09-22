@@ -236,37 +236,85 @@ function HomePage() {
             </p>
           </div>
 
-          <ol className="mt-14 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Desktop / tablet — continuous horizontal journey */}
+          <ol className="mt-20 hidden flex-wrap md:flex">
             {atlasJourney.map((s) => {
               const body = (
                 <>
-                  <p className="font-display text-sm text-turquoise">{s.n}</p>
-                  <p className="mt-3 font-display text-lg leading-snug text-white">{s.t}</p>
-                  {s.to && (
-                    <span className="mt-4 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.14em] text-white/50 transition-colors group-hover:text-turquoise">
-                      View <ArrowRight className="h-3 w-3" />
+                  <p className="font-display text-[13px] tracking-wide text-turquoise">{s.n}</p>
+                  <span className="relative mt-5 block pt-5">
+                    <span className="absolute -top-[4.5px] left-0 h-2 w-2 rounded-full border border-turquoise/60 bg-navy transition-colors group-hover:bg-turquoise" />
+                    <span
+                      className={`font-display text-xs leading-snug xl:text-[13px] ${
+                        s.to
+                          ? "text-white transition-colors group-hover:text-turquoise"
+                          : "text-white/80"
+                      }`}
+                    >
+                      {s.t}
+                      {s.to && (
+                        <ArrowRight className="ml-1.5 inline h-3 w-3 text-turquoise opacity-0 transition-opacity group-hover:opacity-100" />
+                      )}
                     </span>
-                  )}
+                  </span>
                 </>
               );
               return (
-                <li key={s.n} className="bg-navy">
+                <li
+                  key={s.n}
+                  className="relative shrink-0 border-t border-white/15 pr-6 pb-6 last:pr-0 xl:pr-9"
+                >
                   {s.to ? (
-                    <Link
-                      to={s.to}
-                      className="group flex h-full flex-col p-7 transition-colors hover:bg-white/[0.06]"
-                    >
+                    <Link to={s.to} className="group block">
                       {body}
                     </Link>
                   ) : (
-                    <div className="flex h-full flex-col p-7">{body}</div>
+                    <div className="group">{body}</div>
                   )}
                 </li>
               );
             })}
           </ol>
 
-          <div className="mt-12">
+          {/* Mobile — vertical timeline */}
+          <ol className="mt-14 md:hidden">
+            {atlasJourney.map((s) => {
+              const body = (
+                <>
+                  <p className="font-display text-[13px] tracking-wide text-turquoise">{s.n}</p>
+                  <p
+                    className={`mt-1.5 font-display text-base leading-snug ${
+                      s.to
+                        ? "text-white transition-colors group-hover:text-turquoise"
+                        : "text-white/80"
+                    }`}
+                  >
+                    {s.t}
+                    {s.to && (
+                      <ArrowRight className="ml-1.5 inline h-3.5 w-3.5 text-turquoise opacity-0 transition-opacity group-hover:opacity-100" />
+                    )}
+                  </p>
+                </>
+              );
+              return (
+                <li
+                  key={s.n}
+                  className="relative border-l border-white/15 pb-7 pl-6 last:pb-0"
+                >
+                  <span className="absolute -left-[4.5px] top-1 h-2 w-2 rounded-full border border-turquoise/60 bg-navy transition-colors group-hover:bg-turquoise" />
+                  {s.to ? (
+                    <Link to={s.to} className="group block">
+                      {body}
+                    </Link>
+                  ) : (
+                    <div className="group">{body}</div>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+
+          <div className="mt-14">
             <Link
               to="/atlas-method"
               className="inline-flex items-center gap-2 text-sm font-medium text-turquoise link-underline"
