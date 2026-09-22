@@ -255,9 +255,9 @@ function AtlasMethodPage() {
                 {i < principles.length - 1 && (
                   <span
                     aria-hidden
-                    className="self-center font-display text-lg text-turquoise md:mt-2 md:rotate-0 md:self-auto"
+                    className="self-center font-display text-lg text-turquoise md:mt-1 md:self-auto"
                   >
-                    ↓
+                    <span className="inline-block rotate-90 md:rotate-0">→</span>
                   </span>
                 )}
               </Fragment>
