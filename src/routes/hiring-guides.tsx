@@ -76,14 +76,18 @@ function HiringGuidesPage() {
               <h2 className="text-xl leading-snug">{g.title}</h2>
               <p className="text-sm leading-relaxed text-ink-muted">{g.text}</p>
               <span className="mt-auto inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.14em] text-navy transition-colors group-hover:text-turquoise">
-                Read guide <ArrowRight className="h-3.5 w-3.5" />
+                Request this guide <ArrowRight className="h-3.5 w-3.5" />
               </span>
             </Link>
           ))}
         </div>
       </section>
 
-      <CTABand secondaryText="" />
+      <CTABand
+        buttonText="Schedule a Discovery Experience"
+        externalHref="https://calendar.app.google/KoYen9KgR1fkMTPP7"
+        secondaryText=""
+      />
     </SiteLayout>
   );
 }

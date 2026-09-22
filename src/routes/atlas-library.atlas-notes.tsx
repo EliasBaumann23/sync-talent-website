@@ -448,13 +448,13 @@ function AtlasNotesPage() {
                 to="/knowledge-hub"
                 className="inline-flex items-center rounded-[10px] bg-turquoise px-7 py-4 text-sm font-medium text-navy transition-colors hover:bg-white"
               >
-                Explore Market Reports
+                Explore the Knowledge Hub
               </Link>
               <Link
                 to="/discovery-experience"
                 className="inline-flex items-center rounded-[10px] border border-white/30 px-7 py-4 text-sm font-medium text-white transition-colors hover:border-white hover:bg-white/5"
               >
-                Experience the Discovery Experience™
+                Learn about the Discovery Experience
               </Link>
             </div>
           </div>
