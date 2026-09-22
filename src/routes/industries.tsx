@@ -14,7 +14,7 @@ export const Route = createFileRoute("/industries")({
       {
         name: "description",
         content:
-          "Specialized recruitment for packaging machinery, industrial automation, manufacturing, machinery, industrial software, food processing, material handling and logistics automation in Mexico.",
+          "Specialized Executive Search for packaging machinery, industrial automation, manufacturing, machinery, industrial software, food processing, material handling and logistics automation in Mexico.",
       },
       { property: "og:title", content: "Industries — Sync Talent" },
       { property: "og:description", content: "Industries we serve across Mexico and North America." },

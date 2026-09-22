@@ -41,7 +41,7 @@ export function Footer() {
   return (
     <footer className="border-t border-turquoise bg-navy text-white/80">
       <div className="container-x py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(2,1fr)]">
+        <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div className="max-w-sm">
             <Logo invert />
             <p className="mt-6 text-sm leading-relaxed text-white/65">
