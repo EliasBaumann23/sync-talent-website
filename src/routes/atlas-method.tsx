@@ -245,30 +245,22 @@ function AtlasMethodPage() {
             </p>
           </div>
 
-          <div className="mt-14 flex flex-col gap-9 md:flex-row md:items-start md:gap-6">
+          <div className="mt-14 flex flex-col gap-8 md:flex-row md:items-start md:gap-5">
             {principles.map((p, i) => (
-              <div key={p.name} className="flex items-start gap-6 md:flex-1 md:flex-col md:gap-3">
-                <div className="min-w-0">
+              <Fragment key={p.name}>
+                <div className="min-w-0 md:flex-1">
                   <p className="font-display text-2xl text-navy md:text-[26px]">{p.name}</p>
                   <p className="mt-2 text-sm leading-relaxed text-ink-muted">{p.d}</p>
                 </div>
                 {i < principles.length - 1 && (
                   <span
                     aria-hidden
-                    className="mt-2 shrink-0 font-display text-lg text-turquoise md:hidden"
+                    className="self-center font-display text-lg text-turquoise md:mt-2 md:rotate-0 md:self-auto"
                   >
                     ↓
                   </span>
                 )}
-                {i < principles.length - 1 && (
-                  <span
-                    aria-hidden
-                    className="mt-3 hidden shrink-0 font-display text-lg text-turquoise md:block md:absolute"
-                  >
-                    →
-                  </span>
-                )}
-              </div>
+              </Fragment>
             ))}
           </div>
         </div>
