@@ -150,7 +150,7 @@ function AboutPage() {
 
           <div className="mt-16 grid gap-16 md:grid-cols-2 md:gap-8 lg:mt-20 lg:gap-14">
             <article className="border-t border-hairline pt-5">
-              <div className="aspect-square overflow-hidden rounded-full bg-surface-light">
+              <div className="aspect-square w-2/3 overflow-hidden rounded-full bg-surface-light">
                 <img
                   src="/images/team/elias-baumann.png"
                   alt="Elias Baumann, Co-Founder and Managing Director at Sync Talent"
@@ -182,7 +182,7 @@ function AboutPage() {
             </article>
 
             <article className="border-t border-hairline pt-5">
-              <div className="aspect-square overflow-hidden rounded-full bg-surface-light">
+              <div className="aspect-square w-2/3 overflow-hidden rounded-full bg-surface-light">
                 <img
                   src="/images/team/daniela-cardoso.png"
                   alt="Daniela Cardoso, Talent Strategy and Search at Sync Talent"
