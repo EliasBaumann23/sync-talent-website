@@ -7,8 +7,7 @@ export const Route = createFileRoute("/atlas-library/talent-lens")({
   head: () => ({
     meta: [
       {
-        title:
-          "Talent Lens™ — Atlas Library, Methodology Document 03 | Sync Talent",
+        title: "Talent Lens™ — Structured Candidate Evidence | Sync Talent",
       },
       {
         name: "description",
@@ -17,12 +16,12 @@ export const Route = createFileRoute("/atlas-library/talent-lens")({
       },
       {
         property: "og:title",
-        content: "Talent Lens™ — Atlas Library | Sync Talent",
+        content: "Talent Lens™ — Structured Candidate Evidence | Sync Talent",
       },
       {
         property: "og:description",
         content:
-          "Methodology Document 03. Every candidate deserves to be evaluated against the same decision.",
+          "Every candidate deserves to be evaluated against the same decision.",
       },
       { property: "og:url", content: "/atlas-library/talent-lens" },
     ],
