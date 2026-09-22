@@ -14,7 +14,7 @@ import logoNita from "@/assets/NITA.png";
 import logoSomic from "@/assets/SOMIC.png";
 import logoTpg from "@/assets/TPG.png";
 import logoTavil from "@/assets/TAVIL.png";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -237,33 +237,42 @@ function HomePage() {
           </div>
 
           {/* Desktop / tablet — continuous horizontal journey */}
-          <ol className="mt-20 hidden flex-wrap md:flex">
+          <ol className="mt-16 hidden flex-wrap md:flex">
             {atlasJourney.map((s) => {
               const body = (
                 <>
-                  <p className="font-display text-[13px] tracking-wide text-turquoise">{s.n}</p>
-                  <span className="relative mt-5 block pt-5">
-                    <span className="absolute -top-[4.5px] left-0 h-2 w-2 rounded-full border border-turquoise/60 bg-navy transition-colors group-hover:bg-turquoise" />
-                    <span
-                      className={`font-display text-xs leading-snug xl:text-[13px] ${
-                        s.to
-                          ? "text-white transition-colors group-hover:text-turquoise"
-                          : "text-white/80"
-                      }`}
-                    >
-                      {s.t}
-                      {s.to && (
-                        <ArrowRight className="ml-1.5 inline h-3 w-3 text-turquoise opacity-0 transition-opacity group-hover:opacity-100" />
-                      )}
-                    </span>
+                  <p className="flex h-7 items-end font-display text-[13px] tracking-wide text-turquoise">
+                    {s.n}
+                  </p>
+                  <div className="relative h-9">
+                    <span className="absolute left-0 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full border border-turquoise/60 bg-navy transition-colors group-hover:bg-turquoise" />
+                  </div>
+                  <span
+                    className={`mt-3 block font-display text-xs leading-snug xl:text-[13px] ${
+                      s.to
+                        ? "text-white transition-colors group-hover:text-turquoise"
+                        : "text-white/80"
+                    }`}
+                  >
+                    {s.t}
+                    {s.to && (
+                      <ArrowRight className="ml-1.5 inline h-3 w-3 text-turquoise opacity-0 transition-opacity group-hover:opacity-100" />
+                    )}
                   </span>
                 </>
               );
               return (
                 <li
                   key={s.n}
-                  className="relative shrink-0 border-t border-white/15 pr-6 pb-6 last:pr-0 xl:pr-9"
+                  className="relative shrink-0 pr-6 pb-2 last:pr-0 xl:pr-9"
                 >
+                  <span className="absolute left-0 right-0 top-[46px] h-px bg-white/15" />
+                  {s.n === "07" && (
+                    <ChevronRight
+                      aria-hidden
+                      className="absolute right-[-2px] top-[46px] h-3 w-3 -translate-y-1/2 text-white/40"
+                    />
+                  )}
                   {s.to ? (
                     <Link to={s.to} className="group block">
                       {body}
