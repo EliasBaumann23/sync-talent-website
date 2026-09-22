@@ -2,8 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
-import eliasPortrait from "@/assets/elias-baumann-final.png.asset.json";
-import danielaPortrait from "@/assets/daniela-cardoso-final.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -154,7 +152,7 @@ function AboutPage() {
             <article className="border-t border-hairline pt-5">
               <div className="aspect-square overflow-hidden rounded-full bg-surface-light">
                 <img
-                  src={eliasPortrait.url}
+                  src="/images/team/elias-baumann.png"
                   alt="Elias Baumann, Co-Founder and Managing Director at Sync Talent"
                   loading="lazy"
                   className="h-full w-full object-contain"
@@ -186,7 +184,7 @@ function AboutPage() {
             <article className="border-t border-hairline pt-5">
               <div className="aspect-square overflow-hidden rounded-full bg-surface-light">
                 <img
-                  src={danielaPortrait.url}
+                  src="/images/team/daniela-cardoso.png"
                   alt="Daniela Cardoso, Talent Strategy and Search at Sync Talent"
                   loading="lazy"
                   className="h-full w-full object-contain"
