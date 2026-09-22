@@ -334,9 +334,12 @@ function SearchBlueprintPage() {
                   </p>
                 )}
                 {i < 3 && (
-                  <span className="text-lg text-turquoise lg:rotate-0">
-                    ↓
-                  </span>
+                  <>
+                    <span className="text-lg text-turquoise lg:hidden">↓</span>
+                    <span className="hidden text-lg text-turquoise lg:inline">
+                      →
+                    </span>
+                  </>
                 )}
               </li>
             ))}
