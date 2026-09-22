@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { SiteLayout } from "@/components/site/SiteLayout";
+import { ArrowRight } from "lucide-react";
 import { CTABand } from "@/components/site/CTA";
-import { AtlasLine } from "@/components/site/AtlasLine";
-import { Check } from "lucide-react";
+import { SiteLayout } from "@/components/site/SiteLayout";
 
 export const Route = createFileRoute("/atlas-library/talent-lens")({
   head: () => ({
@@ -32,501 +31,423 @@ export const Route = createFileRoute("/atlas-library/talent-lens")({
   component: TalentLensPage,
 });
 
-const problems = [
-  "Different interviewers prioritize different qualities",
-  "Opinions replace evidence",
-  "Evaluation criteria change during the search",
-  "Final decisions become difficult to defend",
-];
+const CALENDAR_URL = "https://calendar.app.google/KoYen9KgR1fkMTPP7";
 
-const comparison = {
-  traditional: ["First Impression", "Personal Opinion", "General Discussion", "Recommendation"],
-  talentLens: ["Structured Observation", "Evidence", "Business Context", "Decision Support"],
-};
+const dimensions = [
+  {
+    n: "01",
+    title: "Technical & Functional Capability",
+    body: "Evidence that the candidate can handle the core responsibilities and functional challenges of the role.",
+  },
+  {
+    n: "02",
+    title: "Business & Leadership Judgement",
+    body: "Evidence of how the candidate reasons, prioritizes, makes decisions, influences others and connects their work to business outcomes.",
+  },
+  {
+    n: "03",
+    title: "Organizational & Contextual Fit",
+    body: "Evidence of whether the candidate can succeed within the specific organization, market, operating environment and leadership context.",
+  },
+  {
+    n: "04",
+    title: "Motivation & Trajectory",
+    body: "Evidence of why the opportunity makes sense now, what motivates the candidate and how the role fits their professional direction.",
+  },
+] as const;
 
-const evidenceCards = [
+const snapshot = [
   {
-    title: "Behavior",
-    body: "Observable examples from previous experience.",
+    label: "Background",
+    text: "12+ years in industrial service and technical operations within international machinery and automation environments.",
   },
   {
-    title: "Achievements",
-    body: "Measurable business outcomes and results.",
+    label: "Current Scope",
+    text: "Leads a field-service team supporting industrial customers across multiple locations in Mexico.",
   },
+  { label: "Languages", text: "Spanish and English." },
   {
-    title: "Decision Making",
-    body: "Examples of judgement under real business conditions.",
+    label: "Relevant Exposure",
+    text: "Technical service leadership, customer escalation, field operations, team development and international stakeholder collaboration.",
   },
-  {
-    title: "Market Context",
-    body: "Comparison against similar candidates and current market realities.",
-  },
-];
+] as const;
 
-const reportSections = [
-  { title: "Executive Summary", blur: false },
-  { title: "Technical Assessment", blur: false },
-  { title: "Commercial Assessment", blur: true },
-  { title: "Leadership Assessment", blur: true },
-  { title: "International Perspective", blur: true },
-  { title: "Strengths", blur: false },
-  { title: "Potential Risks", blur: true },
-  { title: "Open Questions", blur: false },
-  { title: "Overall Recommendation", blur: true },
-];
+const assessments = [
+  {
+    n: "01",
+    title: "Technical & Functional Capability",
+    evidence: [
+      "More than a decade in industrial service and technical operations.",
+      "Direct leadership of field-service activities.",
+      "Experience coordinating technical teams across customer locations.",
+      "Exposure to service planning, customer escalation and operational execution.",
+    ],
+    suggests:
+      "Strong evidence of direct relevance to the functional demands of the role.",
+    question:
+      "How much experience does the candidate have redesigning service processes rather than operating within an established structure?",
+  },
+  {
+    n: "02",
+    title: "Business & Leadership Judgement",
+    evidence: [
+      "Current responsibility for a technical service team.",
+      "Regular prioritization of field resources across customer requirements.",
+      "Direct involvement in escalations and customer-facing decisions.",
+      "Experience collaborating with international management.",
+    ],
+    suggests:
+      "Relevant leadership evidence, particularly in operational prioritization and customer-facing decision making.",
+    question:
+      "How has the candidate translated operational improvements into measurable business or customer outcomes?",
+  },
+  {
+    n: "03",
+    title: "Organizational & Contextual Fit",
+    evidence: [
+      "Experience within international industrial organizations.",
+      "Familiarity with matrix collaboration and cross-border stakeholders.",
+      "Customer-facing experience across industrial environments in Mexico.",
+      "Experience operating across multiple locations.",
+    ],
+    suggests:
+      "The candidate's operating context appears broadly aligned with the environment defined in the Search Blueprint.",
+    question:
+      "How effectively would the candidate adapt from an established service structure to an organization requiring greater process development and change?",
+  },
+  {
+    n: "04",
+    title: "Motivation & Trajectory",
+    evidence: [
+      "Current career progression has moved from technical execution toward broader service leadership.",
+      "The opportunity would expand responsibility for organizational development and service performance.",
+      "Candidate expresses interest in broader leadership responsibility.",
+    ],
+    suggests:
+      "The opportunity appears directionally consistent with the candidate's progression toward broader operational leadership.",
+    question:
+      "Is the motivation primarily driven by increased responsibility, or are compensation and title the dominant factors?",
+  },
+] as const;
 
-const whyItMatters = [
+const evidenceView = [
   {
-    title: "Objectivity",
-    body: "Every candidate is evaluated against the same framework.",
+    title: "Strongest Evidence",
+    items: [
+      "Industrial service leadership",
+      "Field operations",
+      "Customer-facing responsibility",
+      "International organizational exposure",
+    ],
   },
   {
-    title: "Transparency",
-    body: "Leadership teams understand why recommendations are made.",
+    title: "Remaining Uncertainty",
+    items: [
+      "Depth of process-transformation experience",
+      "Evidence connecting service improvements to business outcomes",
+      "Motivation for the specific opportunity",
+    ],
   },
   {
-    title: "Confidence",
-    body: "Hiring decisions become easier to explain internally because they are supported by structured observations.",
+    title: "What to Validate Next",
+    items: [
+      "Concrete example of redesigning or improving a service process",
+      "Business impact of a significant operational decision",
+      "Motivation and expectations around the next career step",
+    ],
   },
-];
+] as const;
 
-const atlasFlow = [
-  "Discovery Experience™",
-  "Search Blueprint™",
-  "Executive Search",
-  "Talent Lens™",
-  "Hiring Confidence Index™",
-  "Hiring Decision",
-];
-
-const principles = [
-  {
-    title: "Consistency",
-    body: "Every candidate is measured against the same criteria.",
-  },
-  {
-    title: "Evidence",
-    body: "Observations are supported by examples.",
-  },
-  {
-    title: "Business Relevance",
-    body: "Evaluation is connected to the hiring decision, not generic competencies.",
-  },
-  {
-    title: "Transparency",
-    body: "Clients understand how recommendations are reached.",
-  },
-  {
-    title: "Continuous Learning",
-    body: "Every interview strengthens future evaluations by expanding institutional market intelligence.",
-  },
-];
-
-function FlowRow({ steps }: { steps: readonly string[] }) {
+function EvidenceList({ items }: { items: readonly string[] }) {
   return (
-    <ol className="grid gap-px overflow-hidden border border-hairline bg-hairline lg:grid-cols-6">
-      {steps.map((s, i) => (
-        <li
-          key={s}
-          className="flex flex-col justify-between gap-6 bg-white p-6"
-        >
-          <span className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
-            Step {String(i + 1).padStart(2, "0")}
-          </span>
-          <span className="font-display text-base leading-snug text-navy">
-            {s}
-          </span>
+    <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink">
+      {items.map((item) => (
+        <li key={item} className="flex gap-2.5">
+          <span className="mt-2 h-px w-3 shrink-0 bg-turquoise" />
+          <span>{item}</span>
         </li>
       ))}
-    </ol>
-  );
-}
-
-function DimensionsDiagram() {
-  return (
-    <div className="mx-auto mt-16 max-w-5xl">
-      <div className="relative grid gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:items-center lg:gap-0">
-        {/* Technical Fluency */}
-        <article className="rounded-[10px] border border-hairline bg-white p-8 lg:p-10">
-          <h3 className="font-display text-xl text-navy">Technical Fluency</h3>
-          <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-            Can this person solve the technical challenges of the role?
-          </p>
-        </article>
-
-        {/* Vertical connector on desktop */}
-        <div className="hidden lg:flex lg:items-center lg:justify-center">
-          <div className="h-px w-16 bg-hairline" />
-        </div>
-
-        {/* Commercial Judgement */}
-        <article className="rounded-[10px] border border-hairline bg-white p-8 lg:p-10">
-          <h3 className="font-display text-xl text-navy">Commercial Judgement</h3>
-          <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-            Can they create business value beyond technical expertise?
-          </p>
-        </article>
-
-        {/* Horizontal connector on desktop */}
-        <div className="hidden lg:flex lg:items-center lg:justify-end lg:pr-8">
-          <div className="h-px w-16 bg-hairline" />
-        </div>
-
-        {/* Center: Hiring Decision */}
-        <div className="flex items-center justify-center py-8 lg:py-0">
-          <div className="flex h-36 w-36 items-center justify-center rounded-full border border-hairline bg-white shadow-[0_20px_60px_-30px_rgba(16,36,58,0.25)] md:h-40 md:w-40">
-            <span className="text-center font-display text-sm font-semibold leading-tight text-navy">
-              Hiring
-              <br />
-              Decision
-            </span>
-          </div>
-        </div>
-
-        {/* Horizontal connector on desktop */}
-        <div className="hidden lg:flex lg:items-center lg:justify-start lg:pl-8">
-          <div className="h-px w-16 bg-hairline" />
-        </div>
-
-        {/* Leadership Impact */}
-        <article className="rounded-[10px] border border-hairline bg-white p-8 lg:p-10">
-          <h3 className="font-display text-xl text-navy">Leadership Impact</h3>
-          <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-            Can they influence people, projects and organizational outcomes?
-          </p>
-        </article>
-
-        {/* Vertical connector on desktop */}
-        <div className="hidden lg:flex lg:items-center lg:justify-center">
-          <div className="h-px w-16 bg-hairline" />
-        </div>
-
-        {/* International Mindset */}
-        <article className="rounded-[10px] border border-hairline bg-white p-8 lg:p-10">
-          <h3 className="font-display text-xl text-navy">International Mindset</h3>
-          <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-            Can they operate successfully across cultures, organizations and international stakeholders?
-          </p>
-        </article>
-      </div>
-    </div>
+    </ul>
   );
 }
 
 function TalentLensPage() {
   return (
     <SiteLayout>
-      {/* HERO */}
+      {/* 01 — Hero */}
       <section className="border-b border-hairline bg-white">
-        <div className="container-x pt-20 pb-24 lg:pt-28 lg:pb-32">
-          <div className="grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:items-end">
-            <div>
-              <p className="eyebrow">Atlas Library · Methodology Document 03</p>
-              <h1 className="mt-5 text-4xl leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
-                Every candidate deserves to be evaluated against the same decision.
-              </h1>
-            </div>
-            <div className="space-y-6">
-              <p className="text-base leading-relaxed text-ink-muted lg:text-lg">
-                The Talent Lens™ replaces subjective impressions with structured evidence. It ensures every candidate is assessed against the same business objectives, creating consistency, transparency and confidence throughout the Executive Search process.
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-3">
-                <Link
-                  to="/atlas-library/hiring-confidence-index"
-                  className="inline-flex items-center rounded-[10px] bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise"
-                >
-                  Explore the Hiring Confidence Index™
-                </Link>
-              </div>
-            </div>
+        <div className="container-x pt-20 pb-16 lg:pt-28 lg:pb-24">
+          <p className="eyebrow">Talent Lens™</p>
+          <h1 className="mt-5 max-w-4xl text-4xl leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
+            See the evidence behind the résumé.
+          </h1>
+          <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+            <p className="max-w-2xl text-base leading-relaxed text-ink-muted lg:text-lg">
+              The Talent Lens structures the evidence behind a candidate against
+              the requirements, context and success criteria defined for the
+              search.
+            </p>
+            <p className="max-w-xl text-base leading-relaxed text-ink-muted lg:text-lg">
+              Instead of reducing a person to a score or résumé summary, it makes
+              relevant experience, strengths, risks and open questions easier to
+              examine before a hiring decision is made.
+            </p>
+          </div>
+          <div className="mt-10">
+            <Link
+              to="/atlas-method"
+              className="group inline-flex items-center gap-1.5 text-sm text-ink-muted transition-colors hover:text-navy"
+            >
+              Stage 04 of the Atlas Method
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* SECTION 1 — THE PROBLEM */}
-      <section className="py-32 lg:py-40">
-        <div className="container-x grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-start">
-          <div>
-            <p className="eyebrow">Section 01 · The Problem</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Most hiring decisions are more subjective than organizations realize.
-            </h2>
-          </div>
-          <div className="space-y-6 text-base leading-relaxed text-ink-muted lg:text-lg">
-            <p>
-              Two interviewers often leave the same meeting with different opinions.
-            </p>
-            <p>
-              Not because one of them is wrong. But because each person unconsciously evaluates different characteristics.
-            </p>
-            <p>
-              Without a common evaluation framework, candidates are compared using different standards throughout the process. The result is inconsistent hiring decisions.
-            </p>
-            <p className="text-navy">
-              Better hiring decisions require a common evaluation language.
-            </p>
-          </div>
-        </div>
-
-        <div className="container-x mt-16">
-          <ul className="grid gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-4">
-            {problems.map((p, i) => (
-              <li key={p} className="bg-white p-8">
-                <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
-                  0{i + 1}
-                </p>
-                <p className="mt-4 text-base leading-relaxed text-navy">{p}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* SECTION 2 — FROM IMPRESSIONS TO EVIDENCE */}
-      <section className="border-y border-hairline bg-surface py-32 lg:py-40">
+      {/* 02 — Four Evidence Dimensions */}
+      <section className="py-24 lg:py-32">
         <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 02 · From Impressions to Evidence</p>
+          <div className="max-w-3xl">
+            <p className="eyebrow">Four Evidence Dimensions</p>
             <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Replacing impressions with structured observations.
+              Four dimensions. One hiring context.
             </h2>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted lg:text-lg">
+              Every Talent Lens uses the same four dimensions, but the evidence
+              that matters within them depends on the specific role and
+              organization.
+            </p>
+          </div>
+          <div className="mt-14 divide-y divide-hairline border-y border-hairline">
+            {dimensions.map((dimension) => (
+              <div
+                key={dimension.n}
+                className="grid gap-3 py-7 md:grid-cols-[64px_320px_1fr] md:items-baseline lg:py-8"
+              >
+                <p className="font-display text-sm text-turquoise">
+                  {dimension.n}
+                </p>
+                <h3 className="font-display text-lg leading-snug text-navy md:text-xl">
+                  {dimension.title}
+                </h3>
+                <p className="max-w-2xl text-base leading-relaxed text-ink-muted">
+                  {dimension.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 03 — Inside a Talent Lens */}
+      <section className="border-y border-hairline bg-surface py-24 lg:py-32">
+        <div className="container-x">
+          <div className="max-w-3xl">
+            <p className="eyebrow">Inside a Talent Lens</p>
+            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
+              What this looks like in practice.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted lg:text-lg">
+              The Talent Lens brings together relevant evidence, areas of
+              strength, potential risks and questions that still need to be
+              resolved.
+            </p>
           </div>
 
-          <div className="mx-auto mt-16 grid max-w-4xl gap-8 md:grid-cols-2">
-            {/* Traditional Interviews */}
-            <div className="rounded-[10px] border border-hairline bg-white p-8 lg:p-10">
-              <p className="font-display text-xs uppercase tracking-[0.18em] text-ink-muted">
-                Traditional Interviews
-              </p>
-              <ol className="mt-8 space-y-5">
-                {comparison.traditional.map((item) => (
-                  <li key={item} className="flex items-center gap-4">
-                    <span className="h-1.5 w-1.5 rounded-full bg-hairline" />
-                    <span className="text-base text-navy">{item}</span>
-                  </li>
-                ))}
-              </ol>
-              <div className="mt-6 flex items-center justify-center">
-                <span className="text-2xl text-hairline">↓</span>
-              </div>
-              <p className="mt-6 text-center text-sm text-ink-muted">
-                Recommendation
-              </p>
-            </div>
-
-            {/* Talent Lens™ */}
-            <div className="rounded-[10px] border border-hairline bg-navy p-8 text-white lg:p-10">
+          <article className="mx-auto mt-14 max-w-5xl overflow-hidden rounded-[10px] border border-hairline bg-white shadow-[0_30px_80px_-40px_rgba(16,36,58,0.35)]">
+            <header className="border-b border-hairline px-6 py-6 lg:px-8">
               <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
-                Talent Lens™
+                Illustrative Assessment
               </p>
-              <ol className="mt-8 space-y-5">
-                {comparison.talentLens.map((item) => (
-                  <li key={item} className="flex items-center gap-4">
-                    <span className="h-1.5 w-1.5 rounded-full bg-turquoise" />
-                    <span className="text-base text-white">{item}</span>
-                  </li>
+              <div className="mt-3 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                <h3 className="font-display text-xl text-navy">
+                  Head of Service — Mexico
+                </h3>
+                <p className="font-display text-sm text-ink-muted">Candidate A</p>
+              </div>
+              <p className="mt-3 text-xs leading-relaxed text-ink-muted">
+                Candidate and company details are fictionalized for demonstration
+                purposes.
+              </p>
+            </header>
+
+            <div className="border-b border-hairline px-6 py-7 lg:px-8 lg:py-9">
+              <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
+                Candidate Snapshot
+              </p>
+              <dl className="mt-6 grid gap-x-10 gap-y-6 md:grid-cols-2">
+                {snapshot.map((item) => (
+                  <div key={item.label}>
+                    <dt className="font-display text-sm text-navy">{item.label}</dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-ink-muted">
+                      {item.text}
+                    </dd>
+                  </div>
                 ))}
-              </ol>
-              <div className="mt-6 flex items-center justify-center">
-                <span className="text-2xl text-turquoise">↓</span>
-              </div>
-              <p className="mt-6 text-center text-sm text-white/80">
-                Decision Support
-              </p>
+              </dl>
             </div>
-          </div>
 
-          <p className="mx-auto mt-14 max-w-2xl text-center text-base text-ink-muted lg:text-lg">
-            The Talent Lens™ creates consistency across every interview and every evaluator.
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION 3 — THE FOUR DIMENSIONS */}
-      <section className="py-32 lg:py-40">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 03 · The Four Dimensions</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Every candidate is evaluated through four complementary dimensions.
-            </h2>
-          </div>
-
-          <DimensionsDiagram />
-        </div>
-      </section>
-
-      {/* SECTION 4 — WHAT EVIDENCE LOOKS LIKE */}
-      <section className="border-y border-hairline bg-surface py-32 lg:py-40">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 04 · What Evidence Looks Like</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Every evaluation is built on evidence.
-            </h2>
-          </div>
-
-          <div className="mt-16 grid gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-4">
-            {evidenceCards.map((c) => (
-              <article key={c.title} className="bg-white p-8 lg:p-10">
-                <h3 className="font-display text-xl text-navy">{c.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-                  {c.body}
+            <div>
+              <div className="border-b border-hairline px-6 py-5 lg:px-8">
+                <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
+                  Talent Lens Assessment
                 </p>
-              </article>
-            ))}
-          </div>
-
-          <p className="mx-auto mt-14 max-w-2xl text-center text-base text-ink-muted lg:text-lg">
-            Evidence replaces intuition without eliminating professional judgement.
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION 5 — THE TALENT LENS REPORT */}
-      <section className="py-32 lg:py-40">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 05 · The Talent Lens Report</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              What clients receive.
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-ink-muted lg:text-lg">
-              A structured executive assessment that transforms interview observations into decision-ready intelligence.
-            </p>
-          </div>
-
-          <div className="mx-auto mt-16 max-w-5xl">
-            <div className="overflow-hidden rounded-[10px] border border-hairline bg-white shadow-[0_30px_80px_-40px_rgba(16,36,58,0.35)]">
-              <div className="flex items-center justify-between border-b border-hairline bg-white px-8 py-5">
-                <div>
-                  <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
-                    Sync Talent · Confidential
-                  </p>
-                  <p className="mt-1 font-display text-base text-navy">
-                    Talent Lens™ Assessment · Operations Director, North America
-                  </p>
-                </div>
-                <p className="text-xs text-ink-muted">Document 03 · v1.0</p>
               </div>
-
-              <div className="grid gap-px bg-hairline md:grid-cols-2 lg:grid-cols-3">
-                {reportSections.map((sec) => (
-                  <div key={sec.title} className="bg-white p-6 lg:p-8">
-                    <p className="font-display text-[11px] uppercase tracking-[0.18em] text-turquoise">
-                      {sec.title}
+              {assessments.map((assessment) => (
+                <section
+                  key={assessment.n}
+                  className="border-b border-hairline px-6 py-8 last:border-b-0 lg:px-8 lg:py-10"
+                >
+                  <div className="grid gap-3 md:grid-cols-[48px_1fr]">
+                    <p className="font-display text-sm text-turquoise">
+                      {assessment.n}
                     </p>
-                    <ul
-                      className={`mt-4 space-y-2 text-sm leading-relaxed text-ink ${
-                        sec.blur ? "blur-[2px] select-none" : ""
-                      }`}
-                    >
-                      <li>• {sec.title} content prepared for the hiring committee.</li>
-                      <li>• Supporting evidence and observations included.</li>
-                    </ul>
+                    <h4 className="font-display text-xl leading-snug text-navy">
+                      {assessment.title}
+                    </h4>
+                  </div>
+                  <div className="mt-7 grid gap-7 md:grid-cols-2 lg:grid-cols-[1.25fr_1fr_1fr] lg:gap-10 lg:pl-12">
+                    <div>
+                      <p className="font-display text-[11px] uppercase tracking-[0.18em] text-turquoise">
+                        Evidence
+                      </p>
+                      <EvidenceList items={assessment.evidence} />
+                    </div>
+                    <div>
+                      <p className="font-display text-[11px] uppercase tracking-[0.18em] text-turquoise">
+                        What this suggests
+                      </p>
+                      <p className="mt-3 text-sm leading-relaxed text-ink">
+                        {assessment.suggests}
+                      </p>
+                    </div>
+                    <div className="md:col-span-2 lg:col-span-1">
+                      <p className="font-display text-[11px] uppercase tracking-[0.18em] text-turquoise">
+                        Open question
+                      </p>
+                      <p className="mt-3 text-sm leading-relaxed text-ink">
+                        {assessment.question}
+                      </p>
+                    </div>
+                  </div>
+                </section>
+              ))}
+            </div>
+
+            <section className="border-t border-hairline bg-surface px-6 py-8 lg:px-8 lg:py-10">
+              <p className="eyebrow">Overall Evidence View</p>
+              <h3 className="mt-3 font-display text-2xl text-navy">
+                Evidence view
+              </h3>
+              <div className="mt-7 grid gap-8 md:grid-cols-3">
+                {evidenceView.map((group) => (
+                  <div key={group.title}>
+                    <h4 className="font-display text-sm text-navy">
+                      {group.title}
+                    </h4>
+                    <EvidenceList items={group.items} />
                   </div>
                 ))}
               </div>
-
-              <div className="flex items-center justify-between border-t border-hairline px-8 py-5 text-xs text-ink-muted">
-                <span>Prepared for the hiring committee.</span>
-                <span>Illustrative preview — details redacted.</span>
-              </div>
-            </div>
-          </div>
+            </section>
+          </article>
         </div>
       </section>
 
-      {/* SECTION 6 — WHY IT MATTERS */}
-      <section className="border-y border-hairline bg-surface py-32 lg:py-40">
+      {/* 04 — From Evidence to Decision */}
+      <section className="py-24 lg:py-32">
         <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 06 · Why It Matters</p>
+          <div className="max-w-3xl">
+            <p className="eyebrow">From Evidence to Decision</p>
             <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Consistency creates better hiring decisions.
+              Evidence first. Confidence second.
             </h2>
-          </div>
-
-          <div className="mt-16 grid gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-3">
-            {whyItMatters.map((c) => (
-              <div key={c.title} className="bg-white p-10">
-                <h3 className="font-display text-xl text-navy">{c.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-                  {c.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7 — INSIDE THE ATLAS METHOD */}
-      <section className="py-32 lg:py-40">
-        <div className="container-x">
-          <div className="grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-start">
-            <div>
-              <p className="eyebrow">Section 07 · Inside the Atlas Method</p>
-              <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-                Where the Talent Lens™ fits.
-              </h2>
-            </div>
-            <p className="text-base leading-relaxed text-ink-muted lg:text-lg">
-              The Talent Lens™ transforms interview observations into structured decision evidence.
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted lg:text-lg">
+              The Talent Lens does not remove uncertainty. It makes the available
+              evidence and remaining questions visible so that the next stage of
+              the decision can focus on what still needs to be validated.
             </p>
           </div>
 
-          <AtlasLine
-            nodes={6}
-            active={3}
-            className="mx-auto mt-16 max-w-4xl text-navy/60"
-          />
-          <div className="mt-10">
-            <FlowRow steps={atlasFlow} />
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 8 — THE PRINCIPLES */}
-      <section className="border-y border-hairline bg-surface py-32 lg:py-40">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 08 · The Principles of Talent Lens™</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Five principles guide every evaluation.
-            </h2>
-          </div>
-
-          <div className="mt-16 grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-5">
-            {principles.map((p, i) => (
-              <article key={p.title} className="bg-white p-8 lg:p-10">
-                <p className="font-display text-4xl text-turquoise">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-6 font-display text-xl text-navy">
-                  {p.title}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-                  {p.body}
-                </p>
-              </article>
+          <ol className="mt-14 flex flex-col items-start gap-3 lg:flex-row lg:items-center lg:gap-6">
+            {[
+              { label: "Search Blueprint", to: "/atlas-library/search-blueprint" },
+              { label: "Search & Market Intelligence" },
+              { label: "Talent Lens", current: true },
+              {
+                label: "Hiring Confidence",
+                to: "/atlas-library/hiring-confidence-index",
+              },
+            ].map((step, index) => (
+              <li
+                key={step.label}
+                className="flex flex-col items-start gap-3 lg:flex-row lg:items-center lg:gap-6"
+              >
+                {step.current ? (
+                  <p className="font-display text-xl text-navy md:text-2xl">
+                    {step.label}
+                    <span className="ml-3 align-middle font-display text-xs uppercase tracking-[0.18em] text-turquoise">
+                      This page
+                    </span>
+                  </p>
+                ) : step.to ? (
+                  <Link
+                    to={step.to}
+                    className="font-display text-xl text-ink-muted transition-colors hover:text-navy md:text-2xl"
+                  >
+                    {step.label}
+                  </Link>
+                ) : (
+                  <p className="font-display text-xl text-ink-muted md:text-2xl">
+                    {step.label}
+                  </p>
+                )}
+                {index < 3 && (
+                  <>
+                    <span className="text-lg text-turquoise lg:hidden">↓</span>
+                    <span className="hidden text-lg text-turquoise lg:inline">→</span>
+                  </>
+                )}
+              </li>
             ))}
-          </div>
+          </ol>
 
-          <p className="mx-auto mt-14 max-w-2xl text-center text-base leading-relaxed text-ink-muted lg:text-lg">
-            The Talent Lens™ is not an interview scorecard. It is a business decision framework.
+          <p className="mt-10 max-w-3xl text-base leading-relaxed text-ink-muted lg:text-lg">
+            The Search Blueprint defines what evidence matters. The Talent Lens
+            structures what we know about the candidate. Hiring Confidence then
+            considers how strong the overall evidence is—and where uncertainty
+            remains.
           </p>
+
+          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:gap-6">
+            <Link
+              to="/atlas-library/search-blueprint"
+              className="group inline-flex items-center gap-1.5 text-sm font-medium text-navy transition-colors hover:text-turquoise"
+            >
+              Explore the Search Blueprint
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+            <Link
+              to="/atlas-library/hiring-confidence-index"
+              className="group inline-flex items-center gap-1.5 text-sm text-ink-muted transition-colors hover:text-navy"
+            >
+              Explore Hiring Confidence
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      {/* 05 — CTA */}
       <CTABand
-        eyebrow="Atlas Library · Methodology Document 03"
-        title="Hiring decisions improve when every candidate is evaluated through the same lens."
-        text="The Talent Lens™ transforms interviews into structured decision evidence, helping leadership teams compare candidates with greater confidence and clarity."
-        buttonText="Contact us"
-        secondaryText={"Continue to the\u00a0\nHiring Confidence Index™"}
-        to="/contact"
-        secondaryTo="/atlas-library/hiring-confidence-index"
+        eyebrow="Talent Lens™"
+        title="Better candidate evaluation starts before the interview."
+        text="The Atlas Method begins by defining the hiring decision and the evidence that should matter before candidates enter the process."
+        buttonText="Schedule a Discovery Experience"
+        secondaryText="Explore the Atlas Method"
+        externalHref={CALENDAR_URL}
+        secondaryTo="/atlas-method"
       />
     </SiteLayout>
   );
