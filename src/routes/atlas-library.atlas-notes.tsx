@@ -156,7 +156,7 @@ const principles = [
 
 const related = [
   {
-    title: "Research Library",
+    title: "Knowledge Hub",
     body: "Periodic readings of demand, availability and notice periods across industrial North America.",
     to: "/knowledge-hub",
   },
@@ -216,7 +216,7 @@ function AtlasNotesPage() {
                   to="/knowledge-hub"
                   className="inline-flex items-center rounded-[10px] border border-hairline px-6 py-3.5 text-sm font-medium text-navy transition-colors hover:border-navy"
                 >
-                  Explore Research Library
+                  Explore the Knowledge Hub
                 </Link>
               </div>
             </div>

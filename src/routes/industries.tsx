@@ -10,7 +10,7 @@ import indLogistics from "@/assets/ind-logistics.jpg";
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: "Industries — Industrial Recruitment Mexico | Sync Talent" },
+      { title: "Industries — Industrial Executive Search Mexico | Sync Talent" },
       {
         name: "description",
         content:

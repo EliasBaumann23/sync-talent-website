@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/hiring-guides")({
   head: () => ({
     meta: [
-      { title: "Hiring Guides — Industrial Recruitment Mexico | Sync Talent" },
+      { title: "Hiring Guides — Industrial Executive Search Mexico | Sync Talent" },
       {
         name: "description",
         content:
