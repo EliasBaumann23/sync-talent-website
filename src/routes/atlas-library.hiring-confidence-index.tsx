@@ -1,522 +1,513 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { SiteLayout } from "@/components/site/SiteLayout";
+import { ArrowRight } from "lucide-react";
 import { CTABand } from "@/components/site/CTA";
-import { AtlasDivider, AtlasLine } from "@/components/site/AtlasLine";
+import { SiteLayout } from "@/components/site/SiteLayout";
 
 export const Route = createFileRoute("/atlas-library/hiring-confidence-index")({
   head: () => ({
     meta: [
       {
         title:
-          "Hiring Confidence Index™ — Atlas Library, Methodology Document 04 | Sync Talent",
+          "Hiring Confidence Index™ — Evidence Behind the Hiring Decision | Sync Talent",
       },
       {
         name: "description",
         content:
-          "The Hiring Confidence Index™ is a decision framework that helps leadership teams understand how well a hiring decision is supported by evidence.",
+          "The Hiring Confidence Index™ helps leadership teams understand the strength and completeness of the evidence supporting a hiring decision.",
       },
       {
         property: "og:title",
-        content: "Hiring Confidence Index™ — Atlas Library | Sync Talent",
+        content:
+          "Hiring Confidence Index™ — Evidence Behind the Hiring Decision | Sync Talent",
       },
       {
         property: "og:description",
         content:
-          "Methodology Document 04. Great hiring decisions are built on confidence, not certainty.",
+          "See where a hiring decision is well supported, where evidence remains incomplete and what still requires validation.",
       },
-      { property: "og:url", content: "/atlas-library/hiring-confidence-index" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+      {
+        property: "og:url",
+        content: "/atlas-library/hiring-confidence-index",
+      },
     ],
-    links: [{ rel: "canonical", href: "/atlas-library/hiring-confidence-index" }],
+    links: [
+      { rel: "canonical", href: "/atlas-library/hiring-confidence-index" },
+    ],
   }),
   component: HiringConfidenceIndexPage,
 });
 
-const problems = [
-  "Opinions are confused with confidence",
-  "Different stakeholders hold different levels of certainty",
-  "Risks remain hidden",
-  "Decisions become difficult to explain later",
-];
+const CALENDAR_URL = "https://calendar.app.google/KoYen9KgR1fkMTPP7";
 
-const sources = [
+const evidenceAreas = [
   {
-    title: "Search Blueprint™",
-    question: "Was the hiring decision clearly defined?",
-    body: "Confidence begins with clarity. When the business objective, success conditions and decision criteria were agreed before the search began, every later observation has a reference point.",
+    n: "01",
+    title: "Role Clarity",
+    body: "How clearly the business need, role mandate and definition of success have been established.",
   },
   {
-    title: "Talent Lens™",
-    question: "Was the candidate evaluated consistently?",
-    body: "Structured observation across the same dimensions removes variation between evaluators, so the evidence behind a recommendation is comparable rather than anecdotal.",
+    n: "02",
+    title: "Market Evidence",
+    body: "How well the search has tested assumptions against candidate availability, market realities and relevant alternatives.",
   },
   {
-    title: "Market Intelligence",
-    question: "Does the recommendation reflect current market realities?",
-    body: "Compensation, availability and mobility evidence confirm whether the recommendation is realistic in today's market — or dependent on assumptions that no longer hold.",
+    n: "03",
+    title: "Candidate Evidence",
+    body: "How much relevant evidence supports the candidate against the requirements and context defined for the search.",
   },
   {
-    title: "References",
-    question: "Do previous observations reinforce the evaluation?",
-    body: "Independent accounts of past performance either corroborate what was observed during evaluation or surface the questions that remain open.",
+    n: "04",
+    title: "Reference Evidence",
+    body: "What independent professional references add, confirm, qualify or challenge about the evidence gathered during the process.",
   },
   {
-    title: "Leadership Alignment",
-    question: "Do key decision makers share the same understanding?",
-    body: "A decision supported by evidence but not by alignment is fragile. Shared understanding across the hiring committee is itself a source of confidence.",
+    n: "05",
+    title: "Decision Alignment",
+    body: "How clearly the relevant decision-makers understand the evidence, trade-offs and remaining uncertainty behind the decision.",
   },
-];
+] as const;
 
-const confidenceLevels = [
+const decisionEvidence = [
   {
-    label: "Low Confidence",
-    body: "Important elements of the decision remain undefined or unevidenced. Proceeding now would rely primarily on assumption.",
+    n: "01",
+    title: "Role Clarity",
+    strength: "Strong evidence",
+    evidence: [
+      "Business context and hiring trigger explicitly defined.",
+      "Role mandate established before entering the market.",
+      "12-month success outcomes agreed.",
+      "Critical candidate evidence defined through the Search Blueprint.",
+    ],
+    interpretation:
+      "The organization has a clear reference point for evaluating the decision.",
   },
   {
-    label: "Moderate Confidence",
-    body: "The decision is partially supported. Evidence exists, but material questions or misalignments are still unresolved.",
+    n: "02",
+    title: "Market Evidence",
+    strength: "Strong evidence",
+    evidence: [
+      "Search tested the defined requirements against the relevant industrial market.",
+      "Candidate availability and adjacent backgrounds were considered.",
+      "Market realities were used to challenge initial assumptions where relevant.",
+    ],
+    interpretation:
+      "The decision is informed by an active view of the available market rather than a single candidate in isolation.",
   },
   {
-    label: "High Confidence",
-    body: "Independent sources converge. The recommendation is well evidenced and understood consistently across the leadership team.",
+    n: "03",
+    title: "Candidate Evidence",
+    strength: "Strong evidence",
+    evidence: [
+      "Relevant industrial service leadership experience.",
+      "Evidence of field operations and customer-facing responsibility.",
+      "Experience within international industrial organizations.",
+      "Career progression toward broader service leadership.",
+    ],
+    uncertainty:
+      "Depth of experience redesigning service processes and measurable business impact still requires further validation.",
   },
   {
-    label: "Very High Confidence",
-    body: "Every source of evidence supports the same conclusion, remaining risks are named and understood, and the decision can be explained without ambiguity.",
+    n: "04",
+    title: "Reference Evidence",
+    strength: "Moderate evidence",
+    evidence: [
+      "Professional references support the candidate's operational leadership and customer-facing responsibility.",
+    ],
+    uncertainty:
+      "Additional evidence around change leadership and process transformation would strengthen the decision.",
   },
-];
+  {
+    n: "05",
+    title: "Decision Alignment",
+    strength: "Strong evidence",
+    evidence: [
+      "Decision-makers are aligned around the role mandate.",
+      "Candidate strengths and open questions are explicit.",
+      "Remaining uncertainties have been identified before the final decision.",
+    ],
+    interpretation:
+      "The decision can focus on explicit trade-offs rather than competing interpretations of the role.",
+  },
+] as const;
 
-const lowConfidenceOptions = [
-  "Continue searching.",
-  "Redefine the role.",
-  "Adjust compensation.",
-  "Expand the search geography.",
-  "Clarify business objectives.",
-  "Delay the hiring decision.",
-];
-
-const meetingQuestions = [
-  "What evidence supports this recommendation?",
-  "What assumptions remain?",
-  "What risks are still unresolved?",
-  "What additional information would increase confidence?",
-];
-
-const atlasFlow = [
-  "Discovery Experience™",
-  "Search Blueprint™",
-  "Executive Search",
-  "Talent Lens™",
-  "Hiring Confidence Index™",
-  "Hiring Decision",
-];
-
-const whyItMatters = [
+const decisionView = [
   {
-    title: "Transparency",
-    body: "Hiring decisions become easier to explain internally, because the reasoning behind them is documented rather than remembered.",
+    title: "What Supports the Decision",
+    items: [
+      "Clear role mandate and success outcomes",
+      "Relevant industrial service leadership evidence",
+      "Strong contextual alignment with the operating environment",
+      "Market evidence supporting the candidate's relevance",
+    ],
   },
   {
-    title: "Consistency",
-    body: "Every recommendation follows the same decision logic, so leadership teams compare finalists on the same terms.",
+    title: "What Remains Uncertain",
+    items: [
+      "Depth of process-transformation experience",
+      "Evidence connecting operational improvements to measurable business outcomes",
+      "Motivation for this specific opportunity",
+      "Additional reference evidence around change leadership",
+    ],
   },
   {
-    title: "Institutional Learning",
-    body: "Every completed search improves future decision quality by adding evidence to the organization's understanding of its own market.",
+    title: "What to Validate Before Commitment",
+    items: [
+      "Detailed example of leading a service-process transformation",
+      "Measurable impact from a significant operational decision",
+      "Motivation, expectations and longer-term trajectory",
+      "Additional reference evidence where appropriate",
+    ],
   },
-];
+] as const;
 
-const convergingSources = [
-  "Search Blueprint™",
-  "Talent Lens™",
-  "Market Intelligence",
-  "References",
-  "Leadership Alignment",
-];
-
-function FlowRow({ steps }: { steps: readonly string[] }) {
+function EvidenceList({ items }: { items: readonly string[] }) {
   return (
-    <ol className="grid gap-px overflow-hidden border border-hairline bg-hairline lg:grid-cols-6">
-      {steps.map((s, i) => (
-        <li key={s} className="flex flex-col justify-between gap-6 bg-white p-6">
-          <span className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
-            Step {String(i + 1).padStart(2, "0")}
-          </span>
-          <span className="font-display text-base leading-snug text-navy">{s}</span>
+    <ul className="mt-3 space-y-2 text-sm leading-relaxed text-ink">
+      {items.map((item) => (
+        <li key={item} className="flex gap-2.5">
+          <span className="mt-2 h-px w-3 shrink-0 bg-turquoise" />
+          <span>{item}</span>
         </li>
       ))}
-    </ol>
-  );
-}
-
-function ConvergenceDiagram() {
-  return (
-    <div className="mx-auto mt-16 max-w-5xl">
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-        {convergingSources.map((s) => (
-          <article
-            key={s}
-            className="rounded-[10px] border border-hairline bg-white p-6 text-center"
-          >
-            <span className="font-display text-base leading-snug text-navy">{s}</span>
-          </article>
-        ))}
-      </div>
-
-      <div className="mt-10 flex flex-col items-center">
-        <span className="h-10 w-px bg-hairline" />
-        <div className="flex h-40 w-40 items-center justify-center rounded-full border border-hairline bg-white shadow-[0_20px_60px_-30px_rgba(16,36,58,0.25)] md:h-44 md:w-44">
-          <span className="text-center font-display text-sm font-semibold leading-tight text-navy">
-            Hiring
-            <br />
-            Decision
-          </span>
-        </div>
-        <span className="h-10 w-px bg-hairline" />
-        <div className="rounded-[10px] border border-hairline bg-navy px-10 py-6 text-center">
-          <span className="font-display text-lg text-white">Hiring Confidence™</span>
-        </div>
-      </div>
-    </div>
+    </ul>
   );
 }
 
 function HiringConfidenceIndexPage() {
   return (
     <SiteLayout>
-      {/* HERO */}
+      {/* 01 — Hero */}
       <section className="border-b border-hairline bg-white">
-        <div className="container-x pt-20 pb-24 lg:pt-28 lg:pb-32">
-          <div className="grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:items-end">
-            <div>
-              <p className="eyebrow">Atlas Library · Methodology Document 04</p>
-              <h1 className="mt-5 text-4xl leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
-                Great hiring decisions are built on confidence, not certainty.
-              </h1>
-            </div>
-            <div className="space-y-6">
-              <p className="text-base leading-relaxed text-ink-muted lg:text-lg">
-                The Hiring Confidence Index™ helps leadership teams understand how well a
-                hiring decision is supported by evidence. Rather than predicting the future,
-                it measures how completely today's decision has been understood. It is a
-                decision framework — not a scoring system, and never a measure of a person.
-              </p>
-              <div className="flex flex-wrap items-center gap-3">
-                <Link
-                  to="/discovery-experience"
-                  className="inline-flex items-center rounded-[10px] bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise"
-                >
-                  Experience the Discovery Experience™
-                </Link>
-                <Link
-                  to="/atlas-method"
-                  className="inline-flex items-center rounded-[10px] border border-hairline px-6 py-3.5 text-sm font-medium text-navy transition-colors hover:border-navy"
-                >
-                  Explore the Atlas Method™
-                </Link>
+        <div className="container-x pt-20 pb-16 lg:pt-28 lg:pb-24">
+          <p className="eyebrow">Hiring Confidence Index™</p>
+          <h1 className="mt-5 max-w-5xl text-4xl leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
+            Know what supports the decision—and what still does not.
+          </h1>
+          <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+            <p className="max-w-2xl text-base leading-relaxed text-ink-muted lg:text-lg">
+              The Hiring Confidence Index structures the strength and completeness
+              of the evidence behind a hiring decision.
+            </p>
+            <p className="max-w-xl text-base leading-relaxed text-ink-muted lg:text-lg">
+              It does not score the candidate. It shows where the decision is well
+              supported, where evidence remains incomplete and which uncertainties
+              should still be examined before a final commitment is made.
+            </p>
+          </div>
+          <div className="mt-10">
+            <Link
+              to="/atlas-method"
+              className="group inline-flex items-center gap-1.5 text-sm text-ink-muted transition-colors hover:text-navy"
+            >
+              Stage 05 of the Atlas Method
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 02 — What Creates Hiring Confidence */}
+      <section className="py-24 lg:py-32">
+        <div className="container-x">
+          <div className="max-w-3xl">
+            <p className="eyebrow">What Creates Hiring Confidence</p>
+            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
+              Confidence comes from evidence, not certainty.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted lg:text-lg">
+              A hiring decision becomes more defensible when the role is clear,
+              relevant evidence has been gathered and the people making the
+              decision understand what is known—and what remains uncertain.
+            </p>
+          </div>
+
+          <div className="mt-14 divide-y divide-hairline border-y border-hairline">
+            {evidenceAreas.map((area) => (
+              <div
+                key={area.n}
+                className="grid gap-3 py-7 md:grid-cols-[64px_260px_1fr] md:items-baseline lg:py-8"
+              >
+                <p className="font-display text-sm text-turquoise">{area.n}</p>
+                <h3 className="font-display text-lg leading-snug text-navy md:text-xl">
+                  {area.title}
+                </h3>
+                <p className="max-w-2xl text-base leading-relaxed text-ink-muted">
+                  {area.body}
+                </p>
               </div>
+            ))}
+          </div>
+
+          <div className="mt-10 grid gap-6 border-l border-turquoise pl-6 md:grid-cols-2 md:gap-10">
+            <div>
+              <p className="font-display text-sm text-navy">Talent Lens</p>
+              <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                What evidence do we have about this candidate?
+              </p>
+              <p className="mt-2 text-xs uppercase tracking-[0.18em] text-ink-muted">
+                Unit of analysis: Candidate evidence
+              </p>
+            </div>
+            <div>
+              <p className="font-display text-sm text-navy">
+                Hiring Confidence Index™
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                How strongly is the hiring decision supported by the evidence
+                available?
+              </p>
+              <p className="mt-2 text-xs uppercase tracking-[0.18em] text-ink-muted">
+                Unit of analysis: The decision
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 1 — THE PROBLEM */}
-      <section className="py-32 lg:py-40">
-        <div className="container-x grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-start">
-          <div>
-            <p className="eyebrow">Section 01 · The Problem</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Hiring is one of the few strategic decisions made without a shared measure of
-              confidence.
-            </h2>
-          </div>
-          <div className="space-y-6 text-base leading-relaxed text-ink-muted lg:text-lg">
-            <p>
-              Organizations routinely measure financial performance, operational efficiency
-              and commercial results.
-            </p>
-            <p>
-              Yet one of the most expensive business decisions — the hiring decision — is
-              often based on fragmented opinions.
-            </p>
-            <p>
-              Different stakeholders hold different levels of confidence, but those
-              differences are rarely visible.
-            </p>
-            <p className="text-navy">
-              The Hiring Confidence Index™ exists to make decision confidence transparent.
-            </p>
-          </div>
-        </div>
-
-        <div className="container-x mt-16">
-          <ul className="grid gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-4">
-            {problems.map((p, i) => (
-              <li key={p} className="bg-white p-8">
-                <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
-                  0{i + 1}
-                </p>
-                <p className="mt-4 text-base leading-relaxed text-navy">{p}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="container-x mt-16">
-          <div className="mx-auto max-w-2xl text-center">
-            <AtlasDivider />
-            <p className="mt-10 font-display text-xl leading-snug text-navy md:text-2xl">
-              The objective is not certainty.
-              <br />
-              The objective is measurable confidence.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 2 — WHAT IT IS */}
-      <section className="border-y border-hairline bg-surface py-32 lg:py-40">
+      {/* 03 — Inside a Hiring Confidence View */}
+      <section className="border-y border-hairline bg-surface py-24 lg:py-32">
         <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 02 · What It Is</p>
+          <div className="max-w-3xl">
+            <p className="eyebrow">Inside a Hiring Confidence View</p>
             <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              A shared measure of decision confidence.
+              What this looks like before the decision.
             </h2>
-          </div>
-
-          <ConvergenceDiagram />
-
-          <p className="mx-auto mt-14 max-w-2xl text-center text-base text-ink-muted lg:text-lg">
-            Confidence grows when multiple independent sources support the same conclusion.
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION 3 — FIVE SOURCES OF CONFIDENCE */}
-      <section className="py-32 lg:py-40">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 03 · Confidence Is Built, Not Assumed</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Five sources of confidence.
-            </h2>
-          </div>
-
-          <div className="mt-16 grid gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-3">
-            {sources.map((s, i) => (
-              <article key={s.title} className="bg-white p-8 lg:p-10">
-                <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
-                  Source 0{i + 1}
-                </p>
-                <h3 className="mt-5 font-display text-xl text-navy">{s.title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-navy">{s.question}</p>
-                <p className="mt-4 text-sm leading-relaxed text-ink-muted">{s.body}</p>
-              </article>
-            ))}
-            <div className="hidden bg-surface lg:block" />
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4 — THE CONFIDENCE SCALE */}
-      <section className="border-y border-hairline bg-surface py-32 lg:py-40">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 04 · The Confidence Scale</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Understanding confidence.
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink-muted lg:text-lg">
-              This is not a measure of a candidate. It describes how well the hiring decision
-              itself has been supported by evidence.
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted lg:text-lg">
+              The Hiring Confidence view brings the available evidence together
+              and makes remaining uncertainty explicit before a final hiring
+              decision is made.
             </p>
           </div>
 
-          <ol className="mx-auto mt-16 max-w-3xl">
-            {confidenceLevels.map((level, i) => (
-              <li key={level.label} className="relative">
-                <div className="rounded-[10px] border border-hairline bg-white p-8 lg:p-10">
-                  <div className="flex items-baseline gap-4">
-                    <span className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
-                      0{i + 1}
-                    </span>
-                    <h3 className="font-display text-xl text-navy">{level.label}</h3>
-                  </div>
-                  <p className="mt-4 text-base leading-relaxed text-ink-muted">
-                    {level.body}
+          <article className="mx-auto mt-14 max-w-5xl overflow-hidden rounded-[10px] border border-hairline bg-white">
+            <header className="border-b border-hairline px-6 py-6 lg:px-8">
+              <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
+                Illustrative Decision View
+              </p>
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.18em] text-ink-muted">
+                    Role
+                  </p>
+                  <p className="mt-1 font-display text-lg text-navy">
+                    Head of Service — Mexico
                   </p>
                 </div>
-                {i < confidenceLevels.length - 1 && (
-                  <div className="flex justify-center py-5">
-                    <span className="h-8 w-px bg-hairline" />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.18em] text-ink-muted">
+                    Candidate
+                  </p>
+                  <p className="mt-1 font-display text-lg text-navy">Candidate A</p>
+                </div>
+              </div>
+              <p className="mt-4 text-xs leading-relaxed text-ink-muted">
+                Candidate and company details are fictionalized for demonstration
+                purposes.
+              </p>
+            </header>
+
+            <section className="border-b border-hairline bg-navy px-6 py-8 lg:px-8 lg:py-10">
+              <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
+                Overall Confidence
+              </p>
+              <div className="mt-4 grid gap-5 md:grid-cols-[220px_1fr] md:items-end">
+                <div>
+                  <p className="font-display text-sm text-white">
+                    Overall Hiring Confidence
+                  </p>
+                  <p className="mt-2 font-display text-4xl text-white">High</p>
+                </div>
+                <div>
+                  <p className="max-w-2xl text-sm leading-relaxed text-white/80">
+                    The decision is supported by substantial evidence across the
+                    role, market and candidate. Several specific questions remain
+                    worth validating before final commitment.
+                  </p>
+                  <p className="mt-3 text-xs leading-relaxed text-white/60">
+                    “High” is a qualitative description of the current evidence
+                    base. It is not a candidate rating.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <div>
+              <div className="border-b border-hairline px-6 py-5 lg:px-8">
+                <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
+                  Evidence Areas
+                </p>
+              </div>
+              {decisionEvidence.map((area) => (
+                <section
+                  key={area.n}
+                  className="border-b border-hairline px-6 py-8 last:border-b-0 lg:px-8 lg:py-10"
+                >
+                  <div className="grid gap-3 md:grid-cols-[48px_1fr_auto] md:items-center">
+                    <p className="font-display text-sm text-turquoise">{area.n}</p>
+                    <h3 className="font-display text-xl leading-snug text-navy">
+                      {area.title}
+                    </h3>
+                    <p className="w-fit border border-hairline px-3 py-1.5 font-display text-xs text-navy">
+                      {area.strength}
+                    </p>
                   </div>
+                  <div className="mt-7 grid gap-7 md:grid-cols-2 lg:grid-cols-[1.25fr_1fr] lg:gap-12 lg:pl-12">
+                    <div>
+                      <p className="font-display text-[11px] uppercase tracking-[0.18em] text-turquoise">
+                        Evidence
+                      </p>
+                      <EvidenceList items={area.evidence} />
+                    </div>
+                    <div>
+                      {"interpretation" in area && area.interpretation && (
+                        <div>
+                          <p className="font-display text-[11px] uppercase tracking-[0.18em] text-turquoise">
+                            Interpretation
+                          </p>
+                          <p className="mt-3 text-sm leading-relaxed text-ink">
+                            {area.interpretation}
+                          </p>
+                        </div>
+                      )}
+                      {"uncertainty" in area && area.uncertainty && (
+                        <div>
+                          <p className="font-display text-[11px] uppercase tracking-[0.18em] text-turquoise">
+                            Remaining uncertainty
+                          </p>
+                          <p className="mt-3 text-sm leading-relaxed text-ink">
+                            {area.uncertainty}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </section>
+              ))}
+            </div>
+
+            <section className="border-t border-hairline bg-surface px-6 py-8 lg:px-8 lg:py-10">
+              <p className="eyebrow">Decision View</p>
+              <h3 className="mt-3 font-display text-2xl text-navy">Decision view</h3>
+              <div className="mt-7 grid gap-8 md:grid-cols-3">
+                {decisionView.map((group) => (
+                  <div key={group.title}>
+                    <h4 className="font-display text-sm text-navy">
+                      {group.title}
+                    </h4>
+                    <EvidenceList items={group.items} />
+                  </div>
+                ))}
+              </div>
+              <p className="mt-8 border-t border-hairline pt-6 text-sm leading-relaxed text-ink-muted">
+                The Hiring Confidence Index structures the decision. It does not
+                make the decision.
+              </p>
+            </section>
+          </article>
+        </div>
+      </section>
+
+      {/* 04 — From Evidence to Decision */}
+      <section className="py-24 lg:py-32">
+        <div className="container-x">
+          <div className="max-w-3xl">
+            <p className="eyebrow">From Evidence to Decision</p>
+            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
+              Confidence does not mean certainty.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted lg:text-lg">
+              No hiring process removes uncertainty completely. The objective is
+              to understand whether the decision is supported by enough relevant
+              evidence—and to know exactly where uncertainty remains.
+            </p>
+          </div>
+
+          <ol className="mt-14 flex flex-col items-start gap-3 lg:flex-row lg:items-center lg:gap-6">
+            {[
+              { label: "Search Blueprint", to: "/atlas-library/search-blueprint" },
+              { label: "Talent Lens", to: "/atlas-library/talent-lens" },
+              { label: "Hiring Confidence", current: true },
+              { label: "Hiring Decision & Placement" },
+            ].map((step, index) => (
+              <li
+                key={step.label}
+                className="flex flex-col items-start gap-3 lg:flex-row lg:items-center lg:gap-6"
+              >
+                {step.current ? (
+                  <p className="font-display text-xl text-navy md:text-2xl">
+                    {step.label}
+                    <span className="ml-3 align-middle font-display text-xs uppercase tracking-[0.18em] text-turquoise">
+                      This page
+                    </span>
+                  </p>
+                ) : step.to ? (
+                  <Link
+                    to={step.to}
+                    className="font-display text-xl text-ink-muted transition-colors hover:text-navy md:text-2xl"
+                  >
+                    {step.label}
+                  </Link>
+                ) : (
+                  <p className="font-display text-xl text-ink-muted md:text-2xl">
+                    {step.label}
+                  </p>
+                )}
+                {index < 3 && (
+                  <>
+                    <span className="text-lg text-turquoise lg:hidden">↓</span>
+                    <span className="hidden text-lg text-turquoise lg:inline">→</span>
+                  </>
                 )}
               </li>
             ))}
           </ol>
-        </div>
-      </section>
 
-      {/* SECTION 5 — WHEN CONFIDENCE IS LOW */}
-      <section className="py-32 lg:py-40">
-        <div className="container-x grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-start">
-          <div>
-            <p className="eyebrow">Section 05 · When Confidence Is Low</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Low confidence is valuable information.
-            </h2>
-          </div>
-          <div className="space-y-6 text-base leading-relaxed text-ink-muted lg:text-lg">
+          <div className="mt-10 max-w-3xl space-y-2 text-base leading-relaxed text-ink-muted lg:text-lg">
+            <p>The Search Blueprint defines what evidence matters.</p>
+            <p>The Talent Lens structures what we know about the candidate.</p>
             <p>
-              The objective is not always to hire immediately. When the evidence does not yet
-              support the decision, that absence is itself a finding — and one worth acting
-              on before an appointment is made.
+              The Hiring Confidence Index examines how strongly the overall
+              decision is supported.
             </p>
-            <p>Sometimes the correct decision is:</p>
-            <ul className="grid gap-px overflow-hidden border border-hairline bg-hairline sm:grid-cols-2">
-              {lowConfidenceOptions.map((o) => (
-                <li key={o} className="bg-white p-6 text-base text-navy">
-                  {o}
-                </li>
-              ))}
-            </ul>
-            <p className="text-navy">
-              The Hiring Confidence Index™ supports better decisions — even when the answer
-              is "not yet."
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6 — THE DECISION MEETING */}
-      <section className="border-y border-hairline bg-surface py-32 lg:py-40">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 06 · The Decision Meeting</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Supporting executive discussions.
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink-muted lg:text-lg">
-              The Hiring Confidence Index™ gives leadership teams a common language for
-              discussing finalists — one grounded in evidence rather than impression.
-            </p>
+            <p className="text-navy">The final hiring decision remains a human decision.</p>
           </div>
 
-          <div className="mx-auto mt-16 grid max-w-4xl gap-8 md:grid-cols-2">
-            <div className="rounded-[10px] border border-hairline bg-white p-8 lg:p-10">
-              <p className="font-display text-xs uppercase tracking-[0.18em] text-ink-muted">
-                Instead of
-              </p>
-              <p className="mt-8 font-display text-xl leading-snug text-navy">
-                "I like this person."
-              </p>
-              <p className="mt-6 text-sm leading-relaxed text-ink-muted">
-                A preference expressed without shared reasoning, difficult to compare and
-                difficult to revisit later.
-              </p>
-            </div>
-
-            <div className="rounded-[10px] border border-hairline bg-navy p-8 text-white lg:p-10">
-              <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
-                The discussion becomes
-              </p>
-              <ul className="mt-8 space-y-5">
-                {meetingQuestions.map((q) => (
-                  <li key={q} className="flex items-start gap-4">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-turquoise" />
-                    <span className="text-base leading-snug text-white">"{q}"</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7 — WHERE IT FITS */}
-      <section className="py-32 lg:py-40">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 07 · Where It Fits</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              The final stage of the Atlas Method.
-            </h2>
-          </div>
-
-          <AtlasLine
-            nodes={6}
-            active={4}
-            className="mx-auto mt-16 max-w-4xl text-navy/60"
-          />
-          <div className="mt-10">
-            <FlowRow steps={atlasFlow} />
-          </div>
-
-          <p className="mx-auto mt-14 max-w-2xl text-center text-base text-ink-muted lg:text-lg">
-            The Hiring Confidence Index™ transforms evidence into executive confidence.
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION 8 — WHY IT MATTERS */}
-      <section className="border-y border-hairline bg-surface py-32 lg:py-40">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 08 · Why It Matters</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl">
-              Better decisions survive future scrutiny.
-            </h2>
-          </div>
-
-          <div className="mt-16 grid gap-px overflow-hidden border border-hairline bg-hairline lg:grid-cols-3">
-            {whyItMatters.map((w) => (
-              <article key={w.title} className="bg-white p-8 lg:p-10">
-                <h3 className="font-display text-xl text-navy">{w.title}</h3>
-                <p className="mt-4 text-base leading-relaxed text-ink-muted">{w.body}</p>
-              </article>
+          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:gap-6">
+            {[
+              {
+                label: "Explore the Search Blueprint",
+                to: "/atlas-library/search-blueprint" as const,
+              },
+              {
+                label: "Explore the Talent Lens",
+                to: "/atlas-library/talent-lens" as const,
+              },
+              { label: "Explore the Atlas Method", to: "/atlas-method" as const },
+            ].map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="group inline-flex items-center gap-1.5 text-sm text-ink-muted transition-colors hover:text-navy"
+              >
+                {link.label}
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 9 — THE PHILOSOPHY */}
-      <section className="py-32 lg:py-40">
-        <div className="container-x">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">Section 09 · The Philosophy</p>
-            <h2 className="mt-4 text-3xl leading-tight md:text-4xl lg:text-5xl">
-              Confidence is not certainty.
-            </h2>
-            <AtlasDivider className="mt-10" />
-            <div className="mt-10 space-y-6 text-left text-base leading-relaxed text-ink-muted lg:text-lg">
-              <p>Executive Search cannot eliminate uncertainty.</p>
-              <p>People are complex. Organizations evolve. Markets change.</p>
-              <p>
-                No framework, however rigorous, can guarantee how a leader will perform three
-                years from now. Any methodology that claims otherwise is selling comfort
-                rather than judgement.
-              </p>
-              <p>
-                The objective has never been certainty. The objective is making today's
-                decision with the highest possible level of informed confidence — with the
-                business context understood, the evidence gathered, the assumptions named and
-                the leadership team genuinely aligned.
-              </p>
-              <p className="font-display text-xl leading-snug text-navy md:text-2xl">
-                That is what the Hiring Confidence Index™ measures.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      {/* 05 — CTA */}
       <CTABand
         eyebrow="Hiring Confidence Index™"
-        title="The best hiring decisions are those that remain defensible over time."
-        text="The Hiring Confidence Index™ helps leadership teams understand not only who they should hire, but how well that decision is supported by evidence."
-        buttonText="Experience the Discovery Experience™"
-        to="/discovery-experience"
-        secondaryText="Explore the Atlas Method™"
-        secondaryTo="/atlas-method"
+        title="Better decisions begin with better evidence."
+        text="The Atlas Method starts before the search by defining the hiring decision, the evidence that should matter and the market in which that decision will be made."
+        buttonText="Schedule a Discovery Experience"
+        secondaryText="Explore Executive Search"
+        externalHref={CALENDAR_URL}
+        secondaryTo="/services"
       />
     </SiteLayout>
   );
