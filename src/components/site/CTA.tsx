@@ -7,7 +7,7 @@ export function CTABand({
   text = "The Discovery Experience™ is how international industrial leaders align on the role, the market and the decision criteria before a single candidate is approached.",
   textNote,
   buttonText = "Contact us",
-  secondaryText = "Continue to the Discovery Experience™",
+  secondaryText = "Learn about the Discovery Experience",
   to = "/contact",
   secondaryTo = "/discovery-experience",
   externalHref,
