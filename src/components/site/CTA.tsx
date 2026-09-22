@@ -31,6 +31,9 @@ export function CTABand({
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/70 lg:text-lg">
             {text}
           </p>
+          {textNote && (
+            <p className="mt-4 text-sm tracking-wide text-white/50">{textNote}</p>
+          )}
           <AtlasDivider className="mt-10 text-white" />
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             {externalHref ? (
