@@ -312,22 +312,18 @@ function HiringConfidenceIndexPage() {
               <p className="font-display text-xs uppercase tracking-[0.18em] text-turquoise">
                 Overall Confidence
               </p>
-              <div className="mt-4 grid gap-5 md:grid-cols-[220px_1fr] md:items-end">
+              <div className="mt-4 grid gap-5 md:grid-cols-[minmax(0,280px)_1fr] md:items-end">
                 <div>
-                  <p className="font-display text-sm text-white">
+                  <p className="font-display text-2xl leading-snug text-white">
                     Overall Hiring Confidence
+                    <span className="text-white/50"> — </span>High
                   </p>
-                  <p className="mt-2 font-display text-4xl text-white">High</p>
                 </div>
                 <div>
                   <p className="max-w-2xl text-sm leading-relaxed text-white/80">
                     The decision is supported by substantial evidence across the
                     role, market and candidate. Several specific questions remain
                     worth validating before final commitment.
-                  </p>
-                  <p className="mt-3 text-xs leading-relaxed text-white/60">
-                    “High” is a qualitative description of the current evidence
-                    base. It is not a candidate rating.
                   </p>
                 </div>
               </div>
