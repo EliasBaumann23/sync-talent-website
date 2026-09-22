@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
-import eliasPortrait from "@/assets/elias-baumann.png";
-import danielaPortrait from "@/assets/daniela-cardoso.jpg";
+import eliasPortrait from "@/assets/elias-baumann-profile.png.asset.json";
+import danielaPortrait from "@/assets/daniela-cardoso-profile.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -154,10 +154,10 @@ function AboutPage() {
             <article className="border-t border-hairline pt-5">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[10px] bg-surface-light">
                 <img
-                  src={eliasPortrait}
+                  src={eliasPortrait.url}
                   alt="Elias Baumann, Co-Founder and Managing Director at Sync Talent"
                   loading="lazy"
-                  className="absolute bottom-0 left-1/2 h-auto w-[125%] max-w-none -translate-x-1/2"
+                  className="absolute left-1/2 top-1/2 h-auto w-full max-w-none -translate-x-1/2 -translate-y-1/2"
                 />
               </div>
               <div className="pt-7">
@@ -186,10 +186,10 @@ function AboutPage() {
             <article className="border-t border-hairline pt-5">
               <div className="aspect-[4/5] overflow-hidden rounded-[10px] bg-surface-light">
                 <img
-                  src={danielaPortrait}
+                  src={danielaPortrait.url}
                   alt="Daniela Cardoso, Talent Strategy and Search at Sync Talent"
                   loading="lazy"
-                  className="h-full w-full object-cover object-[center_30%]"
+                  className="relative left-1/2 top-1/2 h-auto w-[122%] max-w-none -translate-x-1/2 -translate-y-[48%]"
                 />
               </div>
               <div className="pt-7">
