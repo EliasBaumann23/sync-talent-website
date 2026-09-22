@@ -4,13 +4,14 @@ import { Logo } from "./Logo";
 import { Menu, X } from "lucide-react";
 
 const nav = [
-  { to: "/", label: "Home" },
   { to: "/services", label: "Executive Search" },
   { to: "/industries", label: "Industries" },
+  { to: "/atlas-method", label: "Atlas Method" },
   { to: "/knowledge-hub", label: "Knowledge Hub" },
   { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
 ] as const;
+
+const schedulingUrl = "https://calendar.app.google/KoYen9KgR1fkMTPP7";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,7 +44,6 @@ export function Header() {
               to={i.to}
               className="link-underline transition-colors hover:text-turquoise"
               activeProps={{ className: "text-navy" }}
-              activeOptions={{ exact: i.to === "/" }}
             >
               {i.label}
             </Link>
@@ -51,12 +51,14 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <Link
-            to="/contact"
+          <a
+            href={schedulingUrl}
+            target="_blank"
+            rel="noreferrer"
             className="inline-flex items-center rounded-sm bg-navy px-4 py-2.5 text-[13px] font-medium text-white transition-colors hover:bg-turquoise"
           >
-            Contact us
-          </Link>
+            Discovery Experience
+          </a>
         </div>
 
         <button
@@ -81,13 +83,14 @@ export function Header() {
                 {i.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
+            <a
+              href={schedulingUrl}
+              target="_blank"
+              rel="noreferrer"
               className="mt-3 inline-flex justify-center rounded-sm bg-navy px-4 py-3 text-sm font-medium text-white"
             >
-              Contact us
-            </Link>
+              Discovery Experience
+            </a>
           </div>
         </div>
       )}
