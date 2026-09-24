@@ -27,6 +27,15 @@ const notes: {
 }[] = [
   {
     cat: "Executive Search",
+    title: "The Job Description Is Not the Hiring Decision",
+    summary:
+      "A job description describes a position. A hiring decision defines what the organization actually needs from the person occupying it.",
+    read: "Atlas Note · AN-03",
+    date: "September 2026",
+    slug: "the-job-description-is-not-the-hiring-decision",
+  },
+  {
+    cat: "Executive Search",
     title: "Why Executive Search starts too late.",
     summary:
       "Most searches begin once a role is approved. The decisive work — defining what the organization actually needs — has usually already been skipped.",
@@ -228,21 +237,21 @@ function AtlasNotesPage() {
             <div>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-semibold uppercase tracking-[0.16em]">
                 <span className="text-navy">Executive Search</span>
-                <span className="text-ink-muted">7 min read</span>
-                <span className="text-ink-muted">July 2026</span>
+                 <span className="text-ink-muted">Atlas Note · AN-03</span>
+                 <span className="text-ink-muted">September 2026</span>
               </div>
               <h2 className="mt-5 text-3xl leading-tight md:text-4xl lg:text-[44px]">
-                Why Executive Search starts too late.
+                 The Job Description Is Not the Hiring Decision
               </h2>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-muted lg:text-lg">
-                By the time a search is commissioned, most of the decisive thinking has
-                already happened — often informally, and often without agreement. This note
-                examines what organizations lose when the search begins after the decision
-                has been assumed, and what changes when understanding comes first.
+                 A job description describes a position. A hiring decision defines what the
+                 organization actually needs from the person occupying it. Confusing the two can
+                 make an executive search look precise while leaving the most important questions
+                 unanswered.
               </p>
               <Link
                 to="/knowledge-hub/$slug"
-                params={{ slug: "why-executive-search-starts-too-late" }}
+                 params={{ slug: "the-job-description-is-not-the-hiring-decision" }}
                 className="mt-8 inline-flex items-center gap-2 rounded-[10px] bg-navy px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-turquoise hover:text-navy"
               >
                 Read Atlas Note <ArrowRight className="h-4 w-4" />
