@@ -35,6 +35,7 @@ export interface Publication {
   slug: string;
   category: PublicationCategory;
   publicationType?: string;
+  eyebrow?: string;
   excerpt?: string;
   readTime?: string;
   publishedDate?: string;
@@ -54,6 +55,9 @@ export interface Publication {
   ctaText?: string;
   ctaButtonText?: string;
   ctaTo?: string;
+  ctaExternalHref?: string;
+  ctaSecondaryText?: string;
+  ctaSecondaryTo?: string;
   /** Markdown article body. */
   body: string;
 }
@@ -169,6 +173,7 @@ function build(): Publication[] {
       slug,
       category,
       publicationType: asString(data.publicationType),
+      eyebrow: asString(data.eyebrow),
       excerpt: asString(data.excerpt),
       readTime: asString(data.readTime),
       publishedDate: asString(data.publishedDate),
@@ -193,6 +198,9 @@ function build(): Publication[] {
       ctaText: asString(data.ctaText),
       ctaButtonText: asString(data.ctaButtonText),
       ctaTo: asString(data.ctaTo),
+      ctaExternalHref: asString(data.ctaExternalHref),
+      ctaSecondaryText: asString(data.ctaSecondaryText),
+      ctaSecondaryTo: asString(data.ctaSecondaryTo),
       body,
     });
   }

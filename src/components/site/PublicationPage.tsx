@@ -13,6 +13,15 @@ marked.setOptions({ gfm: true, breaks: false });
 
 function formatDate(value?: string) {
   if (!value) return undefined;
+  if (/^\d{4}-\d{2}$/.test(value)) {
+    const [year, month] = value.split("-").map(Number);
+    const monthDate = new Date(Date.UTC(year, month - 1, 1));
+    return monthDate.toLocaleDateString("en-US", {
+      timeZone: "UTC",
+      year: "numeric",
+      month: "long",
+    });
+  }
   const d = new Date(value);
   if (Number.isNaN(d.getTime())) return value;
   return d.toLocaleDateString("en-US", {
@@ -42,7 +51,7 @@ export function PublicationPage({ publication }: { publication: Publication }) {
       <header className="border-b border-hairline bg-white">
         <div className="container-x pt-20 pb-14 lg:pt-28 lg:pb-16">
           <div className="mx-auto max-w-3xl">
-            <p className="eyebrow text-turquoise">{pub.category}</p>
+            <p className="eyebrow text-turquoise">{pub.eyebrow ?? pub.category}</p>
             <h1 className="mt-5 text-4xl leading-[1.08] tracking-tight md:text-5xl">
               {pub.title}
             </h1>
@@ -190,7 +199,9 @@ export function PublicationPage({ publication }: { publication: Publication }) {
           text={pub.ctaText ?? ""}
           buttonText={pub.ctaButtonText ?? "Contact us"}
           to={pub.ctaTo ?? "/contact"}
-          secondaryText=""
+          externalHref={pub.ctaExternalHref}
+          secondaryText={pub.ctaSecondaryText ?? ""}
+          secondaryTo={pub.ctaSecondaryTo}
         />
       )}
     </SiteLayout>
