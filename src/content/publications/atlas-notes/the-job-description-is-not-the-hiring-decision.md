@@ -5,8 +5,8 @@ slug: the-job-description-is-not-the-hiring-decision
 category: Atlas Notes
 publicationType: atlas-note
 eyebrow: ATLAS NOTE · AN-03
-excerpt: A job description describes a position. A hiring decision defines what the organization actually needs from the person occupying it.
-publishedDate: 2026-09-24
+excerpt: A job description describes a position. A hiring decision defines what the organization actually needs from the person occupying it. Confusing the two can make an executive search look precise while leaving the most important questions unanswered.
+publishedDate: 2026-09
 featured: false
 status: published
 seoTitle: The Job Description Is Not the Hiring Decision | Sync Talent

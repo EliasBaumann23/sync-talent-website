@@ -13,6 +13,15 @@ marked.setOptions({ gfm: true, breaks: false });
 
 function formatDate(value?: string) {
   if (!value) return undefined;
+  if (/^\d{4}-\d{2}$/.test(value)) {
+    const [year, month] = value.split("-").map(Number);
+    const monthDate = new Date(Date.UTC(year, month - 1, 1));
+    return monthDate.toLocaleDateString("en-US", {
+      timeZone: "UTC",
+      year: "numeric",
+      month: "long",
+    });
+  }
   const d = new Date(value);
   if (Number.isNaN(d.getTime())) return value;
   return d.toLocaleDateString("en-US", {

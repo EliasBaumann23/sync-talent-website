@@ -55,6 +55,15 @@ const topics = [
 
 function formatDate(value?: string) {
   if (!value) return undefined;
+  if (/^\d{4}-\d{2}$/.test(value)) {
+    const [year, month] = value.split("-").map(Number);
+    const monthDate = new Date(Date.UTC(year, month - 1, 1));
+    return monthDate.toLocaleDateString("en-US", {
+      timeZone: "UTC",
+      year: "numeric",
+      month: "long",
+    });
+  }
   const date = new Date(`${value}T00:00:00`);
   if (Number.isNaN(date.getTime())) return value;
   return date.toLocaleDateString("en-US", {
