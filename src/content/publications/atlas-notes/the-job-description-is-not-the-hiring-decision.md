@@ -22,7 +22,7 @@ keyFindings:
 methodology: |
   Within the [Atlas Method™](/atlas-method), role definition takes place before candidate sourcing.
 
-  The [Discovery Experience™](/discovery-experience) examines the business context behind the hiring need. The [Search Blueprint™](/atlas-library/search-blueprint) then translates that context into a structured definition of the mandate, including the role’s purpose, success conditions, critical capabilities and relevant search parameters.
+  The [Discovery Experience™](/discovery-experience) examines the business context behind the hiring need. The Search Blueprint™ then translates that context into a structured definition of the mandate, including the role’s purpose, success conditions, critical capabilities and relevant search parameters.
 
   The objective is not to create a longer job description. It is to establish a clearer basis for the search and the hiring decision that follows.
 
