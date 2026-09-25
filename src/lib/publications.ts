@@ -8,6 +8,7 @@
 
 export const PUBLICATION_CATEGORIES = [
   "Atlas Notes",
+  "Market Intelligence",
   "Salary Intelligence",
   "Hiring Guides",
   "Research",
