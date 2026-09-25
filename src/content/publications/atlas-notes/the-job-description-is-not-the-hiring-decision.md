@@ -17,7 +17,7 @@ keyFindings:
   - "A job description describes a role; it does not automatically define the hiring decision."
   - "Candidate requirements should be connected to the business outcome they are intended to support."
   - "The reason a role exists now can materially change the profile required, even when the job title remains the same."
-  - "Market evidence should test the assumptions made during role definition without turning the search into an constantly moving specification."
+  - "Market evidence should test the assumptions made during role definition without turning the search into a constantly moving specification."
   - "Better role definition creates a stronger basis for structured candidate evaluation later in the search."
 methodology: |
   Within the [Atlas Method™](/atlas-method), role definition takes place before candidate sourcing.
