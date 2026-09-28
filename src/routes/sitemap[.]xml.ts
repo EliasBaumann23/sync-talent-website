@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { publishedPublications } from "@/lib/publications";
+import { selectedEngagements } from "@/lib/engagements";
 import type {} from "@tanstack/react-start";
 import { SITE_URL } from "@/lib/seo";
 
@@ -28,6 +29,11 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/atlas-library/atlas-notes", changefreq: "weekly", priority: "0.8" },
           { path: "/about", changefreq: "monthly", priority: "0.6" },
           { path: "/contact", changefreq: "monthly", priority: "0.6" },
+          ...selectedEngagements.map((e) => ({
+            path: `/selected-engagements/${e.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.7",
+          })),
           ...publishedPublications.map((p) => ({
             path: `/knowledge-hub/${p.slug}`,
             changefreq: "monthly" as const,
