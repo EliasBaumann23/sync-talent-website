@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import type { SelectedEngagement } from "@/lib/engagements";
 
@@ -28,5 +27,3 @@ export function SelectedEngagementCard({ engagement: e }: { engagement: Selected
   );
 }
 
-// Keep Link import available for future internal-link variants.
-export { Link as _EngagementLink };

@@ -22,6 +22,7 @@ import { Route as AtlasMethodRouteImport } from './routes/atlas-method'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as KnowledgeHubIndexRouteImport } from './routes/knowledge-hub.index'
+import { Route as SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRouteImport } from './routes/selected-engagements.food-processing-administrative-operations-manager'
 import { Route as KnowledgeHubSlugRouteImport } from './routes/knowledge-hub.$slug'
 import { Route as AtlasLibraryTalentLensRouteImport } from './routes/atlas-library.talent-lens'
 import { Route as AtlasLibrarySearchBlueprintRouteImport } from './routes/atlas-library.search-blueprint'
@@ -96,6 +97,14 @@ const KnowledgeHubIndexRoute = KnowledgeHubIndexRouteImport.update({
   path: '/',
   getParentRoute: () => KnowledgeHubRoute,
 } as any)
+const SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute =
+  SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRouteImport.update(
+    {
+      id: '/selected-engagements/food-processing-administrative-operations-manager',
+      path: '/selected-engagements/food-processing-administrative-operations-manager',
+      getParentRoute: () => rootRouteImport,
+    } as any,
+  )
 const KnowledgeHubSlugRoute = KnowledgeHubSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -162,6 +171,7 @@ export interface FileRoutesByFullPath {
   '/atlas-library/search-blueprint': typeof AtlasLibrarySearchBlueprintRoute
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
   '/knowledge-hub/$slug': typeof KnowledgeHubSlugRoute
+  '/selected-engagements/food-processing-administrative-operations-manager': typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute
   '/knowledge-hub/': typeof KnowledgeHubIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -184,6 +194,7 @@ export interface FileRoutesByTo {
   '/atlas-library/search-blueprint': typeof AtlasLibrarySearchBlueprintRoute
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
   '/knowledge-hub/$slug': typeof KnowledgeHubSlugRoute
+  '/selected-engagements/food-processing-administrative-operations-manager': typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute
   '/knowledge-hub': typeof KnowledgeHubIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -208,6 +219,7 @@ export interface FileRoutesById {
   '/atlas-library/search-blueprint': typeof AtlasLibrarySearchBlueprintRoute
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
   '/knowledge-hub/$slug': typeof KnowledgeHubSlugRoute
+  '/selected-engagements/food-processing-administrative-operations-manager': typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute
   '/knowledge-hub/': typeof KnowledgeHubIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -233,6 +245,7 @@ export interface FileRouteTypes {
     | '/atlas-library/search-blueprint'
     | '/atlas-library/talent-lens'
     | '/knowledge-hub/$slug'
+    | '/selected-engagements/food-processing-administrative-operations-manager'
     | '/knowledge-hub/'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesByTo: FileRoutesByTo
@@ -255,6 +268,7 @@ export interface FileRouteTypes {
     | '/atlas-library/search-blueprint'
     | '/atlas-library/talent-lens'
     | '/knowledge-hub/$slug'
+    | '/selected-engagements/food-processing-administrative-operations-manager'
     | '/knowledge-hub'
     | '/.mcp/invoke-tool/$tool'
   id:
@@ -278,6 +292,7 @@ export interface FileRouteTypes {
     | '/atlas-library/search-blueprint'
     | '/atlas-library/talent-lens'
     | '/knowledge-hub/$slug'
+    | '/selected-engagements/food-processing-administrative-operations-manager'
     | '/knowledge-hub/'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesById: FileRoutesById
@@ -301,6 +316,7 @@ export interface RootRouteChildren {
   AtlasLibraryHiringConfidenceIndexRoute: typeof AtlasLibraryHiringConfidenceIndexRoute
   AtlasLibrarySearchBlueprintRoute: typeof AtlasLibrarySearchBlueprintRoute
   AtlasLibraryTalentLensRoute: typeof AtlasLibraryTalentLensRoute
+  SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute: typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 
@@ -397,6 +413,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KnowledgeHubIndexRouteImport
       parentRoute: typeof KnowledgeHubRoute
     }
+    '/selected-engagements/food-processing-administrative-operations-manager': {
+      id: '/selected-engagements/food-processing-administrative-operations-manager'
+      path: '/selected-engagements/food-processing-administrative-operations-manager'
+      fullPath: '/selected-engagements/food-processing-administrative-operations-manager'
+      preLoaderRoute: typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/knowledge-hub/$slug': {
       id: '/knowledge-hub/$slug'
       path: '/$slug'
@@ -491,6 +514,8 @@ const rootRouteChildren: RootRouteChildren = {
     AtlasLibraryHiringConfidenceIndexRoute,
   AtlasLibrarySearchBlueprintRoute: AtlasLibrarySearchBlueprintRoute,
   AtlasLibraryTalentLensRoute: AtlasLibraryTalentLensRoute,
+  SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute:
+    SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
 }
 export const routeTree = rootRouteImport
