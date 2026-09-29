@@ -39,4 +39,16 @@ export const selectedEngagements: SelectedEngagement[] = [
       "A U.S. packaging-machinery supplier needed a Mexico-based Sales Engineer combining technical credibility, commercial capability and effective collaboration with its U.S. organization.",
     meta: ["< 2 months", "Mexico City", "Successful Placement"],
   },
+  {
+    slug: "hennecke-head-of-service-mexico",
+    clientLabel: "HENNECKE",
+    industry: "Industrial Machinery",
+    region: "Mexico",
+    location: "Querétaro, Mexico",
+    position: "Head of Service / Site Manager Mexico",
+    headline: "Turning a replacement hire into a broader leadership mandate.",
+    summary:
+      "Following the departure of its Service Manager, HENNECKE used the transition to define a broader role combining service leadership, site responsibility and commercial development.",
+    meta: ["Senior Leadership", "Querétaro", "Successful Placement"],
+  },
 ];
