@@ -27,4 +27,16 @@ export const selectedEngagements: SelectedEngagement[] = [
       "After more than 40 years of growth, a family-owned food processing company sought a leader to strengthen its administrative and operational structure while preserving the practicality of an owner-led organization.",
     meta: ["~100 employees", "Successful Placement", "September 2026"],
   },
+  {
+    slug: "lako-sales-engineer-mexico",
+    clientLabel: "LAKO Tool & Manufacturing",
+    industry: "Packaging Machinery",
+    region: "Mexico",
+    location: "Mexico City, Mexico",
+    position: "Sales Engineer",
+    headline: "Building local commercial capability for Mexico.",
+    summary:
+      "A U.S. packaging-machinery supplier needed a Mexico-based Sales Engineer combining technical credibility, commercial capability and effective collaboration with its U.S. organization.",
+    meta: ["< 2 months", "Mexico City", "Successful Placement"],
+  },
 ];
