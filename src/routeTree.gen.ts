@@ -23,6 +23,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as KnowledgeHubIndexRouteImport } from './routes/knowledge-hub.index'
 import { Route as SelectedEngagementsLakoSalesEngineerMexicoRouteImport } from './routes/selected-engagements.lako-sales-engineer-mexico'
+import { Route as SelectedEngagementsHenneckeHeadOfServiceMexicoRouteImport } from './routes/selected-engagements.hennecke-head-of-service-mexico'
 import { Route as SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRouteImport } from './routes/selected-engagements.food-processing-administrative-operations-manager'
 import { Route as KnowledgeHubSlugRouteImport } from './routes/knowledge-hub.$slug'
 import { Route as AtlasLibraryTalentLensRouteImport } from './routes/atlas-library.talent-lens'
@@ -104,6 +105,12 @@ const SelectedEngagementsLakoSalesEngineerMexicoRoute =
     path: '/selected-engagements/lako-sales-engineer-mexico',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SelectedEngagementsHenneckeHeadOfServiceMexicoRoute =
+  SelectedEngagementsHenneckeHeadOfServiceMexicoRouteImport.update({
+    id: '/selected-engagements/hennecke-head-of-service-mexico',
+    path: '/selected-engagements/hennecke-head-of-service-mexico',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute =
   SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRouteImport.update(
     {
@@ -179,6 +186,7 @@ export interface FileRoutesByFullPath {
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
   '/knowledge-hub/$slug': typeof KnowledgeHubSlugRoute
   '/selected-engagements/food-processing-administrative-operations-manager': typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute
+  '/selected-engagements/hennecke-head-of-service-mexico': typeof SelectedEngagementsHenneckeHeadOfServiceMexicoRoute
   '/selected-engagements/lako-sales-engineer-mexico': typeof SelectedEngagementsLakoSalesEngineerMexicoRoute
   '/knowledge-hub/': typeof KnowledgeHubIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
@@ -203,6 +211,7 @@ export interface FileRoutesByTo {
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
   '/knowledge-hub/$slug': typeof KnowledgeHubSlugRoute
   '/selected-engagements/food-processing-administrative-operations-manager': typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute
+  '/selected-engagements/hennecke-head-of-service-mexico': typeof SelectedEngagementsHenneckeHeadOfServiceMexicoRoute
   '/selected-engagements/lako-sales-engineer-mexico': typeof SelectedEngagementsLakoSalesEngineerMexicoRoute
   '/knowledge-hub': typeof KnowledgeHubIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
@@ -229,6 +238,7 @@ export interface FileRoutesById {
   '/atlas-library/talent-lens': typeof AtlasLibraryTalentLensRoute
   '/knowledge-hub/$slug': typeof KnowledgeHubSlugRoute
   '/selected-engagements/food-processing-administrative-operations-manager': typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute
+  '/selected-engagements/hennecke-head-of-service-mexico': typeof SelectedEngagementsHenneckeHeadOfServiceMexicoRoute
   '/selected-engagements/lako-sales-engineer-mexico': typeof SelectedEngagementsLakoSalesEngineerMexicoRoute
   '/knowledge-hub/': typeof KnowledgeHubIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
@@ -256,6 +266,7 @@ export interface FileRouteTypes {
     | '/atlas-library/talent-lens'
     | '/knowledge-hub/$slug'
     | '/selected-engagements/food-processing-administrative-operations-manager'
+    | '/selected-engagements/hennecke-head-of-service-mexico'
     | '/selected-engagements/lako-sales-engineer-mexico'
     | '/knowledge-hub/'
     | '/.mcp/invoke-tool/$tool'
@@ -280,6 +291,7 @@ export interface FileRouteTypes {
     | '/atlas-library/talent-lens'
     | '/knowledge-hub/$slug'
     | '/selected-engagements/food-processing-administrative-operations-manager'
+    | '/selected-engagements/hennecke-head-of-service-mexico'
     | '/selected-engagements/lako-sales-engineer-mexico'
     | '/knowledge-hub'
     | '/.mcp/invoke-tool/$tool'
@@ -305,6 +317,7 @@ export interface FileRouteTypes {
     | '/atlas-library/talent-lens'
     | '/knowledge-hub/$slug'
     | '/selected-engagements/food-processing-administrative-operations-manager'
+    | '/selected-engagements/hennecke-head-of-service-mexico'
     | '/selected-engagements/lako-sales-engineer-mexico'
     | '/knowledge-hub/'
     | '/.mcp/invoke-tool/$tool'
@@ -330,6 +343,7 @@ export interface RootRouteChildren {
   AtlasLibrarySearchBlueprintRoute: typeof AtlasLibrarySearchBlueprintRoute
   AtlasLibraryTalentLensRoute: typeof AtlasLibraryTalentLensRoute
   SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute: typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute
+  SelectedEngagementsHenneckeHeadOfServiceMexicoRoute: typeof SelectedEngagementsHenneckeHeadOfServiceMexicoRoute
   SelectedEngagementsLakoSalesEngineerMexicoRoute: typeof SelectedEngagementsLakoSalesEngineerMexicoRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -432,6 +446,13 @@ declare module '@tanstack/react-router' {
       path: '/selected-engagements/lako-sales-engineer-mexico'
       fullPath: '/selected-engagements/lako-sales-engineer-mexico'
       preLoaderRoute: typeof SelectedEngagementsLakoSalesEngineerMexicoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/selected-engagements/hennecke-head-of-service-mexico': {
+      id: '/selected-engagements/hennecke-head-of-service-mexico'
+      path: '/selected-engagements/hennecke-head-of-service-mexico'
+      fullPath: '/selected-engagements/hennecke-head-of-service-mexico'
+      preLoaderRoute: typeof SelectedEngagementsHenneckeHeadOfServiceMexicoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/selected-engagements/food-processing-administrative-operations-manager': {
@@ -537,6 +558,8 @@ const rootRouteChildren: RootRouteChildren = {
   AtlasLibraryTalentLensRoute: AtlasLibraryTalentLensRoute,
   SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute:
     SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute,
+  SelectedEngagementsHenneckeHeadOfServiceMexicoRoute:
+    SelectedEngagementsHenneckeHeadOfServiceMexicoRoute,
   SelectedEngagementsLakoSalesEngineerMexicoRoute:
     SelectedEngagementsLakoSalesEngineerMexicoRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
