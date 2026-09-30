@@ -51,4 +51,28 @@ export const selectedEngagements: SelectedEngagement[] = [
       "Following the departure of its Service Manager, HENNECKE used the transition to define a broader role combining service leadership, site responsibility and commercial development.",
     meta: ["Senior Leadership", "Querétaro", "Successful Placement"],
   },
+  {
+    slug: "packaging-automation-sales-manager-mexico",
+    clientLabel: "Confidential Client",
+    industry: "Packaging Automation",
+    region: "Mexico",
+    location: "Mexico",
+    position: "Regional Sales Manager Mexico",
+    headline: "Building commercial capability in a specialized industrial market.",
+    summary:
+      "An international packaging automation company needed a commercial leader for Mexico in a market where direct industry talent was limited.",
+    meta: ["Direct + Adjacent Industries", "Successful Placement", "2026"],
+  },
 ];
+
+/** Public portfolio display order. */
+const PORTFOLIO_ORDER = [
+  "hennecke-head-of-service-mexico",
+  "lako-sales-engineer-mexico",
+  "food-processing-administrative-operations-manager",
+  "packaging-automation-sales-manager-mexico",
+];
+
+export const portfolioEngagements: SelectedEngagement[] = PORTFOLIO_ORDER.map(
+  (slug) => selectedEngagements.find((e) => e.slug === slug)!,
+);
