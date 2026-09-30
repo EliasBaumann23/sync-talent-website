@@ -22,6 +22,7 @@ import { Route as AtlasMethodRouteImport } from './routes/atlas-method'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as KnowledgeHubIndexRouteImport } from './routes/knowledge-hub.index'
+import { Route as SelectedEngagementsPackagingAutomationSalesManagerMexicoRouteImport } from './routes/selected-engagements.packaging-automation-sales-manager-mexico'
 import { Route as SelectedEngagementsLakoSalesEngineerMexicoRouteImport } from './routes/selected-engagements.lako-sales-engineer-mexico'
 import { Route as SelectedEngagementsHenneckeHeadOfServiceMexicoRouteImport } from './routes/selected-engagements.hennecke-head-of-service-mexico'
 import { Route as SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRouteImport } from './routes/selected-engagements.food-processing-administrative-operations-manager'
@@ -99,6 +100,12 @@ const KnowledgeHubIndexRoute = KnowledgeHubIndexRouteImport.update({
   path: '/',
   getParentRoute: () => KnowledgeHubRoute,
 } as any)
+const SelectedEngagementsPackagingAutomationSalesManagerMexicoRoute =
+  SelectedEngagementsPackagingAutomationSalesManagerMexicoRouteImport.update({
+    id: '/selected-engagements/packaging-automation-sales-manager-mexico',
+    path: '/selected-engagements/packaging-automation-sales-manager-mexico',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SelectedEngagementsLakoSalesEngineerMexicoRoute =
   SelectedEngagementsLakoSalesEngineerMexicoRouteImport.update({
     id: '/selected-engagements/lako-sales-engineer-mexico',
@@ -188,6 +195,7 @@ export interface FileRoutesByFullPath {
   '/selected-engagements/food-processing-administrative-operations-manager': typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute
   '/selected-engagements/hennecke-head-of-service-mexico': typeof SelectedEngagementsHenneckeHeadOfServiceMexicoRoute
   '/selected-engagements/lako-sales-engineer-mexico': typeof SelectedEngagementsLakoSalesEngineerMexicoRoute
+  '/selected-engagements/packaging-automation-sales-manager-mexico': typeof SelectedEngagementsPackagingAutomationSalesManagerMexicoRoute
   '/knowledge-hub/': typeof KnowledgeHubIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -213,6 +221,7 @@ export interface FileRoutesByTo {
   '/selected-engagements/food-processing-administrative-operations-manager': typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute
   '/selected-engagements/hennecke-head-of-service-mexico': typeof SelectedEngagementsHenneckeHeadOfServiceMexicoRoute
   '/selected-engagements/lako-sales-engineer-mexico': typeof SelectedEngagementsLakoSalesEngineerMexicoRoute
+  '/selected-engagements/packaging-automation-sales-manager-mexico': typeof SelectedEngagementsPackagingAutomationSalesManagerMexicoRoute
   '/knowledge-hub': typeof KnowledgeHubIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -240,6 +249,7 @@ export interface FileRoutesById {
   '/selected-engagements/food-processing-administrative-operations-manager': typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute
   '/selected-engagements/hennecke-head-of-service-mexico': typeof SelectedEngagementsHenneckeHeadOfServiceMexicoRoute
   '/selected-engagements/lako-sales-engineer-mexico': typeof SelectedEngagementsLakoSalesEngineerMexicoRoute
+  '/selected-engagements/packaging-automation-sales-manager-mexico': typeof SelectedEngagementsPackagingAutomationSalesManagerMexicoRoute
   '/knowledge-hub/': typeof KnowledgeHubIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -268,6 +278,7 @@ export interface FileRouteTypes {
     | '/selected-engagements/food-processing-administrative-operations-manager'
     | '/selected-engagements/hennecke-head-of-service-mexico'
     | '/selected-engagements/lako-sales-engineer-mexico'
+    | '/selected-engagements/packaging-automation-sales-manager-mexico'
     | '/knowledge-hub/'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesByTo: FileRoutesByTo
@@ -293,6 +304,7 @@ export interface FileRouteTypes {
     | '/selected-engagements/food-processing-administrative-operations-manager'
     | '/selected-engagements/hennecke-head-of-service-mexico'
     | '/selected-engagements/lako-sales-engineer-mexico'
+    | '/selected-engagements/packaging-automation-sales-manager-mexico'
     | '/knowledge-hub'
     | '/.mcp/invoke-tool/$tool'
   id:
@@ -319,6 +331,7 @@ export interface FileRouteTypes {
     | '/selected-engagements/food-processing-administrative-operations-manager'
     | '/selected-engagements/hennecke-head-of-service-mexico'
     | '/selected-engagements/lako-sales-engineer-mexico'
+    | '/selected-engagements/packaging-automation-sales-manager-mexico'
     | '/knowledge-hub/'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesById: FileRoutesById
@@ -345,6 +358,7 @@ export interface RootRouteChildren {
   SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute: typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute
   SelectedEngagementsHenneckeHeadOfServiceMexicoRoute: typeof SelectedEngagementsHenneckeHeadOfServiceMexicoRoute
   SelectedEngagementsLakoSalesEngineerMexicoRoute: typeof SelectedEngagementsLakoSalesEngineerMexicoRoute
+  SelectedEngagementsPackagingAutomationSalesManagerMexicoRoute: typeof SelectedEngagementsPackagingAutomationSalesManagerMexicoRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 
@@ -440,6 +454,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/knowledge-hub/'
       preLoaderRoute: typeof KnowledgeHubIndexRouteImport
       parentRoute: typeof KnowledgeHubRoute
+    }
+    '/selected-engagements/packaging-automation-sales-manager-mexico': {
+      id: '/selected-engagements/packaging-automation-sales-manager-mexico'
+      path: '/selected-engagements/packaging-automation-sales-manager-mexico'
+      fullPath: '/selected-engagements/packaging-automation-sales-manager-mexico'
+      preLoaderRoute: typeof SelectedEngagementsPackagingAutomationSalesManagerMexicoRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/selected-engagements/lako-sales-engineer-mexico': {
       id: '/selected-engagements/lako-sales-engineer-mexico'
@@ -562,6 +583,8 @@ const rootRouteChildren: RootRouteChildren = {
     SelectedEngagementsHenneckeHeadOfServiceMexicoRoute,
   SelectedEngagementsLakoSalesEngineerMexicoRoute:
     SelectedEngagementsLakoSalesEngineerMexicoRoute,
+  SelectedEngagementsPackagingAutomationSalesManagerMexicoRoute:
+    SelectedEngagementsPackagingAutomationSalesManagerMexicoRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
 }
 export const routeTree = rootRouteImport
