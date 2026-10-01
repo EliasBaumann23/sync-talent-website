@@ -16,6 +16,8 @@ import logoSomic from "@/assets/SOMIC.png";
 import logoTpg from "@/assets/TPG.png";
 import logoTavil from "@/assets/TAVIL.png";
 import { ArrowRight, ChevronRight } from "lucide-react";
+import { SelectedEngagementCard } from "@/components/site/SelectedEngagementCard";
+import { portfolioEngagements } from "@/lib/engagements";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -320,6 +322,35 @@ function HomePage() {
             >
               Explore the Atlas Method →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SELECTED ENGAGEMENTS */}
+      <section className="bg-surface py-28 lg:py-36">
+        <div className="container-x">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <p className="eyebrow">Selected Engagements</p>
+              <h2 className="mt-4 text-3xl leading-tight md:text-4xl lg:text-[44px]">
+                Search strategy shaped by the hiring decision.
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-ink-muted lg:text-lg">
+                From market expansion to leadership transitions, our work reflects the different
+                decisions international industrial companies face when building teams in Mexico.
+              </p>
+            </div>
+            <Link
+              to="/services"
+              className="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-navy link-underline"
+            >
+              Explore Executive Search →
+            </Link>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {portfolioEngagements.map((e) => (
+              <SelectedEngagementCard key={e.slug} engagement={e} compact />
+            ))}
           </div>
         </div>
       </section>

@@ -4,6 +4,8 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHeader } from "@/components/site/PageHeader";
 import { CTABand } from "@/components/site/CTA";
 import { ArrowRight } from "lucide-react";
+import { SelectedEngagementCard } from "@/components/site/SelectedEngagementCard";
+import { portfolioEngagements } from "@/lib/engagements";
 
 export const Route = createFileRoute("/services")({
   head: () =>
@@ -271,6 +273,31 @@ function ServicesPage() {
             >
               Explore the Atlas Method <ArrowRight className="h-4 w-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SELECTED ENGAGEMENTS */}
+      <section className="py-28 lg:py-36">
+        <div className="container-x">
+          <div className="max-w-2xl">
+            <p className="eyebrow">Selected Engagements</p>
+            <h2 className="mt-4 text-3xl leading-tight md:text-4xl lg:text-[44px]">
+              Different hiring decisions. Different search challenges.
+            </h2>
+            <div className="mt-5 space-y-4 text-base leading-relaxed text-ink-muted lg:text-lg">
+              <p>Executive Search is rarely the same problem twice.</p>
+              <p>
+                These engagements show how different business situations — market expansion,
+                leadership transition, organizational professionalization and specialized talent
+                scarcity — require different search strategies.
+              </p>
+            </div>
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {portfolioEngagements.map((e) => (
+              <SelectedEngagementCard key={e.slug} engagement={e} />
+            ))}
           </div>
         </div>
       </section>
