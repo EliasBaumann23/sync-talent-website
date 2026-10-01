@@ -9,80 +9,35 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as AtlasMethodRouteImport } from './routes/atlas-method'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as DiscoveryExperienceRouteImport } from './routes/discovery-experience'
-import { Route as HiringGuidesRouteImport } from './routes/hiring-guides'
-import { Route as IndustriesRouteImport } from './routes/industries'
-import { Route as KnowledgeHubRouteImport } from './routes/knowledge-hub'
-import { Route as McpRouteImport } from './routes/mcp'
-import { Route as SalaryGuidesRouteImport } from './routes/salary-guides'
-import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
-import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
-import { Route as AtlasLibraryAtlasNotesRouteImport } from './routes/atlas-library.atlas-notes'
-import { Route as AtlasLibraryHiringConfidenceIndexRouteImport } from './routes/atlas-library.hiring-confidence-index'
-import { Route as AtlasLibrarySearchBlueprintRouteImport } from './routes/atlas-library.search-blueprint'
-import { Route as AtlasLibraryTalentLensRouteImport } from './routes/atlas-library.talent-lens'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SalaryGuidesRouteImport } from './routes/salary-guides'
+import { Route as McpRouteImport } from './routes/mcp'
+import { Route as KnowledgeHubRouteImport } from './routes/knowledge-hub'
+import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as HiringGuidesRouteImport } from './routes/hiring-guides'
+import { Route as DiscoveryExperienceRouteImport } from './routes/discovery-experience'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AtlasMethodRouteImport } from './routes/atlas-method'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as KnowledgeHubIndexRouteImport } from './routes/knowledge-hub.index'
-import { Route as KnowledgeHubSlugRouteImport } from './routes/knowledge-hub.$slug'
-import { Route as SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRouteImport } from './routes/selected-engagements.food-processing-administrative-operations-manager'
-import { Route as SelectedEngagementsHenneckeHeadOfServiceMexicoRouteImport } from './routes/selected-engagements.hennecke-head-of-service-mexico'
-import { Route as SelectedEngagementsLakoSalesEngineerMexicoRouteImport } from './routes/selected-engagements.lako-sales-engineer-mexico'
 import { Route as SelectedEngagementsPackagingAutomationSalesManagerMexicoRouteImport } from './routes/selected-engagements.packaging-automation-sales-manager-mexico'
+import { Route as SelectedEngagementsLakoSalesEngineerMexicoRouteImport } from './routes/selected-engagements.lako-sales-engineer-mexico'
+import { Route as SelectedEngagementsHenneckeHeadOfServiceMexicoRouteImport } from './routes/selected-engagements.hennecke-head-of-service-mexico'
+import { Route as SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRouteImport } from './routes/selected-engagements.food-processing-administrative-operations-manager'
+import { Route as KnowledgeHubSlugRouteImport } from './routes/knowledge-hub.$slug'
+import { Route as AtlasLibraryTalentLensRouteImport } from './routes/atlas-library.talent-lens'
+import { Route as AtlasLibrarySearchBlueprintRouteImport } from './routes/atlas-library.search-blueprint'
+import { Route as AtlasLibraryHiringConfidenceIndexRouteImport } from './routes/atlas-library.hiring-confidence-index'
+import { Route as AtlasLibraryAtlasNotesRouteImport } from './routes/atlas-library.atlas-notes'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
+import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AtlasMethodRoute = AtlasMethodRouteImport.update({
-  id: '/atlas-method',
-  path: '/atlas-method',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DiscoveryExperienceRoute = DiscoveryExperienceRouteImport.update({
-  id: '/discovery-experience',
-  path: '/discovery-experience',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HiringGuidesRoute = HiringGuidesRouteImport.update({
-  id: '/hiring-guides',
-  path: '/hiring-guides',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesRoute = IndustriesRouteImport.update({
-  id: '/industries',
-  path: '/industries',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KnowledgeHubRoute = KnowledgeHubRouteImport.update({
-  id: '/knowledge-hub',
-  path: '/knowledge-hub',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const McpRoute = McpRouteImport.update({
-  id: '/mcp',
-  path: '/mcp',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SalaryGuidesRoute = SalaryGuidesRouteImport.update({
-  id: '/salary-guides',
-  path: '/salary-guides',
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -90,43 +45,54 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
+const SalaryGuidesRoute = SalaryGuidesRouteImport.update({
+  id: '/salary-guides',
+  path: '/salary-guides',
   getParentRoute: () => rootRouteImport,
 } as any)
-const Char91DotmcpChar93ListToolsRoute =
-  Char91DotmcpChar93ListToolsRouteImport.update({
-    id: '/.mcp/list-tools',
-    path: '/.mcp/list-tools',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const Char91DotwellKnownChar93OauthProtectedResourceRoute =
-  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
-    id: '/.well-known/oauth-protected-resource',
-    path: '/.well-known/oauth-protected-resource',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const AtlasLibraryAtlasNotesRoute = AtlasLibraryAtlasNotesRouteImport.update({
-  id: '/atlas-library/atlas-notes',
-  path: '/atlas-library/atlas-notes',
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AtlasLibraryHiringConfidenceIndexRoute =
-  AtlasLibraryHiringConfidenceIndexRouteImport.update({
-    id: '/atlas-library/hiring-confidence-index',
-    path: '/atlas-library/hiring-confidence-index',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const AtlasLibrarySearchBlueprintRoute =
-  AtlasLibrarySearchBlueprintRouteImport.update({
-    id: '/atlas-library/search-blueprint',
-    path: '/atlas-library/search-blueprint',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const AtlasLibraryTalentLensRoute = AtlasLibraryTalentLensRouteImport.update({
-  id: '/atlas-library/talent-lens',
-  path: '/atlas-library/talent-lens',
+const KnowledgeHubRoute = KnowledgeHubRouteImport.update({
+  id: '/knowledge-hub',
+  path: '/knowledge-hub',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRoute = IndustriesRouteImport.update({
+  id: '/industries',
+  path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HiringGuidesRoute = HiringGuidesRouteImport.update({
+  id: '/hiring-guides',
+  path: '/hiring-guides',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiscoveryExperienceRoute = DiscoveryExperienceRouteImport.update({
+  id: '/discovery-experience',
+  path: '/discovery-experience',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AtlasMethodRoute = AtlasMethodRouteImport.update({
+  id: '/atlas-method',
+  path: '/atlas-method',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KnowledgeHubIndexRoute = KnowledgeHubIndexRouteImport.update({
@@ -134,23 +100,10 @@ const KnowledgeHubIndexRoute = KnowledgeHubIndexRouteImport.update({
   path: '/',
   getParentRoute: () => KnowledgeHubRoute,
 } as any)
-const KnowledgeHubSlugRoute = KnowledgeHubSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => KnowledgeHubRoute,
-} as any)
-const SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute =
-  SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRouteImport.update(
-    {
-      id: '/selected-engagements/food-processing-administrative-operations-manager',
-      path: '/selected-engagements/food-processing-administrative-operations-manager',
-      getParentRoute: () => rootRouteImport,
-    } as any,
-  )
-const SelectedEngagementsHenneckeHeadOfServiceMexicoRoute =
-  SelectedEngagementsHenneckeHeadOfServiceMexicoRouteImport.update({
-    id: '/selected-engagements/hennecke-head-of-service-mexico',
-    path: '/selected-engagements/hennecke-head-of-service-mexico',
+const SelectedEngagementsPackagingAutomationSalesManagerMexicoRoute =
+  SelectedEngagementsPackagingAutomationSalesManagerMexicoRouteImport.update({
+    id: '/selected-engagements/packaging-automation-sales-manager-mexico',
+    path: '/selected-engagements/packaging-automation-sales-manager-mexico',
     getParentRoute: () => rootRouteImport,
   } as any)
 const SelectedEngagementsLakoSalesEngineerMexicoRoute =
@@ -159,10 +112,57 @@ const SelectedEngagementsLakoSalesEngineerMexicoRoute =
     path: '/selected-engagements/lako-sales-engineer-mexico',
     getParentRoute: () => rootRouteImport,
   } as any)
-const SelectedEngagementsPackagingAutomationSalesManagerMexicoRoute =
-  SelectedEngagementsPackagingAutomationSalesManagerMexicoRouteImport.update({
-    id: '/selected-engagements/packaging-automation-sales-manager-mexico',
-    path: '/selected-engagements/packaging-automation-sales-manager-mexico',
+const SelectedEngagementsHenneckeHeadOfServiceMexicoRoute =
+  SelectedEngagementsHenneckeHeadOfServiceMexicoRouteImport.update({
+    id: '/selected-engagements/hennecke-head-of-service-mexico',
+    path: '/selected-engagements/hennecke-head-of-service-mexico',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRoute =
+  SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRouteImport.update(
+    {
+      id: '/selected-engagements/food-processing-administrative-operations-manager',
+      path: '/selected-engagements/food-processing-administrative-operations-manager',
+      getParentRoute: () => rootRouteImport,
+    } as any,
+  )
+const KnowledgeHubSlugRoute = KnowledgeHubSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => KnowledgeHubRoute,
+} as any)
+const AtlasLibraryTalentLensRoute = AtlasLibraryTalentLensRouteImport.update({
+  id: '/atlas-library/talent-lens',
+  path: '/atlas-library/talent-lens',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AtlasLibrarySearchBlueprintRoute =
+  AtlasLibrarySearchBlueprintRouteImport.update({
+    id: '/atlas-library/search-blueprint',
+    path: '/atlas-library/search-blueprint',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AtlasLibraryHiringConfidenceIndexRoute =
+  AtlasLibraryHiringConfidenceIndexRouteImport.update({
+    id: '/atlas-library/hiring-confidence-index',
+    path: '/atlas-library/hiring-confidence-index',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AtlasLibraryAtlasNotesRoute = AtlasLibraryAtlasNotesRouteImport.update({
+  id: '/atlas-library/atlas-notes',
+  path: '/atlas-library/atlas-notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char91DotmcpChar93ListToolsRoute =
+  Char91DotmcpChar93ListToolsRouteImport.update({
+    id: '/.mcp/list-tools',
+    path: '/.mcp/list-tools',
     getParentRoute: () => rootRouteImport,
   } as any)
 const Char91DotmcpChar93InvokeToolToolRoute =
@@ -364,74 +364,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/atlas-method': {
-      id: '/atlas-method'
-      path: '/atlas-method'
-      fullPath: '/atlas-method'
-      preLoaderRoute: typeof AtlasMethodRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/discovery-experience': {
-      id: '/discovery-experience'
-      path: '/discovery-experience'
-      fullPath: '/discovery-experience'
-      preLoaderRoute: typeof DiscoveryExperienceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hiring-guides': {
-      id: '/hiring-guides'
-      path: '/hiring-guides'
-      fullPath: '/hiring-guides'
-      preLoaderRoute: typeof HiringGuidesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/industries': {
-      id: '/industries'
-      path: '/industries'
-      fullPath: '/industries'
-      preLoaderRoute: typeof IndustriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/knowledge-hub': {
-      id: '/knowledge-hub'
-      path: '/knowledge-hub'
-      fullPath: '/knowledge-hub'
-      preLoaderRoute: typeof KnowledgeHubRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mcp': {
-      id: '/mcp'
-      path: '/mcp'
-      fullPath: '/mcp'
-      preLoaderRoute: typeof McpRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/salary-guides': {
-      id: '/salary-guides'
-      path: '/salary-guides'
-      fullPath: '/salary-guides'
-      preLoaderRoute: typeof SalaryGuidesRouteImport
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -441,53 +378,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
+    '/salary-guides': {
+      id: '/salary-guides'
+      path: '/salary-guides'
+      fullPath: '/salary-guides'
+      preLoaderRoute: typeof SalaryGuidesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/.mcp/list-tools': {
-      id: '/.mcp/list-tools'
-      path: '/.mcp/list-tools'
-      fullPath: '/.mcp/list-tools'
-      preLoaderRoute: typeof Char91DotmcpChar93ListToolsRouteImport
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/.well-known/oauth-protected-resource': {
-      id: '/.well-known/oauth-protected-resource'
-      path: '/.well-known/oauth-protected-resource'
-      fullPath: '/.well-known/oauth-protected-resource'
-      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+    '/knowledge-hub': {
+      id: '/knowledge-hub'
+      path: '/knowledge-hub'
+      fullPath: '/knowledge-hub'
+      preLoaderRoute: typeof KnowledgeHubRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/atlas-library/atlas-notes': {
-      id: '/atlas-library/atlas-notes'
-      path: '/atlas-library/atlas-notes'
-      fullPath: '/atlas-library/atlas-notes'
-      preLoaderRoute: typeof AtlasLibraryAtlasNotesRouteImport
+    '/industries': {
+      id: '/industries'
+      path: '/industries'
+      fullPath: '/industries'
+      preLoaderRoute: typeof IndustriesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/atlas-library/hiring-confidence-index': {
-      id: '/atlas-library/hiring-confidence-index'
-      path: '/atlas-library/hiring-confidence-index'
-      fullPath: '/atlas-library/hiring-confidence-index'
-      preLoaderRoute: typeof AtlasLibraryHiringConfidenceIndexRouteImport
+    '/hiring-guides': {
+      id: '/hiring-guides'
+      path: '/hiring-guides'
+      fullPath: '/hiring-guides'
+      preLoaderRoute: typeof HiringGuidesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/atlas-library/search-blueprint': {
-      id: '/atlas-library/search-blueprint'
-      path: '/atlas-library/search-blueprint'
-      fullPath: '/atlas-library/search-blueprint'
-      preLoaderRoute: typeof AtlasLibrarySearchBlueprintRouteImport
+    '/discovery-experience': {
+      id: '/discovery-experience'
+      path: '/discovery-experience'
+      fullPath: '/discovery-experience'
+      preLoaderRoute: typeof DiscoveryExperienceRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/atlas-library/talent-lens': {
-      id: '/atlas-library/talent-lens'
-      path: '/atlas-library/talent-lens'
-      fullPath: '/atlas-library/talent-lens'
-      preLoaderRoute: typeof AtlasLibraryTalentLensRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/atlas-method': {
+      id: '/atlas-method'
+      path: '/atlas-method'
+      fullPath: '/atlas-method'
+      preLoaderRoute: typeof AtlasMethodRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/knowledge-hub/': {
@@ -497,25 +455,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KnowledgeHubIndexRouteImport
       parentRoute: typeof KnowledgeHubRoute
     }
-    '/knowledge-hub/$slug': {
-      id: '/knowledge-hub/$slug'
-      path: '/$slug'
-      fullPath: '/knowledge-hub/$slug'
-      preLoaderRoute: typeof KnowledgeHubSlugRouteImport
-      parentRoute: typeof KnowledgeHubRoute
-    }
-    '/selected-engagements/food-processing-administrative-operations-manager': {
-      id: '/selected-engagements/food-processing-administrative-operations-manager'
-      path: '/selected-engagements/food-processing-administrative-operations-manager'
-      fullPath: '/selected-engagements/food-processing-administrative-operations-manager'
-      preLoaderRoute: typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/selected-engagements/hennecke-head-of-service-mexico': {
-      id: '/selected-engagements/hennecke-head-of-service-mexico'
-      path: '/selected-engagements/hennecke-head-of-service-mexico'
-      fullPath: '/selected-engagements/hennecke-head-of-service-mexico'
-      preLoaderRoute: typeof SelectedEngagementsHenneckeHeadOfServiceMexicoRouteImport
+    '/selected-engagements/packaging-automation-sales-manager-mexico': {
+      id: '/selected-engagements/packaging-automation-sales-manager-mexico'
+      path: '/selected-engagements/packaging-automation-sales-manager-mexico'
+      fullPath: '/selected-engagements/packaging-automation-sales-manager-mexico'
+      preLoaderRoute: typeof SelectedEngagementsPackagingAutomationSalesManagerMexicoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/selected-engagements/lako-sales-engineer-mexico': {
@@ -525,11 +469,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SelectedEngagementsLakoSalesEngineerMexicoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/selected-engagements/packaging-automation-sales-manager-mexico': {
-      id: '/selected-engagements/packaging-automation-sales-manager-mexico'
-      path: '/selected-engagements/packaging-automation-sales-manager-mexico'
-      fullPath: '/selected-engagements/packaging-automation-sales-manager-mexico'
-      preLoaderRoute: typeof SelectedEngagementsPackagingAutomationSalesManagerMexicoRouteImport
+    '/selected-engagements/hennecke-head-of-service-mexico': {
+      id: '/selected-engagements/hennecke-head-of-service-mexico'
+      path: '/selected-engagements/hennecke-head-of-service-mexico'
+      fullPath: '/selected-engagements/hennecke-head-of-service-mexico'
+      preLoaderRoute: typeof SelectedEngagementsHenneckeHeadOfServiceMexicoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/selected-engagements/food-processing-administrative-operations-manager': {
+      id: '/selected-engagements/food-processing-administrative-operations-manager'
+      path: '/selected-engagements/food-processing-administrative-operations-manager'
+      fullPath: '/selected-engagements/food-processing-administrative-operations-manager'
+      preLoaderRoute: typeof SelectedEngagementsFoodProcessingAdministrativeOperationsManagerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge-hub/$slug': {
+      id: '/knowledge-hub/$slug'
+      path: '/$slug'
+      fullPath: '/knowledge-hub/$slug'
+      preLoaderRoute: typeof KnowledgeHubSlugRouteImport
+      parentRoute: typeof KnowledgeHubRoute
+    }
+    '/atlas-library/talent-lens': {
+      id: '/atlas-library/talent-lens'
+      path: '/atlas-library/talent-lens'
+      fullPath: '/atlas-library/talent-lens'
+      preLoaderRoute: typeof AtlasLibraryTalentLensRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/atlas-library/search-blueprint': {
+      id: '/atlas-library/search-blueprint'
+      path: '/atlas-library/search-blueprint'
+      fullPath: '/atlas-library/search-blueprint'
+      preLoaderRoute: typeof AtlasLibrarySearchBlueprintRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/atlas-library/hiring-confidence-index': {
+      id: '/atlas-library/hiring-confidence-index'
+      path: '/atlas-library/hiring-confidence-index'
+      fullPath: '/atlas-library/hiring-confidence-index'
+      preLoaderRoute: typeof AtlasLibraryHiringConfidenceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/atlas-library/atlas-notes': {
+      id: '/atlas-library/atlas-notes'
+      path: '/atlas-library/atlas-notes'
+      fullPath: '/atlas-library/atlas-notes'
+      preLoaderRoute: typeof AtlasLibraryAtlasNotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.mcp/list-tools': {
+      id: '/.mcp/list-tools'
+      path: '/.mcp/list-tools'
+      fullPath: '/.mcp/list-tools'
+      preLoaderRoute: typeof Char91DotmcpChar93ListToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/.mcp/invoke-tool/$tool': {
