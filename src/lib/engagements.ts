@@ -48,8 +48,8 @@ export const selectedEngagements: SelectedEngagement[] = [
     position: "Head of Service / Site Manager Mexico",
     headline: "Turning a replacement hire into a broader leadership mandate.",
     summary:
-      "Following the departure of its Service Manager, HENNECKE used the transition to define a broader role combining service leadership, site responsibility and commercial development.",
-    meta: ["Senior Leadership", "Querétaro", "Successful Placement"],
+      "Following the departure of its Service Manager, HENNECKE defined a broader mandate combining service leadership, site responsibility and commercial development.",
+    meta: ["Querétaro", "Successful Placement", "2026"],
   },
   {
     slug: "packaging-automation-sales-manager-mexico",
