@@ -270,6 +270,8 @@
 .mi-panel dt { color: var(--ink-muted); }
 .mi-panel dd { font-family: var(--font-display); color: var(--navy); margin: 0; }
 .mi-panel-total { margin-top: auto !important; padding-top: 1.25rem; display: flex; flex-direction: column; gap: .2rem; }
+.mi-panel .mi-panel-title + .mi-panel-total { margin-top: 0 !important; padding-top: .75rem; }
+.mi-panel-sub { margin-top: 1.25rem !important; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted) !important; }
 .mi-panel-total span { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); }
 .mi-panel-total strong { font-family: var(--font-display); font-weight: 400; font-size: 1.75rem; color: var(--navy); }
 .mi-callout-figure { text-align: center; }
