@@ -26,6 +26,15 @@ const notes: {
   slug?: string;
 }[] = [
   {
+    cat: "Decision Making",
+    title: "Why Candidate Evaluation Should Separate Evidence from Impression",
+    summary:
+      "Interviews create impressions quickly. Better evaluation makes the evidence, uncertainty and reasoning behind those impressions visible.",
+    read: "Atlas Note · AN-04",
+    date: "October 2026",
+    slug: "why-candidate-evaluation-should-separate-evidence-from-impression",
+  },
+  {
     cat: "Executive Search",
     title: "The Job Description Is Not the Hiring Decision",
     summary:
