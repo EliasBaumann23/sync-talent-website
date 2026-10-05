@@ -278,7 +278,7 @@
 .an-quote-ev { padding-left: .9rem; border-left: 2px solid var(--turquoise); }
 .an-dims { list-style: none; padding: 0 !important; margin: 0; display: grid; gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); }
 @media (min-width: 768px) { .an-dims { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.an-dims li { background: #fff; padding: 1.25rem; margin: 0 !important; font-size: .95rem; line-height: 1.4; color: var(--navy); }
+.atlas-prose .an-dims li { padding-left: 1.25rem !important; background: #fff; padding: 1.25rem; margin: 0 !important; font-size: .95rem; line-height: 1.4; color: var(--navy); }
 .an-dims li span { display: block; font-family: var(--font-display); color: var(--turquoise); font-size: .85rem; margin-bottom: .5rem; }
 .an-kbv { display: grid; gap: 1.5rem; }
 @media (min-width: 768px) { .an-kbv { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
