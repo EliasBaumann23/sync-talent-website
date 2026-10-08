@@ -26,6 +26,15 @@ const notes: {
   slug?: string;
 }[] = [
   {
+    cat: "Candidate Evaluation",
+    title: "The Best Candidate Is Not Always the Closest Industry Match",
+    summary:
+      "Direct industry experience can matter. But stronger hiring decisions distinguish essential industry knowledge from transferable capabilities and evaluate both through evidence.",
+    read: "Atlas Note · AN-05",
+    date: "October 2026",
+    slug: "the-best-candidate-is-not-always-the-closest-industry-match",
+  },
+  {
     cat: "Decision Making",
     title: "Why Candidate Evaluation Should Separate Evidence from Impression",
     summary:
