@@ -351,3 +351,9 @@
 .si-scenario-req { color: var(--navy) !important; font-size: .9rem; }
 .si-disclaimer { padding-left: 1rem; border-left: 2px solid var(--turquoise); color: var(--navy) !important; font-family: var(--font-display); }
 .si-src-note { font-size: .85rem; color: var(--ink-muted); }
+
+/* HG-01 hiring guide figures */
+.hg-table td:first-child { white-space: nowrap; color: var(--navy); }
+.hg-checklist { list-style: none; padding: 0 !important; margin: 0; border-top: 1px solid var(--hairline); }
+.atlas-prose .hg-checklist li { display: flex; gap: 1.25rem; align-items: baseline; padding: 1rem 0 !important; margin: 0 !important; border-bottom: 1px solid var(--hairline); color: var(--navy); line-height: 1.5; }
+.hg-checklist li span { font-family: var(--font-display); color: var(--turquoise); font-size: .85rem; min-width: 1.75rem; }
