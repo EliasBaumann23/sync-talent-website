@@ -358,7 +358,7 @@
 .atlas-prose .hg-checklist li { display: flex; gap: 1.25rem; align-items: baseline; padding: 1rem 0 !important; margin: 0 !important; border-bottom: 1px solid var(--hairline); color: var(--navy); line-height: 1.5; }
 .hg-checklist li span { font-family: var(--font-display); color: var(--turquoise); font-size: .85rem; min-width: 1.75rem; }
 @media (max-width: 639px) {
-  .hg-table, .hg-table tbody, .hg-table tr, .hg-table td { display: block; width: 100%; }
+  .hg-table, .hg-table tbody, .hg-table tr, .hg-table td { display: block; width: 100%; min-width: 0 !important; }
   .hg-table thead { display: none; }
   .hg-table tr { padding: 1rem 0; border-bottom: 1px solid var(--hairline); }
   .hg-table td { border: 0 !important; padding: .35rem 0 !important; white-space: normal !important; }
