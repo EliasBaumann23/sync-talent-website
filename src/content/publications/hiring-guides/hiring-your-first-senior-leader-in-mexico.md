@@ -109,10 +109,10 @@ Titles are therefore useful starting points, but insufficient definitions of res
 <table class="si-table hg-table">
 <thead><tr><th>Profile</th><th>Primary mandate</th><th>Typical focus</th><th>Key consideration</th></tr></thead>
 <tbody>
-<tr><td><strong>Country Manager</strong></td><td>Represent and develop the company's presence in Mexico.</td><td>Market development, local relationships, stakeholder coordination, subsidiary leadership.</td><td>The title does not automatically imply full operational or P&amp;L responsibility.</td></tr>
-<tr><td><strong>General Manager</strong></td><td>Lead the Mexican business as an integrated organization.</td><td>Business performance, leadership, commercial and operational coordination, organizational development.</td><td>Requires clearly defined authority, reporting and performance accountability.</td></tr>
-<tr><td><strong>Operations / Plant Manager</strong></td><td>Build or manage local industrial operations.</td><td>Production, service delivery, quality, safety, processes, teams and operational performance.</td><td>Commercial responsibility may be limited or shared with another function.</td></tr>
-<tr><td><strong>Commercial / Sales Leader</strong></td><td>Develop revenue and customer relationships in Mexico.</td><td>Sales strategy, business development, accounts, distribution and market expansion.</td><td>A strong commercial leader is not automatically a general manager.</td></tr>
+<tr><td data-label="Profile"><strong>Country Manager</strong></td><td data-label="Primary mandate">Represent and develop the company's presence in Mexico.</td><td data-label="Typical focus">Market development, local relationships, stakeholder coordination, subsidiary leadership.</td><td data-label="Key consideration">The title does not automatically imply full operational or P&amp;L responsibility.</td></tr>
+<tr><td data-label="Profile"><strong>General Manager</strong></td><td data-label="Primary mandate">Lead the Mexican business as an integrated organization.</td><td data-label="Typical focus">Business performance, leadership, commercial and operational coordination, organizational development.</td><td data-label="Key consideration">Requires clearly defined authority, reporting and performance accountability.</td></tr>
+<tr><td data-label="Profile"><strong>Operations / Plant Manager</strong></td><td data-label="Primary mandate">Build or manage local industrial operations.</td><td data-label="Typical focus">Production, service delivery, quality, safety, processes, teams and operational performance.</td><td data-label="Key consideration">Commercial responsibility may be limited or shared with another function.</td></tr>
+<tr><td data-label="Profile"><strong>Commercial / Sales Leader</strong></td><td data-label="Primary mandate">Develop revenue and customer relationships in Mexico.</td><td data-label="Typical focus">Sales strategy, business development, accounts, distribution and market expansion.</td><td data-label="Key consideration">A strong commercial leader is not automatically a general manager.</td></tr>
 </tbody>
 </table>
 </div>
@@ -139,13 +139,13 @@ A company should define which decisions can be made locally, which require headq
 <table class="si-table hg-table">
 <thead><tr><th>Decision area</th><th>Typical local responsibility</th><th>Typical HQ involvement</th></tr></thead>
 <tbody>
-<tr><td><strong>Customer development</strong></td><td>Lead customer relationships and commercial execution.</td><td>Align on strategic accounts, commercial strategy and major commitments.</td></tr>
-<tr><td><strong>Pricing and commercial terms</strong></td><td>Propose pricing and negotiate within approved limits.</td><td>Define pricing policy, exceptions and approval thresholds.</td></tr>
-<tr><td><strong>Hiring and team development</strong></td><td>Identify staffing needs and manage local employees.</td><td>Approve organizational structure, key positions and budgets as defined.</td></tr>
-<tr><td><strong>Operating expenditure</strong></td><td>Manage approved operating budgets.</td><td>Approve material exceptions and investment thresholds.</td></tr>
-<tr><td><strong>Capital expenditure</strong></td><td>Identify needs and develop business cases.</td><td>Approve significant investments.</td></tr>
-<tr><td><strong>Operational processes</strong></td><td>Implement and improve local execution.</td><td>Define relevant global standards, controls and compliance expectations.</td></tr>
-<tr><td><strong>Performance reporting</strong></td><td>Produce accurate operational and financial information.</td><td>Define reporting expectations and review performance.</td></tr>
+<tr><td data-label="Decision area"><strong>Customer development</strong></td><td data-label="Typical local responsibility">Lead customer relationships and commercial execution.</td><td data-label="Typical HQ involvement">Align on strategic accounts, commercial strategy and major commitments.</td></tr>
+<tr><td data-label="Decision area"><strong>Pricing and commercial terms</strong></td><td data-label="Typical local responsibility">Propose pricing and negotiate within approved limits.</td><td data-label="Typical HQ involvement">Define pricing policy, exceptions and approval thresholds.</td></tr>
+<tr><td data-label="Decision area"><strong>Hiring and team development</strong></td><td data-label="Typical local responsibility">Identify staffing needs and manage local employees.</td><td data-label="Typical HQ involvement">Approve organizational structure, key positions and budgets as defined.</td></tr>
+<tr><td data-label="Decision area"><strong>Operating expenditure</strong></td><td data-label="Typical local responsibility">Manage approved operating budgets.</td><td data-label="Typical HQ involvement">Approve material exceptions and investment thresholds.</td></tr>
+<tr><td data-label="Decision area"><strong>Capital expenditure</strong></td><td data-label="Typical local responsibility">Identify needs and develop business cases.</td><td data-label="Typical HQ involvement">Approve significant investments.</td></tr>
+<tr><td data-label="Decision area"><strong>Operational processes</strong></td><td data-label="Typical local responsibility">Implement and improve local execution.</td><td data-label="Typical HQ involvement">Define relevant global standards, controls and compliance expectations.</td></tr>
+<tr><td data-label="Decision area"><strong>Performance reporting</strong></td><td data-label="Typical local responsibility">Produce accurate operational and financial information.</td><td data-label="Typical HQ involvement">Define reporting expectations and review performance.</td></tr>
 </tbody>
 </table>
 </div>
