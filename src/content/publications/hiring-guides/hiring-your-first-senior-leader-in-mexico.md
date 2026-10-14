@@ -337,6 +337,7 @@ Ten questions to answer before starting the search.
 <li><span>09</span>Is the compensation aligned with the required mandate?</li>
 <li><span>10</span>What support, resources and onboarding will the new leader receive?</li>
 </ol>
+<p class="hg-download"><a href="/downloads/sync-talent-hiring-readiness-checklist.pdf" download="sync-talent-hiring-readiness-checklist.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Hiring Readiness Checklist (PDF)</a></p>
 <p class="mi-figure-source">If several of these questions remain unanswered, the next step may not be sourcing candidates. It may be clarifying the hiring decision.</p>
 </figure>
 
