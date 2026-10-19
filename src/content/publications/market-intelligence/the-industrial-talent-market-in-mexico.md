@@ -95,6 +95,14 @@ The geography of the talent market changes with the role.
 <p class="mi-figure-method">Occupational categories are shown to illustrate differences in geographic distribution. They are not equivalent categories and should not be interpreted as directly comparable talent pools or as measures of candidate availability.</p>
 </figure>
 
+The relevance of a region also depends on its industrial specialization, not only its position in national occupational rankings.
+
+Querétaro and the broader Bajío, for example, are relevant markets for companies searching for professionals with experience in automotive manufacturing, industrial automation, machinery and technical services. Depending on the mandate, these ecosystems may offer relevant engineering, operational or technical-commercial experience even when they do not appear among the largest state populations in a particular occupational category.
+
+This distinction matters: a region does not need to rank among the largest occupational markets to be relevant to a specialized executive search.
+
+For a closer examination of Mexico's regional industrial ecosystems and their implications for hiring, explore [Mexico's Industrial Talent Geography (MI-02)](/knowledge-hub/mexicos-industrial-talent-geography).
+
 <p class="eyebrow">Occupational Data</p>
 
 ## A large workforce does not mean a large candidate market.
