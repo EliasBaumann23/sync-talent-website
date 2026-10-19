@@ -7,7 +7,7 @@ publicationType: market-intelligence
 eyebrow: MARKET INTELLIGENCE · MI-02
 excerpt: An evidence-informed overview of Mexico's principal industrial talent ecosystems, showing how geography, specialization and organizational requirements shape leadership, commercial and technical searches.
 readTime: 11 min read
-publishedDate: 2026-10-14
+publishedDate: 2026-10
 featured: false
 status: published
 seoTitle: Mexico's Industrial Talent Geography | Sync Talent
