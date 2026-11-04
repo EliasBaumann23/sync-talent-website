@@ -367,6 +367,11 @@
 .atlas-prose .hg-download { margin-top: 1.25rem; font-size: .8rem; }
 .atlas-prose .hg-download a { display: inline-flex; align-items: center; gap: .5rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--hairline); padding-bottom: 2px; }
 .atlas-prose .hg-download a:hover { color: var(--turquoise); }
+/* HG-02 hiring guide figures */
+@media (min-width: 640px) { .an-dims.an-dims-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .an-dims.an-dims-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.atlas-prose .an-dims li strong { display: block; color: var(--navy); margin-bottom: .35rem; }
+.hg-panel-desc { margin-top: .9rem !important; font-size: .875rem; line-height: 1.55; color: var(--ink-muted) !important; }
 /* MI-02 */
 .atlas-prose .mi2-implication { padding: 1.25rem 1.5rem; border-left: 2px solid var(--turquoise); background: var(--surface); font-size: .95rem; }
 .mi2-bars { display: flex; flex-direction: column; gap: .9rem; }
