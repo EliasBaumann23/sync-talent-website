@@ -366,15 +366,15 @@ The organization must create the conditions for commercial execution.
 <div class="mi-panels">
 <div class="mi-panel">
 <p class="mi-panel-title">Days 01–30 — Understand</p>
-<p class="mi-panel-sub">Products, customers, competitors, sales process and internal capabilities.</p>
+<p class="hg-panel-desc">Products, customers, competitors, sales process and internal capabilities.</p>
 </div>
 <div class="mi-panel">
 <p class="mi-panel-title">Days 31–60 — Prioritize</p>
-<p class="mi-panel-sub">Segments, target accounts, opportunities, stakeholders and pipeline.</p>
+<p class="hg-panel-desc">Segments, target accounts, opportunities, stakeholders and pipeline.</p>
 </div>
 <div class="mi-panel">
 <p class="mi-panel-title">Days 61–90 — Execute</p>
-<p class="mi-panel-sub">Account plans, opportunity reviews, commercial actions and reporting.</p>
+<p class="hg-panel-desc">Account plans, opportunity reviews, commercial actions and reporting.</p>
 </div>
 </div>
 <p class="mi-figure-source">Illustrative framework. Actual milestones depend on the sales cycle, market maturity and available organizational resources.</p>
