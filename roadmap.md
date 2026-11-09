@@ -2,7 +2,7 @@
 
 - [x] Inspect connection status and evaluate Netlify-compatible dynamic SEO options without changing hosting.
 - [ ] Connect the user's external Supabase project — blocked: user must connect through Settings → General → External Supabase.
-- [ ] Confirm whether administrator profile data is needed before writing authentication code.
+- [x] Confirm administrator profiles: no additional profiles; keep permissions in a separate role table.
 - [ ] Implement private client/job records, role-based database authorization, confidentiality-safe public projection, expiry checks and audit events after connection.
 - [ ] Implement administrator login, reset, client management, job editing, private preview and publication lifecycle.
 - [ ] Implement Careers listing, filters, detail pages, approved external application links and public navigation integration.
