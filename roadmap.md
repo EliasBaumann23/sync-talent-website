@@ -1,8 +1,9 @@
 # Careers and private job management
 
 - [x] Inspect connection status and evaluate Netlify-compatible dynamic SEO options without changing hosting.
-- [ ] Connect the user's external Supabase project — blocked: user must connect through Settings → General → External Supabase.
+- [x] Connect the user's external Supabase project.
 - [x] Confirm administrator profiles: no additional profiles; keep permissions in a separate role table.
+- [ ] Strengthen and present the proposed SQL for explicit approval before executing any migration: controlled function owners, confidential public projection, Admin-only sensitive approvals, append-only audit events, salary validation and lifecycle tests.
 - [ ] Implement private client/job records, role-based database authorization, confidentiality-safe public projection, expiry checks and audit events after connection.
 - [ ] Implement administrator login, reset, client management, job editing, private preview and publication lifecycle.
 - [ ] Implement Careers listing, filters, detail pages, approved external application links and public navigation integration.
