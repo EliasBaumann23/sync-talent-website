@@ -26,7 +26,7 @@ CREATE FUNCTION public.careers_role() RETURNS text LANGUAGE sql STABLE SECURITY 
 $$;
 ALTER FUNCTION public.careers_role() OWNER TO sync_careers_role_reader;
 REVOKE ALL ON FUNCTION public.careers_role() FROM PUBLIC, anon, authenticated;
-GRANT EXECUTE ON FUNCTION public.careers_role() TO authenticated;
+GRANT EXECUTE ON FUNCTION public.careers_role() TO authenticated, service_role;
 
 CREATE TABLE public.careers_clients (
  id uuid PRIMARY KEY DEFAULT gen_random_uuid(), name text NOT NULL,
@@ -119,12 +119,28 @@ REVOKE ALL ON FUNCTION public.careers_touch() FROM PUBLIC, anon, authenticated;
 CREATE TRIGGER careers_touch_clients BEFORE UPDATE ON public.careers_clients FOR EACH ROW EXECUTE FUNCTION public.careers_touch();
 CREATE TRIGGER careers_touch_roles BEFORE UPDATE ON public.careers_admin_users FOR EACH ROW EXECUTE FUNCTION public.careers_touch();
 
+-- One allowlist serves both publication validation and the stored public representation.
+CREATE FUNCTION public.careers_public_payload(j public.careers_jobs) RETURNS jsonb LANGUAGE sql IMMUTABLE SET search_path = pg_catalog AS $$
+ SELECT jsonb_build_object(
+  'slug',j.slug,'reference',j.reference,'title',j.title,'function',j.function,'industry',j.industry,'employment_type',j.employment_type,'work_model',j.work_model,'seniority',j.seniority,
+  'city',j.city,'state_region',j.state_region,'country',j.country,'location_display',j.location_display,'remote_eligibility',j.remote_eligibility,
+  'summary',j.summary,'about_opportunity',j.about_opportunity,'mandate',j.mandate,'responsibilities',j.responsibilities,'candidate_profile',j.candidate_profile,'opportunity_offers',j.opportunity_offers,
+  'public_company_description',j.public_company_description,
+  'public_company_name',CASE WHEN j.client_visibility='named' AND j.client_publication_approved THEN j.public_company_name END,
+  'public_company_website',CASE WHEN j.client_visibility='named' AND j.client_publication_approved THEN j.public_company_website END,
+  'public_company_logo_url',CASE WHEN j.client_visibility='named' AND j.client_publication_approved THEN j.public_company_logo_url END,
+  'salary_min',CASE WHEN j.salary_visibility THEN j.salary_min END,'salary_max',CASE WHEN j.salary_visibility THEN j.salary_max END,'salary_currency',CASE WHEN j.salary_visibility THEN j.salary_currency END,'salary_period',CASE WHEN j.salary_visibility THEN j.salary_period END,'salary_notes',CASE WHEN j.salary_visibility THEN j.salary_notes END,
+  'application_url',j.application_url,'application_instructions',j.application_instructions,'published_at',j.published_at,'expires_at',j.expires_at)
+$$;
+REVOKE ALL ON FUNCTION public.careers_public_payload(public.careers_jobs) FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.careers_public_payload(public.careers_jobs) TO authenticated, service_role, sync_careers_audit_writer;
+
 CREATE FUNCTION public.careers_validate_job() RETURNS trigger LANGUAGE plpgsql SET search_path = pg_catalog AS $$
 DECLARE
- actor_role text := public.careers_role(); old_sensitive jsonb; new_sensitive jsonb; internal_name text; public_text text;
+ actor_role text := public.careers_role(); old_sensitive jsonb; new_sensitive jsonb; internal_client public.careers_clients; public_text text; private_value text;
 BEGIN
  -- Trusted maintenance may bypass via service_role only; normal identities must hold a role.
- IF actor_role IS NULL AND coalesce(auth.role(),'')<>'service_role' THEN RAISE EXCEPTION 'Authorized Careers role required'; END IF;
+ IF actor_role IS NULL AND current_user<>'service_role' THEN RAISE EXCEPTION 'Authorized Careers role required'; END IF;
  IF NEW.slug !~ '^[a-z0-9]+(-[a-z0-9]+)*$' THEN RAISE EXCEPTION 'Use a lowercase slug with hyphens'; END IF;
  NEW.title=btrim(NEW.title);
  IF NEW.title='' THEN RAISE EXCEPTION 'Job title required'; END IF;
@@ -151,14 +167,6 @@ BEGIN
   NEW.client_publication_approved=false;
  END IF;
  IF NEW.client_visibility='confidential' THEN NEW.client_publication_approved=false; END IF;
- -- Active public edits must first leave Active, then receive explicit Admin publication review.
- IF TG_OP='UPDATE' AND OLD.status='active' AND NEW.status='active' AND
-   (to_jsonb(NEW)-ARRAY['updated_at','updated_by','created_at','created_by','published_at','salary_min','salary_max','salary_currency','salary_period','salary_notes']) IS DISTINCT FROM
-   (to_jsonb(OLD)-ARRAY['updated_at','updated_by','created_at','created_by','published_at','salary_min','salary_max','salary_currency','salary_period','salary_notes']) THEN
-  RAISE EXCEPTION 'Pause before editing public content, then explicitly reactivate';
- END IF;
- IF TG_OP='UPDATE' AND OLD.status='active' AND NEW.status='active' AND (NEW.salary_visibility OR OLD.salary_visibility) AND
-  jsonb_build_array(NEW.salary_min,NEW.salary_max,NEW.salary_currency,NEW.salary_period,NEW.salary_notes) IS DISTINCT FROM jsonb_build_array(OLD.salary_min,OLD.salary_max,OLD.salary_currency,OLD.salary_period,OLD.salary_notes) THEN RAISE EXCEPTION 'Pause before changing public compensation'; END IF;
  IF NEW.salary_min::text IN ('NaN','Infinity','-Infinity') OR NEW.salary_max::text IN ('NaN','Infinity','-Infinity') OR NEW.salary_min<0 OR NEW.salary_max<0 THEN RAISE EXCEPTION 'Salary values must be finite and nonnegative'; END IF;
  IF (NEW.salary_min IS NULL)<>(NEW.salary_max IS NULL) THEN RAISE EXCEPTION 'Provide both salary bounds or neither'; END IF;
  IF NEW.salary_min IS NOT NULL THEN
@@ -167,16 +175,19 @@ BEGIN
  END IF;
  IF NEW.salary_visibility AND NEW.salary_min IS NULL THEN RAISE EXCEPTION 'Public salary requires a complete range'; END IF;
  IF NEW.status='active' THEN
-  IF actor_role IS DISTINCT FROM 'admin' AND coalesce(auth.role(),'')<>'service_role' THEN RAISE EXCEPTION 'Only Admin may publish'; END IF;
+  IF actor_role IS DISTINCT FROM 'admin' AND current_user<>'service_role' THEN RAISE EXCEPTION 'Only Admin may publish'; END IF;
   IF NEW.application_url IS NULL OR NEW.application_url !~ '^https://[A-Za-z0-9][A-Za-z0-9.-]*\.[A-Za-z]{2,}(:[0-9]+)?([/?#][^[:space:]]*)?$' THEN RAISE EXCEPTION 'A valid HTTPS application URL is required'; END IF;
   IF btrim(NEW.location_display)='' OR btrim(NEW.summary)='' OR btrim(NEW.about_opportunity)='' OR btrim(NEW.mandate)='' OR btrim(NEW.responsibilities)='' OR btrim(NEW.candidate_profile)='' OR btrim(NEW.opportunity_offers)='' OR btrim(NEW.public_company_description)='' THEN RAISE EXCEPTION 'Complete all public descriptions'; END IF;
   IF NEW.client_visibility='named' AND (NOT NEW.client_publication_approved OR coalesce(btrim(NEW.public_company_name),'')='') THEN RAISE EXCEPTION 'Named clients require separate Admin publication approval'; END IF;
   IF NEW.expires_at IS NOT NULL AND NEW.expires_at<=now() THEN RAISE EXCEPTION 'Expiration must be in the future when publishing'; END IF;
-  -- Deterministic check for accidental verbatim client names. Semantic disclosure still needs human review.
+  -- All projected fields are checked for verbatim private identifiers, not just body copy.
+  -- Human review is still required for aliases, paraphrases and inferential disclosures.
   IF NEW.client_visibility='confidential' AND NEW.client_id IS NOT NULL THEN
-   SELECT c.name INTO internal_name FROM public.careers_clients AS c WHERE c.id=NEW.client_id;
-   public_text=concat_ws(' ',NEW.slug,NEW.title,NEW.summary,NEW.about_opportunity,NEW.mandate,NEW.responsibilities,NEW.candidate_profile,NEW.opportunity_offers,NEW.public_company_description,NEW.application_url,NEW.application_instructions,CASE WHEN NEW.salary_visibility THEN NEW.salary_notes END);
-   IF length(btrim(internal_name))>=3 AND strpos(lower(public_text),lower(btrim(internal_name)))>0 THEN RAISE EXCEPTION 'Confidential client name found in public content or destination'; END IF;
+   SELECT c.* INTO internal_client FROM public.careers_clients AS c WHERE c.id=NEW.client_id;
+   public_text=lower(public.careers_public_payload(NEW)::text);
+   FOREACH private_value IN ARRAY ARRAY[internal_client.name,internal_client.website,internal_client.internal_notes,NEW.client_id::text,NEW.public_company_name,NEW.public_company_website,NEW.public_company_logo_url] LOOP
+    IF coalesce(btrim(private_value),'')<>'' AND strpos(public_text,lower(btrim(private_value)))>0 THEN RAISE EXCEPTION 'Private client information found in approved public content or destination'; END IF;
+   END LOOP;
   END IF;
   NEW.published_at=coalesce(NEW.published_at,now());
  END IF;
@@ -186,17 +197,10 @@ REVOKE ALL ON FUNCTION public.careers_validate_job() FROM PUBLIC, anon, authenti
 CREATE TRIGGER careers_validate_job BEFORE INSERT OR UPDATE ON public.careers_jobs FOR EACH ROW EXECUTE FUNCTION public.careers_validate_job();
 
 CREATE FUNCTION public.careers_sync_public_and_audit() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path = pg_catalog AS $$
-DECLARE named boolean; safe_payload jsonb; action text;
+DECLARE safe_payload jsonb; action text;
 BEGIN
- named=NEW.client_visibility='named' AND NEW.client_publication_approved;
  IF NEW.status='active' THEN
-  safe_payload=jsonb_build_object(
-   'slug',NEW.slug,'reference',NEW.reference,'title',NEW.title,'function',NEW.function,'industry',NEW.industry,'employment_type',NEW.employment_type,'work_model',NEW.work_model,'seniority',NEW.seniority,
-   'city',NEW.city,'state_region',NEW.state_region,'country',NEW.country,'location_display',NEW.location_display,'remote_eligibility',NEW.remote_eligibility,
-   'summary',NEW.summary,'about_opportunity',NEW.about_opportunity,'mandate',NEW.mandate,'responsibilities',NEW.responsibilities,'candidate_profile',NEW.candidate_profile,'opportunity_offers',NEW.opportunity_offers,
-   'public_company_description',NEW.public_company_description,'public_company_name',CASE WHEN named THEN NEW.public_company_name END,'public_company_website',CASE WHEN named THEN NEW.public_company_website END,'public_company_logo_url',CASE WHEN named THEN NEW.public_company_logo_url END,
-   'salary_min',CASE WHEN NEW.salary_visibility THEN NEW.salary_min END,'salary_max',CASE WHEN NEW.salary_visibility THEN NEW.salary_max END,'salary_currency',CASE WHEN NEW.salary_visibility THEN NEW.salary_currency END,'salary_period',CASE WHEN NEW.salary_visibility THEN NEW.salary_period END,'salary_notes',CASE WHEN NEW.salary_visibility THEN NEW.salary_notes END,
-   'application_url',NEW.application_url,'application_instructions',NEW.application_instructions,'published_at',NEW.published_at,'expires_at',NEW.expires_at);
+  safe_payload=public.careers_public_payload(NEW);
   INSERT INTO public.careers_public_positions(slug,published_at,expires_at,payload) VALUES(NEW.slug,NEW.published_at,NEW.expires_at,safe_payload)
    ON CONFLICT(slug) DO UPDATE SET published_at=excluded.published_at,expires_at=excluded.expires_at,payload=excluded.payload;
  ELSE
