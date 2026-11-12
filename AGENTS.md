@@ -10,3 +10,5 @@
 <!-- LOVABLE:END -->
 
 - Careers administrator authentication must use the external backend's built-in identities without an additional profiles table; store authorization roles separately to prevent self-escalation.
+- Careers public reads must use an allowlisted projection behind a least-privileged, NOLOGIN-owned SQL function, never the private job/client tables; this keeps confidential data outside the anonymous read path.
+- Careers publication authorization, salary validation, immutable first-publication dates and append-only action history must be enforced in database policies/triggers; browser controls alone cannot protect these rules.
