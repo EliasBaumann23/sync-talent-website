@@ -14,13 +14,279 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      careers_admin_users: {
+        Row: {
+          active: boolean
+          created_at: string
+          role: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          role: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          role?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      careers_clients: {
+        Row: {
+          country: string | null
+          created_at: string
+          id: string
+          industry: string | null
+          internal_notes: string | null
+          name: string
+          updated_at: string
+          website: string | null
+        }
+        Insert: {
+          country?: string | null
+          created_at?: string
+          id?: string
+          industry?: string | null
+          internal_notes?: string | null
+          name: string
+          updated_at?: string
+          website?: string | null
+        }
+        Update: {
+          country?: string | null
+          created_at?: string
+          id?: string
+          industry?: string | null
+          internal_notes?: string | null
+          name?: string
+          updated_at?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
+      careers_job_events: {
+        Row: {
+          actor_user_id: string | null
+          created_at: string
+          event_type: string
+          id: string
+          job_id: string
+          new_status: string | null
+          previous_status: string | null
+        }
+        Insert: {
+          actor_user_id?: string | null
+          created_at?: string
+          event_type: string
+          id?: string
+          job_id: string
+          new_status?: string | null
+          previous_status?: string | null
+        }
+        Update: {
+          actor_user_id?: string | null
+          created_at?: string
+          event_type?: string
+          id?: string
+          job_id?: string
+          new_status?: string | null
+          previous_status?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "careers_job_events_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "careers_jobs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      careers_jobs: {
+        Row: {
+          about_opportunity: string
+          application_instructions: string | null
+          application_url: string | null
+          candidate_profile: string
+          city: string | null
+          client_id: string | null
+          client_publication_approved: boolean
+          client_visibility: string
+          country: string
+          created_at: string
+          created_by: string | null
+          employment_type: string
+          expires_at: string | null
+          function: string
+          id: string
+          industry: string | null
+          location_display: string
+          mandate: string
+          opportunity_offers: string
+          public_company_description: string
+          public_company_logo_url: string | null
+          public_company_name: string | null
+          public_company_website: string | null
+          published_at: string | null
+          reference: string
+          remote_eligibility: string | null
+          responsibilities: string
+          salary_currency: string | null
+          salary_max: number | null
+          salary_min: number | null
+          salary_notes: string | null
+          salary_period: string | null
+          salary_visibility: boolean
+          seniority: string | null
+          slug: string
+          state_region: string | null
+          status: string
+          summary: string
+          title: string
+          updated_at: string
+          updated_by: string | null
+          work_model: string
+        }
+        Insert: {
+          about_opportunity?: string
+          application_instructions?: string | null
+          application_url?: string | null
+          candidate_profile?: string
+          city?: string | null
+          client_id?: string | null
+          client_publication_approved?: boolean
+          client_visibility?: string
+          country?: string
+          created_at?: string
+          created_by?: string | null
+          employment_type?: string
+          expires_at?: string | null
+          function?: string
+          id?: string
+          industry?: string | null
+          location_display?: string
+          mandate?: string
+          opportunity_offers?: string
+          public_company_description?: string
+          public_company_logo_url?: string | null
+          public_company_name?: string | null
+          public_company_website?: string | null
+          published_at?: string | null
+          reference: string
+          remote_eligibility?: string | null
+          responsibilities?: string
+          salary_currency?: string | null
+          salary_max?: number | null
+          salary_min?: number | null
+          salary_notes?: string | null
+          salary_period?: string | null
+          salary_visibility?: boolean
+          seniority?: string | null
+          slug: string
+          state_region?: string | null
+          status?: string
+          summary?: string
+          title: string
+          updated_at?: string
+          updated_by?: string | null
+          work_model?: string
+        }
+        Update: {
+          about_opportunity?: string
+          application_instructions?: string | null
+          application_url?: string | null
+          candidate_profile?: string
+          city?: string | null
+          client_id?: string | null
+          client_publication_approved?: boolean
+          client_visibility?: string
+          country?: string
+          created_at?: string
+          created_by?: string | null
+          employment_type?: string
+          expires_at?: string | null
+          function?: string
+          id?: string
+          industry?: string | null
+          location_display?: string
+          mandate?: string
+          opportunity_offers?: string
+          public_company_description?: string
+          public_company_logo_url?: string | null
+          public_company_name?: string | null
+          public_company_website?: string | null
+          published_at?: string | null
+          reference?: string
+          remote_eligibility?: string | null
+          responsibilities?: string
+          salary_currency?: string | null
+          salary_max?: number | null
+          salary_min?: number | null
+          salary_notes?: string | null
+          salary_period?: string | null
+          salary_visibility?: boolean
+          seniority?: string | null
+          slug?: string
+          state_region?: string | null
+          status?: string
+          summary?: string
+          title?: string
+          updated_at?: string
+          updated_by?: string | null
+          work_model?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "careers_jobs_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "careers_clients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      careers_public_positions: {
+        Row: {
+          expires_at: string | null
+          payload: Json
+          published_at: string
+          slug: string
+        }
+        Insert: {
+          expires_at?: string | null
+          payload: Json
+          published_at: string
+          slug: string
+        }
+        Update: {
+          expires_at?: string | null
+          payload?: Json
+          published_at?: string
+          slug?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      careers_public_jobs: {
+        Args: { job_slug?: string; page_offset?: number; page_size?: number }
+        Returns: Json
+      }
+      careers_public_payload: {
+        Args: { j: Database["public"]["Tables"]["careers_jobs"]["Row"] }
+        Returns: Json
+      }
+      careers_role: { Args: never; Returns: string }
     }
     Enums: {
       [_ in never]: never
